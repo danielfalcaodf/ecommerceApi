@@ -3,15 +3,10 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\models\User;
-use Exception;
+use App\Models\Buyer;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Tymon\JWTAuth\Exceptions\TokenExpiredException;
-use Tymon\JWTAuth\Exceptions\TokenInvalidException;
-use Tymon\JWTAuth\Facades\JWTAuth;
 
-class UserController extends Controller
+class BuyerController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -20,8 +15,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::all();
-        return response()->json($users);
+        //
     }
 
     /**
@@ -36,22 +30,24 @@ class UserController extends Controller
     }
 
     /**
-     * @return object
+     * Display the specified resource.
+     *
+     * @param  \App\Models\Buyer  $buyer
+     * @return \Illuminate\Http\Response
      */
-    public function user()
+    public function show(Buyer $buyer)
     {
-
-        return Auth::user();
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Buyer  $buyer
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Buyer $buyer)
     {
         //
     }
@@ -59,10 +55,10 @@ class UserController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Buyer  $buyer
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Buyer $buyer)
     {
         //
     }

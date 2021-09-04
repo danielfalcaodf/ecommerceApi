@@ -54,8 +54,13 @@ class Handler extends ExceptionHandler
         if ($request->is("api/*")) {
 
             if ($exception instanceof ValidationException) {
+                $response = [
+                    'type' => 'error',
+                    'errors' => $exception->errors()
+                ];
+
                 return response()->json(
-                    ['errors' => $exception->errors()],
+                    $response,
                     $exception->status
                 );
             }

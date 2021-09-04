@@ -20,6 +20,9 @@ use Illuminate\Support\Facades\Route;
 Route::post('auth/login', 'Api\AuthController@login');
 Route::post('auth/register', 'Api\AuthController@register');
 
+Route::get('products/list', 'Api\ProductController@getProducts')->name('products.getProducts');;
+Route::get('products/view/{product}', 'Api\ProductController@getProduct')->name('products.getProduct');;
+
 Route::group(['middleware' => ['apiJwt']], function () {
 
     Route::post('logout', 'Api\AuthController@logout');
@@ -27,4 +30,8 @@ Route::group(['middleware' => ['apiJwt']], function () {
     Route::post('me', 'Api\AuthController@me');
 
     Route::get('users', 'Api\UserController@index');
+
+    Route::get('checkouts/me/list', 'Api\CheckoutController@getCheckouts');
+    Route::get('checkouts/me/view/{checkout}', 'Api\CheckoutController@getCheckout');
+    Route::post('checkouts/me/new', 'Api\CheckoutController@addCheckout');
 });
