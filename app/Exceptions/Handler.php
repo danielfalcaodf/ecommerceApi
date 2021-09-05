@@ -2,9 +2,11 @@
 
 namespace App\Exceptions;
 
+use App\Http\Controllers\Api\BaseController;
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Illuminate\Validation\ValidationException;
+
 
 class Handler extends ExceptionHandler
 {
@@ -53,17 +55,13 @@ class Handler extends ExceptionHandler
     {
         if ($request->is("api/*")) {
 
-            if ($exception instanceof ValidationException) {
-                $response = [
-                    'type' => 'error',
-                    'errors' => $exception->errors()
-                ];
+            $baseCon = new  BaseController();
 
-                return response()->json(
-                    $response,
-                    $exception->status
-                );
+            if ($exception instanceof ValidationException) {
+                return  $baseCon->sendError('Campos inválidos', $exception->errors(), $exception->status);
             }
+
+            return  $baseCon->sendError('Error', $exception->getMessage());
         }
         return parent::render($request, $exception);
     }

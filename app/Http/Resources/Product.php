@@ -3,6 +3,7 @@
 namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
+use App\Http\Resources\ProductsImages as ProdImgsResource;
 
 class Product extends JsonResource
 {
@@ -14,11 +15,13 @@ class Product extends JsonResource
      */
     public function toArray($request)
     {
+
         return [
             'id' => $this->id,
             'name' => $this->name,
             'type' => $this->type,
             'value' => $this->value,
+            'images' => ProdImgsResource::collection($this->images),
             'created_at' => $this->created_at->format('d/m/Y'),
             'updated_at' => $this->updated_at->format('d/m/Y'),
             'link' => [
@@ -27,8 +30,16 @@ class Product extends JsonResource
                     'getProducts' => route('products.getProducts'),
                     'getProduct' => route('products.getProduct', ['product' => $this->id])
                 ],
-                'post' => '',
-                'put' => ''
+                'post' =>  [
+                    'addProduct' => route('products.addProduct'),
+                ],
+                'put' => [
+                    'editProduct' => route('products.editProduct', ['product' => $this->id]),
+                ],
+                'delete' =>
+                [
+                    'editProduct' => route('products.deleteProduct', ['product' => $this->id]),
+                ]
             ]
         ];
     }

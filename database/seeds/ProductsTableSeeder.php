@@ -21,7 +21,6 @@ class ProductsTableSeeder extends Seeder
                 'name' => $faker->company,
                 'type' => $faker->randomLetter(),
                 'value' => $faker->randomFloat(2, 1, 100),
-                'img' => $faker->image(),
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ]);

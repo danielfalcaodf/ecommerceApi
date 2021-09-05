@@ -19,9 +19,9 @@ class BaseController extends Controller
     {
         $response = [
 
-            'data'    => $result,
             'message' => $message,
             'type' => 'success',
+            'data'    => $result,
         ];
 
 
@@ -34,12 +34,13 @@ class BaseController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function sendError($error, $errorMessages = [], $code = 404)
     {
         $response = [
 
-            'message' => $error,
             'type' => 'error',
+            'message' => $error,
         ];
 
 
