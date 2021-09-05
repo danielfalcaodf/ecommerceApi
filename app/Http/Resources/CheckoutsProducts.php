@@ -23,7 +23,10 @@ class CheckoutsProducts extends JsonResource
             'created_at' => $this->created_at->format('d/m/Y'),
             'updated_at' => $this->updated_at->format('d/m/Y'),
             'link' => [
-                'get' => route('products.getProduct', ['product' => $this->id]),
+                'get' => [
+                    'getProduct' => route('products.getProduct', ['product' => $this->id]),
+                    'getProducts' => route('products.getProducts')
+                ],
                 'post' => '',
                 'put' => ''
             ]

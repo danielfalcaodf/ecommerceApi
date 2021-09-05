@@ -20,8 +20,8 @@ use Illuminate\Support\Facades\Route;
 Route::post('auth/login', 'Api\AuthController@login');
 Route::post('auth/register', 'Api\AuthController@register');
 
-Route::get('products/list', 'Api\ProductController@getProducts')->name('products.getProducts');;
-Route::get('products/view/{product}', 'Api\ProductController@getProduct')->name('products.getProduct');;
+Route::get('products/list', 'Api\ProductController@getProducts')->name('products.getProducts');
+Route::get('products/view/{product}', 'Api\ProductController@getProduct')->name('products.getProduct');
 
 Route::group(['middleware' => ['apiJwt']], function () {
 
@@ -29,9 +29,10 @@ Route::group(['middleware' => ['apiJwt']], function () {
     Route::post('refresh', 'Api\AuthController@refresh');
     Route::post('me', 'Api\AuthController@me');
 
-    Route::get('users', 'Api\UserController@index');
+    Route::get('users', 'Api\UserController@getListAll');
 
-    Route::get('checkouts/me/list', 'Api\CheckoutController@getCheckouts');
-    Route::get('checkouts/me/view/{checkout}', 'Api\CheckoutController@getCheckout');
-    Route::post('checkouts/me/new', 'Api\CheckoutController@addCheckout');
+    Route::get('checkouts/me/list', 'Api\CheckoutController@getCheckouts')->name('checkouts.getCheckouts');
+    Route::get('checkouts/me/view/{checkout}', 'Api\CheckoutController@getCheckout')->name('checkouts.getCheckout');
+    Route::post('checkouts/me/new', 'Api\CheckoutController@addCheckout')->name('checkouts.addCheckout');
+    // Route::put('checkouts/me/edit', 'Api\CheckoutController@editCheckout')->name('checkouts.editCheckout');
 });

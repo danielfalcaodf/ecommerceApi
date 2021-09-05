@@ -3,11 +3,13 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Resources\Checkout as CheckoutResources;
+use App\Models\Buyer;
 use App\Models\Checkout;
 
 use App\Models\CheckoutsProduct;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class CheckoutController extends BaseController
 {
@@ -33,7 +35,11 @@ class CheckoutController extends BaseController
     public function getCheckout($checkout)
     {
         $user = (new UserController)->user();
-        $checkout = Checkout::find($checkout)->where('iduser', $user->id)->first();
+
+        if (!$buyer = Buyer::where('iduser', $user->id)->first()) {
+            return $this->sendError('Você não tem pedidos');
+        }
+        $checkout = Checkout::find($checkout)->where('idbuyer', $buyer->id)->first();
         if (is_null($checkout)) {
             return $this->sendError('Pedindo não encontrado!');
         }
@@ -51,10 +57,31 @@ class CheckoutController extends BaseController
         //
         $user = (new UserController)->user();
 
+        if (!$buyer = Buyer::where('iduser', $user->id)->first()) {
+            $request->merge(['iduser' => $user->id]);
+            $validator = Validator::make($request->only(['phone_cell', 'cpf', 'iduser']), [
+                'phone_cell' => 'required|celular_com_ddd',
+                'cpf' => 'required|cpf',
+                'iduser' => 'unique:buyers',
+
+            ]);
+
+            if ($validator->fails()) {
+                return $this->sendError('Campos Inválidos', $validator->errors());
+            }
+
+            $buyer = new Buyer();
+            $buyer->iduser = $user->id;
+            $buyer->phone_cell = $request->phone_cell;
+            $buyer->cpf = $request->cpf;
+            $buyer->save();
+        }
+
+
         $total = 0;
         $checkout = new Checkout();
 
-        $checkout->iduser = $user->id;
+        $checkout->idbuyer = $buyer->id;
         $checkout->save();
         $arrCheckProducts = [];
         foreach ($request->products as $key => $value) {
@@ -67,13 +94,13 @@ class CheckoutController extends BaseController
             $checkProduct->idcheck = $checkout->id;
             $checkProduct->idprod = $product->id;
             $checkProduct->quant = $value['quant'];
-            $checkProduct->subtotal = $value['quant'] * $product->value;
+            $checkProduct->subtotal = number_format(($value['quant'] * $product->value), 2);
             $total += $checkProduct->subtotal;
             $checkProduct->save();
             $arrCheckProducts['checkProducts'][] = $checkProduct->attributesToArray();
         }
 
-        $checkout->value_total =  $total;
+        $checkout->value_total = number_format($total, 2);
         $checkout->save();
         $data = array_merge($checkout->attributesToArray(), $arrCheckProducts);
         return $this->sendResponse($data, 'Pedido criado com sucesso!');

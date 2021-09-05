@@ -15,7 +15,7 @@ class CreateCheckoutsTable extends Migration
     {
         Schema::create('checkouts', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('iduser');
+            $table->unsignedBigInteger('idbuyer');
             $table->enum('status', [
                 'pending',
                 'cancelled',
@@ -25,7 +25,7 @@ class CreateCheckoutsTable extends Migration
             ])
                 ->default('pending');
             $table->double('value_total')->default('0');
-            $table->foreign('iduser')->references('id')->on('users')->onDelete('CASCADE');
+            $table->foreign('idbuyer')->references('id')->on('buyers')->onDelete('CASCADE');
             $table->timestamps();
         });
     }

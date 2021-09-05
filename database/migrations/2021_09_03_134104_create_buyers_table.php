@@ -15,6 +15,10 @@ class CreateBuyersTable extends Migration
     {
         Schema::create('buyers', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedBigInteger('iduser')->unique();
+            $table->string('phone_cell');
+            $table->string('cpf');
+            $table->foreign('iduser')->references('id')->on('users')->onDelete('CASCADE');
             $table->timestamps();
         });
     }
