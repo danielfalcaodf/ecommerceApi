@@ -25,11 +25,22 @@ class Buyer extends JsonResource
             'link' => [
                 'get' =>
                 [
-                    'getProducts' => route('products.getProducts'),
-                    'getProduct' => route('products.getProduct', ['product' => $this->id])
+                    'getBuyers' => route('buyers.getBuyers'),
+                    'getBuyer' => route('buyers.getBuyer', ['buyer' => $this->id]),
+
                 ],
-                'post' => '',
-                'put' => ''
+                'post' => [
+                    'addBuyer' => route('buyers.addBuyer'),
+                ],
+
+                'put' => [
+                    'editBuyer' => route('buyers.editBuyer', ['buyer' => $this->id]),
+                ],
+
+                'delete' => [
+                    'deleteBuyer' => route('buyers.deleteBuyer', ['buyer' => $this->id])
+                ]
+
             ]
         ];
     }

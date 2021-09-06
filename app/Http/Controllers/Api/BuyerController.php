@@ -2,42 +2,43 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Http\Controllers\Controller;
+use App\Http\Requests\BuyerRequest;
+use App\Http\Resources\Buyer as BuyerResource;
 use App\Models\Buyer;
+use Exception;
 use Illuminate\Http\Request;
 
-class BuyerController extends Controller
+class BuyerController extends BaseController
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function addBuyer(BuyerRequest $request)
     {
-        //
-    }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Buyer  $buyer
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Buyer $buyer)
+
+        $buyer = new Buyer();
+        $buyer->iduser = $request->iduser;
+        $buyer->phone_cell = $request->phone_cell;
+        $buyer->cpf = $request->cpf;
+        $buyer->save();
+        return $this->sendResponse(new BuyerResource($buyer), 'Comprador cadastrado!');
+    }
+    public function getBuyers()
     {
-        //
+        return $this->sendResponse(BuyerResource::collection(Buyer::all()), 'Compradores encontrado!');
+    }
+    public function getBuyer($buyer)
+    {
+        $buyer = Buyer::find($buyer);
+        if (is_null($buyer)) {
+            return $this->sendError('Comprador não encontrado!');
+        }
+
+        return $this->sendResponse(new BuyerResource($buyer), 'Comprador encontrado!');
     }
 
     /**
@@ -47,9 +48,21 @@ class BuyerController extends Controller
      * @param  \App\Models\Buyer  $buyer
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Buyer $buyer)
+    public function editBuyer(BuyerRequest $request, $buyer)
     {
-        //
+
+        $buyer =  Buyer::find($buyer);
+        if (is_null($buyer)) {
+            return $this->sendError('Comprador não encontrado!');
+        }
+        $buyer->iduser = $request->iduser;
+        $buyer->phone_cell = $request->phone_cell;
+        $buyer->cpf = $request->cpf;
+        if (!$buyer->wasChanged()) {
+            return $this->sendResponse(new BuyerResource($buyer), 'Nenhum dado novo!');
+        }
+        $buyer->save();
+        return $this->sendResponse(new BuyerResource($buyer), 'Comprador alterado!');
     }
 
     /**
@@ -58,8 +71,21 @@ class BuyerController extends Controller
      * @param  \App\Models\Buyer  $buyer
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Buyer $buyer)
+    public function deleteBuyer($buyer)
     {
-        //
+
+        try {
+            //
+            $buyer =  Buyer::find($buyer);
+            if (is_null($buyer)) {
+                return $this->sendError('Comprador não encontrado!');
+            }
+            $buyer->delete();
+        } catch (Exception $exception) {
+            return $this->sendError('Erro a deletar!', $exception->getMessage());
+        }
+
+
+        return $this->sendResponse([], 'Produto deletado!');
     }
 }

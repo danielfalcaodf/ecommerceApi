@@ -27,18 +27,23 @@ Route::get('products/view/{product}', 'Api\ProductController@getProduct')->name(
 // AUTH JWT
 Route::group(['middleware' => ['apiJwt']], function () {
     //  AUTH USER
+    Route::get('me', 'Api\AuthController@me');
     Route::post('logout', 'Api\AuthController@logout');
-    Route::post('refresh', 'Api\AuthController@refresh');
-    Route::post('me', 'Api\AuthController@me');
     // USERS
     Route::get('users', 'Api\UserController@getListAll');
-
+    Route::get('users/me', 'Api\UserController@getMe');
+    //BUYERS
+    Route::get('buyers/', 'Api\BuyerController@getBuyers')->name('buyers.getBuyers');
+    Route::get('buyers/{buyer}', 'Api\BuyerController@getBuyer')->name('buyers.getBuyer');
+    Route::post('buyers/add', 'Api\BuyerController@addBuyer')->name('buyers.addBuyer');
+    Route::put('buyers/edit/{buyer}', 'Api\BuyerController@editBuyer')->name('buyers.editBuyer');
+    Route::delete('buyers/delete/{buyer}', 'Api\BuyerController@deleteBuyer')->name('buyers.deleteBuyer');
     //PRODUCTS
     Route::post('products/add', 'Api\ProductController@addProduct')->name('products.addProduct');
     Route::put('products/edit/{product}', 'Api\ProductController@editProduct')->name('products.editProduct');
     Route::delete('products/delete/{product}', 'Api\ProductController@deleteProduct')->name('products.deleteProduct');
 
-    //CHECKOUT
+    //CHECKOUTS
     Route::get('checkouts/me/list', 'Api\CheckoutController@getCheckouts')->name('checkouts.getCheckouts');
     Route::get('checkouts/me/view/{checkout}', 'Api\CheckoutController@getCheckout')->name('checkouts.getCheckout');
     Route::post('checkouts/me/new', 'Api\CheckoutController@addCheckout')->name('checkouts.addCheckout');
