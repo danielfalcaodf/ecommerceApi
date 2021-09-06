@@ -23,6 +23,12 @@ class apiProtectedRoute extends BaseMiddleware
      */
     public function handle($request, Closure $next)
     {
+        $response = [
+
+            'type' => 'error',
+            'message' => '',
+            'code' => 401
+        ];
         try {
             $user = JWTAuth::parseToken()->authenticate();
             if ($user == false) {
@@ -32,11 +38,14 @@ class apiProtectedRoute extends BaseMiddleware
             }
         } catch (Exception $exception) {
             if ($exception instanceof TokenInvalidException) {
-                return response()->json(['status' => 'Token is Invalid'], 401);
+                $response['massage'] = "Token is Invalid";
+                return response()->json($response, 401);
             } else if ($exception instanceof TokenExpiredException) {
-                return response()->json(['status' => 'Token is Expired'], 401);
+                $response['massage'] = "Token is Expired";
+                return response()->json($response, 401);
             } else {
-                return response()->json(['status' => 'Authorization Token not found'], 401);
+                $response['massage'] = "Authorization Token not found";
+                return response()->json($response, 401);
             }
         }
         return $next($request);

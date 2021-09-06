@@ -61,7 +61,7 @@ class Handler extends ExceptionHandler
                 return  $baseCon->sendError('Campos inválidos', $exception->errors(), $exception->status);
             }
 
-            return  $baseCon->sendError('Error', $exception->getMessage());
+            return  $baseCon->sendError('Error', $exception->getMessage(), 422);
         }
         return parent::render($request, $exception);
     }

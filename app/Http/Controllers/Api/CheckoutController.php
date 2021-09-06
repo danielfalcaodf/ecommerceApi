@@ -88,7 +88,7 @@ class CheckoutController extends BaseController
             ]);
 
             if ($validator->fails()) {
-                return $this->sendError('Campos Inválidos', $validator->errors());
+                return $this->sendError('Campos Inválidos', $validator->errors(), 422);
             }
 
             $buyer = new Buyer();
@@ -125,7 +125,7 @@ class CheckoutController extends BaseController
         $checkout->save();
 
         Mail::send(new newMailCheckout($checkout));
-        return $this->sendResponse(new CheckoutResources($checkout), 'Pedido criado com sucesso!');
+        return $this->sendResponse(new CheckoutResources($checkout), 'Pedido criado com sucesso!', 201);
     }
     public function addCheckoutBuyer(CheckoutRequest $request)
     {
@@ -161,7 +161,7 @@ class CheckoutController extends BaseController
         $checkout->save();
 
         Mail::send(new newMailCheckout($checkout));
-        return $this->sendResponse(new CheckoutResources($checkout), 'Pedido criado com sucesso!');
+        return $this->sendResponse(new CheckoutResources($checkout), 'Pedido criado com sucesso!', 201);
     }
 
 
@@ -229,7 +229,7 @@ class CheckoutController extends BaseController
             }
             $checkout->delete();
         } catch (Exception $exception) {
-            return $this->sendError('Erro a deletar!', $exception->getMessage());
+            return $this->sendError('Erro a deletar!', $exception->getMessage(), 400);
         }
 
 

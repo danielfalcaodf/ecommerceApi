@@ -44,7 +44,7 @@ class UserController extends BaseController
 
         if (!$user->wasChanged()) {
 
-            return $this->sendResponse(new UserResources($user), 'Nenhum dado novo!');
+            return $this->sendResponse(new UserResources($user), 'Nenhum dado novo!', 202);
         }
         $user->save();
         return $this->sendResponse(new UserResources($user), 'Produto alterado!');

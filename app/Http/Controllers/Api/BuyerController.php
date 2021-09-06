@@ -25,7 +25,7 @@ class BuyerController extends BaseController
         $buyer->phone_cell = $request->phone_cell;
         $buyer->cpf = $request->cpf;
         $buyer->save();
-        return $this->sendResponse(new BuyerResource($buyer), 'Comprador cadastrado!');
+        return $this->sendResponse(new BuyerResource($buyer), 'Comprador cadastrado!', 201);
     }
     public function getBuyers()
     {
@@ -59,7 +59,7 @@ class BuyerController extends BaseController
         $buyer->phone_cell = $request->phone_cell;
         $buyer->cpf = $request->cpf;
         if (!$buyer->wasChanged()) {
-            return $this->sendResponse(new BuyerResource($buyer), 'Nenhum dado novo!');
+            return $this->sendResponse(new BuyerResource($buyer), 'Nenhum dado novo!', 202);
         }
         $buyer->save();
         return $this->sendResponse(new BuyerResource($buyer), 'Comprador alterado!');
@@ -82,7 +82,7 @@ class BuyerController extends BaseController
             }
             $buyer->delete();
         } catch (Exception $exception) {
-            return $this->sendError('Erro a deletar!', $exception->getMessage());
+            return $this->sendError('Erro a deletar!', $exception->getMessage(), 400);
         }
 
 

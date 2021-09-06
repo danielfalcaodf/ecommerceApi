@@ -15,17 +15,18 @@ class BaseController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function sendResponse($result, $message)
+    public function sendResponse($result, $message, $code = 200)
     {
         $response = [
 
             'message' => $message,
             'type' => 'success',
             'data'    => $result,
+            'code' => $code
         ];
 
 
-        return response()->json($response, 200);
+        return response()->json($response, $code);
     }
 
 
@@ -41,6 +42,7 @@ class BaseController extends Controller
 
             'type' => 'error',
             'message' => $error,
+            'code' => $code
         ];
 
 

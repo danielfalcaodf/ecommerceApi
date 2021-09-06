@@ -41,12 +41,12 @@ class AuthController extends BaseController
         $credentials = $request->only(['email', 'password']);
 
         if (!$token = auth('api')->attempt($credentials)) {
-            return $this->sendError('Erro logar, mas o usuário ja foi criado!', [], 401);
+            return $this->sendError('Erro logar, mas o usuário ja foi criado!', [], 400);
         }
 
         $user->token = $this->arrayWithToken($token);
 
-        return $this->sendResponse(new AuthResource($user), 'Usuário Cadastrado!');
+        return $this->sendResponse(new AuthResource($user), 'Usuário Cadastrado!', 201);
     }
 
     /**
@@ -59,21 +59,12 @@ class AuthController extends BaseController
         $credentials = $request->only(['email', 'password']);
 
         if (!$token = auth('api')->attempt($credentials)) {
-            return $this->sendError('Email ou senha inválidos', [], 401);
+            return $this->sendError('Email ou senha inválidos', [], 400);
         }
 
         $user = auth('api')->user();
         $user->token = $this->arrayWithToken($token);;
         return $this->sendResponse(new AuthResource($user), '');
-    }
-    /**
-     * Get the authenticated User.
-     *
-     * @return \Illuminate\Http\JsonResponse
-     */
-    public function me()
-    {
-        return response()->json(Auth::user());
     }
 
     /**
@@ -88,16 +79,6 @@ class AuthController extends BaseController
 
 
         return $this->sendResponse(new UserResources($user), 'Successfully logged out');
-    }
-
-    /**
-     * Refresh a token.
-     *
-     * @return \Illuminate\Http\JsonResponse
-     */
-    public function refresh()
-    {
-        return $this->respondWithToken(auth('api')->refresh());
     }
 
 

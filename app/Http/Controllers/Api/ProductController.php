@@ -95,7 +95,7 @@ class ProductController extends BaseController
         $product->value = $request->value;
         if (!$product->wasChanged()) {
 
-            return $this->sendResponse(new ProductResource($product), 'Nenhum dado novo!');
+            return $this->sendResponse(new ProductResource($product), 'Nenhum dado novo!', 202);
         }
         $product->save();
         return $this->sendResponse(new ProductResource($product), 'Produto alterado!');
@@ -118,7 +118,7 @@ class ProductController extends BaseController
             }
             $product->delete();
         } catch (Exception $exception) {
-            return $this->sendError('Erro a deletar!', $exception->getMessage());
+            return $this->sendError('Erro a deletar!', $exception->getMessage(), 400);
         }
 
 
