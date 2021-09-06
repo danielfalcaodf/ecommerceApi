@@ -14,13 +14,10 @@ class CheckoutsTableSeeder extends Seeder
      */
     public function run()
     {
-        $faker = Faker::create();
-        foreach (range(1, 5) as $key => $value) {
-            DB::table('ch')->insert([
-                'name' => $faker->company,
-                'type' => $faker->randomLetter(),
-                'value' => $faker->randomFloat(2, 1, 100),
-                'img' => $faker->image(),
+        $faker = Faker::create('pt_BR');
+        foreach (range(1, 10) as $key => $value) {
+            DB::table('checkouts')->insert([
+                'idbuyer' => $faker->numberBetween(1, 21),
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ]);

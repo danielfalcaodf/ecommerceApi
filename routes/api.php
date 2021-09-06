@@ -18,8 +18,8 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 //  AUTH
-Route::post('auth/login', 'Api\AuthController@login');
-Route::post('auth/register', 'Api\AuthController@register');
+Route::post('auth/login', 'Api\AuthController@login')->name('auth.login');
+Route::post('auth/register', 'Api\AuthController@register')->name('auth.register');
 // PRODUCTS
 Route::get('products/list', 'Api\ProductController@getProducts')->name('products.getProducts');
 Route::get('products/view/{product}', 'Api\ProductController@getProduct')->name('products.getProduct');
@@ -27,11 +27,12 @@ Route::get('products/view/{product}', 'Api\ProductController@getProduct')->name(
 // AUTH JWT
 Route::group(['middleware' => ['apiJwt']], function () {
     //  AUTH USER
-    Route::get('me', 'Api\AuthController@me');
-    Route::post('logout', 'Api\AuthController@logout');
+    Route::post('auth/logout', 'Api\AuthController@logout')->name('auth.logout');
     // USERS
-    Route::get('users', 'Api\UserController@getListAll');
-    Route::get('users/me', 'Api\UserController@getMe');
+    Route::get('users', 'Api\UserController@getListAll')->name('users.getListAll');
+    Route::get('users/me', 'Api\UserController@getMe')->name('users.getMe');
+    Route::put('users/me/edit/', 'Api\UserController@editNameEmail')->name('users.editNameEmail');
+
     //BUYERS
     Route::get('buyers/', 'Api\BuyerController@getBuyers')->name('buyers.getBuyers');
     Route::get('buyers/view/{buyer}', 'Api\BuyerController@getBuyer')->name('buyers.getBuyer');

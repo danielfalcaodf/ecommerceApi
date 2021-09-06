@@ -2,18 +2,19 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Http\Controllers\Controller;
-use App\Http\Requests\RegisterAuthResquest;
+
+use App\Http\Requests\AuthRequest;
+use App\Http\Resources\Auth as AuthResource;
+use App\Http\Resources\User as UserResources;
 use App\models\User;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
-class AuthController extends Controller
+class AuthController extends BaseController
 {
     //
-
 
     /**
      * @param Request $request
@@ -21,18 +22,13 @@ class AuthController extends Controller
      * @return [type]
      */
     /**
-     * @param RegisterAuthResquest $request
+     * @param AuthResquest $request
      *
      * @return [type]
      */
-    public function register(RegisterAuthResquest $request)
+    public function register(AuthRequest $request)
     {
         # code...
-
-
-
-
-
         $user = new User();
         $user->name = $request->name;
         $user->email = $request->email;
@@ -40,20 +36,17 @@ class AuthController extends Controller
 
         if (!$user->save()) {
             # code...
-            return response()->json(['message' => 'Error'], 200);
+            return $this->sendError('Erro a criar usuário', [], 401);
         }
         $credentials = $request->only(['email', 'password']);
 
         if (!$token = auth('api')->attempt($credentials)) {
-            return response()->json(['error' => 'Unauthorized'], 401);
+            return $this->sendError('Erro logar, mas o usuário ja foi criado!', [], 401);
         }
 
+        $user->token = $this->arrayWithToken($token);
 
-        $data = array_merge($user->attributesToArray(), $this->arrayWithToken($token));
-
-
-
-        return response()->json(['message' => 'Cadastrado', 'data' => $data], 200);
+        return $this->sendResponse(new AuthResource($user), 'Usuário Cadastrado!');
     }
 
     /**
@@ -66,10 +59,12 @@ class AuthController extends Controller
         $credentials = $request->only(['email', 'password']);
 
         if (!$token = auth('api')->attempt($credentials)) {
-            return response()->json(['error' => 'Unauthorized'], 401);
+            return $this->sendError('Email ou senha inválidos', [], 401);
         }
 
-        return $this->respondWithToken($token);
+        $user = auth('api')->user();
+        $user->token = $this->arrayWithToken($token);;
+        return $this->sendResponse(new AuthResource($user), '');
     }
     /**
      * Get the authenticated User.
@@ -88,9 +83,11 @@ class AuthController extends Controller
      */
     public function logout()
     {
+        $user = Auth::user();
         auth('api')->logout();
 
-        return response()->json(['message' => 'Successfully logged out']);
+
+        return $this->sendResponse(new UserResources($user), 'Successfully logged out');
     }
 
     /**

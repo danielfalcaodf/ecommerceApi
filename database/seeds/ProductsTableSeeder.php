@@ -15,10 +15,10 @@ class ProductsTableSeeder extends Seeder
      */
     public function run()
     {
-        $faker = Faker::create();
+        $faker = Faker::create('pt_BR');
         foreach (range(1, 20) as $key => $value) {
             DB::table('products')->insert([
-                'name' => $faker->company,
+                'name' => $faker->sentence(3),
                 'type' => $faker->randomLetter(),
                 'value' => $faker->randomFloat(2, 1, 100),
                 'created_at' => Carbon::now(),
