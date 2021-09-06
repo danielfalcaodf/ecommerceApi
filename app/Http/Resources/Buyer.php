@@ -18,8 +18,8 @@ class Buyer extends JsonResource
             'id' => $this->id,
             'iduser' => $this->iduser,
             'phone_cell' => $this->phone_cell,
-            'cpf' => $this->phone_cell,
-            'user' => $this->getUser(),
+            'cpf' => $this->cpf,
+            'user' => new User($this->getUser),
             'created_at' => $this->created_at->format('d/m/Y'),
             'updated_at' => $this->updated_at->format('d/m/Y'),
             'link' => [

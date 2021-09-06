@@ -20,12 +20,13 @@ class CheckoutsProducts extends JsonResource
             'idprod' => $this->idprod,
             'quant' => $this->quant,
             'subtotal' => $this->subtotal,
+            'product' => new Product($this->product),
             'created_at' => $this->created_at->format('d/m/Y'),
             'updated_at' => $this->updated_at->format('d/m/Y'),
             'link' => [
                 'get' => [
                     'getProduct' => route('products.getProduct', ['product' => $this->id]),
-                    'getProducts' => route('products.getProducts')
+
                 ],
                 'post' => '',
                 'put' => ''

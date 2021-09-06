@@ -86,6 +86,6 @@ class BuyerController extends BaseController
         }
 
 
-        return $this->sendResponse([], 'Produto deletado!');
+        return $this->sendResponse([], 'Comprador deletado!');
     }
 }

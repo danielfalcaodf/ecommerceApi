@@ -34,7 +34,7 @@ Route::group(['middleware' => ['apiJwt']], function () {
     Route::get('users/me', 'Api\UserController@getMe');
     //BUYERS
     Route::get('buyers/', 'Api\BuyerController@getBuyers')->name('buyers.getBuyers');
-    Route::get('buyers/{buyer}', 'Api\BuyerController@getBuyer')->name('buyers.getBuyer');
+    Route::get('buyers/view/{buyer}', 'Api\BuyerController@getBuyer')->name('buyers.getBuyer');
     Route::post('buyers/add', 'Api\BuyerController@addBuyer')->name('buyers.addBuyer');
     Route::put('buyers/edit/{buyer}', 'Api\BuyerController@editBuyer')->name('buyers.editBuyer');
     Route::delete('buyers/delete/{buyer}', 'Api\BuyerController@deleteBuyer')->name('buyers.deleteBuyer');
@@ -43,9 +43,14 @@ Route::group(['middleware' => ['apiJwt']], function () {
     Route::put('products/edit/{product}', 'Api\ProductController@editProduct')->name('products.editProduct');
     Route::delete('products/delete/{product}', 'Api\ProductController@deleteProduct')->name('products.deleteProduct');
 
-    //CHECKOUTS
+    //CHECKOUTS BUYERS
     Route::get('checkouts/me/list', 'Api\CheckoutController@getCheckouts')->name('checkouts.getCheckouts');
     Route::get('checkouts/me/view/{checkout}', 'Api\CheckoutController@getCheckout')->name('checkouts.getCheckout');
     Route::post('checkouts/me/new', 'Api\CheckoutController@addCheckout')->name('checkouts.addCheckout');
-    // Route::put('checkouts/me/edit', 'Api\CheckoutController@editCheckout')->name('checkouts.editCheckout');
+    //CHECKOUTS USER ADMIN
+    Route::get('checkouts/list', 'Api\CheckoutController@getCheckoutsAll')->name('checkouts.getCheckoutsAll');
+    Route::get('checkouts/view/{checkout}', 'Api\CheckoutController@getCheckoutBuyer')->name('checkouts.getCheckoutBuyer');
+    Route::post('checkouts/new', 'Api\CheckoutController@addCheckoutBuyer')->name('checkouts.addCheckoutBuyer');
+    Route::put('checkouts/edit/{checkout}', 'Api\CheckoutController@editCheckout')->name('checkouts.editCheckout');
+    Route::delete('checkouts/delete/{checkout}', 'Api\CheckoutController@deleteCheckout')->name('checkouts.deleteCheckout');
 });

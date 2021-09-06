@@ -16,24 +16,36 @@ class Checkout extends JsonResource
     public function toArray($request)
     {
 
+
         return [
             'id' => $this->id,
             'idbuyer' => $this->idbuyer,
             'status' => $this->status,
             'value_total' => $this->value_total,
-            'buyer' => $this->getBuyer(),
+            'buyer' => new Buyer($this->getBuyer),
             'created_at' => $this->created_at->format('d/m/Y'),
             'updated_at' => $this->updated_at->format('d/m/Y'),
-            'checkProducts' => $this->listCheckProducts(),
+            'checkProducts' => CheckoutsProducts::collection($this->listCheckProducts),
             'link' => [
                 'get' => [
                     'getCheckouts' => route('checkouts.getCheckouts'),
                     'getCheckout' => route('checkouts.getCheckout', ['checkout' => $this->id]),
+                    'getCheckoutsAll' => route('checkouts.getCheckoutsAll'),
+                    'getCheckoutBuyer' => route('checkouts.getCheckoutBuyer', ['checkout' => $this->id]),
+
+
                 ],
                 'post' => [
-                    'addCheckout' => route('checkouts.addCheckout')
+                    'addCheckout' => route('checkouts.addCheckout'),
+                    'addCheckoutBuyer' => route('checkouts.addCheckoutBuyer')
                 ],
-                'put' => ''
+                'put' => [
+                    'editCheckout' => route('checkouts.editCheckout', ['checkout' => $this->id])
+
+                ],
+                'delete' =>  [
+                    'deleteCheckout' => route('checkouts.deleteCheckout', ['checkout' => $this->id])
+                ]
             ]
         ];
     }

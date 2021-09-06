@@ -8,6 +8,7 @@ use App\Models\Checkout;
 
 use App\Models\CheckoutsProduct;
 use App\Models\Product;
+use FFI\Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -24,7 +25,14 @@ class CheckoutController extends BaseController
         $user = (new UserController)->user();
         $checkouts = Checkout::where('iduser', $user->id)->get();
 
-        return $this->sendResponse(CheckoutResources::collection($checkouts), 'Produtos encontrado!');
+        return $this->sendResponse(CheckoutResources::collection($checkouts), 'Pedidos encontrado!');
+    }
+    public function getCheckoutsAll()
+    {
+
+        $checkouts = Checkout::all();
+
+        return $this->sendResponse(CheckoutResources::collection($checkouts), 'Pedidos encontrado!');
     }
     /**
      * Display the specified resource.
@@ -40,6 +48,16 @@ class CheckoutController extends BaseController
             return $this->sendError('Você não tem pedidos');
         }
         $checkout = Checkout::find($checkout)->where('idbuyer', $buyer->id)->first();
+        if (is_null($checkout)) {
+            return $this->sendError('Pedindo não encontrado!');
+        }
+
+        return $this->sendResponse(new CheckoutResources($checkout), 'Pedindo encontrado!');
+    }
+    public function getCheckoutBuyer($checkout)
+    {
+
+        $checkout = Checkout::find($checkout);
         if (is_null($checkout)) {
             return $this->sendError('Pedindo não encontrado!');
         }
@@ -83,7 +101,7 @@ class CheckoutController extends BaseController
 
         $checkout->idbuyer = $buyer->id;
         $checkout->save();
-        $arrCheckProducts = [];
+
         foreach ($request->products as $key => $value) {
             $product  = Product::find($value['id']);
             if (is_null($product)) {
@@ -97,13 +115,46 @@ class CheckoutController extends BaseController
             $checkProduct->subtotal = number_format(($value['quant'] * $product->value), 2);
             $total += $checkProduct->subtotal;
             $checkProduct->save();
-            $arrCheckProducts['checkProducts'][] = $checkProduct->attributesToArray();
+        }
+
+        $checkout->value_total = number_format($total, 2);
+        $checkout->status = "pending";
+        $checkout->save();
+        return $this->sendResponse(new CheckoutResources($checkout), 'Pedido criado com sucesso!');
+    }
+    public function addCheckoutBuyer(Request $request)
+    {
+        //
+
+        $buyer = Buyer::find($request->idbuyer);
+        if (is_null($buyer)) {
+            return $this->sendError('Comprador não encontrado!');
+        }
+        $total = 0;
+        $checkout = new Checkout();
+
+        $checkout->idbuyer = $buyer->id;
+        $checkout->save();
+
+        foreach ($request->products as $key => $value) {
+            $product  = Product::find($value['id']);
+            if (is_null($product)) {
+                return $this->sendError('Produto não encontrado!');
+            }
+
+            $checkProduct = new CheckoutsProduct();
+            $checkProduct->idcheck = $checkout->id;
+            $checkProduct->idprod = $product->id;
+            $checkProduct->quant = $value['quant'];
+            $checkProduct->subtotal = number_format(($value['quant'] * $product->value), 2);
+            $total += $checkProduct->subtotal;
+            $checkProduct->save();
         }
 
         $checkout->value_total = number_format($total, 2);
         $checkout->save();
-        $data = array_merge($checkout->attributesToArray(), $arrCheckProducts);
-        return $this->sendResponse($data, 'Pedido criado com sucesso!');
+
+        return $this->sendResponse(new CheckoutResources($checkout), 'Pedido criado com sucesso!');
     }
 
 
@@ -115,9 +166,43 @@ class CheckoutController extends BaseController
      * @param  \App\Models\Checkout  $checkout
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Checkout $checkout)
+    public function editCheckout(Request $request, $checkout)
     {
-        //
+        $buyer = Buyer::find($request->idbuyer);
+        if (is_null($buyer)) {
+            return $this->sendError('Comprador não encontrado!');
+        }
+        $total = 0;
+        $checkout =  Checkout::find($checkout);
+        if (is_null($checkout)) {
+            return $this->sendError('Pedido não encontrado!');
+        }
+        $checkout->idbuyer = $buyer->id;
+
+        $CheckoutsProduct = CheckoutsProduct::where('idcheck', $checkout->id)->get();
+        foreach ($CheckoutsProduct as $key => $value) {
+            # code...
+            $value->delete();
+        }
+        foreach ($request->products as $key => $value) {
+            $product  = Product::find($value['id']);
+            if (is_null($product)) {
+                return $this->sendError('Produto não encontrado!');
+            }
+
+            $checkProduct = new CheckoutsProduct();
+            $checkProduct->idcheck = $checkout->id;
+            $checkProduct->idprod = $product->id;
+            $checkProduct->quant = $value['quant'];
+            $checkProduct->subtotal = number_format(($value['quant'] * $product->value), 2);
+            $total += $checkProduct->subtotal;
+            $checkProduct->save();
+        }
+
+        $checkout->value_total = number_format($total, 2);
+        $checkout->save();
+
+        return $this->sendResponse(new CheckoutResources($checkout), 'Pedido alterado com sucesso!');
     }
 
     /**
@@ -126,8 +211,21 @@ class CheckoutController extends BaseController
      * @param  \App\Models\Checkout  $checkout
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Checkout $checkout)
+    public function deleteCheckout($checkout)
     {
-        //
+
+        try {
+            //
+            $checkout =  Checkout::find($checkout);
+            if (is_null($checkout)) {
+                return $this->sendError('Pedido não encontrado!');
+            }
+            $checkout->delete();
+        } catch (Exception $exception) {
+            return $this->sendError('Erro a deletar!', $exception->getMessage());
+        }
+
+
+        return $this->sendResponse([], 'Pedido deletado!');
     }
 }
