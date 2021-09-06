@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Http\Requests\CheckoutRequest;
 use App\Http\Resources\Checkout as CheckoutResources;
 use App\Models\Buyer;
 use App\Models\Checkout;
@@ -70,7 +71,7 @@ class CheckoutController extends BaseController
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function addCheckout(Request $request)
+    public function addCheckout(CheckoutRequest $request)
     {
         //
         $user = (new UserController)->user();
@@ -122,7 +123,7 @@ class CheckoutController extends BaseController
         $checkout->save();
         return $this->sendResponse(new CheckoutResources($checkout), 'Pedido criado com sucesso!');
     }
-    public function addCheckoutBuyer(Request $request)
+    public function addCheckoutBuyer(CheckoutRequest $request)
     {
         //
 
@@ -152,6 +153,7 @@ class CheckoutController extends BaseController
         }
 
         $checkout->value_total = number_format($total, 2);
+        $checkout->status = "pending";
         $checkout->save();
 
         return $this->sendResponse(new CheckoutResources($checkout), 'Pedido criado com sucesso!');
@@ -166,7 +168,7 @@ class CheckoutController extends BaseController
      * @param  \App\Models\Checkout  $checkout
      * @return \Illuminate\Http\Response
      */
-    public function editCheckout(Request $request, $checkout)
+    public function editCheckout(CheckoutRequest $request, $checkout)
     {
         $buyer = Buyer::find($request->idbuyer);
         if (is_null($buyer)) {

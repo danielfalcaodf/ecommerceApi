@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Http\Requests\ProductRequest;
 use App\Http\Resources\Product as ProductResource;
 use App\Models\Product;
 use App\models\ProductImage;
@@ -11,7 +12,7 @@ use Illuminate\Http\UploadedFile;
 
 class ProductController extends BaseController
 {
-    public function addProduct(Request $request)
+    public function addProduct(ProductRequest $request)
     {
 
         $product = new Product();
@@ -82,7 +83,7 @@ class ProductController extends BaseController
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function editProduct(Request $request, $product)
+    public function editProduct(ProductRequest $request, $product)
     {
         //
         $product =  Product::find($product);
