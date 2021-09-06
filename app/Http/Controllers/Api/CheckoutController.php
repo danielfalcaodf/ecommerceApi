@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Requests\CheckoutRequest;
 use App\Http\Resources\Checkout as CheckoutResources;
+use App\Mail\newMailCheckout;
 use App\Models\Buyer;
 use App\Models\Checkout;
 
@@ -11,6 +12,7 @@ use App\Models\CheckoutsProduct;
 use App\Models\Product;
 use FFI\Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 
 class CheckoutController extends BaseController
@@ -121,6 +123,8 @@ class CheckoutController extends BaseController
         $checkout->value_total = number_format($total, 2);
         $checkout->status = "pending";
         $checkout->save();
+
+        Mail::send(new newMailCheckout($checkout));
         return $this->sendResponse(new CheckoutResources($checkout), 'Pedido criado com sucesso!');
     }
     public function addCheckoutBuyer(CheckoutRequest $request)
@@ -156,6 +160,7 @@ class CheckoutController extends BaseController
         $checkout->status = "pending";
         $checkout->save();
 
+        Mail::send(new newMailCheckout($checkout));
         return $this->sendResponse(new CheckoutResources($checkout), 'Pedido criado com sucesso!');
     }
 
