@@ -6,7 +6,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Requests\AuthRequest;
 use App\Http\Resources\Auth as AuthResource;
 use App\Http\Resources\User as UserResources;
-use App\models\User;
+use App\Models\User;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
