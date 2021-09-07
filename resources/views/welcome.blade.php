@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>{{config('app.name')}}</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
@@ -85,9 +85,9 @@
                 </div>
 
                 <div class="links">
-                    <a href="{{ url('/docs')}}">Docs</a>
+                    <a href="{{ url('/docs')}}">Api Docs</a>
 
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                    <a href="https://github.com/danielfalcaodf/ecommerceApi">GitHub</a>
                 </div>
             </div>
         </div>
