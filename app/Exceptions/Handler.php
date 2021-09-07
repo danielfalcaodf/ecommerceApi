@@ -53,16 +53,17 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
-        // if ($request->is("api/*")) {
 
-        //     $baseCon = new  BaseController();
+        if ($request->is("api/*")) {
 
-        //     if ($exception instanceof ValidationException) {
-        //         return  $baseCon->sendError('Campos inválidos', $exception->errors(), $exception->status);
-        //     }
+            $baseCon = new  BaseController();
 
-        //     return  $baseCon->sendError('Error', ['errors' => $exception->getMessage()], 422);
-        // }
+            if ($exception instanceof ValidationException) {
+                return  $baseCon->sendError('Campos inválidos', $exception->errors(), $exception->status);
+            }
+
+            // return  $baseCon->sendError('Error', ['errors' => $exception->getMessage()], 422);
+        }
         return parent::render($request, $exception);
     }
 }
