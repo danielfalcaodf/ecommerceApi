@@ -4,9 +4,9 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Requests\BuyerRequest;
 use App\Http\Resources\Buyer as BuyerResource;
-use App\Buyer;
+use App\Models\Buyer;
 use Exception;
-use Illuminate\Http\Request;
+
 
 /**
  * @group Compradores

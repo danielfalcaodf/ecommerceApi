@@ -2,7 +2,7 @@
 
 namespace App\Http\Resources;
 
-use App\CheckoutsProduct;
+
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class Checkout extends JsonResource
