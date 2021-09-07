@@ -95,7 +95,7 @@ class BuyerController extends BaseController
      * @authenticated
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Buyer  $buyer
+     * @param  \App\Models\Buyer $buyer
      * @return \Illuminate\Http\Response
      */
     public function editBuyer(BuyerRequest $request, $buyer)
@@ -125,7 +125,7 @@ class BuyerController extends BaseController
      * @group Compradores
      * @authenticated
      *
-     * @param  \App\Buyer  $buyer
+     * @param  \App\Models\Buyer  $buyer
      * @return \Illuminate\Http\Response
      */
     public function deleteBuyer($buyer)
