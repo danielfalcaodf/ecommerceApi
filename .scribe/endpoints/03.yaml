@@ -1,0 +1,306 @@
+name: 'Pedidos ADMIN'
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: api/checkouts/list
+    metadata:
+      title: 'Buscar todos pedidos'
+      description: 'Apresenta uma lista de todos os pedidos com as informações'
+      authenticated: true
+    headers:
+      Authorization: 'Bearer {ACCESS_TOKEN}'
+      Content-Type: application/json
+      Accept: '*/*'
+    urlParameters: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 404
+        content: |
+          <!DOCTYPE html>
+          <html lang="en">
+              <head>
+                  <meta charset="utf-8">
+                  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+                  <title>Not Found</title>
+
+                  <!-- Fonts -->
+                  <link rel="dns-prefetch" href="//fonts.gstatic.com">
+                  <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+
+                  <!-- Styles -->
+                  <style>
+                      html, body {
+                          background-color: #fff;
+                          color: #636b6f;
+                          font-family: 'Nunito', sans-serif;
+                          font-weight: 100;
+                          height: 100vh;
+                          margin: 0;
+                      }
+
+                      .full-height {
+                          height: 100vh;
+                      }
+
+                      .flex-center {
+                          align-items: center;
+                          display: flex;
+                          justify-content: center;
+                      }
+
+                      .position-ref {
+                          position: relative;
+                      }
+
+                      .code {
+                          border-right: 2px solid;
+                          font-size: 26px;
+                          padding: 0 15px 0 15px;
+                          text-align: center;
+                      }
+
+                      .message {
+                          font-size: 18px;
+                          text-align: center;
+                      }
+                  </style>
+              </head>
+              <body>
+                  <div class="flex-center position-ref full-height">
+                      <div class="code">
+                          404            </div>
+
+                      <div class="message" style="padding: 10px;">
+                          Not Found            </div>
+                  </div>
+              </body>
+          </html>
+        headers:
+          cache-control: 'no-cache, private'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/checkouts/view/{checkout}'
+    metadata:
+      title: 'Buscar pedido'
+      description: 'Apresenta as informações do pedido especificado'
+      authenticated: true
+    headers:
+      Authorization: 'Bearer {ACCESS_TOKEN}'
+      Content-Type: application/json
+      Accept: '*/*'
+    urlParameters:
+      checkout:
+        name: checkout
+        description: 'O ID do pedido'
+        required: true
+        example: 15
+        type: integer
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 404
+        content: |
+          <!DOCTYPE html>
+          <html lang="en">
+              <head>
+                  <meta charset="utf-8">
+                  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+                  <title>Not Found</title>
+
+                  <!-- Fonts -->
+                  <link rel="dns-prefetch" href="//fonts.gstatic.com">
+                  <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+
+                  <!-- Styles -->
+                  <style>
+                      html, body {
+                          background-color: #fff;
+                          color: #636b6f;
+                          font-family: 'Nunito', sans-serif;
+                          font-weight: 100;
+                          height: 100vh;
+                          margin: 0;
+                      }
+
+                      .full-height {
+                          height: 100vh;
+                      }
+
+                      .flex-center {
+                          align-items: center;
+                          display: flex;
+                          justify-content: center;
+                      }
+
+                      .position-ref {
+                          position: relative;
+                      }
+
+                      .code {
+                          border-right: 2px solid;
+                          font-size: 26px;
+                          padding: 0 15px 0 15px;
+                          text-align: center;
+                      }
+
+                      .message {
+                          font-size: 18px;
+                          text-align: center;
+                      }
+                  </style>
+              </head>
+              <body>
+                  <div class="flex-center position-ref full-height">
+                      <div class="code">
+                          404            </div>
+
+                      <div class="message" style="padding: 10px;">
+                          Not Found            </div>
+                  </div>
+              </body>
+          </html>
+        headers:
+          cache-control: 'no-cache, private'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - POST
+    uri: api/checkouts/new
+    metadata:
+      title: 'Criar um pedido do comprador'
+      description: |-
+        Cadastra um pedido do comprador especificando o ID do comprador.
+        Se estiver tudo certo será enviado um email ao comprador com a confirmação do pedido
+      authenticated: true
+    headers:
+      Authorization: 'Bearer {ACCESS_TOKEN}'
+      Content-Type: application/json
+      Accept: '*/*'
+    urlParameters: []
+    queryParameters: []
+    bodyParameters:
+      idbuyer:
+        name: idbuyer
+        description: 'O ID do comprador .'
+        required: true
+        example: magnam
+        type: string
+      products:
+        name: products
+        description: 'A lista dos produtos do pedido'
+        required: true
+        example:
+          -
+            id: '4'
+            quant: '6'
+          -
+            id: '7'
+            quant: '2'
+          -
+            id: '2'
+            quant: '3'
+        type: 'object[]'
+      'products[].id':
+        name: 'products[].id'
+        description: 'O ID do produto.'
+        required: true
+        example: cum
+        type: string
+      'products[].quant':
+        name: 'products[].quant'
+        description: 'A quantidade do produto.'
+        required: true
+        example: laboriosam
+        type: string
+    responses: []
+    responseFields: []
+  -
+    httpMethods:
+      - PUT
+    uri: 'api/checkouts/edit/{checkout}'
+    metadata:
+      title: 'Editar Pedido'
+      description: 'Editar um pedido (comprador e os produtos) especificado, se tudo estiver certo apresenta as informações do pedido'
+      authenticated: true
+    headers:
+      Authorization: 'Bearer {ACCESS_TOKEN}'
+      Content-Type: application/json
+      Accept: '*/*'
+    urlParameters:
+      checkout:
+        name: checkout
+        description: 'O ID do pedido'
+        required: true
+        example: 9
+        type: integer
+    queryParameters: []
+    bodyParameters:
+      idbuyer:
+        name: idbuyer
+        description: 'O ID do comprador.'
+        required: true
+        example: assumenda
+        type: string
+      products:
+        name: products
+        description: 'A lista de produtos do pedido'
+        required: true
+        example:
+          -
+            id: '4'
+            quant: '6'
+          -
+            id: '7'
+            quant: '2'
+          -
+            id: '2'
+            quant: '3'
+        type: 'object[]'
+      'products[].id':
+        name: 'products[].id'
+        description: 'O ID do produto.'
+        required: true
+        example: perspiciatis
+        type: string
+      'products[].quant':
+        name: 'products[].quant'
+        description: 'A quantidade do produto.'
+        required: true
+        example: mollitia
+        type: string
+    responses: []
+    responseFields: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/checkouts/delete/{checkout}'
+    metadata:
+      title: 'Deletar Pedido'
+      description: 'Deletar um pedido especificado'
+      authenticated: true
+    headers:
+      Authorization: 'Bearer {ACCESS_TOKEN}'
+      Content-Type: application/json
+      Accept: '*/*'
+    urlParameters:
+      checkout:
+        name: checkout
+        description: 'O ID do pedido'
+        required: true
+        example: 20
+        type: integer
+    queryParameters: []
+    bodyParameters: []
+    responses: []
+    responseFields: []

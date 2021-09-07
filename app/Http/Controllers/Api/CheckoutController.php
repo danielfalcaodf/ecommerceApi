@@ -5,11 +5,11 @@ namespace App\Http\Controllers\Api;
 use App\Http\Requests\CheckoutRequest;
 use App\Http\Resources\Checkout as CheckoutResources;
 use App\Mail\newMailCheckout;
-use App\Models\Buyer;
-use App\Models\Checkout;
+use App\Buyer;
+use App\Checkout;
 
-use App\Models\CheckoutsProduct;
-use App\Models\Product;
+use App\CheckoutsProduct;
+use App\Product;
 use FFI\Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;

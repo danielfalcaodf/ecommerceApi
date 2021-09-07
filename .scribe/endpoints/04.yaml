@@ -1,0 +1,278 @@
+name: Produtos
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: api/products/list
+    metadata:
+      title: 'Buscar todos os produtos'
+      description: 'Apresenta uma lista de todos os produtos com as informações'
+      authenticated: false
+    headers:
+      Content-Type: application/json
+      Accept: '*/*'
+    urlParameters: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 404
+        content: |
+          <!DOCTYPE html>
+          <html lang="en">
+              <head>
+                  <meta charset="utf-8">
+                  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+                  <title>Not Found</title>
+
+                  <!-- Fonts -->
+                  <link rel="dns-prefetch" href="//fonts.gstatic.com">
+                  <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+
+                  <!-- Styles -->
+                  <style>
+                      html, body {
+                          background-color: #fff;
+                          color: #636b6f;
+                          font-family: 'Nunito', sans-serif;
+                          font-weight: 100;
+                          height: 100vh;
+                          margin: 0;
+                      }
+
+                      .full-height {
+                          height: 100vh;
+                      }
+
+                      .flex-center {
+                          align-items: center;
+                          display: flex;
+                          justify-content: center;
+                      }
+
+                      .position-ref {
+                          position: relative;
+                      }
+
+                      .code {
+                          border-right: 2px solid;
+                          font-size: 26px;
+                          padding: 0 15px 0 15px;
+                          text-align: center;
+                      }
+
+                      .message {
+                          font-size: 18px;
+                          text-align: center;
+                      }
+                  </style>
+              </head>
+              <body>
+                  <div class="flex-center position-ref full-height">
+                      <div class="code">
+                          404            </div>
+
+                      <div class="message" style="padding: 10px;">
+                          Not Found            </div>
+                  </div>
+              </body>
+          </html>
+        headers:
+          cache-control: 'no-cache, private'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/products/view/{product}'
+    metadata:
+      title: 'Buscar produto'
+      description: 'Apresenta as informações do produto especificado'
+      authenticated: false
+    headers:
+      Content-Type: application/json
+      Accept: '*/*'
+    urlParameters:
+      product:
+        name: product
+        description: 'O ID do produto'
+        required: true
+        example: 10
+        type: integer
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 404
+        content: |
+          <!DOCTYPE html>
+          <html lang="en">
+              <head>
+                  <meta charset="utf-8">
+                  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+                  <title>Not Found</title>
+
+                  <!-- Fonts -->
+                  <link rel="dns-prefetch" href="//fonts.gstatic.com">
+                  <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+
+                  <!-- Styles -->
+                  <style>
+                      html, body {
+                          background-color: #fff;
+                          color: #636b6f;
+                          font-family: 'Nunito', sans-serif;
+                          font-weight: 100;
+                          height: 100vh;
+                          margin: 0;
+                      }
+
+                      .full-height {
+                          height: 100vh;
+                      }
+
+                      .flex-center {
+                          align-items: center;
+                          display: flex;
+                          justify-content: center;
+                      }
+
+                      .position-ref {
+                          position: relative;
+                      }
+
+                      .code {
+                          border-right: 2px solid;
+                          font-size: 26px;
+                          padding: 0 15px 0 15px;
+                          text-align: center;
+                      }
+
+                      .message {
+                          font-size: 18px;
+                          text-align: center;
+                      }
+                  </style>
+              </head>
+              <body>
+                  <div class="flex-center position-ref full-height">
+                      <div class="code">
+                          404            </div>
+
+                      <div class="message" style="padding: 10px;">
+                          Not Found            </div>
+                  </div>
+              </body>
+          </html>
+        headers:
+          cache-control: 'no-cache, private'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - POST
+    uri: api/products/add
+    metadata:
+      title: 'Cadastrar um produto'
+      description: 'Cadastrar um produto com foto ou não, se tudo estiver certo apresenta as informações do produto'
+      authenticated: true
+    headers:
+      Authorization: 'Bearer {ACCESS_TOKEN}'
+      Content-Type: multipart/form-data
+      Accept: '*/*'
+    urlParameters: []
+    queryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: 'Um nome do produto.'
+        required: true
+        example: vero
+        type: string
+      type:
+        name: type
+        description: 'O tipo do produto.'
+        required: true
+        example: ab
+        type: string
+      value:
+        name: value
+        description: 'Valor do produto.'
+        required: true
+        example: 1.1575
+        type: number
+      'images[]':
+        name: 'images[]'
+        description: 'As imagens do produto, se não tiver, automanticamente a API irá entender e vai colocar uma foto padrão (semFoto.jpg).'
+        required: false
+        example: null
+        type: file
+    responses: []
+    responseFields: []
+  -
+    httpMethods:
+      - PUT
+    uri: 'api/products/edit/{product}'
+    metadata:
+      title: 'Editar produto'
+      description: 'Editar um produto especificado, se tudo estiver certo apresenta as informações do produto'
+      authenticated: true
+    headers:
+      Authorization: 'Bearer {ACCESS_TOKEN}'
+      Content-Type: application/json
+      Accept: '*/*'
+    urlParameters:
+      product:
+        name: product
+        description: 'O ID do produto'
+        required: true
+        example: 1
+        type: integer
+    queryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: 'Um nome do produto.'
+        required: true
+        example: amet
+        type: string
+      type:
+        name: type
+        description: 'O tipo do produto.'
+        required: true
+        example: impedit
+        type: string
+      value:
+        name: value
+        description: 'Valor do produto.'
+        required: true
+        example: 261166.39222351
+        type: number
+    responses: []
+    responseFields: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/products/delete/{product}'
+    metadata:
+      title: 'Deletar produto'
+      description: 'Deletar um produto especificado'
+      authenticated: true
+    headers:
+      Authorization: 'Bearer {ACCESS_TOKEN}'
+      Content-Type: application/json
+      Accept: '*/*'
+    urlParameters:
+      product:
+        name: product
+        description: 'O ID do produto'
+        required: true
+        example: 1
+        type: integer
+    queryParameters: []
+    bodyParameters: []
+    responses: []
+    responseFields: []

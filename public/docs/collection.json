@@ -1,0 +1,1023 @@
+{
+    "variable": [
+        {
+            "id": "baseUrl",
+            "key": "baseUrl",
+            "type": "string",
+            "name": "string",
+            "value": "localhost"
+        }
+    ],
+    "info": {
+        "name": "ecommerceApi",
+        "_postman_id": "a40de9b2-b6b1-4ee8-a8e2-7b47f8b98df3",
+        "description": "API RESTFul para o gerenciamento de pedidos de um E-commerce utilizando o framework Laravel, cont\u00eam os m\u00f3dulos Comprador, Produto, Checkout, Auth e Usu\u00e1rio",
+        "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
+    },
+    "item": [
+        {
+            "name": "Autentica\u00e7\u00e3o Jwt",
+            "description": "",
+            "item": [
+                {
+                    "name": "Autentica\u00e7\u00e3o com email e senha",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/auth\/login",
+                            "query": [],
+                            "raw": "https:\/\/{{baseUrl}}\/api\/auth\/login"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "*\/*"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"email\":\"danielfalcao.df@gmail.com\",\"password\":\"123456\"}"
+                        },
+                        "description": "Obtenha um JWT com credenciais fornecidas",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    \"message\": \"\",\n    \"type\": \"success\",\n    \"data\": {\n        \"id\": 1,\n        \"name\": \"Kevin Edilson Padilha\",\n        \"email\": \"danielfalcao.df@gmail.com\",\n        \"token\": {\n            \"access_token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvbG9jYWxob3N0XC9sYXJhdmVsUHJvamV0b3NcL2Vjb21tZXJjZUFwaVwvcHVibGljXC9cL2FwaVwvYXV0aFwvbG9naW4iLCJpYXQiOjE2MzEwNDQyNjksImV4cCI6MTYzMTA0Nzg2OSwibmJmIjoxNjMxMDQ0MjY5LCJqdGkiOiJ4aUR4ajhkUWY2NFZUZWxCIiwic3ViIjoxLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.WHEa91qVOqlg7WT189BkYWiJayYpScY6c8ZIObLZNPQ\",\n            \"token_type\": \"bearer\",\n            \"expires_in\": 3600\n        },\n        \"created_at\": \"06\/09\/2021\",\n        \"updated_at\": \"06\/09\/2021\",\n        \"link\": {\n            \"get\": {\n                \"getListAll\": \"https:\/\/localhost\/laravelProjetos\/ecommerceApi\/public\/api\/users\",\n                \"getMe\": \"https:\/\/localhost\/laravelProjetos\/ecommerceApi\/public\/api\/users\/me\"\n            },\n            \"post\": {\n                \"login\": \"https:\/\/localhost\/laravelProjetos\/ecommerceApi\/public\/api\/auth\/login\",\n                \"register\": \"https:\/\/localhost\/laravelProjetos\/ecommerceApi\/public\/api\/auth\/register\",\n                \"logout\": \"https:\/\/localhost\/laravelProjetos\/ecommerceApi\/public\/api\/auth\/logout\"\n            },\n            \"put\": {\n                \"editNameEmail\": \"https:\/\/localhost\/laravelProjetos\/ecommerceApi\/public\/api\/users\/me\/edit\"\n            }\n        }\n    },\n    \"code\": 200\n}\n",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 400,
+                            "body": "{\"type\":\"error\",\"message\":\"Email ou senha inv\\u00e1lidos\",\"code\":400}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\"type\":\"error\",\"message\":\"Error\",\"code\":422,\"data\":{\"errors\":\"syntax error, unexpected 'if' (T_IF)\"}}",
+                            "name": "Erros sem\u00e2nticos do c\u00f3digo"
+                        }
+                    ]
+                },
+                {
+                    "name": "Cadastrar um novo usu\u00e1rio",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/auth\/register",
+                            "query": [],
+                            "raw": "https:\/\/{{baseUrl}}\/api\/auth\/register"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "*\/*"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name\":\"teste\",\"email\":\"teste@teste.com\",\"password\":\"123456\",\"password_confirmation\":\"123456\"}"
+                        },
+                        "description": "Usando name, email, password e password_confirmation, se tudo estiver certo apresenta um token de acesso (JWT) e datalhes do usuario novo",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    \"message\": \"Usu\u00e1rio Cadastrado!\",\n    \"type\": \"success\",\n    \"data\": {\n        \"id\": 23,\n        \"name\": \"teste\",\n        \"email\": \"teste@teste.com\",\n        \"token\": {\n            \"access_token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvbG9jYWxob3N0XC9sYXJhdmVsUHJvamV0b3NcL2Vjb21tZXJjZUFwaVwvcHVibGljXC9cL2FwaVwvYXV0aFwvcmVnaXN0ZXIiLCJpYXQiOjE2MzEwNDQ2MTksImV4cCI6MTYzMTA0ODIxOSwibmJmIjoxNjMxMDQ0NjE5LCJqdGkiOiJBaWo2YWdKTjlaUWtkb1hOIiwic3ViIjoyMywicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.thHar_GT9_OIco3Vm85EWn-FJ7AA3EdcWzpBulq7-hQ\",\n            \"token_type\": \"bearer\",\n            \"expires_in\": 3600\n        },\n        \"created_at\": \"07\/09\/2021\",\n        \"updated_at\": \"07\/09\/2021\",\n        \"link\": {\n            \"get\": {\n                \"getListAll\": \"https:\/\/localhost\/laravelProjetos\/ecommerceApi\/public\/api\/users\",\n                \"getMe\": \"https:\/\/localhost\/laravelProjetos\/ecommerceApi\/public\/api\/users\/me\"\n            },\n            \"post\": {\n                \"login\": \"https:\/\/localhost\/laravelProjetos\/ecommerceApi\/public\/api\/auth\/login\",\n                \"register\": \"https:\/\/localhost\/laravelProjetos\/ecommerceApi\/public\/api\/auth\/register\",\n                \"logout\": \"https:\/\/localhost\/laravelProjetos\/ecommerceApi\/public\/api\/auth\/logout\"\n            },\n            \"put\": {\n                \"editNameEmail\": \"https:\/\/localhost\/laravelProjetos\/ecommerceApi\/public\/api\/users\/me\/edit\"\n            }\n        }\n    },\n    \"code\": 201\n}\n",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\"type\":\"error\",\"message\":\"Campos inv\\u00e1lidos\",\"code\":422,\"data\":{\"name\":[\"Obrigat\\u00f3rio\"],\"email\":[\"The email field is required.\"],\"password\":[\"The password field is required.\"]}}",
+                            "name": "Valida\u00e7\u00e3o do bodyparam"
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\"type\":\"error\",\"message\":\"Campos inv\\u00e1lidos\",\"code\":422,\"data\":{\"email\":[\"The email must be a valid email address.\"],\"password\":[\"The password must be at least 6 characters.\",\"The password confirmation does not match.\"]}}",
+                            "name": "Valida\u00e7\u00e3o do bodyparam"
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\"type\":\"error\",\"message\":\"Campos inv\\u00e1lidos\",\"code\":422,\"data\":{\"email\":[\"The email has already been taken.\"],\"password\":[\"The password must be at least 6 characters.\",\"The password confirmation does not match.\"]}}",
+                            "name": "Valida\u00e7\u00e3o do bodyparam"
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\"type\":\"error\",\"message\":\"Error\",\"code\":422,\"data\":{\"errors\":\"syntax error, unexpected 'if' (T_IF)\"}}",
+                            "name": "Erros sem\u00e2nticos do c\u00f3digo"
+                        }
+                    ]
+                },
+                {
+                    "name": "Deslogar da Api",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/auth\/logout",
+                            "query": [],
+                            "raw": "https:\/\/{{baseUrl}}\/api\/auth\/logout"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "*\/*"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Desconecte o usu\u00e1rio (invalide o token), se tudo estiver certo apresenta as informa\u00e7\u00f5es do usu\u00e1rio"
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"message\":\"Successfully logged out\",\"type\":\"success\",\"data\":{\"id\":1,\"name\":\"Kevin Edilson Padilha\",\"email\":\"danielfalcao.df@gmail.com\",\"email_verified_at\":null,\"created_at\":\"06\\\/09\\\/2021\",\"updated_at\":\"06\\\/09\\\/2021\",\"link\":{\"get\":{\"getListAll\":\"https:\\\/\\\/localhost\\\/laravelProjetos\\\/ecommerceApi\\\/public\\\/api\\\/users\",\"getMe\":\"https:\\\/\\\/localhost\\\/laravelProjetos\\\/ecommerceApi\\\/public\\\/api\\\/users\\\/me\"},\"post\":{\"login\":\"https:\\\/\\\/localhost\\\/laravelProjetos\\\/ecommerceApi\\\/public\\\/api\\\/auth\\\/login\",\"register\":\"https:\\\/\\\/localhost\\\/laravelProjetos\\\/ecommerceApi\\\/public\\\/api\\\/auth\\\/register\",\"logout\":\"https:\\\/\\\/localhost\\\/laravelProjetos\\\/ecommerceApi\\\/public\\\/api\\\/auth\\\/logout\"},\"put\":{\"editNameEmail\":\"https:\\\/\\\/localhost\\\/laravelProjetos\\\/ecommerceApi\\\/public\\\/api\\\/users\\\/me\\\/edit\"}}},\"code\":200}\n",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 401,
+                            "body": "{\"type\":\"error\",\"code\":401,\"massage\":\"Token is Invalid\"}",
+                            "name": "Token is Invalid, Token is Expired, Authorization Token not found"
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\"type\":\"error\",\"message\":\"Error\",\"code\":422,\"data\":{\"errors\":\"syntax error, unexpected 'if' (T_IF)\"}}",
+                            "name": "Erros sem\u00e2nticos do c\u00f3digo"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Compradores",
+            "description": "",
+            "item": [
+                {
+                    "name": "Buscar todos Compradores",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/buyers",
+                            "query": [],
+                            "raw": "https:\/\/{{baseUrl}}\/api\/buyers"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "*\/*"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Apresenta uma lista de todos os compradores com as informa\u00e7\u00f5es"
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                }
+                            ],
+                            "code": 404,
+                            "body": "<!DOCTYPE html>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"utf-8\">\n        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n\n        <title>Not Found<\/title>\n\n        <!-- Fonts -->\n        <link rel=\"dns-prefetch\" href=\"\/\/fonts.gstatic.com\">\n        <link href=\"https:\/\/fonts.googleapis.com\/css?family=Nunito\" rel=\"stylesheet\">\n\n        <!-- Styles -->\n        <style>\n            html, body {\n                background-color: #fff;\n                color: #636b6f;\n                font-family: 'Nunito', sans-serif;\n                font-weight: 100;\n                height: 100vh;\n                margin: 0;\n            }\n\n            .full-height {\n                height: 100vh;\n            }\n\n            .flex-center {\n                align-items: center;\n                display: flex;\n                justify-content: center;\n            }\n\n            .position-ref {\n                position: relative;\n            }\n\n            .code {\n                border-right: 2px solid;\n                font-size: 26px;\n                padding: 0 15px 0 15px;\n                text-align: center;\n            }\n\n            .message {\n                font-size: 18px;\n                text-align: center;\n            }\n        <\/style>\n    <\/head>\n    <body>\n        <div class=\"flex-center position-ref full-height\">\n            <div class=\"code\">\n                404            <\/div>\n\n            <div class=\"message\" style=\"padding: 10px;\">\n                Not Found            <\/div>\n        <\/div>\n    <\/body>\n<\/html>\n",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Buscar Comprador",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/buyers\/view\/:buyer",
+                            "query": [],
+                            "raw": "https:\/\/{{baseUrl}}\/api\/buyers\/view\/:buyer",
+                            "variable": [
+                                {
+                                    "id": "buyer",
+                                    "key": "buyer",
+                                    "value": "10",
+                                    "description": "O ID do comprador"
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "*\/*"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Apresenta as informa\u00e7\u00f5es do comprador especificado"
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                }
+                            ],
+                            "code": 404,
+                            "body": "<!DOCTYPE html>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"utf-8\">\n        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n\n        <title>Not Found<\/title>\n\n        <!-- Fonts -->\n        <link rel=\"dns-prefetch\" href=\"\/\/fonts.gstatic.com\">\n        <link href=\"https:\/\/fonts.googleapis.com\/css?family=Nunito\" rel=\"stylesheet\">\n\n        <!-- Styles -->\n        <style>\n            html, body {\n                background-color: #fff;\n                color: #636b6f;\n                font-family: 'Nunito', sans-serif;\n                font-weight: 100;\n                height: 100vh;\n                margin: 0;\n            }\n\n            .full-height {\n                height: 100vh;\n            }\n\n            .flex-center {\n                align-items: center;\n                display: flex;\n                justify-content: center;\n            }\n\n            .position-ref {\n                position: relative;\n            }\n\n            .code {\n                border-right: 2px solid;\n                font-size: 26px;\n                padding: 0 15px 0 15px;\n                text-align: center;\n            }\n\n            .message {\n                font-size: 18px;\n                text-align: center;\n            }\n        <\/style>\n    <\/head>\n    <body>\n        <div class=\"flex-center position-ref full-height\">\n            <div class=\"code\">\n                404            <\/div>\n\n            <div class=\"message\" style=\"padding: 10px;\">\n                Not Found            <\/div>\n        <\/div>\n    <\/body>\n<\/html>\n",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Cadastrar Comprador",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/buyers\/add",
+                            "query": [],
+                            "raw": "https:\/\/{{baseUrl}}\/api\/buyers\/add"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "*\/*"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"phone_cell\":\"unde\",\"cpf\":\"commodi\",\"iduser\":\"ipsam\"}"
+                        },
+                        "description": "Cadastrar um comprador, se tudo estiver certo apresenta as informa\u00e7\u00f5es do comprador"
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Editar Comprador",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/buyers\/edit\/:buyer",
+                            "query": [],
+                            "raw": "https:\/\/{{baseUrl}}\/api\/buyers\/edit\/:buyer",
+                            "variable": [
+                                {
+                                    "id": "buyer",
+                                    "key": "buyer",
+                                    "value": "2",
+                                    "description": "O ID do comprador"
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "*\/*"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"phone_cell\":\"qui\",\"cpf\":\"reprehenderit\",\"iduser\":\"natus\"}"
+                        },
+                        "description": "Editar um comprador especificado, se tudo estiver certo apresenta as informa\u00e7\u00f5es do comprador"
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Deletar Comprador",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/buyers\/delete\/:buyer",
+                            "query": [],
+                            "raw": "https:\/\/{{baseUrl}}\/api\/buyers\/delete\/:buyer",
+                            "variable": [
+                                {
+                                    "id": "buyer",
+                                    "key": "buyer",
+                                    "value": "16",
+                                    "description": "O ID do comprador"
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "*\/*"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Deletar um Comprador especificado"
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Pedidos",
+            "description": "",
+            "item": [
+                {
+                    "name": "Buscar todos pedidos do usu\u00e1rio",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/checkouts\/me\/list",
+                            "query": [],
+                            "raw": "https:\/\/{{baseUrl}}\/api\/checkouts\/me\/list"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "*\/*"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Apresenta todos os pedidos do usu\u00e1rio logado que foi passado com JWT"
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                }
+                            ],
+                            "code": 404,
+                            "body": "<!DOCTYPE html>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"utf-8\">\n        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n\n        <title>Not Found<\/title>\n\n        <!-- Fonts -->\n        <link rel=\"dns-prefetch\" href=\"\/\/fonts.gstatic.com\">\n        <link href=\"https:\/\/fonts.googleapis.com\/css?family=Nunito\" rel=\"stylesheet\">\n\n        <!-- Styles -->\n        <style>\n            html, body {\n                background-color: #fff;\n                color: #636b6f;\n                font-family: 'Nunito', sans-serif;\n                font-weight: 100;\n                height: 100vh;\n                margin: 0;\n            }\n\n            .full-height {\n                height: 100vh;\n            }\n\n            .flex-center {\n                align-items: center;\n                display: flex;\n                justify-content: center;\n            }\n\n            .position-ref {\n                position: relative;\n            }\n\n            .code {\n                border-right: 2px solid;\n                font-size: 26px;\n                padding: 0 15px 0 15px;\n                text-align: center;\n            }\n\n            .message {\n                font-size: 18px;\n                text-align: center;\n            }\n        <\/style>\n    <\/head>\n    <body>\n        <div class=\"flex-center position-ref full-height\">\n            <div class=\"code\">\n                404            <\/div>\n\n            <div class=\"message\" style=\"padding: 10px;\">\n                Not Found            <\/div>\n        <\/div>\n    <\/body>\n<\/html>\n",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Buscar pedido do usu\u00e1rio",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/checkouts\/me\/view\/:checkout",
+                            "query": [],
+                            "raw": "https:\/\/{{baseUrl}}\/api\/checkouts\/me\/view\/:checkout",
+                            "variable": [
+                                {
+                                    "id": "checkout",
+                                    "key": "checkout",
+                                    "value": "15",
+                                    "description": "O ID do pedido"
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "*\/*"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Apresenta um pedido especificado do usu\u00e1rio logado que foi passado com JWT, mostrando s\u00f3 o pedido dele"
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                }
+                            ],
+                            "code": 404,
+                            "body": "<!DOCTYPE html>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"utf-8\">\n        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n\n        <title>Not Found<\/title>\n\n        <!-- Fonts -->\n        <link rel=\"dns-prefetch\" href=\"\/\/fonts.gstatic.com\">\n        <link href=\"https:\/\/fonts.googleapis.com\/css?family=Nunito\" rel=\"stylesheet\">\n\n        <!-- Styles -->\n        <style>\n            html, body {\n                background-color: #fff;\n                color: #636b6f;\n                font-family: 'Nunito', sans-serif;\n                font-weight: 100;\n                height: 100vh;\n                margin: 0;\n            }\n\n            .full-height {\n                height: 100vh;\n            }\n\n            .flex-center {\n                align-items: center;\n                display: flex;\n                justify-content: center;\n            }\n\n            .position-ref {\n                position: relative;\n            }\n\n            .code {\n                border-right: 2px solid;\n                font-size: 26px;\n                padding: 0 15px 0 15px;\n                text-align: center;\n            }\n\n            .message {\n                font-size: 18px;\n                text-align: center;\n            }\n        <\/style>\n    <\/head>\n    <body>\n        <div class=\"flex-center position-ref full-height\">\n            <div class=\"code\">\n                404            <\/div>\n\n            <div class=\"message\" style=\"padding: 10px;\">\n                Not Found            <\/div>\n        <\/div>\n    <\/body>\n<\/html>\n",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Cadastrar pedido do usu\u00e1rio",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/checkouts\/me\/new",
+                            "query": [],
+                            "raw": "https:\/\/{{baseUrl}}\/api\/checkouts\/me\/new"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "*\/*"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"products\":[{\"id\":\"sed\",\"quant\":\"et\"},{\"id\":\"sed\",\"quant\":\"et\"},{\"id\":\"2\",\"quant\":\"3\"}],\"phone_cell\":\"et\",\"cpf\":\"et\"}"
+                        },
+                        "description": "Cadastrar um pedido do usu\u00e1rio logado, que foi passado com JWT. Caso o usu\u00e1rio\nn\u00e3o tenha cadastro como comprador, deve informa o CPF e Telefone ou celular do usu\u00e1rio para criar ele como comprador.\nSe estiver tudo certo ser\u00e1 enviado um email ao comprador com a confirma\u00e7\u00e3o do pedido"
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Pedidos ADMIN",
+            "description": "",
+            "item": [
+                {
+                    "name": "Buscar todos pedidos",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/checkouts\/list",
+                            "query": [],
+                            "raw": "https:\/\/{{baseUrl}}\/api\/checkouts\/list"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "*\/*"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Apresenta uma lista de todos os pedidos com as informa\u00e7\u00f5es"
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                }
+                            ],
+                            "code": 404,
+                            "body": "<!DOCTYPE html>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"utf-8\">\n        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n\n        <title>Not Found<\/title>\n\n        <!-- Fonts -->\n        <link rel=\"dns-prefetch\" href=\"\/\/fonts.gstatic.com\">\n        <link href=\"https:\/\/fonts.googleapis.com\/css?family=Nunito\" rel=\"stylesheet\">\n\n        <!-- Styles -->\n        <style>\n            html, body {\n                background-color: #fff;\n                color: #636b6f;\n                font-family: 'Nunito', sans-serif;\n                font-weight: 100;\n                height: 100vh;\n                margin: 0;\n            }\n\n            .full-height {\n                height: 100vh;\n            }\n\n            .flex-center {\n                align-items: center;\n                display: flex;\n                justify-content: center;\n            }\n\n            .position-ref {\n                position: relative;\n            }\n\n            .code {\n                border-right: 2px solid;\n                font-size: 26px;\n                padding: 0 15px 0 15px;\n                text-align: center;\n            }\n\n            .message {\n                font-size: 18px;\n                text-align: center;\n            }\n        <\/style>\n    <\/head>\n    <body>\n        <div class=\"flex-center position-ref full-height\">\n            <div class=\"code\">\n                404            <\/div>\n\n            <div class=\"message\" style=\"padding: 10px;\">\n                Not Found            <\/div>\n        <\/div>\n    <\/body>\n<\/html>\n",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Buscar pedido",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/checkouts\/view\/:checkout",
+                            "query": [],
+                            "raw": "https:\/\/{{baseUrl}}\/api\/checkouts\/view\/:checkout",
+                            "variable": [
+                                {
+                                    "id": "checkout",
+                                    "key": "checkout",
+                                    "value": "15",
+                                    "description": "O ID do pedido"
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "*\/*"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Apresenta as informa\u00e7\u00f5es do pedido especificado"
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                }
+                            ],
+                            "code": 404,
+                            "body": "<!DOCTYPE html>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"utf-8\">\n        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n\n        <title>Not Found<\/title>\n\n        <!-- Fonts -->\n        <link rel=\"dns-prefetch\" href=\"\/\/fonts.gstatic.com\">\n        <link href=\"https:\/\/fonts.googleapis.com\/css?family=Nunito\" rel=\"stylesheet\">\n\n        <!-- Styles -->\n        <style>\n            html, body {\n                background-color: #fff;\n                color: #636b6f;\n                font-family: 'Nunito', sans-serif;\n                font-weight: 100;\n                height: 100vh;\n                margin: 0;\n            }\n\n            .full-height {\n                height: 100vh;\n            }\n\n            .flex-center {\n                align-items: center;\n                display: flex;\n                justify-content: center;\n            }\n\n            .position-ref {\n                position: relative;\n            }\n\n            .code {\n                border-right: 2px solid;\n                font-size: 26px;\n                padding: 0 15px 0 15px;\n                text-align: center;\n            }\n\n            .message {\n                font-size: 18px;\n                text-align: center;\n            }\n        <\/style>\n    <\/head>\n    <body>\n        <div class=\"flex-center position-ref full-height\">\n            <div class=\"code\">\n                404            <\/div>\n\n            <div class=\"message\" style=\"padding: 10px;\">\n                Not Found            <\/div>\n        <\/div>\n    <\/body>\n<\/html>\n",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Criar um pedido do comprador",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/checkouts\/new",
+                            "query": [],
+                            "raw": "https:\/\/{{baseUrl}}\/api\/checkouts\/new"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "*\/*"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"idbuyer\":\"magnam\",\"products\":[{\"id\":\"cum\",\"quant\":\"laboriosam\"},{\"id\":\"cum\",\"quant\":\"laboriosam\"},{\"id\":\"2\",\"quant\":\"3\"}]}"
+                        },
+                        "description": "Cadastra um pedido do comprador especificando o ID do comprador.\nSe estiver tudo certo ser\u00e1 enviado um email ao comprador com a confirma\u00e7\u00e3o do pedido"
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Editar Pedido",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/checkouts\/edit\/:checkout",
+                            "query": [],
+                            "raw": "https:\/\/{{baseUrl}}\/api\/checkouts\/edit\/:checkout",
+                            "variable": [
+                                {
+                                    "id": "checkout",
+                                    "key": "checkout",
+                                    "value": "9",
+                                    "description": "O ID do pedido"
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "*\/*"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"idbuyer\":\"assumenda\",\"products\":[{\"id\":\"perspiciatis\",\"quant\":\"mollitia\"},{\"id\":\"perspiciatis\",\"quant\":\"mollitia\"},{\"id\":\"2\",\"quant\":\"3\"}]}"
+                        },
+                        "description": "Editar um pedido (comprador e os produtos) especificado, se tudo estiver certo apresenta as informa\u00e7\u00f5es do pedido"
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Deletar Pedido",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/checkouts\/delete\/:checkout",
+                            "query": [],
+                            "raw": "https:\/\/{{baseUrl}}\/api\/checkouts\/delete\/:checkout",
+                            "variable": [
+                                {
+                                    "id": "checkout",
+                                    "key": "checkout",
+                                    "value": "20",
+                                    "description": "O ID do pedido"
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "*\/*"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Deletar um pedido especificado"
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Produtos",
+            "description": "",
+            "item": [
+                {
+                    "name": "Buscar todos os produtos",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/products\/list",
+                            "query": [],
+                            "raw": "https:\/\/{{baseUrl}}\/api\/products\/list"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "*\/*"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Apresenta uma lista de todos os produtos com as informa\u00e7\u00f5es",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                }
+                            ],
+                            "code": 404,
+                            "body": "<!DOCTYPE html>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"utf-8\">\n        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n\n        <title>Not Found<\/title>\n\n        <!-- Fonts -->\n        <link rel=\"dns-prefetch\" href=\"\/\/fonts.gstatic.com\">\n        <link href=\"https:\/\/fonts.googleapis.com\/css?family=Nunito\" rel=\"stylesheet\">\n\n        <!-- Styles -->\n        <style>\n            html, body {\n                background-color: #fff;\n                color: #636b6f;\n                font-family: 'Nunito', sans-serif;\n                font-weight: 100;\n                height: 100vh;\n                margin: 0;\n            }\n\n            .full-height {\n                height: 100vh;\n            }\n\n            .flex-center {\n                align-items: center;\n                display: flex;\n                justify-content: center;\n            }\n\n            .position-ref {\n                position: relative;\n            }\n\n            .code {\n                border-right: 2px solid;\n                font-size: 26px;\n                padding: 0 15px 0 15px;\n                text-align: center;\n            }\n\n            .message {\n                font-size: 18px;\n                text-align: center;\n            }\n        <\/style>\n    <\/head>\n    <body>\n        <div class=\"flex-center position-ref full-height\">\n            <div class=\"code\">\n                404            <\/div>\n\n            <div class=\"message\" style=\"padding: 10px;\">\n                Not Found            <\/div>\n        <\/div>\n    <\/body>\n<\/html>\n",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Buscar produto",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/products\/view\/:product",
+                            "query": [],
+                            "raw": "https:\/\/{{baseUrl}}\/api\/products\/view\/:product",
+                            "variable": [
+                                {
+                                    "id": "product",
+                                    "key": "product",
+                                    "value": "10",
+                                    "description": "O ID do produto"
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "*\/*"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Apresenta as informa\u00e7\u00f5es do produto especificado",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                }
+                            ],
+                            "code": 404,
+                            "body": "<!DOCTYPE html>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"utf-8\">\n        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n\n        <title>Not Found<\/title>\n\n        <!-- Fonts -->\n        <link rel=\"dns-prefetch\" href=\"\/\/fonts.gstatic.com\">\n        <link href=\"https:\/\/fonts.googleapis.com\/css?family=Nunito\" rel=\"stylesheet\">\n\n        <!-- Styles -->\n        <style>\n            html, body {\n                background-color: #fff;\n                color: #636b6f;\n                font-family: 'Nunito', sans-serif;\n                font-weight: 100;\n                height: 100vh;\n                margin: 0;\n            }\n\n            .full-height {\n                height: 100vh;\n            }\n\n            .flex-center {\n                align-items: center;\n                display: flex;\n                justify-content: center;\n            }\n\n            .position-ref {\n                position: relative;\n            }\n\n            .code {\n                border-right: 2px solid;\n                font-size: 26px;\n                padding: 0 15px 0 15px;\n                text-align: center;\n            }\n\n            .message {\n                font-size: 18px;\n                text-align: center;\n            }\n        <\/style>\n    <\/head>\n    <body>\n        <div class=\"flex-center position-ref full-height\">\n            <div class=\"code\">\n                404            <\/div>\n\n            <div class=\"message\" style=\"padding: 10px;\">\n                Not Found            <\/div>\n        <\/div>\n    <\/body>\n<\/html>\n",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Cadastrar um produto",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/products\/add",
+                            "query": [],
+                            "raw": "https:\/\/{{baseUrl}}\/api\/products\/add"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "multipart\/form-data"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "*\/*"
+                            }
+                        ],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "name",
+                                    "value": "vero",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "type",
+                                    "value": "ab",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "value",
+                                    "value": 1.1575,
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "images[]",
+                                    "src": [],
+                                    "type": "file"
+                                }
+                            ]
+                        },
+                        "description": "Cadastrar um produto com foto ou n\u00e3o, se tudo estiver certo apresenta as informa\u00e7\u00f5es do produto"
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Editar produto",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/products\/edit\/:product",
+                            "query": [],
+                            "raw": "https:\/\/{{baseUrl}}\/api\/products\/edit\/:product",
+                            "variable": [
+                                {
+                                    "id": "product",
+                                    "key": "product",
+                                    "value": "1",
+                                    "description": "O ID do produto"
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "*\/*"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name\":\"amet\",\"type\":\"impedit\",\"value\":261166.39222351}"
+                        },
+                        "description": "Editar um produto especificado, se tudo estiver certo apresenta as informa\u00e7\u00f5es do produto"
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Deletar produto",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/products\/delete\/:product",
+                            "query": [],
+                            "raw": "https:\/\/{{baseUrl}}\/api\/products\/delete\/:product",
+                            "variable": [
+                                {
+                                    "id": "product",
+                                    "key": "product",
+                                    "value": "1",
+                                    "description": "O ID do produto"
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "*\/*"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Deletar um produto especificado"
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Usu\u00e1rios",
+            "description": "",
+            "item": [
+                {
+                    "name": "Buscar todos os usu\u00e1rios",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/users",
+                            "query": [],
+                            "raw": "https:\/\/{{baseUrl}}\/api\/users"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "*\/*"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Apresenta uma lista de todos os usu\u00e1rios com as informa\u00e7\u00f5es",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                }
+                            ],
+                            "code": 404,
+                            "body": "<!DOCTYPE html>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"utf-8\">\n        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n\n        <title>Not Found<\/title>\n\n        <!-- Fonts -->\n        <link rel=\"dns-prefetch\" href=\"\/\/fonts.gstatic.com\">\n        <link href=\"https:\/\/fonts.googleapis.com\/css?family=Nunito\" rel=\"stylesheet\">\n\n        <!-- Styles -->\n        <style>\n            html, body {\n                background-color: #fff;\n                color: #636b6f;\n                font-family: 'Nunito', sans-serif;\n                font-weight: 100;\n                height: 100vh;\n                margin: 0;\n            }\n\n            .full-height {\n                height: 100vh;\n            }\n\n            .flex-center {\n                align-items: center;\n                display: flex;\n                justify-content: center;\n            }\n\n            .position-ref {\n                position: relative;\n            }\n\n            .code {\n                border-right: 2px solid;\n                font-size: 26px;\n                padding: 0 15px 0 15px;\n                text-align: center;\n            }\n\n            .message {\n                font-size: 18px;\n                text-align: center;\n            }\n        <\/style>\n    <\/head>\n    <body>\n        <div class=\"flex-center position-ref full-height\">\n            <div class=\"code\">\n                404            <\/div>\n\n            <div class=\"message\" style=\"padding: 10px;\">\n                Not Found            <\/div>\n        <\/div>\n    <\/body>\n<\/html>\n",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Buscar usu\u00e1rio JWT",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/users\/me",
+                            "query": [],
+                            "raw": "https:\/\/{{baseUrl}}\/api\/users\/me"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "*\/*"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Apresenta as informa\u00e7\u00f5es do usu\u00e1rio logado que foi passado com JWT",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                }
+                            ],
+                            "code": 404,
+                            "body": "<!DOCTYPE html>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"utf-8\">\n        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n\n        <title>Not Found<\/title>\n\n        <!-- Fonts -->\n        <link rel=\"dns-prefetch\" href=\"\/\/fonts.gstatic.com\">\n        <link href=\"https:\/\/fonts.googleapis.com\/css?family=Nunito\" rel=\"stylesheet\">\n\n        <!-- Styles -->\n        <style>\n            html, body {\n                background-color: #fff;\n                color: #636b6f;\n                font-family: 'Nunito', sans-serif;\n                font-weight: 100;\n                height: 100vh;\n                margin: 0;\n            }\n\n            .full-height {\n                height: 100vh;\n            }\n\n            .flex-center {\n                align-items: center;\n                display: flex;\n                justify-content: center;\n            }\n\n            .position-ref {\n                position: relative;\n            }\n\n            .code {\n                border-right: 2px solid;\n                font-size: 26px;\n                padding: 0 15px 0 15px;\n                text-align: center;\n            }\n\n            .message {\n                font-size: 18px;\n                text-align: center;\n            }\n        <\/style>\n    <\/head>\n    <body>\n        <div class=\"flex-center position-ref full-height\">\n            <div class=\"code\">\n                404            <\/div>\n\n            <div class=\"message\" style=\"padding: 10px;\">\n                Not Found            <\/div>\n        <\/div>\n    <\/body>\n<\/html>\n",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Editar usu\u00e1rio JWT",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/users\/me\/edit",
+                            "query": [],
+                            "raw": "https:\/\/{{baseUrl}}\/api\/users\/me\/edit"
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "*\/*"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name\":\"perferendis\",\"email\":\"fugit\"}"
+                        },
+                        "description": "Alterar dados do usu\u00e1rio logado que foi passado com JWT, se tudo estiver certo apresenta as informa\u00e7\u00f5es do usu\u00e1rio",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        }
+    ],
+    "auth": {
+        "type": "bearer"
+    }
+}

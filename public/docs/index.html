@@ -1,0 +1,4478 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>ecommerceApi</title>
+
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../docs/css/theme-default.style.css" media="screen">
+    <link rel="stylesheet" href="../docs/css/theme-default.print.css" media="print">
+    <script src="../docs/js/theme-default-3.9.1.js"></script>
+
+    <link rel="stylesheet"
+          href="//unpkg.com/@highlightjs/cdn-assets@10.7.2/styles/obsidian.min.css">
+    <script src="//unpkg.com/@highlightjs/cdn-assets@10.7.2/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+
+    <script src="//cdn.jsdelivr.net/npm/lodash@4.17.10/lodash.min.js"></script>
+    <script>
+        var baseUrl = "https://localhost/laravelProjetos/ecommerceApi/public";
+    </script>
+    <script src="../docs/js/tryitout-3.9.1.js"></script>
+
+</head>
+
+<body data-languages="[&quot;bash&quot;,&quot;php&quot;,&quot;javascript&quot;,&quot;python&quot;]">
+<a href="#" id="nav-button">
+      <span>
+        MENU
+        <img src="../docs/images/navbar.png" alt="navbar-image" />
+      </span>
+</a>
+<div class="tocify-wrapper">
+                <div class="lang-selector">
+                            <a href="#" data-language-name="bash">bash</a>
+                            <a href="#" data-language-name="php">php</a>
+                            <a href="#" data-language-name="javascript">javascript</a>
+                            <a href="#" data-language-name="python">python</a>
+                    </div>
+        <div class="search">
+        <input type="text" class="search" id="input-search" placeholder="Search">
+    </div>
+    <ul class="search-results"></ul>
+
+    <ul id="toc">
+    </ul>
+
+            <ul class="toc-footer" id="toc-footer">
+                            <li><a href="../docs/collection.json">View Postman collection</a></li>
+                            <li><a href="../docs/openapi.yaml">View OpenAPI spec</a></li>
+                            <li><a href="http://github.com/knuckleswtf/scribe">Documentation powered by Scribe ✍</a></li>
+                    </ul>
+            <ul class="toc-footer" id="last-updated">
+            <li>Last updated: September 7 2021</li>
+        </ul>
+</div>
+<div class="page-wrapper">
+    <div class="dark-box"></div>
+    <div class="content">
+        <h1>Introduction</h1>
+<p>API RESTFul para o gerenciamento de pedidos de um E-commerce utilizando o framework Laravel, contêm os módulos Comprador, Produto, Checkout, Auth e Usuário</p>
+<pre><code>API RESTFul E-commerce</code></pre>
+<blockquote>
+<p>Base URL</p>
+</blockquote>
+<pre><code class="language-yaml">https://localhost/laravelProjetos/ecommerceApi/public</code></pre>
+
+        <h1>Authenticating requests</h1>
+<p>To authenticate requests, include an <strong><code>Authorization</code></strong> header with the value <strong><code>"Bearer {ACCESS_TOKEN}"</code></strong>.</p>
+<p>All authenticated endpoints are marked with a <code>requires authentication</code> badge in the documentation below.</p>
+<p>Você pode recuperar um token clicando em <a href="#cadastrar-um-novo-usurio">Gerar API token</a>.</p>
+
+        <h1 id="autenticacao-jwt">Autenticação Jwt</h1>
+
+    
+
+            <h2 id="autenticacao-jwt-POSTapi-auth-login">Autenticação com email e senha</h2>
+
+<p>
+</p>
+
+<p>Obtenha um JWT com credenciais fornecidas</p>
+
+<span id="example-requests-POSTapi-auth-login">
+<blockquote>Example request:</blockquote>
+
+
+<pre><code class="language-bash">curl --request POST \
+    "https://localhost/laravelProjetos/ecommerceApi/public/api/auth/login" \
+    --header "Content-Type: application/json" \
+    --header "Accept: */*" \
+    --data "{
+    \"email\": \"danielfalcao.df@gmail.com\",
+    \"password\": \"123456\"
+}"
+</code></pre>
+
+<pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'https://localhost/laravelProjetos/ecommerceApi/public/api/auth/login',
+    [
+        'headers' =&gt; [
+            'Accept' =&gt; '*/*',
+        ],
+        'json' =&gt; [
+            'email' =&gt; 'danielfalcao.df@gmail.com',
+            'password' =&gt; '123456',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+
+<pre><code class="language-javascript">const url = new URL(
+    "https://localhost/laravelProjetos/ecommerceApi/public/api/auth/login"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "*/*",
+};
+
+let body = {
+    "email": "danielfalcao.df@gmail.com",
+    "password": "123456"
+}
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre>
+
+<pre><code class="language-python">import requests
+import json
+
+url = 'https://localhost/laravelProjetos/ecommerceApi/public/api/auth/login'
+payload = {
+    "email": "danielfalcao.df@gmail.com",
+    "password": "123456"
+}
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': '*/*'
+}
+
+response = requests.request('POST', url, headers=headers, json=payload)
+response.json()</code></pre>
+</span>
+
+<span id="example-responses-POSTapi-auth-login">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;message&quot;: &quot;&quot;,
+    &quot;type&quot;: &quot;success&quot;,
+    &quot;data&quot;: {
+        &quot;id&quot;: 1,
+        &quot;name&quot;: &quot;Kevin Edilson Padilha&quot;,
+        &quot;email&quot;: &quot;danielfalcao.df@gmail.com&quot;,
+        &quot;token&quot;: {
+            &quot;access_token&quot;: &quot;eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvbG9jYWxob3N0XC9sYXJhdmVsUHJvamV0b3NcL2Vjb21tZXJjZUFwaVwvcHVibGljXC9cL2FwaVwvYXV0aFwvbG9naW4iLCJpYXQiOjE2MzEwNDQyNjksImV4cCI6MTYzMTA0Nzg2OSwibmJmIjoxNjMxMDQ0MjY5LCJqdGkiOiJ4aUR4ajhkUWY2NFZUZWxCIiwic3ViIjoxLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.WHEa91qVOqlg7WT189BkYWiJayYpScY6c8ZIObLZNPQ&quot;,
+            &quot;token_type&quot;: &quot;bearer&quot;,
+            &quot;expires_in&quot;: 3600
+        },
+        &quot;created_at&quot;: &quot;06/09/2021&quot;,
+        &quot;updated_at&quot;: &quot;06/09/2021&quot;,
+        &quot;link&quot;: {
+            &quot;get&quot;: {
+                &quot;getListAll&quot;: &quot;https://localhost/laravelProjetos/ecommerceApi/public/api/users&quot;,
+                &quot;getMe&quot;: &quot;https://localhost/laravelProjetos/ecommerceApi/public/api/users/me&quot;
+            },
+            &quot;post&quot;: {
+                &quot;login&quot;: &quot;https://localhost/laravelProjetos/ecommerceApi/public/api/auth/login&quot;,
+                &quot;register&quot;: &quot;https://localhost/laravelProjetos/ecommerceApi/public/api/auth/register&quot;,
+                &quot;logout&quot;: &quot;https://localhost/laravelProjetos/ecommerceApi/public/api/auth/logout&quot;
+            },
+            &quot;put&quot;: {
+                &quot;editNameEmail&quot;: &quot;https://localhost/laravelProjetos/ecommerceApi/public/api/users/me/edit&quot;
+            }
+        }
+    },
+    &quot;code&quot;: 200
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (400):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;type&quot;: &quot;error&quot;,
+    &quot;message&quot;: &quot;Email ou senha inv&aacute;lidos&quot;,
+    &quot;code&quot;: 400
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (422, Erros semânticos do código):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;type&quot;: &quot;error&quot;,
+    &quot;message&quot;: &quot;Error&quot;,
+    &quot;code&quot;: 422,
+    &quot;data&quot;: {
+        &quot;errors&quot;: &quot;syntax error, unexpected 'if' (T_IF)&quot;
+    }
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-POSTapi-auth-login" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-auth-login"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-auth-login"></code></pre>
+</span>
+<span id="execution-error-POSTapi-auth-login" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-auth-login"></code></pre>
+</span>
+<form id="form-POSTapi-auth-login" data-method="POST"
+      data-path="api/auth/login"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"*\/*"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-auth-login', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-auth-login"
+                    onclick="tryItOut('POSTapi-auth-login');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-auth-login"
+                    onclick="cancelTryOut('POSTapi-auth-login');" hidden>Cancel
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-auth-login" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/auth/login</code></b>
+        </p>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>email</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="email"
+               data-endpoint="POSTapi-auth-login"
+               data-component="body" required  hidden>
+    <br>
+<p>Email do usuário cadastrado.</p>        </p>
+                <p>
+            <b><code>password</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="password"
+               data-endpoint="POSTapi-auth-login"
+               data-component="body" required  hidden>
+    <br>
+<p>Senha do usuário cadastrado.</p>        </p>
+    
+    </form>
+
+            <h2 id="autenticacao-jwt-POSTapi-auth-register">Cadastrar um novo usuário</h2>
+
+<p>
+</p>
+
+<p>Usando name, email, password e password_confirmation, se tudo estiver certo apresenta um token de acesso (JWT) e datalhes do usuario novo</p>
+
+<span id="example-requests-POSTapi-auth-register">
+<blockquote>Example request:</blockquote>
+
+
+<pre><code class="language-bash">curl --request POST \
+    "https://localhost/laravelProjetos/ecommerceApi/public/api/auth/register" \
+    --header "Content-Type: application/json" \
+    --header "Accept: */*" \
+    --data "{
+    \"name\": \"teste\",
+    \"email\": \"teste@teste.com\",
+    \"password\": \"123456\",
+    \"password_confirmation\": \"123456\"
+}"
+</code></pre>
+
+<pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'https://localhost/laravelProjetos/ecommerceApi/public/api/auth/register',
+    [
+        'headers' =&gt; [
+            'Accept' =&gt; '*/*',
+        ],
+        'json' =&gt; [
+            'name' =&gt; 'teste',
+            'email' =&gt; 'teste@teste.com',
+            'password' =&gt; '123456',
+            'password_confirmation' =&gt; '123456',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+
+<pre><code class="language-javascript">const url = new URL(
+    "https://localhost/laravelProjetos/ecommerceApi/public/api/auth/register"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "*/*",
+};
+
+let body = {
+    "name": "teste",
+    "email": "teste@teste.com",
+    "password": "123456",
+    "password_confirmation": "123456"
+}
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre>
+
+<pre><code class="language-python">import requests
+import json
+
+url = 'https://localhost/laravelProjetos/ecommerceApi/public/api/auth/register'
+payload = {
+    "name": "teste",
+    "email": "teste@teste.com",
+    "password": "123456",
+    "password_confirmation": "123456"
+}
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': '*/*'
+}
+
+response = requests.request('POST', url, headers=headers, json=payload)
+response.json()</code></pre>
+</span>
+
+<span id="example-responses-POSTapi-auth-register">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;message&quot;: &quot;Usu&aacute;rio Cadastrado!&quot;,
+    &quot;type&quot;: &quot;success&quot;,
+    &quot;data&quot;: {
+        &quot;id&quot;: 23,
+        &quot;name&quot;: &quot;teste&quot;,
+        &quot;email&quot;: &quot;teste@teste.com&quot;,
+        &quot;token&quot;: {
+            &quot;access_token&quot;: &quot;eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvbG9jYWxob3N0XC9sYXJhdmVsUHJvamV0b3NcL2Vjb21tZXJjZUFwaVwvcHVibGljXC9cL2FwaVwvYXV0aFwvcmVnaXN0ZXIiLCJpYXQiOjE2MzEwNDQ2MTksImV4cCI6MTYzMTA0ODIxOSwibmJmIjoxNjMxMDQ0NjE5LCJqdGkiOiJBaWo2YWdKTjlaUWtkb1hOIiwic3ViIjoyMywicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.thHar_GT9_OIco3Vm85EWn-FJ7AA3EdcWzpBulq7-hQ&quot;,
+            &quot;token_type&quot;: &quot;bearer&quot;,
+            &quot;expires_in&quot;: 3600
+        },
+        &quot;created_at&quot;: &quot;07/09/2021&quot;,
+        &quot;updated_at&quot;: &quot;07/09/2021&quot;,
+        &quot;link&quot;: {
+            &quot;get&quot;: {
+                &quot;getListAll&quot;: &quot;https://localhost/laravelProjetos/ecommerceApi/public/api/users&quot;,
+                &quot;getMe&quot;: &quot;https://localhost/laravelProjetos/ecommerceApi/public/api/users/me&quot;
+            },
+            &quot;post&quot;: {
+                &quot;login&quot;: &quot;https://localhost/laravelProjetos/ecommerceApi/public/api/auth/login&quot;,
+                &quot;register&quot;: &quot;https://localhost/laravelProjetos/ecommerceApi/public/api/auth/register&quot;,
+                &quot;logout&quot;: &quot;https://localhost/laravelProjetos/ecommerceApi/public/api/auth/logout&quot;
+            },
+            &quot;put&quot;: {
+                &quot;editNameEmail&quot;: &quot;https://localhost/laravelProjetos/ecommerceApi/public/api/users/me/edit&quot;
+            }
+        }
+    },
+    &quot;code&quot;: 201
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (422, Validação do bodyparam):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;type&quot;: &quot;error&quot;,
+    &quot;message&quot;: &quot;Campos inv&aacute;lidos&quot;,
+    &quot;code&quot;: 422,
+    &quot;data&quot;: {
+        &quot;name&quot;: [
+            &quot;Obrigat&oacute;rio&quot;
+        ],
+        &quot;email&quot;: [
+            &quot;The email field is required.&quot;
+        ],
+        &quot;password&quot;: [
+            &quot;The password field is required.&quot;
+        ]
+    }
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (422, Validação do bodyparam):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;type&quot;: &quot;error&quot;,
+    &quot;message&quot;: &quot;Campos inv&aacute;lidos&quot;,
+    &quot;code&quot;: 422,
+    &quot;data&quot;: {
+        &quot;email&quot;: [
+            &quot;The email must be a valid email address.&quot;
+        ],
+        &quot;password&quot;: [
+            &quot;The password must be at least 6 characters.&quot;,
+            &quot;The password confirmation does not match.&quot;
+        ]
+    }
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (422, Validação do bodyparam):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;type&quot;: &quot;error&quot;,
+    &quot;message&quot;: &quot;Campos inv&aacute;lidos&quot;,
+    &quot;code&quot;: 422,
+    &quot;data&quot;: {
+        &quot;email&quot;: [
+            &quot;The email has already been taken.&quot;
+        ],
+        &quot;password&quot;: [
+            &quot;The password must be at least 6 characters.&quot;,
+            &quot;The password confirmation does not match.&quot;
+        ]
+    }
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (422, Erros semânticos do código):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;type&quot;: &quot;error&quot;,
+    &quot;message&quot;: &quot;Error&quot;,
+    &quot;code&quot;: 422,
+    &quot;data&quot;: {
+        &quot;errors&quot;: &quot;syntax error, unexpected 'if' (T_IF)&quot;
+    }
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-POSTapi-auth-register" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-auth-register"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-auth-register"></code></pre>
+</span>
+<span id="execution-error-POSTapi-auth-register" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-auth-register"></code></pre>
+</span>
+<form id="form-POSTapi-auth-register" data-method="POST"
+      data-path="api/auth/register"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"*\/*"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-auth-register', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-auth-register"
+                    onclick="tryItOut('POSTapi-auth-register');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-auth-register"
+                    onclick="cancelTryOut('POSTapi-auth-register');" hidden>Cancel
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-auth-register" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/auth/register</code></b>
+        </p>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>name</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="name"
+               data-endpoint="POSTapi-auth-register"
+               data-component="body" required  hidden>
+    <br>
+<p>Nome do usuário.</p>        </p>
+                <p>
+            <b><code>email</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="email"
+               data-endpoint="POSTapi-auth-register"
+               data-component="body" required  hidden>
+    <br>
+<p>Email do usuário que não é cadastrado.</p>        </p>
+                <p>
+            <b><code>password</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="password"
+               data-endpoint="POSTapi-auth-register"
+               data-component="body" required  hidden>
+    <br>
+<p>Senha do usuário.</p>        </p>
+                <p>
+            <b><code>password_confirmation</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="password_confirmation"
+               data-endpoint="POSTapi-auth-register"
+               data-component="body" required  hidden>
+    <br>
+<p>Confirmação da senha.</p>        </p>
+    
+    </form>
+
+            <h2 id="autenticacao-jwt-POSTapi-auth-logout">Deslogar da Api</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>Desconecte o usuário (invalide o token), se tudo estiver certo apresenta as informações do usuário</p>
+
+<span id="example-requests-POSTapi-auth-logout">
+<blockquote>Example request:</blockquote>
+
+
+<pre><code class="language-bash">curl --request POST \
+    "https://localhost/laravelProjetos/ecommerceApi/public/api/auth/logout" \
+    --header "Authorization: Bearer {ACCESS_TOKEN}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: */*"</code></pre>
+
+<pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'https://localhost/laravelProjetos/ecommerceApi/public/api/auth/logout',
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer {ACCESS_TOKEN}',
+            'Accept' =&gt; '*/*',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+
+<pre><code class="language-javascript">const url = new URL(
+    "https://localhost/laravelProjetos/ecommerceApi/public/api/auth/logout"
+);
+
+const headers = {
+    "Authorization": "Bearer {ACCESS_TOKEN}",
+    "Content-Type": "application/json",
+    "Accept": "*/*",
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+
+<pre><code class="language-python">import requests
+import json
+
+url = 'https://localhost/laravelProjetos/ecommerceApi/public/api/auth/logout'
+headers = {
+  'Authorization': 'Bearer {ACCESS_TOKEN}',
+  'Content-Type': 'application/json',
+  'Accept': '*/*'
+}
+
+response = requests.request('POST', url, headers=headers)
+response.json()</code></pre>
+</span>
+
+<span id="example-responses-POSTapi-auth-logout">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;message&quot;: &quot;Successfully logged out&quot;,
+    &quot;type&quot;: &quot;success&quot;,
+    &quot;data&quot;: {
+        &quot;id&quot;: 1,
+        &quot;name&quot;: &quot;Kevin Edilson Padilha&quot;,
+        &quot;email&quot;: &quot;danielfalcao.df@gmail.com&quot;,
+        &quot;email_verified_at&quot;: null,
+        &quot;created_at&quot;: &quot;06/09/2021&quot;,
+        &quot;updated_at&quot;: &quot;06/09/2021&quot;,
+        &quot;link&quot;: {
+            &quot;get&quot;: {
+                &quot;getListAll&quot;: &quot;https://localhost/laravelProjetos/ecommerceApi/public/api/users&quot;,
+                &quot;getMe&quot;: &quot;https://localhost/laravelProjetos/ecommerceApi/public/api/users/me&quot;
+            },
+            &quot;post&quot;: {
+                &quot;login&quot;: &quot;https://localhost/laravelProjetos/ecommerceApi/public/api/auth/login&quot;,
+                &quot;register&quot;: &quot;https://localhost/laravelProjetos/ecommerceApi/public/api/auth/register&quot;,
+                &quot;logout&quot;: &quot;https://localhost/laravelProjetos/ecommerceApi/public/api/auth/logout&quot;
+            },
+            &quot;put&quot;: {
+                &quot;editNameEmail&quot;: &quot;https://localhost/laravelProjetos/ecommerceApi/public/api/users/me/edit&quot;
+            }
+        }
+    },
+    &quot;code&quot;: 200
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (401, Token is Invalid, Token is Expired, Authorization Token not found):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;type&quot;: &quot;error&quot;,
+    &quot;code&quot;: 401,
+    &quot;massage&quot;: &quot;Token is Invalid&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (422, Erros semânticos do código):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;type&quot;: &quot;error&quot;,
+    &quot;message&quot;: &quot;Error&quot;,
+    &quot;code&quot;: 422,
+    &quot;data&quot;: {
+        &quot;errors&quot;: &quot;syntax error, unexpected 'if' (T_IF)&quot;
+    }
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-POSTapi-auth-logout" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-auth-logout"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-auth-logout"></code></pre>
+</span>
+<span id="execution-error-POSTapi-auth-logout" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-auth-logout"></code></pre>
+</span>
+<form id="form-POSTapi-auth-logout" data-method="POST"
+      data-path="api/auth/logout"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Authorization":"Bearer {ACCESS_TOKEN}","Content-Type":"application\/json","Accept":"*\/*"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-auth-logout', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-auth-logout"
+                    onclick="tryItOut('POSTapi-auth-logout');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-auth-logout"
+                    onclick="cancelTryOut('POSTapi-auth-logout');" hidden>Cancel
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-auth-logout" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/auth/logout</code></b>
+        </p>
+                <p>
+            <label id="auth-POSTapi-auth-logout" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="POSTapi-auth-logout"
+                                                                data-component="header"></label>
+        </p>
+                </form>
+
+        <h1 id="compradores">Compradores</h1>
+
+    
+
+            <h2 id="compradores-GETapi-buyers">Buscar todos Compradores</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>Apresenta uma lista de todos os compradores com as informações</p>
+
+<span id="example-requests-GETapi-buyers">
+<blockquote>Example request:</blockquote>
+
+
+<pre><code class="language-bash">curl --request GET \
+    --get "https://localhost/laravelProjetos/ecommerceApi/public/api/buyers" \
+    --header "Authorization: Bearer {ACCESS_TOKEN}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: */*"</code></pre>
+
+<pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'https://localhost/laravelProjetos/ecommerceApi/public/api/buyers',
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer {ACCESS_TOKEN}',
+            'Accept' =&gt; '*/*',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+
+<pre><code class="language-javascript">const url = new URL(
+    "https://localhost/laravelProjetos/ecommerceApi/public/api/buyers"
+);
+
+const headers = {
+    "Authorization": "Bearer {ACCESS_TOKEN}",
+    "Content-Type": "application/json",
+    "Accept": "*/*",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+
+<pre><code class="language-python">import requests
+import json
+
+url = 'https://localhost/laravelProjetos/ecommerceApi/public/api/buyers'
+headers = {
+  'Authorization': 'Bearer {ACCESS_TOKEN}',
+  'Content-Type': 'application/json',
+  'Accept': '*/*'
+}
+
+response = requests.request('GET', url, headers=headers)
+response.json()</code></pre>
+</span>
+
+<span id="example-responses-GETapi-buyers">
+            <blockquote>
+            <p>Example response (404):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+ </code></pre>
+        </details>         <pre>
+
+<code class="language-json">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;utf-8&quot;&gt;
+        &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+
+        &lt;title&gt;Not Found&lt;/title&gt;
+
+        &lt;!-- Fonts --&gt;
+        &lt;link rel=&quot;dns-prefetch&quot; href=&quot;//fonts.gstatic.com&quot;&gt;
+        &lt;link href=&quot;https://fonts.googleapis.com/css?family=Nunito&quot; rel=&quot;stylesheet&quot;&gt;
+
+        &lt;!-- Styles --&gt;
+        &lt;style&gt;
+            html, body {
+                background-color: #fff;
+                color: #636b6f;
+                font-family: 'Nunito', sans-serif;
+                font-weight: 100;
+                height: 100vh;
+                margin: 0;
+            }
+
+            .full-height {
+                height: 100vh;
+            }
+
+            .flex-center {
+                align-items: center;
+                display: flex;
+                justify-content: center;
+            }
+
+            .position-ref {
+                position: relative;
+            }
+
+            .code {
+                border-right: 2px solid;
+                font-size: 26px;
+                padding: 0 15px 0 15px;
+                text-align: center;
+            }
+
+            .message {
+                font-size: 18px;
+                text-align: center;
+            }
+        &lt;/style&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;div class=&quot;flex-center position-ref full-height&quot;&gt;
+            &lt;div class=&quot;code&quot;&gt;
+                404            &lt;/div&gt;
+
+            &lt;div class=&quot;message&quot; style=&quot;padding: 10px;&quot;&gt;
+                Not Found            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-buyers" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-buyers"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-buyers"></code></pre>
+</span>
+<span id="execution-error-GETapi-buyers" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-buyers"></code></pre>
+</span>
+<form id="form-GETapi-buyers" data-method="GET"
+      data-path="api/buyers"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Authorization":"Bearer {ACCESS_TOKEN}","Content-Type":"application\/json","Accept":"*\/*"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-buyers', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-buyers"
+                    onclick="tryItOut('GETapi-buyers');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-buyers"
+                    onclick="cancelTryOut('GETapi-buyers');" hidden>Cancel
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-buyers" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/buyers</code></b>
+        </p>
+                <p>
+            <label id="auth-GETapi-buyers" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="GETapi-buyers"
+                                                                data-component="header"></label>
+        </p>
+                </form>
+
+            <h2 id="compradores-GETapi-buyers-view--buyer-">Buscar Comprador</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>Apresenta as informações do comprador especificado</p>
+
+<span id="example-requests-GETapi-buyers-view--buyer-">
+<blockquote>Example request:</blockquote>
+
+
+<pre><code class="language-bash">curl --request GET \
+    --get "https://localhost/laravelProjetos/ecommerceApi/public/api/buyers/view/10" \
+    --header "Authorization: Bearer {ACCESS_TOKEN}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: */*"</code></pre>
+
+<pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'https://localhost/laravelProjetos/ecommerceApi/public/api/buyers/view/10',
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer {ACCESS_TOKEN}',
+            'Accept' =&gt; '*/*',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+
+<pre><code class="language-javascript">const url = new URL(
+    "https://localhost/laravelProjetos/ecommerceApi/public/api/buyers/view/10"
+);
+
+const headers = {
+    "Authorization": "Bearer {ACCESS_TOKEN}",
+    "Content-Type": "application/json",
+    "Accept": "*/*",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+
+<pre><code class="language-python">import requests
+import json
+
+url = 'https://localhost/laravelProjetos/ecommerceApi/public/api/buyers/view/10'
+headers = {
+  'Authorization': 'Bearer {ACCESS_TOKEN}',
+  'Content-Type': 'application/json',
+  'Accept': '*/*'
+}
+
+response = requests.request('GET', url, headers=headers)
+response.json()</code></pre>
+</span>
+
+<span id="example-responses-GETapi-buyers-view--buyer-">
+            <blockquote>
+            <p>Example response (404):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+ </code></pre>
+        </details>         <pre>
+
+<code class="language-json">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;utf-8&quot;&gt;
+        &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+
+        &lt;title&gt;Not Found&lt;/title&gt;
+
+        &lt;!-- Fonts --&gt;
+        &lt;link rel=&quot;dns-prefetch&quot; href=&quot;//fonts.gstatic.com&quot;&gt;
+        &lt;link href=&quot;https://fonts.googleapis.com/css?family=Nunito&quot; rel=&quot;stylesheet&quot;&gt;
+
+        &lt;!-- Styles --&gt;
+        &lt;style&gt;
+            html, body {
+                background-color: #fff;
+                color: #636b6f;
+                font-family: 'Nunito', sans-serif;
+                font-weight: 100;
+                height: 100vh;
+                margin: 0;
+            }
+
+            .full-height {
+                height: 100vh;
+            }
+
+            .flex-center {
+                align-items: center;
+                display: flex;
+                justify-content: center;
+            }
+
+            .position-ref {
+                position: relative;
+            }
+
+            .code {
+                border-right: 2px solid;
+                font-size: 26px;
+                padding: 0 15px 0 15px;
+                text-align: center;
+            }
+
+            .message {
+                font-size: 18px;
+                text-align: center;
+            }
+        &lt;/style&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;div class=&quot;flex-center position-ref full-height&quot;&gt;
+            &lt;div class=&quot;code&quot;&gt;
+                404            &lt;/div&gt;
+
+            &lt;div class=&quot;message&quot; style=&quot;padding: 10px;&quot;&gt;
+                Not Found            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-buyers-view--buyer-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-buyers-view--buyer-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-buyers-view--buyer-"></code></pre>
+</span>
+<span id="execution-error-GETapi-buyers-view--buyer-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-buyers-view--buyer-"></code></pre>
+</span>
+<form id="form-GETapi-buyers-view--buyer-" data-method="GET"
+      data-path="api/buyers/view/{buyer}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Authorization":"Bearer {ACCESS_TOKEN}","Content-Type":"application\/json","Accept":"*\/*"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-buyers-view--buyer-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-buyers-view--buyer-"
+                    onclick="tryItOut('GETapi-buyers-view--buyer-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-buyers-view--buyer-"
+                    onclick="cancelTryOut('GETapi-buyers-view--buyer-');" hidden>Cancel
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-buyers-view--buyer-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/buyers/view/{buyer}</code></b>
+        </p>
+                <p>
+            <label id="auth-GETapi-buyers-view--buyer-" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="GETapi-buyers-view--buyer-"
+                                                                data-component="header"></label>
+        </p>
+                <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>buyer</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
+               name="buyer"
+               data-endpoint="GETapi-buyers-view--buyer-"
+               data-component="url" required  hidden>
+    <br>
+<p>O ID do comprador</p>            </p>
+                    </form>
+
+            <h2 id="compradores-POSTapi-buyers-add">Cadastrar Comprador</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>Cadastrar um comprador, se tudo estiver certo apresenta as informações do comprador</p>
+
+<span id="example-requests-POSTapi-buyers-add">
+<blockquote>Example request:</blockquote>
+
+
+<pre><code class="language-bash">curl --request POST \
+    "https://localhost/laravelProjetos/ecommerceApi/public/api/buyers/add" \
+    --header "Authorization: Bearer {ACCESS_TOKEN}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: */*" \
+    --data "{
+    \"phone_cell\": \"unde\",
+    \"cpf\": \"commodi\",
+    \"iduser\": \"ipsam\"
+}"
+</code></pre>
+
+<pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'https://localhost/laravelProjetos/ecommerceApi/public/api/buyers/add',
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer {ACCESS_TOKEN}',
+            'Accept' =&gt; '*/*',
+        ],
+        'json' =&gt; [
+            'phone_cell' =&gt; 'unde',
+            'cpf' =&gt; 'commodi',
+            'iduser' =&gt; 'ipsam',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+
+<pre><code class="language-javascript">const url = new URL(
+    "https://localhost/laravelProjetos/ecommerceApi/public/api/buyers/add"
+);
+
+const headers = {
+    "Authorization": "Bearer {ACCESS_TOKEN}",
+    "Content-Type": "application/json",
+    "Accept": "*/*",
+};
+
+let body = {
+    "phone_cell": "unde",
+    "cpf": "commodi",
+    "iduser": "ipsam"
+}
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre>
+
+<pre><code class="language-python">import requests
+import json
+
+url = 'https://localhost/laravelProjetos/ecommerceApi/public/api/buyers/add'
+payload = {
+    "phone_cell": "unde",
+    "cpf": "commodi",
+    "iduser": "ipsam"
+}
+headers = {
+  'Authorization': 'Bearer {ACCESS_TOKEN}',
+  'Content-Type': 'application/json',
+  'Accept': '*/*'
+}
+
+response = requests.request('POST', url, headers=headers, json=payload)
+response.json()</code></pre>
+</span>
+
+<span id="example-responses-POSTapi-buyers-add">
+</span>
+<span id="execution-results-POSTapi-buyers-add" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-buyers-add"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-buyers-add"></code></pre>
+</span>
+<span id="execution-error-POSTapi-buyers-add" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-buyers-add"></code></pre>
+</span>
+<form id="form-POSTapi-buyers-add" data-method="POST"
+      data-path="api/buyers/add"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Authorization":"Bearer {ACCESS_TOKEN}","Content-Type":"application\/json","Accept":"*\/*"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-buyers-add', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-buyers-add"
+                    onclick="tryItOut('POSTapi-buyers-add');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-buyers-add"
+                    onclick="cancelTryOut('POSTapi-buyers-add');" hidden>Cancel
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-buyers-add" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/buyers/add</code></b>
+        </p>
+                <p>
+            <label id="auth-POSTapi-buyers-add" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="POSTapi-buyers-add"
+                                                                data-component="header"></label>
+        </p>
+                        <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>phone_cell</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="phone_cell"
+               data-endpoint="POSTapi-buyers-add"
+               data-component="body" required  hidden>
+    <br>
+<p>O Telefone ou celular do comprador.</p>        </p>
+                <p>
+            <b><code>cpf</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="cpf"
+               data-endpoint="POSTapi-buyers-add"
+               data-component="body" required  hidden>
+    <br>
+<p>CPF do comprador.</p>        </p>
+                <p>
+            <b><code>iduser</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="iduser"
+               data-endpoint="POSTapi-buyers-add"
+               data-component="body" required  hidden>
+    <br>
+<p>O ID do usuário.</p>        </p>
+    
+    </form>
+
+            <h2 id="compradores-PUTapi-buyers-edit--buyer-">Editar Comprador</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>Editar um comprador especificado, se tudo estiver certo apresenta as informações do comprador</p>
+
+<span id="example-requests-PUTapi-buyers-edit--buyer-">
+<blockquote>Example request:</blockquote>
+
+
+<pre><code class="language-bash">curl --request PUT \
+    "https://localhost/laravelProjetos/ecommerceApi/public/api/buyers/edit/2" \
+    --header "Authorization: Bearer {ACCESS_TOKEN}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: */*" \
+    --data "{
+    \"phone_cell\": \"qui\",
+    \"cpf\": \"reprehenderit\",
+    \"iduser\": \"natus\"
+}"
+</code></pre>
+
+<pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;put(
+    'https://localhost/laravelProjetos/ecommerceApi/public/api/buyers/edit/2',
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer {ACCESS_TOKEN}',
+            'Accept' =&gt; '*/*',
+        ],
+        'json' =&gt; [
+            'phone_cell' =&gt; 'qui',
+            'cpf' =&gt; 'reprehenderit',
+            'iduser' =&gt; 'natus',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+
+<pre><code class="language-javascript">const url = new URL(
+    "https://localhost/laravelProjetos/ecommerceApi/public/api/buyers/edit/2"
+);
+
+const headers = {
+    "Authorization": "Bearer {ACCESS_TOKEN}",
+    "Content-Type": "application/json",
+    "Accept": "*/*",
+};
+
+let body = {
+    "phone_cell": "qui",
+    "cpf": "reprehenderit",
+    "iduser": "natus"
+}
+
+fetch(url, {
+    method: "PUT",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre>
+
+<pre><code class="language-python">import requests
+import json
+
+url = 'https://localhost/laravelProjetos/ecommerceApi/public/api/buyers/edit/2'
+payload = {
+    "phone_cell": "qui",
+    "cpf": "reprehenderit",
+    "iduser": "natus"
+}
+headers = {
+  'Authorization': 'Bearer {ACCESS_TOKEN}',
+  'Content-Type': 'application/json',
+  'Accept': '*/*'
+}
+
+response = requests.request('PUT', url, headers=headers, json=payload)
+response.json()</code></pre>
+</span>
+
+<span id="example-responses-PUTapi-buyers-edit--buyer-">
+</span>
+<span id="execution-results-PUTapi-buyers-edit--buyer-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-PUTapi-buyers-edit--buyer-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-PUTapi-buyers-edit--buyer-"></code></pre>
+</span>
+<span id="execution-error-PUTapi-buyers-edit--buyer-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-PUTapi-buyers-edit--buyer-"></code></pre>
+</span>
+<form id="form-PUTapi-buyers-edit--buyer-" data-method="PUT"
+      data-path="api/buyers/edit/{buyer}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Authorization":"Bearer {ACCESS_TOKEN}","Content-Type":"application\/json","Accept":"*\/*"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('PUTapi-buyers-edit--buyer-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-PUTapi-buyers-edit--buyer-"
+                    onclick="tryItOut('PUTapi-buyers-edit--buyer-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-PUTapi-buyers-edit--buyer-"
+                    onclick="cancelTryOut('PUTapi-buyers-edit--buyer-');" hidden>Cancel
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-PUTapi-buyers-edit--buyer-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-darkblue">PUT</small>
+            <b><code>api/buyers/edit/{buyer}</code></b>
+        </p>
+                <p>
+            <label id="auth-PUTapi-buyers-edit--buyer-" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="PUTapi-buyers-edit--buyer-"
+                                                                data-component="header"></label>
+        </p>
+                <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>buyer</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
+               name="buyer"
+               data-endpoint="PUTapi-buyers-edit--buyer-"
+               data-component="url" required  hidden>
+    <br>
+<p>O ID do comprador</p>            </p>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>phone_cell</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="phone_cell"
+               data-endpoint="PUTapi-buyers-edit--buyer-"
+               data-component="body" required  hidden>
+    <br>
+<p>Telefone ou Celular.</p>        </p>
+                <p>
+            <b><code>cpf</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="cpf"
+               data-endpoint="PUTapi-buyers-edit--buyer-"
+               data-component="body" required  hidden>
+    <br>
+<p>CPF.</p>        </p>
+                <p>
+            <b><code>iduser</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="iduser"
+               data-endpoint="PUTapi-buyers-edit--buyer-"
+               data-component="body" required  hidden>
+    <br>
+<p>O id do Usuário.</p>        </p>
+    
+    </form>
+
+            <h2 id="compradores-DELETEapi-buyers-delete--buyer-">Deletar Comprador</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>Deletar um Comprador especificado</p>
+
+<span id="example-requests-DELETEapi-buyers-delete--buyer-">
+<blockquote>Example request:</blockquote>
+
+
+<pre><code class="language-bash">curl --request DELETE \
+    "https://localhost/laravelProjetos/ecommerceApi/public/api/buyers/delete/16" \
+    --header "Authorization: Bearer {ACCESS_TOKEN}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: */*"</code></pre>
+
+<pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;delete(
+    'https://localhost/laravelProjetos/ecommerceApi/public/api/buyers/delete/16',
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer {ACCESS_TOKEN}',
+            'Accept' =&gt; '*/*',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+
+<pre><code class="language-javascript">const url = new URL(
+    "https://localhost/laravelProjetos/ecommerceApi/public/api/buyers/delete/16"
+);
+
+const headers = {
+    "Authorization": "Bearer {ACCESS_TOKEN}",
+    "Content-Type": "application/json",
+    "Accept": "*/*",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+
+<pre><code class="language-python">import requests
+import json
+
+url = 'https://localhost/laravelProjetos/ecommerceApi/public/api/buyers/delete/16'
+headers = {
+  'Authorization': 'Bearer {ACCESS_TOKEN}',
+  'Content-Type': 'application/json',
+  'Accept': '*/*'
+}
+
+response = requests.request('DELETE', url, headers=headers)
+response.json()</code></pre>
+</span>
+
+<span id="example-responses-DELETEapi-buyers-delete--buyer-">
+</span>
+<span id="execution-results-DELETEapi-buyers-delete--buyer-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-DELETEapi-buyers-delete--buyer-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-DELETEapi-buyers-delete--buyer-"></code></pre>
+</span>
+<span id="execution-error-DELETEapi-buyers-delete--buyer-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-DELETEapi-buyers-delete--buyer-"></code></pre>
+</span>
+<form id="form-DELETEapi-buyers-delete--buyer-" data-method="DELETE"
+      data-path="api/buyers/delete/{buyer}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Authorization":"Bearer {ACCESS_TOKEN}","Content-Type":"application\/json","Accept":"*\/*"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('DELETEapi-buyers-delete--buyer-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-DELETEapi-buyers-delete--buyer-"
+                    onclick="tryItOut('DELETEapi-buyers-delete--buyer-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-DELETEapi-buyers-delete--buyer-"
+                    onclick="cancelTryOut('DELETEapi-buyers-delete--buyer-');" hidden>Cancel
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-DELETEapi-buyers-delete--buyer-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-red">DELETE</small>
+            <b><code>api/buyers/delete/{buyer}</code></b>
+        </p>
+                <p>
+            <label id="auth-DELETEapi-buyers-delete--buyer-" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="DELETEapi-buyers-delete--buyer-"
+                                                                data-component="header"></label>
+        </p>
+                <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>buyer</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
+               name="buyer"
+               data-endpoint="DELETEapi-buyers-delete--buyer-"
+               data-component="url" required  hidden>
+    <br>
+<p>O ID do comprador</p>            </p>
+                    </form>
+
+        <h1 id="pedidos">Pedidos</h1>
+
+    
+
+            <h2 id="pedidos-GETapi-checkouts-me-list">Buscar todos pedidos do usuário</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>Apresenta todos os pedidos do usuário logado que foi passado com JWT</p>
+
+<span id="example-requests-GETapi-checkouts-me-list">
+<blockquote>Example request:</blockquote>
+
+
+<pre><code class="language-bash">curl --request GET \
+    --get "https://localhost/laravelProjetos/ecommerceApi/public/api/checkouts/me/list" \
+    --header "Authorization: Bearer {ACCESS_TOKEN}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: */*"</code></pre>
+
+<pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'https://localhost/laravelProjetos/ecommerceApi/public/api/checkouts/me/list',
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer {ACCESS_TOKEN}',
+            'Accept' =&gt; '*/*',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+
+<pre><code class="language-javascript">const url = new URL(
+    "https://localhost/laravelProjetos/ecommerceApi/public/api/checkouts/me/list"
+);
+
+const headers = {
+    "Authorization": "Bearer {ACCESS_TOKEN}",
+    "Content-Type": "application/json",
+    "Accept": "*/*",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+
+<pre><code class="language-python">import requests
+import json
+
+url = 'https://localhost/laravelProjetos/ecommerceApi/public/api/checkouts/me/list'
+headers = {
+  'Authorization': 'Bearer {ACCESS_TOKEN}',
+  'Content-Type': 'application/json',
+  'Accept': '*/*'
+}
+
+response = requests.request('GET', url, headers=headers)
+response.json()</code></pre>
+</span>
+
+<span id="example-responses-GETapi-checkouts-me-list">
+            <blockquote>
+            <p>Example response (404):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+ </code></pre>
+        </details>         <pre>
+
+<code class="language-json">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;utf-8&quot;&gt;
+        &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+
+        &lt;title&gt;Not Found&lt;/title&gt;
+
+        &lt;!-- Fonts --&gt;
+        &lt;link rel=&quot;dns-prefetch&quot; href=&quot;//fonts.gstatic.com&quot;&gt;
+        &lt;link href=&quot;https://fonts.googleapis.com/css?family=Nunito&quot; rel=&quot;stylesheet&quot;&gt;
+
+        &lt;!-- Styles --&gt;
+        &lt;style&gt;
+            html, body {
+                background-color: #fff;
+                color: #636b6f;
+                font-family: 'Nunito', sans-serif;
+                font-weight: 100;
+                height: 100vh;
+                margin: 0;
+            }
+
+            .full-height {
+                height: 100vh;
+            }
+
+            .flex-center {
+                align-items: center;
+                display: flex;
+                justify-content: center;
+            }
+
+            .position-ref {
+                position: relative;
+            }
+
+            .code {
+                border-right: 2px solid;
+                font-size: 26px;
+                padding: 0 15px 0 15px;
+                text-align: center;
+            }
+
+            .message {
+                font-size: 18px;
+                text-align: center;
+            }
+        &lt;/style&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;div class=&quot;flex-center position-ref full-height&quot;&gt;
+            &lt;div class=&quot;code&quot;&gt;
+                404            &lt;/div&gt;
+
+            &lt;div class=&quot;message&quot; style=&quot;padding: 10px;&quot;&gt;
+                Not Found            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-checkouts-me-list" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-checkouts-me-list"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-checkouts-me-list"></code></pre>
+</span>
+<span id="execution-error-GETapi-checkouts-me-list" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-checkouts-me-list"></code></pre>
+</span>
+<form id="form-GETapi-checkouts-me-list" data-method="GET"
+      data-path="api/checkouts/me/list"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Authorization":"Bearer {ACCESS_TOKEN}","Content-Type":"application\/json","Accept":"*\/*"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-checkouts-me-list', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-checkouts-me-list"
+                    onclick="tryItOut('GETapi-checkouts-me-list');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-checkouts-me-list"
+                    onclick="cancelTryOut('GETapi-checkouts-me-list');" hidden>Cancel
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-checkouts-me-list" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/checkouts/me/list</code></b>
+        </p>
+                <p>
+            <label id="auth-GETapi-checkouts-me-list" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="GETapi-checkouts-me-list"
+                                                                data-component="header"></label>
+        </p>
+                </form>
+
+            <h2 id="pedidos-GETapi-checkouts-me-view--checkout-">Buscar pedido do usuário</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>Apresenta um pedido especificado do usuário logado que foi passado com JWT, mostrando só o pedido dele</p>
+
+<span id="example-requests-GETapi-checkouts-me-view--checkout-">
+<blockquote>Example request:</blockquote>
+
+
+<pre><code class="language-bash">curl --request GET \
+    --get "https://localhost/laravelProjetos/ecommerceApi/public/api/checkouts/me/view/15" \
+    --header "Authorization: Bearer {ACCESS_TOKEN}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: */*"</code></pre>
+
+<pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'https://localhost/laravelProjetos/ecommerceApi/public/api/checkouts/me/view/15',
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer {ACCESS_TOKEN}',
+            'Accept' =&gt; '*/*',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+
+<pre><code class="language-javascript">const url = new URL(
+    "https://localhost/laravelProjetos/ecommerceApi/public/api/checkouts/me/view/15"
+);
+
+const headers = {
+    "Authorization": "Bearer {ACCESS_TOKEN}",
+    "Content-Type": "application/json",
+    "Accept": "*/*",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+
+<pre><code class="language-python">import requests
+import json
+
+url = 'https://localhost/laravelProjetos/ecommerceApi/public/api/checkouts/me/view/15'
+headers = {
+  'Authorization': 'Bearer {ACCESS_TOKEN}',
+  'Content-Type': 'application/json',
+  'Accept': '*/*'
+}
+
+response = requests.request('GET', url, headers=headers)
+response.json()</code></pre>
+</span>
+
+<span id="example-responses-GETapi-checkouts-me-view--checkout-">
+            <blockquote>
+            <p>Example response (404):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+ </code></pre>
+        </details>         <pre>
+
+<code class="language-json">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;utf-8&quot;&gt;
+        &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+
+        &lt;title&gt;Not Found&lt;/title&gt;
+
+        &lt;!-- Fonts --&gt;
+        &lt;link rel=&quot;dns-prefetch&quot; href=&quot;//fonts.gstatic.com&quot;&gt;
+        &lt;link href=&quot;https://fonts.googleapis.com/css?family=Nunito&quot; rel=&quot;stylesheet&quot;&gt;
+
+        &lt;!-- Styles --&gt;
+        &lt;style&gt;
+            html, body {
+                background-color: #fff;
+                color: #636b6f;
+                font-family: 'Nunito', sans-serif;
+                font-weight: 100;
+                height: 100vh;
+                margin: 0;
+            }
+
+            .full-height {
+                height: 100vh;
+            }
+
+            .flex-center {
+                align-items: center;
+                display: flex;
+                justify-content: center;
+            }
+
+            .position-ref {
+                position: relative;
+            }
+
+            .code {
+                border-right: 2px solid;
+                font-size: 26px;
+                padding: 0 15px 0 15px;
+                text-align: center;
+            }
+
+            .message {
+                font-size: 18px;
+                text-align: center;
+            }
+        &lt;/style&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;div class=&quot;flex-center position-ref full-height&quot;&gt;
+            &lt;div class=&quot;code&quot;&gt;
+                404            &lt;/div&gt;
+
+            &lt;div class=&quot;message&quot; style=&quot;padding: 10px;&quot;&gt;
+                Not Found            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-checkouts-me-view--checkout-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-checkouts-me-view--checkout-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-checkouts-me-view--checkout-"></code></pre>
+</span>
+<span id="execution-error-GETapi-checkouts-me-view--checkout-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-checkouts-me-view--checkout-"></code></pre>
+</span>
+<form id="form-GETapi-checkouts-me-view--checkout-" data-method="GET"
+      data-path="api/checkouts/me/view/{checkout}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Authorization":"Bearer {ACCESS_TOKEN}","Content-Type":"application\/json","Accept":"*\/*"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-checkouts-me-view--checkout-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-checkouts-me-view--checkout-"
+                    onclick="tryItOut('GETapi-checkouts-me-view--checkout-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-checkouts-me-view--checkout-"
+                    onclick="cancelTryOut('GETapi-checkouts-me-view--checkout-');" hidden>Cancel
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-checkouts-me-view--checkout-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/checkouts/me/view/{checkout}</code></b>
+        </p>
+                <p>
+            <label id="auth-GETapi-checkouts-me-view--checkout-" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="GETapi-checkouts-me-view--checkout-"
+                                                                data-component="header"></label>
+        </p>
+                <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>checkout</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
+               name="checkout"
+               data-endpoint="GETapi-checkouts-me-view--checkout-"
+               data-component="url" required  hidden>
+    <br>
+<p>O ID do pedido</p>            </p>
+                    </form>
+
+            <h2 id="pedidos-POSTapi-checkouts-me-new">Cadastrar pedido do usuário</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>Cadastrar um pedido do usuário logado, que foi passado com JWT. Caso o usuário
+não tenha cadastro como comprador, deve informa o CPF e Telefone ou celular do usuário para criar ele como comprador.
+Se estiver tudo certo será enviado um email ao comprador com a confirmação do pedido</p>
+
+<span id="example-requests-POSTapi-checkouts-me-new">
+<blockquote>Example request:</blockquote>
+
+
+<pre><code class="language-bash">curl --request POST \
+    "https://localhost/laravelProjetos/ecommerceApi/public/api/checkouts/me/new" \
+    --header "Authorization: Bearer {ACCESS_TOKEN}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: */*" \
+    --data "{
+    \"products\": [
+        {
+            \"id\": \"sed\",
+            \"quant\": \"et\"
+        },
+        {
+            \"id\": \"sed\",
+            \"quant\": \"et\"
+        },
+        {
+            \"id\": \"2\",
+            \"quant\": \"3\"
+        }
+    ],
+    \"phone_cell\": \"et\",
+    \"cpf\": \"et\"
+}"
+</code></pre>
+
+<pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'https://localhost/laravelProjetos/ecommerceApi/public/api/checkouts/me/new',
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer {ACCESS_TOKEN}',
+            'Accept' =&gt; '*/*',
+        ],
+        'json' =&gt; \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
+            $o = [
+                clone (\Symfony\Component\VarExporter\Internal\Registry::$prototypes['stdClass'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('stdClass')),
+            ],
+            null,
+            [
+                'stdClass' =&gt; [
+                    'id' =&gt; [
+                        '2',
+                    ],
+                    'quant' =&gt; [
+                        '3',
+                    ],
+                ],
+            ],
+            [
+                'products' =&gt; [
+                    [
+                        'id' =&gt; 'sed',
+                        'quant' =&gt; 'et',
+                    ],
+                    [
+                        'id' =&gt; 'sed',
+                        'quant' =&gt; 'et',
+                    ],
+                    $o[0],
+                ],
+                'phone_cell' =&gt; 'et',
+                'cpf' =&gt; 'et',
+            ],
+            []
+        ),
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+
+<pre><code class="language-javascript">const url = new URL(
+    "https://localhost/laravelProjetos/ecommerceApi/public/api/checkouts/me/new"
+);
+
+const headers = {
+    "Authorization": "Bearer {ACCESS_TOKEN}",
+    "Content-Type": "application/json",
+    "Accept": "*/*",
+};
+
+let body = {
+    "products": [
+        {
+            "id": "sed",
+            "quant": "et"
+        },
+        {
+            "id": "sed",
+            "quant": "et"
+        },
+        {
+            "id": "2",
+            "quant": "3"
+        }
+    ],
+    "phone_cell": "et",
+    "cpf": "et"
+}
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre>
+
+<pre><code class="language-python">import requests
+import json
+
+url = 'https://localhost/laravelProjetos/ecommerceApi/public/api/checkouts/me/new'
+payload = {
+    "products": [
+        {
+            "id": "sed",
+            "quant": "et"
+        },
+        {
+            "id": "sed",
+            "quant": "et"
+        },
+        {
+            "id": "2",
+            "quant": "3"
+        }
+    ],
+    "phone_cell": "et",
+    "cpf": "et"
+}
+headers = {
+  'Authorization': 'Bearer {ACCESS_TOKEN}',
+  'Content-Type': 'application/json',
+  'Accept': '*/*'
+}
+
+response = requests.request('POST', url, headers=headers, json=payload)
+response.json()</code></pre>
+</span>
+
+<span id="example-responses-POSTapi-checkouts-me-new">
+</span>
+<span id="execution-results-POSTapi-checkouts-me-new" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-checkouts-me-new"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-checkouts-me-new"></code></pre>
+</span>
+<span id="execution-error-POSTapi-checkouts-me-new" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-checkouts-me-new"></code></pre>
+</span>
+<form id="form-POSTapi-checkouts-me-new" data-method="POST"
+      data-path="api/checkouts/me/new"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Authorization":"Bearer {ACCESS_TOKEN}","Content-Type":"application\/json","Accept":"*\/*"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-checkouts-me-new', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-checkouts-me-new"
+                    onclick="tryItOut('POSTapi-checkouts-me-new');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-checkouts-me-new"
+                    onclick="cancelTryOut('POSTapi-checkouts-me-new');" hidden>Cancel
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-checkouts-me-new" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/checkouts/me/new</code></b>
+        </p>
+                <p>
+            <label id="auth-POSTapi-checkouts-me-new" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="POSTapi-checkouts-me-new"
+                                                                data-component="header"></label>
+        </p>
+                        <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>idbuyer</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="idbuyer"
+               data-endpoint="POSTapi-checkouts-me-new"
+               data-component="body"  hidden>
+    <br>
+        </p>
+                <p>
+        <details>
+            <summary style="padding-bottom: 10px;">
+                <b><code>products</code></b>&nbsp;&nbsp;<small>object[]</small>  &nbsp;
+<br>
+<p>A lista dos produtos do pedido</p>            </summary>
+                                                <p>
+                        <b><code>products[].id</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="products.0.id"
+               data-endpoint="POSTapi-checkouts-me-new"
+               data-component="body" required  hidden>
+    <br>
+<p>O ID do produto.</p>                    </p>
+                                                                <p>
+                        <b><code>products[].quant</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="products.0.quant"
+               data-endpoint="POSTapi-checkouts-me-new"
+               data-component="body" required  hidden>
+    <br>
+<p>A quantidade do produto.</p>                    </p>
+                                    </details>
+        </p>
+                <p>
+            <b><code>phone_cell</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="phone_cell"
+               data-endpoint="POSTapi-checkouts-me-new"
+               data-component="body"  hidden>
+    <br>
+<p>O telefone ou celular válido.</p>        </p>
+                <p>
+            <b><code>cpf</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="cpf"
+               data-endpoint="POSTapi-checkouts-me-new"
+               data-component="body"  hidden>
+    <br>
+<p>O CPF válido.</p>        </p>
+    
+    </form>
+
+        <h1 id="pedidos-admin">Pedidos ADMIN</h1>
+
+    
+
+            <h2 id="pedidos-admin-GETapi-checkouts-list">Buscar todos pedidos</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>Apresenta uma lista de todos os pedidos com as informações</p>
+
+<span id="example-requests-GETapi-checkouts-list">
+<blockquote>Example request:</blockquote>
+
+
+<pre><code class="language-bash">curl --request GET \
+    --get "https://localhost/laravelProjetos/ecommerceApi/public/api/checkouts/list" \
+    --header "Authorization: Bearer {ACCESS_TOKEN}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: */*"</code></pre>
+
+<pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'https://localhost/laravelProjetos/ecommerceApi/public/api/checkouts/list',
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer {ACCESS_TOKEN}',
+            'Accept' =&gt; '*/*',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+
+<pre><code class="language-javascript">const url = new URL(
+    "https://localhost/laravelProjetos/ecommerceApi/public/api/checkouts/list"
+);
+
+const headers = {
+    "Authorization": "Bearer {ACCESS_TOKEN}",
+    "Content-Type": "application/json",
+    "Accept": "*/*",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+
+<pre><code class="language-python">import requests
+import json
+
+url = 'https://localhost/laravelProjetos/ecommerceApi/public/api/checkouts/list'
+headers = {
+  'Authorization': 'Bearer {ACCESS_TOKEN}',
+  'Content-Type': 'application/json',
+  'Accept': '*/*'
+}
+
+response = requests.request('GET', url, headers=headers)
+response.json()</code></pre>
+</span>
+
+<span id="example-responses-GETapi-checkouts-list">
+            <blockquote>
+            <p>Example response (404):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+ </code></pre>
+        </details>         <pre>
+
+<code class="language-json">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;utf-8&quot;&gt;
+        &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+
+        &lt;title&gt;Not Found&lt;/title&gt;
+
+        &lt;!-- Fonts --&gt;
+        &lt;link rel=&quot;dns-prefetch&quot; href=&quot;//fonts.gstatic.com&quot;&gt;
+        &lt;link href=&quot;https://fonts.googleapis.com/css?family=Nunito&quot; rel=&quot;stylesheet&quot;&gt;
+
+        &lt;!-- Styles --&gt;
+        &lt;style&gt;
+            html, body {
+                background-color: #fff;
+                color: #636b6f;
+                font-family: 'Nunito', sans-serif;
+                font-weight: 100;
+                height: 100vh;
+                margin: 0;
+            }
+
+            .full-height {
+                height: 100vh;
+            }
+
+            .flex-center {
+                align-items: center;
+                display: flex;
+                justify-content: center;
+            }
+
+            .position-ref {
+                position: relative;
+            }
+
+            .code {
+                border-right: 2px solid;
+                font-size: 26px;
+                padding: 0 15px 0 15px;
+                text-align: center;
+            }
+
+            .message {
+                font-size: 18px;
+                text-align: center;
+            }
+        &lt;/style&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;div class=&quot;flex-center position-ref full-height&quot;&gt;
+            &lt;div class=&quot;code&quot;&gt;
+                404            &lt;/div&gt;
+
+            &lt;div class=&quot;message&quot; style=&quot;padding: 10px;&quot;&gt;
+                Not Found            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-checkouts-list" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-checkouts-list"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-checkouts-list"></code></pre>
+</span>
+<span id="execution-error-GETapi-checkouts-list" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-checkouts-list"></code></pre>
+</span>
+<form id="form-GETapi-checkouts-list" data-method="GET"
+      data-path="api/checkouts/list"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Authorization":"Bearer {ACCESS_TOKEN}","Content-Type":"application\/json","Accept":"*\/*"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-checkouts-list', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-checkouts-list"
+                    onclick="tryItOut('GETapi-checkouts-list');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-checkouts-list"
+                    onclick="cancelTryOut('GETapi-checkouts-list');" hidden>Cancel
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-checkouts-list" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/checkouts/list</code></b>
+        </p>
+                <p>
+            <label id="auth-GETapi-checkouts-list" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="GETapi-checkouts-list"
+                                                                data-component="header"></label>
+        </p>
+                </form>
+
+            <h2 id="pedidos-admin-GETapi-checkouts-view--checkout-">Buscar pedido</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>Apresenta as informações do pedido especificado</p>
+
+<span id="example-requests-GETapi-checkouts-view--checkout-">
+<blockquote>Example request:</blockquote>
+
+
+<pre><code class="language-bash">curl --request GET \
+    --get "https://localhost/laravelProjetos/ecommerceApi/public/api/checkouts/view/15" \
+    --header "Authorization: Bearer {ACCESS_TOKEN}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: */*"</code></pre>
+
+<pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'https://localhost/laravelProjetos/ecommerceApi/public/api/checkouts/view/15',
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer {ACCESS_TOKEN}',
+            'Accept' =&gt; '*/*',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+
+<pre><code class="language-javascript">const url = new URL(
+    "https://localhost/laravelProjetos/ecommerceApi/public/api/checkouts/view/15"
+);
+
+const headers = {
+    "Authorization": "Bearer {ACCESS_TOKEN}",
+    "Content-Type": "application/json",
+    "Accept": "*/*",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+
+<pre><code class="language-python">import requests
+import json
+
+url = 'https://localhost/laravelProjetos/ecommerceApi/public/api/checkouts/view/15'
+headers = {
+  'Authorization': 'Bearer {ACCESS_TOKEN}',
+  'Content-Type': 'application/json',
+  'Accept': '*/*'
+}
+
+response = requests.request('GET', url, headers=headers)
+response.json()</code></pre>
+</span>
+
+<span id="example-responses-GETapi-checkouts-view--checkout-">
+            <blockquote>
+            <p>Example response (404):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+ </code></pre>
+        </details>         <pre>
+
+<code class="language-json">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;utf-8&quot;&gt;
+        &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+
+        &lt;title&gt;Not Found&lt;/title&gt;
+
+        &lt;!-- Fonts --&gt;
+        &lt;link rel=&quot;dns-prefetch&quot; href=&quot;//fonts.gstatic.com&quot;&gt;
+        &lt;link href=&quot;https://fonts.googleapis.com/css?family=Nunito&quot; rel=&quot;stylesheet&quot;&gt;
+
+        &lt;!-- Styles --&gt;
+        &lt;style&gt;
+            html, body {
+                background-color: #fff;
+                color: #636b6f;
+                font-family: 'Nunito', sans-serif;
+                font-weight: 100;
+                height: 100vh;
+                margin: 0;
+            }
+
+            .full-height {
+                height: 100vh;
+            }
+
+            .flex-center {
+                align-items: center;
+                display: flex;
+                justify-content: center;
+            }
+
+            .position-ref {
+                position: relative;
+            }
+
+            .code {
+                border-right: 2px solid;
+                font-size: 26px;
+                padding: 0 15px 0 15px;
+                text-align: center;
+            }
+
+            .message {
+                font-size: 18px;
+                text-align: center;
+            }
+        &lt;/style&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;div class=&quot;flex-center position-ref full-height&quot;&gt;
+            &lt;div class=&quot;code&quot;&gt;
+                404            &lt;/div&gt;
+
+            &lt;div class=&quot;message&quot; style=&quot;padding: 10px;&quot;&gt;
+                Not Found            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-checkouts-view--checkout-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-checkouts-view--checkout-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-checkouts-view--checkout-"></code></pre>
+</span>
+<span id="execution-error-GETapi-checkouts-view--checkout-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-checkouts-view--checkout-"></code></pre>
+</span>
+<form id="form-GETapi-checkouts-view--checkout-" data-method="GET"
+      data-path="api/checkouts/view/{checkout}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Authorization":"Bearer {ACCESS_TOKEN}","Content-Type":"application\/json","Accept":"*\/*"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-checkouts-view--checkout-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-checkouts-view--checkout-"
+                    onclick="tryItOut('GETapi-checkouts-view--checkout-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-checkouts-view--checkout-"
+                    onclick="cancelTryOut('GETapi-checkouts-view--checkout-');" hidden>Cancel
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-checkouts-view--checkout-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/checkouts/view/{checkout}</code></b>
+        </p>
+                <p>
+            <label id="auth-GETapi-checkouts-view--checkout-" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="GETapi-checkouts-view--checkout-"
+                                                                data-component="header"></label>
+        </p>
+                <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>checkout</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
+               name="checkout"
+               data-endpoint="GETapi-checkouts-view--checkout-"
+               data-component="url" required  hidden>
+    <br>
+<p>O ID do pedido</p>            </p>
+                    </form>
+
+            <h2 id="pedidos-admin-POSTapi-checkouts-new">Criar um pedido do comprador</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>Cadastra um pedido do comprador especificando o ID do comprador.
+Se estiver tudo certo será enviado um email ao comprador com a confirmação do pedido</p>
+
+<span id="example-requests-POSTapi-checkouts-new">
+<blockquote>Example request:</blockquote>
+
+
+<pre><code class="language-bash">curl --request POST \
+    "https://localhost/laravelProjetos/ecommerceApi/public/api/checkouts/new" \
+    --header "Authorization: Bearer {ACCESS_TOKEN}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: */*" \
+    --data "{
+    \"idbuyer\": \"magnam\",
+    \"products\": [
+        {
+            \"id\": \"cum\",
+            \"quant\": \"laboriosam\"
+        },
+        {
+            \"id\": \"cum\",
+            \"quant\": \"laboriosam\"
+        },
+        {
+            \"id\": \"2\",
+            \"quant\": \"3\"
+        }
+    ]
+}"
+</code></pre>
+
+<pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'https://localhost/laravelProjetos/ecommerceApi/public/api/checkouts/new',
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer {ACCESS_TOKEN}',
+            'Accept' =&gt; '*/*',
+        ],
+        'json' =&gt; \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
+            $o = [
+                clone (\Symfony\Component\VarExporter\Internal\Registry::$prototypes['stdClass'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('stdClass')),
+            ],
+            null,
+            [
+                'stdClass' =&gt; [
+                    'id' =&gt; [
+                        '2',
+                    ],
+                    'quant' =&gt; [
+                        '3',
+                    ],
+                ],
+            ],
+            [
+                'idbuyer' =&gt; 'magnam',
+                'products' =&gt; [
+                    [
+                        'id' =&gt; 'cum',
+                        'quant' =&gt; 'laboriosam',
+                    ],
+                    [
+                        'id' =&gt; 'cum',
+                        'quant' =&gt; 'laboriosam',
+                    ],
+                    $o[0],
+                ],
+            ],
+            []
+        ),
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+
+<pre><code class="language-javascript">const url = new URL(
+    "https://localhost/laravelProjetos/ecommerceApi/public/api/checkouts/new"
+);
+
+const headers = {
+    "Authorization": "Bearer {ACCESS_TOKEN}",
+    "Content-Type": "application/json",
+    "Accept": "*/*",
+};
+
+let body = {
+    "idbuyer": "magnam",
+    "products": [
+        {
+            "id": "cum",
+            "quant": "laboriosam"
+        },
+        {
+            "id": "cum",
+            "quant": "laboriosam"
+        },
+        {
+            "id": "2",
+            "quant": "3"
+        }
+    ]
+}
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre>
+
+<pre><code class="language-python">import requests
+import json
+
+url = 'https://localhost/laravelProjetos/ecommerceApi/public/api/checkouts/new'
+payload = {
+    "idbuyer": "magnam",
+    "products": [
+        {
+            "id": "cum",
+            "quant": "laboriosam"
+        },
+        {
+            "id": "cum",
+            "quant": "laboriosam"
+        },
+        {
+            "id": "2",
+            "quant": "3"
+        }
+    ]
+}
+headers = {
+  'Authorization': 'Bearer {ACCESS_TOKEN}',
+  'Content-Type': 'application/json',
+  'Accept': '*/*'
+}
+
+response = requests.request('POST', url, headers=headers, json=payload)
+response.json()</code></pre>
+</span>
+
+<span id="example-responses-POSTapi-checkouts-new">
+</span>
+<span id="execution-results-POSTapi-checkouts-new" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-checkouts-new"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-checkouts-new"></code></pre>
+</span>
+<span id="execution-error-POSTapi-checkouts-new" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-checkouts-new"></code></pre>
+</span>
+<form id="form-POSTapi-checkouts-new" data-method="POST"
+      data-path="api/checkouts/new"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Authorization":"Bearer {ACCESS_TOKEN}","Content-Type":"application\/json","Accept":"*\/*"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-checkouts-new', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-checkouts-new"
+                    onclick="tryItOut('POSTapi-checkouts-new');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-checkouts-new"
+                    onclick="cancelTryOut('POSTapi-checkouts-new');" hidden>Cancel
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-checkouts-new" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/checkouts/new</code></b>
+        </p>
+                <p>
+            <label id="auth-POSTapi-checkouts-new" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="POSTapi-checkouts-new"
+                                                                data-component="header"></label>
+        </p>
+                        <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>idbuyer</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="idbuyer"
+               data-endpoint="POSTapi-checkouts-new"
+               data-component="body" required  hidden>
+    <br>
+<p>O ID do comprador .</p>        </p>
+                <p>
+        <details>
+            <summary style="padding-bottom: 10px;">
+                <b><code>products</code></b>&nbsp;&nbsp;<small>object[]</small>  &nbsp;
+<br>
+<p>A lista dos produtos do pedido</p>            </summary>
+                                                <p>
+                        <b><code>products[].id</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="products.0.id"
+               data-endpoint="POSTapi-checkouts-new"
+               data-component="body" required  hidden>
+    <br>
+<p>O ID do produto.</p>                    </p>
+                                                                <p>
+                        <b><code>products[].quant</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="products.0.quant"
+               data-endpoint="POSTapi-checkouts-new"
+               data-component="body" required  hidden>
+    <br>
+<p>A quantidade do produto.</p>                    </p>
+                                    </details>
+        </p>
+    
+    </form>
+
+            <h2 id="pedidos-admin-PUTapi-checkouts-edit--checkout-">Editar Pedido</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>Editar um pedido (comprador e os produtos) especificado, se tudo estiver certo apresenta as informações do pedido</p>
+
+<span id="example-requests-PUTapi-checkouts-edit--checkout-">
+<blockquote>Example request:</blockquote>
+
+
+<pre><code class="language-bash">curl --request PUT \
+    "https://localhost/laravelProjetos/ecommerceApi/public/api/checkouts/edit/9" \
+    --header "Authorization: Bearer {ACCESS_TOKEN}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: */*" \
+    --data "{
+    \"idbuyer\": \"assumenda\",
+    \"products\": [
+        {
+            \"id\": \"perspiciatis\",
+            \"quant\": \"mollitia\"
+        },
+        {
+            \"id\": \"perspiciatis\",
+            \"quant\": \"mollitia\"
+        },
+        {
+            \"id\": \"2\",
+            \"quant\": \"3\"
+        }
+    ]
+}"
+</code></pre>
+
+<pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;put(
+    'https://localhost/laravelProjetos/ecommerceApi/public/api/checkouts/edit/9',
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer {ACCESS_TOKEN}',
+            'Accept' =&gt; '*/*',
+        ],
+        'json' =&gt; \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
+            $o = [
+                clone (\Symfony\Component\VarExporter\Internal\Registry::$prototypes['stdClass'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('stdClass')),
+            ],
+            null,
+            [
+                'stdClass' =&gt; [
+                    'id' =&gt; [
+                        '2',
+                    ],
+                    'quant' =&gt; [
+                        '3',
+                    ],
+                ],
+            ],
+            [
+                'idbuyer' =&gt; 'assumenda',
+                'products' =&gt; [
+                    [
+                        'id' =&gt; 'perspiciatis',
+                        'quant' =&gt; 'mollitia',
+                    ],
+                    [
+                        'id' =&gt; 'perspiciatis',
+                        'quant' =&gt; 'mollitia',
+                    ],
+                    $o[0],
+                ],
+            ],
+            []
+        ),
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+
+<pre><code class="language-javascript">const url = new URL(
+    "https://localhost/laravelProjetos/ecommerceApi/public/api/checkouts/edit/9"
+);
+
+const headers = {
+    "Authorization": "Bearer {ACCESS_TOKEN}",
+    "Content-Type": "application/json",
+    "Accept": "*/*",
+};
+
+let body = {
+    "idbuyer": "assumenda",
+    "products": [
+        {
+            "id": "perspiciatis",
+            "quant": "mollitia"
+        },
+        {
+            "id": "perspiciatis",
+            "quant": "mollitia"
+        },
+        {
+            "id": "2",
+            "quant": "3"
+        }
+    ]
+}
+
+fetch(url, {
+    method: "PUT",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre>
+
+<pre><code class="language-python">import requests
+import json
+
+url = 'https://localhost/laravelProjetos/ecommerceApi/public/api/checkouts/edit/9'
+payload = {
+    "idbuyer": "assumenda",
+    "products": [
+        {
+            "id": "perspiciatis",
+            "quant": "mollitia"
+        },
+        {
+            "id": "perspiciatis",
+            "quant": "mollitia"
+        },
+        {
+            "id": "2",
+            "quant": "3"
+        }
+    ]
+}
+headers = {
+  'Authorization': 'Bearer {ACCESS_TOKEN}',
+  'Content-Type': 'application/json',
+  'Accept': '*/*'
+}
+
+response = requests.request('PUT', url, headers=headers, json=payload)
+response.json()</code></pre>
+</span>
+
+<span id="example-responses-PUTapi-checkouts-edit--checkout-">
+</span>
+<span id="execution-results-PUTapi-checkouts-edit--checkout-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-PUTapi-checkouts-edit--checkout-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-PUTapi-checkouts-edit--checkout-"></code></pre>
+</span>
+<span id="execution-error-PUTapi-checkouts-edit--checkout-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-PUTapi-checkouts-edit--checkout-"></code></pre>
+</span>
+<form id="form-PUTapi-checkouts-edit--checkout-" data-method="PUT"
+      data-path="api/checkouts/edit/{checkout}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Authorization":"Bearer {ACCESS_TOKEN}","Content-Type":"application\/json","Accept":"*\/*"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('PUTapi-checkouts-edit--checkout-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-PUTapi-checkouts-edit--checkout-"
+                    onclick="tryItOut('PUTapi-checkouts-edit--checkout-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-PUTapi-checkouts-edit--checkout-"
+                    onclick="cancelTryOut('PUTapi-checkouts-edit--checkout-');" hidden>Cancel
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-PUTapi-checkouts-edit--checkout-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-darkblue">PUT</small>
+            <b><code>api/checkouts/edit/{checkout}</code></b>
+        </p>
+                <p>
+            <label id="auth-PUTapi-checkouts-edit--checkout-" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="PUTapi-checkouts-edit--checkout-"
+                                                                data-component="header"></label>
+        </p>
+                <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>checkout</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
+               name="checkout"
+               data-endpoint="PUTapi-checkouts-edit--checkout-"
+               data-component="url" required  hidden>
+    <br>
+<p>O ID do pedido</p>            </p>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>idbuyer</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="idbuyer"
+               data-endpoint="PUTapi-checkouts-edit--checkout-"
+               data-component="body" required  hidden>
+    <br>
+<p>O ID do comprador.</p>        </p>
+                <p>
+        <details>
+            <summary style="padding-bottom: 10px;">
+                <b><code>products</code></b>&nbsp;&nbsp;<small>object[]</small>  &nbsp;
+<br>
+<p>A lista de produtos do pedido</p>            </summary>
+                                                <p>
+                        <b><code>products[].id</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="products.0.id"
+               data-endpoint="PUTapi-checkouts-edit--checkout-"
+               data-component="body" required  hidden>
+    <br>
+<p>O ID do produto.</p>                    </p>
+                                                                <p>
+                        <b><code>products[].quant</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="products.0.quant"
+               data-endpoint="PUTapi-checkouts-edit--checkout-"
+               data-component="body" required  hidden>
+    <br>
+<p>A quantidade do produto.</p>                    </p>
+                                    </details>
+        </p>
+    
+    </form>
+
+            <h2 id="pedidos-admin-DELETEapi-checkouts-delete--checkout-">Deletar Pedido</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>Deletar um pedido especificado</p>
+
+<span id="example-requests-DELETEapi-checkouts-delete--checkout-">
+<blockquote>Example request:</blockquote>
+
+
+<pre><code class="language-bash">curl --request DELETE \
+    "https://localhost/laravelProjetos/ecommerceApi/public/api/checkouts/delete/20" \
+    --header "Authorization: Bearer {ACCESS_TOKEN}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: */*"</code></pre>
+
+<pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;delete(
+    'https://localhost/laravelProjetos/ecommerceApi/public/api/checkouts/delete/20',
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer {ACCESS_TOKEN}',
+            'Accept' =&gt; '*/*',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+
+<pre><code class="language-javascript">const url = new URL(
+    "https://localhost/laravelProjetos/ecommerceApi/public/api/checkouts/delete/20"
+);
+
+const headers = {
+    "Authorization": "Bearer {ACCESS_TOKEN}",
+    "Content-Type": "application/json",
+    "Accept": "*/*",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+
+<pre><code class="language-python">import requests
+import json
+
+url = 'https://localhost/laravelProjetos/ecommerceApi/public/api/checkouts/delete/20'
+headers = {
+  'Authorization': 'Bearer {ACCESS_TOKEN}',
+  'Content-Type': 'application/json',
+  'Accept': '*/*'
+}
+
+response = requests.request('DELETE', url, headers=headers)
+response.json()</code></pre>
+</span>
+
+<span id="example-responses-DELETEapi-checkouts-delete--checkout-">
+</span>
+<span id="execution-results-DELETEapi-checkouts-delete--checkout-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-DELETEapi-checkouts-delete--checkout-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-DELETEapi-checkouts-delete--checkout-"></code></pre>
+</span>
+<span id="execution-error-DELETEapi-checkouts-delete--checkout-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-DELETEapi-checkouts-delete--checkout-"></code></pre>
+</span>
+<form id="form-DELETEapi-checkouts-delete--checkout-" data-method="DELETE"
+      data-path="api/checkouts/delete/{checkout}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Authorization":"Bearer {ACCESS_TOKEN}","Content-Type":"application\/json","Accept":"*\/*"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('DELETEapi-checkouts-delete--checkout-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-DELETEapi-checkouts-delete--checkout-"
+                    onclick="tryItOut('DELETEapi-checkouts-delete--checkout-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-DELETEapi-checkouts-delete--checkout-"
+                    onclick="cancelTryOut('DELETEapi-checkouts-delete--checkout-');" hidden>Cancel
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-DELETEapi-checkouts-delete--checkout-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-red">DELETE</small>
+            <b><code>api/checkouts/delete/{checkout}</code></b>
+        </p>
+                <p>
+            <label id="auth-DELETEapi-checkouts-delete--checkout-" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="DELETEapi-checkouts-delete--checkout-"
+                                                                data-component="header"></label>
+        </p>
+                <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>checkout</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
+               name="checkout"
+               data-endpoint="DELETEapi-checkouts-delete--checkout-"
+               data-component="url" required  hidden>
+    <br>
+<p>O ID do pedido</p>            </p>
+                    </form>
+
+        <h1 id="produtos">Produtos</h1>
+
+    
+
+            <h2 id="produtos-GETapi-products-list">Buscar todos os produtos</h2>
+
+<p>
+</p>
+
+<p>Apresenta uma lista de todos os produtos com as informações</p>
+
+<span id="example-requests-GETapi-products-list">
+<blockquote>Example request:</blockquote>
+
+
+<pre><code class="language-bash">curl --request GET \
+    --get "https://localhost/laravelProjetos/ecommerceApi/public/api/products/list" \
+    --header "Content-Type: application/json" \
+    --header "Accept: */*"</code></pre>
+
+<pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'https://localhost/laravelProjetos/ecommerceApi/public/api/products/list',
+    [
+        'headers' =&gt; [
+            'Accept' =&gt; '*/*',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+
+<pre><code class="language-javascript">const url = new URL(
+    "https://localhost/laravelProjetos/ecommerceApi/public/api/products/list"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "*/*",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+
+<pre><code class="language-python">import requests
+import json
+
+url = 'https://localhost/laravelProjetos/ecommerceApi/public/api/products/list'
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': '*/*'
+}
+
+response = requests.request('GET', url, headers=headers)
+response.json()</code></pre>
+</span>
+
+<span id="example-responses-GETapi-products-list">
+            <blockquote>
+            <p>Example response (404):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+ </code></pre>
+        </details>         <pre>
+
+<code class="language-json">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;utf-8&quot;&gt;
+        &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+
+        &lt;title&gt;Not Found&lt;/title&gt;
+
+        &lt;!-- Fonts --&gt;
+        &lt;link rel=&quot;dns-prefetch&quot; href=&quot;//fonts.gstatic.com&quot;&gt;
+        &lt;link href=&quot;https://fonts.googleapis.com/css?family=Nunito&quot; rel=&quot;stylesheet&quot;&gt;
+
+        &lt;!-- Styles --&gt;
+        &lt;style&gt;
+            html, body {
+                background-color: #fff;
+                color: #636b6f;
+                font-family: 'Nunito', sans-serif;
+                font-weight: 100;
+                height: 100vh;
+                margin: 0;
+            }
+
+            .full-height {
+                height: 100vh;
+            }
+
+            .flex-center {
+                align-items: center;
+                display: flex;
+                justify-content: center;
+            }
+
+            .position-ref {
+                position: relative;
+            }
+
+            .code {
+                border-right: 2px solid;
+                font-size: 26px;
+                padding: 0 15px 0 15px;
+                text-align: center;
+            }
+
+            .message {
+                font-size: 18px;
+                text-align: center;
+            }
+        &lt;/style&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;div class=&quot;flex-center position-ref full-height&quot;&gt;
+            &lt;div class=&quot;code&quot;&gt;
+                404            &lt;/div&gt;
+
+            &lt;div class=&quot;message&quot; style=&quot;padding: 10px;&quot;&gt;
+                Not Found            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-products-list" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-products-list"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-products-list"></code></pre>
+</span>
+<span id="execution-error-GETapi-products-list" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-products-list"></code></pre>
+</span>
+<form id="form-GETapi-products-list" data-method="GET"
+      data-path="api/products/list"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"*\/*"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-products-list', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-products-list"
+                    onclick="tryItOut('GETapi-products-list');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-products-list"
+                    onclick="cancelTryOut('GETapi-products-list');" hidden>Cancel
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-products-list" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/products/list</code></b>
+        </p>
+                    </form>
+
+            <h2 id="produtos-GETapi-products-view--product-">Buscar produto</h2>
+
+<p>
+</p>
+
+<p>Apresenta as informações do produto especificado</p>
+
+<span id="example-requests-GETapi-products-view--product-">
+<blockquote>Example request:</blockquote>
+
+
+<pre><code class="language-bash">curl --request GET \
+    --get "https://localhost/laravelProjetos/ecommerceApi/public/api/products/view/10" \
+    --header "Content-Type: application/json" \
+    --header "Accept: */*"</code></pre>
+
+<pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'https://localhost/laravelProjetos/ecommerceApi/public/api/products/view/10',
+    [
+        'headers' =&gt; [
+            'Accept' =&gt; '*/*',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+
+<pre><code class="language-javascript">const url = new URL(
+    "https://localhost/laravelProjetos/ecommerceApi/public/api/products/view/10"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "*/*",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+
+<pre><code class="language-python">import requests
+import json
+
+url = 'https://localhost/laravelProjetos/ecommerceApi/public/api/products/view/10'
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': '*/*'
+}
+
+response = requests.request('GET', url, headers=headers)
+response.json()</code></pre>
+</span>
+
+<span id="example-responses-GETapi-products-view--product-">
+            <blockquote>
+            <p>Example response (404):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+ </code></pre>
+        </details>         <pre>
+
+<code class="language-json">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;utf-8&quot;&gt;
+        &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+
+        &lt;title&gt;Not Found&lt;/title&gt;
+
+        &lt;!-- Fonts --&gt;
+        &lt;link rel=&quot;dns-prefetch&quot; href=&quot;//fonts.gstatic.com&quot;&gt;
+        &lt;link href=&quot;https://fonts.googleapis.com/css?family=Nunito&quot; rel=&quot;stylesheet&quot;&gt;
+
+        &lt;!-- Styles --&gt;
+        &lt;style&gt;
+            html, body {
+                background-color: #fff;
+                color: #636b6f;
+                font-family: 'Nunito', sans-serif;
+                font-weight: 100;
+                height: 100vh;
+                margin: 0;
+            }
+
+            .full-height {
+                height: 100vh;
+            }
+
+            .flex-center {
+                align-items: center;
+                display: flex;
+                justify-content: center;
+            }
+
+            .position-ref {
+                position: relative;
+            }
+
+            .code {
+                border-right: 2px solid;
+                font-size: 26px;
+                padding: 0 15px 0 15px;
+                text-align: center;
+            }
+
+            .message {
+                font-size: 18px;
+                text-align: center;
+            }
+        &lt;/style&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;div class=&quot;flex-center position-ref full-height&quot;&gt;
+            &lt;div class=&quot;code&quot;&gt;
+                404            &lt;/div&gt;
+
+            &lt;div class=&quot;message&quot; style=&quot;padding: 10px;&quot;&gt;
+                Not Found            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-products-view--product-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-products-view--product-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-products-view--product-"></code></pre>
+</span>
+<span id="execution-error-GETapi-products-view--product-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-products-view--product-"></code></pre>
+</span>
+<form id="form-GETapi-products-view--product-" data-method="GET"
+      data-path="api/products/view/{product}"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"*\/*"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-products-view--product-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-products-view--product-"
+                    onclick="tryItOut('GETapi-products-view--product-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-products-view--product-"
+                    onclick="cancelTryOut('GETapi-products-view--product-');" hidden>Cancel
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-products-view--product-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/products/view/{product}</code></b>
+        </p>
+                    <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>product</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
+               name="product"
+               data-endpoint="GETapi-products-view--product-"
+               data-component="url" required  hidden>
+    <br>
+<p>O ID do produto</p>            </p>
+                    </form>
+
+            <h2 id="produtos-POSTapi-products-add">Cadastrar um produto</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>Cadastrar um produto com foto ou não, se tudo estiver certo apresenta as informações do produto</p>
+
+<span id="example-requests-POSTapi-products-add">
+<blockquote>Example request:</blockquote>
+
+
+<pre><code class="language-bash">curl --request POST \
+    "https://localhost/laravelProjetos/ecommerceApi/public/api/products/add" \
+    --header "Authorization: Bearer {ACCESS_TOKEN}" \
+    --header "Content-Type: multipart/form-data" \
+    --header "Accept: */*" \
+    --form "name=vero" \
+    --form "type=ab" \
+    --form "value=1.1575" \
+    --form "images[]=@C:\Users\danielfalcaodf\AppData\Local\Temp\php6B3E.tmp" </code></pre>
+
+<pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'https://localhost/laravelProjetos/ecommerceApi/public/api/products/add',
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer {ACCESS_TOKEN}',
+            'Accept' =&gt; '*/*',
+        ],
+        'multipart' =&gt; [
+            [
+                'name' =&gt; 'name',
+                'contents' =&gt; 'vero'
+            ],
+            [
+                'name' =&gt; 'type',
+                'contents' =&gt; 'ab'
+            ],
+            [
+                'name' =&gt; 'value',
+                'contents' =&gt; '1.1575'
+            ],
+            [
+                'name' =&gt; 'images[]',
+                'contents' =&gt; fopen('C:\Users\danielfalcaodf\AppData\Local\Temp\php6B3E.tmp', 'r')
+            ],
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+
+<pre><code class="language-javascript">const url = new URL(
+    "https://localhost/laravelProjetos/ecommerceApi/public/api/products/add"
+);
+
+const headers = {
+    "Authorization": "Bearer {ACCESS_TOKEN}",
+    "Content-Type": "multipart/form-data",
+    "Accept": "*/*",
+};
+
+const body = new FormData();
+body.append('name', 'vero');
+body.append('type', 'ab');
+body.append('value', '1.1575');
+body.append('images[]', document.querySelector('input[name="images[]"]').files[0]);
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body,
+}).then(response =&gt; response.json());</code></pre>
+
+<pre><code class="language-python">import requests
+import json
+
+url = 'https://localhost/laravelProjetos/ecommerceApi/public/api/products/add'
+files = {
+  'images[]': open('C:\Users\danielfalcaodf\AppData\Local\Temp\php6B3E.tmp', 'rb')
+}
+payload = {
+    "name": "vero",
+    "type": "ab",
+    "value": 1.1575
+}
+headers = {
+  'Authorization': 'Bearer {ACCESS_TOKEN}',
+  'Content-Type': 'multipart/form-data',
+  'Accept': '*/*'
+}
+
+response = requests.request('POST', url, headers=headers, files=files, data=payload)
+response.json()</code></pre>
+</span>
+
+<span id="example-responses-POSTapi-products-add">
+</span>
+<span id="execution-results-POSTapi-products-add" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-products-add"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-products-add"></code></pre>
+</span>
+<span id="execution-error-POSTapi-products-add" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-products-add"></code></pre>
+</span>
+<form id="form-POSTapi-products-add" data-method="POST"
+      data-path="api/products/add"
+      data-authed="1"
+      data-hasfiles="1"
+      data-isarraybody="0"
+      data-headers='{"Authorization":"Bearer {ACCESS_TOKEN}","Content-Type":"multipart\/form-data","Accept":"*\/*"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-products-add', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-products-add"
+                    onclick="tryItOut('POSTapi-products-add');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-products-add"
+                    onclick="cancelTryOut('POSTapi-products-add');" hidden>Cancel
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-products-add" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/products/add</code></b>
+        </p>
+                <p>
+            <label id="auth-POSTapi-products-add" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="POSTapi-products-add"
+                                                                data-component="header"></label>
+        </p>
+                        <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>name</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="name"
+               data-endpoint="POSTapi-products-add"
+               data-component="body" required  hidden>
+    <br>
+<p>Um nome do produto.</p>        </p>
+                <p>
+            <b><code>type</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="type"
+               data-endpoint="POSTapi-products-add"
+               data-component="body" required  hidden>
+    <br>
+<p>O tipo do produto.</p>        </p>
+                <p>
+            <b><code>value</code></b>&nbsp;&nbsp;<small>number</small>  &nbsp;
+                <input type="number"
+               name="value"
+               data-endpoint="POSTapi-products-add"
+               data-component="body" required  hidden>
+    <br>
+<p>Valor do produto.</p>        </p>
+                <p>
+            <b><code>images[]</code></b>&nbsp;&nbsp;<small>file</small>     <i>optional</i> &nbsp;
+                <input type="file"
+               name="images.0"
+               data-endpoint="POSTapi-products-add"
+               data-component="body"  hidden>
+    <br>
+<p>As imagens do produto, se não tiver, automanticamente a API irá entender e vai colocar uma foto padrão (semFoto.jpg).</p>        </p>
+    
+    </form>
+
+            <h2 id="produtos-PUTapi-products-edit--product-">Editar produto</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>Editar um produto especificado, se tudo estiver certo apresenta as informações do produto</p>
+
+<span id="example-requests-PUTapi-products-edit--product-">
+<blockquote>Example request:</blockquote>
+
+
+<pre><code class="language-bash">curl --request PUT \
+    "https://localhost/laravelProjetos/ecommerceApi/public/api/products/edit/1" \
+    --header "Authorization: Bearer {ACCESS_TOKEN}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: */*" \
+    --data "{
+    \"name\": \"amet\",
+    \"type\": \"impedit\",
+    \"value\": 261166.39222351
+}"
+</code></pre>
+
+<pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;put(
+    'https://localhost/laravelProjetos/ecommerceApi/public/api/products/edit/1',
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer {ACCESS_TOKEN}',
+            'Accept' =&gt; '*/*',
+        ],
+        'json' =&gt; [
+            'name' =&gt; 'amet',
+            'type' =&gt; 'impedit',
+            'value' =&gt; 261166.39222351,
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+
+<pre><code class="language-javascript">const url = new URL(
+    "https://localhost/laravelProjetos/ecommerceApi/public/api/products/edit/1"
+);
+
+const headers = {
+    "Authorization": "Bearer {ACCESS_TOKEN}",
+    "Content-Type": "application/json",
+    "Accept": "*/*",
+};
+
+let body = {
+    "name": "amet",
+    "type": "impedit",
+    "value": 261166.39222351
+}
+
+fetch(url, {
+    method: "PUT",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre>
+
+<pre><code class="language-python">import requests
+import json
+
+url = 'https://localhost/laravelProjetos/ecommerceApi/public/api/products/edit/1'
+payload = {
+    "name": "amet",
+    "type": "impedit",
+    "value": 261166.39222351
+}
+headers = {
+  'Authorization': 'Bearer {ACCESS_TOKEN}',
+  'Content-Type': 'application/json',
+  'Accept': '*/*'
+}
+
+response = requests.request('PUT', url, headers=headers, json=payload)
+response.json()</code></pre>
+</span>
+
+<span id="example-responses-PUTapi-products-edit--product-">
+</span>
+<span id="execution-results-PUTapi-products-edit--product-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-PUTapi-products-edit--product-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-PUTapi-products-edit--product-"></code></pre>
+</span>
+<span id="execution-error-PUTapi-products-edit--product-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-PUTapi-products-edit--product-"></code></pre>
+</span>
+<form id="form-PUTapi-products-edit--product-" data-method="PUT"
+      data-path="api/products/edit/{product}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Authorization":"Bearer {ACCESS_TOKEN}","Content-Type":"application\/json","Accept":"*\/*"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('PUTapi-products-edit--product-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-PUTapi-products-edit--product-"
+                    onclick="tryItOut('PUTapi-products-edit--product-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-PUTapi-products-edit--product-"
+                    onclick="cancelTryOut('PUTapi-products-edit--product-');" hidden>Cancel
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-PUTapi-products-edit--product-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-darkblue">PUT</small>
+            <b><code>api/products/edit/{product}</code></b>
+        </p>
+                <p>
+            <label id="auth-PUTapi-products-edit--product-" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="PUTapi-products-edit--product-"
+                                                                data-component="header"></label>
+        </p>
+                <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>product</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
+               name="product"
+               data-endpoint="PUTapi-products-edit--product-"
+               data-component="url" required  hidden>
+    <br>
+<p>O ID do produto</p>            </p>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>name</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="name"
+               data-endpoint="PUTapi-products-edit--product-"
+               data-component="body" required  hidden>
+    <br>
+<p>Um nome do produto.</p>        </p>
+                <p>
+            <b><code>type</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="type"
+               data-endpoint="PUTapi-products-edit--product-"
+               data-component="body" required  hidden>
+    <br>
+<p>O tipo do produto.</p>        </p>
+                <p>
+            <b><code>value</code></b>&nbsp;&nbsp;<small>number</small>  &nbsp;
+                <input type="number"
+               name="value"
+               data-endpoint="PUTapi-products-edit--product-"
+               data-component="body" required  hidden>
+    <br>
+<p>Valor do produto.</p>        </p>
+    
+    </form>
+
+            <h2 id="produtos-DELETEapi-products-delete--product-">Deletar produto</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>Deletar um produto especificado</p>
+
+<span id="example-requests-DELETEapi-products-delete--product-">
+<blockquote>Example request:</blockquote>
+
+
+<pre><code class="language-bash">curl --request DELETE \
+    "https://localhost/laravelProjetos/ecommerceApi/public/api/products/delete/1" \
+    --header "Authorization: Bearer {ACCESS_TOKEN}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: */*"</code></pre>
+
+<pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;delete(
+    'https://localhost/laravelProjetos/ecommerceApi/public/api/products/delete/1',
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer {ACCESS_TOKEN}',
+            'Accept' =&gt; '*/*',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+
+<pre><code class="language-javascript">const url = new URL(
+    "https://localhost/laravelProjetos/ecommerceApi/public/api/products/delete/1"
+);
+
+const headers = {
+    "Authorization": "Bearer {ACCESS_TOKEN}",
+    "Content-Type": "application/json",
+    "Accept": "*/*",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+
+<pre><code class="language-python">import requests
+import json
+
+url = 'https://localhost/laravelProjetos/ecommerceApi/public/api/products/delete/1'
+headers = {
+  'Authorization': 'Bearer {ACCESS_TOKEN}',
+  'Content-Type': 'application/json',
+  'Accept': '*/*'
+}
+
+response = requests.request('DELETE', url, headers=headers)
+response.json()</code></pre>
+</span>
+
+<span id="example-responses-DELETEapi-products-delete--product-">
+</span>
+<span id="execution-results-DELETEapi-products-delete--product-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-DELETEapi-products-delete--product-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-DELETEapi-products-delete--product-"></code></pre>
+</span>
+<span id="execution-error-DELETEapi-products-delete--product-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-DELETEapi-products-delete--product-"></code></pre>
+</span>
+<form id="form-DELETEapi-products-delete--product-" data-method="DELETE"
+      data-path="api/products/delete/{product}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Authorization":"Bearer {ACCESS_TOKEN}","Content-Type":"application\/json","Accept":"*\/*"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('DELETEapi-products-delete--product-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-DELETEapi-products-delete--product-"
+                    onclick="tryItOut('DELETEapi-products-delete--product-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-DELETEapi-products-delete--product-"
+                    onclick="cancelTryOut('DELETEapi-products-delete--product-');" hidden>Cancel
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-DELETEapi-products-delete--product-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-red">DELETE</small>
+            <b><code>api/products/delete/{product}</code></b>
+        </p>
+                <p>
+            <label id="auth-DELETEapi-products-delete--product-" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="DELETEapi-products-delete--product-"
+                                                                data-component="header"></label>
+        </p>
+                <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>product</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
+               name="product"
+               data-endpoint="DELETEapi-products-delete--product-"
+               data-component="url" required  hidden>
+    <br>
+<p>O ID do produto</p>            </p>
+                    </form>
+
+        <h1 id="usuarios">Usuários</h1>
+
+    
+
+            <h2 id="usuarios-GETapi-users">Buscar todos os usuários</h2>
+
+<p>
+</p>
+
+<p>Apresenta uma lista de todos os usuários com as informações</p>
+
+<span id="example-requests-GETapi-users">
+<blockquote>Example request:</blockquote>
+
+
+<pre><code class="language-bash">curl --request GET \
+    --get "https://localhost/laravelProjetos/ecommerceApi/public/api/users" \
+    --header "Content-Type: application/json" \
+    --header "Accept: */*"</code></pre>
+
+<pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'https://localhost/laravelProjetos/ecommerceApi/public/api/users',
+    [
+        'headers' =&gt; [
+            'Accept' =&gt; '*/*',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+
+<pre><code class="language-javascript">const url = new URL(
+    "https://localhost/laravelProjetos/ecommerceApi/public/api/users"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "*/*",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+
+<pre><code class="language-python">import requests
+import json
+
+url = 'https://localhost/laravelProjetos/ecommerceApi/public/api/users'
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': '*/*'
+}
+
+response = requests.request('GET', url, headers=headers)
+response.json()</code></pre>
+</span>
+
+<span id="example-responses-GETapi-users">
+            <blockquote>
+            <p>Example response (404):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+ </code></pre>
+        </details>         <pre>
+
+<code class="language-json">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;utf-8&quot;&gt;
+        &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+
+        &lt;title&gt;Not Found&lt;/title&gt;
+
+        &lt;!-- Fonts --&gt;
+        &lt;link rel=&quot;dns-prefetch&quot; href=&quot;//fonts.gstatic.com&quot;&gt;
+        &lt;link href=&quot;https://fonts.googleapis.com/css?family=Nunito&quot; rel=&quot;stylesheet&quot;&gt;
+
+        &lt;!-- Styles --&gt;
+        &lt;style&gt;
+            html, body {
+                background-color: #fff;
+                color: #636b6f;
+                font-family: 'Nunito', sans-serif;
+                font-weight: 100;
+                height: 100vh;
+                margin: 0;
+            }
+
+            .full-height {
+                height: 100vh;
+            }
+
+            .flex-center {
+                align-items: center;
+                display: flex;
+                justify-content: center;
+            }
+
+            .position-ref {
+                position: relative;
+            }
+
+            .code {
+                border-right: 2px solid;
+                font-size: 26px;
+                padding: 0 15px 0 15px;
+                text-align: center;
+            }
+
+            .message {
+                font-size: 18px;
+                text-align: center;
+            }
+        &lt;/style&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;div class=&quot;flex-center position-ref full-height&quot;&gt;
+            &lt;div class=&quot;code&quot;&gt;
+                404            &lt;/div&gt;
+
+            &lt;div class=&quot;message&quot; style=&quot;padding: 10px;&quot;&gt;
+                Not Found            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-users" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-users"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-users"></code></pre>
+</span>
+<span id="execution-error-GETapi-users" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-users"></code></pre>
+</span>
+<form id="form-GETapi-users" data-method="GET"
+      data-path="api/users"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"*\/*"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-users', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-users"
+                    onclick="tryItOut('GETapi-users');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-users"
+                    onclick="cancelTryOut('GETapi-users');" hidden>Cancel
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-users" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/users</code></b>
+        </p>
+                    </form>
+
+            <h2 id="usuarios-GETapi-users-me">Buscar usuário JWT</h2>
+
+<p>
+</p>
+
+<p>Apresenta as informações do usuário logado que foi passado com JWT</p>
+
+<span id="example-requests-GETapi-users-me">
+<blockquote>Example request:</blockquote>
+
+
+<pre><code class="language-bash">curl --request GET \
+    --get "https://localhost/laravelProjetos/ecommerceApi/public/api/users/me" \
+    --header "Content-Type: application/json" \
+    --header "Accept: */*"</code></pre>
+
+<pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'https://localhost/laravelProjetos/ecommerceApi/public/api/users/me',
+    [
+        'headers' =&gt; [
+            'Accept' =&gt; '*/*',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+
+<pre><code class="language-javascript">const url = new URL(
+    "https://localhost/laravelProjetos/ecommerceApi/public/api/users/me"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "*/*",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+
+<pre><code class="language-python">import requests
+import json
+
+url = 'https://localhost/laravelProjetos/ecommerceApi/public/api/users/me'
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': '*/*'
+}
+
+response = requests.request('GET', url, headers=headers)
+response.json()</code></pre>
+</span>
+
+<span id="example-responses-GETapi-users-me">
+            <blockquote>
+            <p>Example response (404):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+ </code></pre>
+        </details>         <pre>
+
+<code class="language-json">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;utf-8&quot;&gt;
+        &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+
+        &lt;title&gt;Not Found&lt;/title&gt;
+
+        &lt;!-- Fonts --&gt;
+        &lt;link rel=&quot;dns-prefetch&quot; href=&quot;//fonts.gstatic.com&quot;&gt;
+        &lt;link href=&quot;https://fonts.googleapis.com/css?family=Nunito&quot; rel=&quot;stylesheet&quot;&gt;
+
+        &lt;!-- Styles --&gt;
+        &lt;style&gt;
+            html, body {
+                background-color: #fff;
+                color: #636b6f;
+                font-family: 'Nunito', sans-serif;
+                font-weight: 100;
+                height: 100vh;
+                margin: 0;
+            }
+
+            .full-height {
+                height: 100vh;
+            }
+
+            .flex-center {
+                align-items: center;
+                display: flex;
+                justify-content: center;
+            }
+
+            .position-ref {
+                position: relative;
+            }
+
+            .code {
+                border-right: 2px solid;
+                font-size: 26px;
+                padding: 0 15px 0 15px;
+                text-align: center;
+            }
+
+            .message {
+                font-size: 18px;
+                text-align: center;
+            }
+        &lt;/style&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;div class=&quot;flex-center position-ref full-height&quot;&gt;
+            &lt;div class=&quot;code&quot;&gt;
+                404            &lt;/div&gt;
+
+            &lt;div class=&quot;message&quot; style=&quot;padding: 10px;&quot;&gt;
+                Not Found            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-users-me" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-users-me"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-users-me"></code></pre>
+</span>
+<span id="execution-error-GETapi-users-me" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-users-me"></code></pre>
+</span>
+<form id="form-GETapi-users-me" data-method="GET"
+      data-path="api/users/me"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"*\/*"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-users-me', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-users-me"
+                    onclick="tryItOut('GETapi-users-me');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-users-me"
+                    onclick="cancelTryOut('GETapi-users-me');" hidden>Cancel
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-users-me" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/users/me</code></b>
+        </p>
+                    </form>
+
+            <h2 id="usuarios-PUTapi-users-me-edit">Editar usuário JWT</h2>
+
+<p>
+</p>
+
+<p>Alterar dados do usuário logado que foi passado com JWT, se tudo estiver certo apresenta as informações do usuário</p>
+
+<span id="example-requests-PUTapi-users-me-edit">
+<blockquote>Example request:</blockquote>
+
+
+<pre><code class="language-bash">curl --request PUT \
+    "https://localhost/laravelProjetos/ecommerceApi/public/api/users/me/edit" \
+    --header "Content-Type: application/json" \
+    --header "Accept: */*" \
+    --data "{
+    \"name\": \"perferendis\",
+    \"email\": \"fugit\"
+}"
+</code></pre>
+
+<pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;put(
+    'https://localhost/laravelProjetos/ecommerceApi/public/api/users/me/edit',
+    [
+        'headers' =&gt; [
+            'Accept' =&gt; '*/*',
+        ],
+        'json' =&gt; [
+            'name' =&gt; 'perferendis',
+            'email' =&gt; 'fugit',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+
+<pre><code class="language-javascript">const url = new URL(
+    "https://localhost/laravelProjetos/ecommerceApi/public/api/users/me/edit"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "*/*",
+};
+
+let body = {
+    "name": "perferendis",
+    "email": "fugit"
+}
+
+fetch(url, {
+    method: "PUT",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre>
+
+<pre><code class="language-python">import requests
+import json
+
+url = 'https://localhost/laravelProjetos/ecommerceApi/public/api/users/me/edit'
+payload = {
+    "name": "perferendis",
+    "email": "fugit"
+}
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': '*/*'
+}
+
+response = requests.request('PUT', url, headers=headers, json=payload)
+response.json()</code></pre>
+</span>
+
+<span id="example-responses-PUTapi-users-me-edit">
+</span>
+<span id="execution-results-PUTapi-users-me-edit" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-PUTapi-users-me-edit"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-PUTapi-users-me-edit"></code></pre>
+</span>
+<span id="execution-error-PUTapi-users-me-edit" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-PUTapi-users-me-edit"></code></pre>
+</span>
+<form id="form-PUTapi-users-me-edit" data-method="PUT"
+      data-path="api/users/me/edit"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"*\/*"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('PUTapi-users-me-edit', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-PUTapi-users-me-edit"
+                    onclick="tryItOut('PUTapi-users-me-edit');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-PUTapi-users-me-edit"
+                    onclick="cancelTryOut('PUTapi-users-me-edit');" hidden>Cancel
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-PUTapi-users-me-edit" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-darkblue">PUT</small>
+            <b><code>api/users/me/edit</code></b>
+        </p>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>name</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="name"
+               data-endpoint="PUTapi-users-me-edit"
+               data-component="body" required  hidden>
+    <br>
+<p>Um nome do usuário.</p>        </p>
+                <p>
+            <b><code>email</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="email"
+               data-endpoint="PUTapi-users-me-edit"
+               data-component="body" required  hidden>
+    <br>
+<p>Email do usuário que não existe no banco de dados.</p>        </p>
+    
+    </form>
+
+    
+
+        
+    </div>
+    <div class="dark-box">
+                    <div class="lang-selector">
+                                    <a href="#" data-language-name="bash">bash</a>
+                                    <a href="#" data-language-name="php">php</a>
+                                    <a href="#" data-language-name="javascript">javascript</a>
+                                    <a href="#" data-language-name="python">python</a>
+                            </div>
+            </div>
+</div>
+<script>
+    $(function () {
+        var exampleLanguages = ["bash","php","javascript","python"];
+        setupLanguages(exampleLanguages);
+    });
+</script>
+</body>
+</html>

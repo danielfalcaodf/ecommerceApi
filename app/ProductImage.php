@@ -1,8 +1,8 @@
 <?php
 
-namespace App\models;
+namespace App;
 
-use App\Models\Product;
+use App\Product;
 use Illuminate\Database\Eloquent\Model;
 
 class ProductImage extends Model

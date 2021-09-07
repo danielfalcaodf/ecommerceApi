@@ -1,0 +1,240 @@
+name: Pedidos
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: api/checkouts/me/list
+    metadata:
+      title: 'Buscar todos pedidos do usuário'
+      description: 'Apresenta todos os pedidos do usuário logado que foi passado com JWT'
+      authenticated: true
+    headers:
+      Authorization: 'Bearer {ACCESS_TOKEN}'
+      Content-Type: application/json
+      Accept: '*/*'
+    urlParameters: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 404
+        content: |
+          <!DOCTYPE html>
+          <html lang="en">
+              <head>
+                  <meta charset="utf-8">
+                  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+                  <title>Not Found</title>
+
+                  <!-- Fonts -->
+                  <link rel="dns-prefetch" href="//fonts.gstatic.com">
+                  <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+
+                  <!-- Styles -->
+                  <style>
+                      html, body {
+                          background-color: #fff;
+                          color: #636b6f;
+                          font-family: 'Nunito', sans-serif;
+                          font-weight: 100;
+                          height: 100vh;
+                          margin: 0;
+                      }
+
+                      .full-height {
+                          height: 100vh;
+                      }
+
+                      .flex-center {
+                          align-items: center;
+                          display: flex;
+                          justify-content: center;
+                      }
+
+                      .position-ref {
+                          position: relative;
+                      }
+
+                      .code {
+                          border-right: 2px solid;
+                          font-size: 26px;
+                          padding: 0 15px 0 15px;
+                          text-align: center;
+                      }
+
+                      .message {
+                          font-size: 18px;
+                          text-align: center;
+                      }
+                  </style>
+              </head>
+              <body>
+                  <div class="flex-center position-ref full-height">
+                      <div class="code">
+                          404            </div>
+
+                      <div class="message" style="padding: 10px;">
+                          Not Found            </div>
+                  </div>
+              </body>
+          </html>
+        headers:
+          cache-control: 'no-cache, private'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/checkouts/me/view/{checkout}'
+    metadata:
+      title: 'Buscar pedido do usuário'
+      description: 'Apresenta um pedido especificado do usuário logado que foi passado com JWT, mostrando só o pedido dele'
+      authenticated: true
+    headers:
+      Authorization: 'Bearer {ACCESS_TOKEN}'
+      Content-Type: application/json
+      Accept: '*/*'
+    urlParameters:
+      checkout:
+        name: checkout
+        description: 'O ID do pedido'
+        required: true
+        example: 15
+        type: integer
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 404
+        content: |
+          <!DOCTYPE html>
+          <html lang="en">
+              <head>
+                  <meta charset="utf-8">
+                  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+                  <title>Not Found</title>
+
+                  <!-- Fonts -->
+                  <link rel="dns-prefetch" href="//fonts.gstatic.com">
+                  <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+
+                  <!-- Styles -->
+                  <style>
+                      html, body {
+                          background-color: #fff;
+                          color: #636b6f;
+                          font-family: 'Nunito', sans-serif;
+                          font-weight: 100;
+                          height: 100vh;
+                          margin: 0;
+                      }
+
+                      .full-height {
+                          height: 100vh;
+                      }
+
+                      .flex-center {
+                          align-items: center;
+                          display: flex;
+                          justify-content: center;
+                      }
+
+                      .position-ref {
+                          position: relative;
+                      }
+
+                      .code {
+                          border-right: 2px solid;
+                          font-size: 26px;
+                          padding: 0 15px 0 15px;
+                          text-align: center;
+                      }
+
+                      .message {
+                          font-size: 18px;
+                          text-align: center;
+                      }
+                  </style>
+              </head>
+              <body>
+                  <div class="flex-center position-ref full-height">
+                      <div class="code">
+                          404            </div>
+
+                      <div class="message" style="padding: 10px;">
+                          Not Found            </div>
+                  </div>
+              </body>
+          </html>
+        headers:
+          cache-control: 'no-cache, private'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - POST
+    uri: api/checkouts/me/new
+    metadata:
+      title: 'Cadastrar pedido do usuário'
+      description: |-
+        Cadastrar um pedido do usuário logado, que foi passado com JWT. Caso o usuário
+        não tenha cadastro como comprador, deve informa o CPF e Telefone ou celular do usuário para criar ele como comprador.
+        Se estiver tudo certo será enviado um email ao comprador com a confirmação do pedido
+      authenticated: true
+    headers:
+      Authorization: 'Bearer {ACCESS_TOKEN}'
+      Content-Type: application/json
+      Accept: '*/*'
+    urlParameters: []
+    queryParameters: []
+    bodyParameters:
+      idbuyer:
+        name: idbuyer
+        description: ''
+        required: false
+        example: null
+        type: string
+      products:
+        name: products
+        description: 'A lista dos produtos do pedido'
+        required: true
+        example:
+          -
+            id: '4'
+            quant: '6'
+          -
+            id: '7'
+            quant: '2'
+          -
+            id: '2'
+            quant: '3'
+        type: 'object[]'
+      'products[].id':
+        name: 'products[].id'
+        description: 'O ID do produto.'
+        required: true
+        example: sed
+        type: string
+      'products[].quant':
+        name: 'products[].quant'
+        description: 'A quantidade do produto.'
+        required: true
+        example: et
+        type: string
+      phone_cell:
+        name: phone_cell
+        description: 'O telefone ou celular válido.'
+        required: false
+        example: et
+        type: string
+      cpf:
+        name: cpf
+        description: 'O CPF válido.'
+        required: false
+        example: et
+        type: string
+    responses: []
+    responseFields: []

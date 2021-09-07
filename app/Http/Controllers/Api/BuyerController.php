@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Requests\BuyerRequest;
 use App\Http\Resources\Buyer as BuyerResource;
-use App\Models\Buyer;
+use App\Buyer;
 use Exception;
 use Illuminate\Http\Request;
 
@@ -95,7 +95,7 @@ class BuyerController extends BaseController
      * @authenticated
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Buyer  $buyer
+     * @param  \App\Buyer  $buyer
      * @return \Illuminate\Http\Response
      */
     public function editBuyer(BuyerRequest $request, $buyer)
@@ -125,7 +125,7 @@ class BuyerController extends BaseController
      * @group Compradores
      * @authenticated
      *
-     * @param  \App\Models\Buyer  $buyer
+     * @param  \App\Buyer  $buyer
      * @return \Illuminate\Http\Response
      */
     public function deleteBuyer($buyer)

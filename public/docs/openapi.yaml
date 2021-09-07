@@ -1,0 +1,1439 @@
+openapi: 3.0.3
+info:
+  title: ecommerceApi
+  description: 'API RESTFul para o gerenciamento de pedidos de um E-commerce utilizando o framework Laravel, contêm os módulos Comprador, Produto, Checkout, Auth e Usuário'
+  version: 1.0.0
+servers:
+  -
+    url: 'https://localhost/laravelProjetos/ecommerceApi/public'
+paths:
+  /api/auth/login:
+    post:
+      summary: 'Autenticação com email e senha'
+      description: 'Obtenha um JWT com credenciais fornecidas'
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: '*/*'
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: ''
+                  type: success
+                  data:
+                    id: 1
+                    name: 'Kevin Edilson Padilha'
+                    email: danielfalcao.df@gmail.com
+                    token:
+                      access_token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvbG9jYWxob3N0XC9sYXJhdmVsUHJvamV0b3NcL2Vjb21tZXJjZUFwaVwvcHVibGljXC9cL2FwaVwvYXV0aFwvbG9naW4iLCJpYXQiOjE2MzEwNDQyNjksImV4cCI6MTYzMTA0Nzg2OSwibmJmIjoxNjMxMDQ0MjY5LCJqdGkiOiJ4aUR4ajhkUWY2NFZUZWxCIiwic3ViIjoxLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.WHEa91qVOqlg7WT189BkYWiJayYpScY6c8ZIObLZNPQ
+                      token_type: bearer
+                      expires_in: 3600
+                    created_at: 06/09/2021
+                    updated_at: 06/09/2021
+                    link:
+                      get:
+                        getListAll: 'https://localhost/laravelProjetos/ecommerceApi/public/api/users'
+                        getMe: 'https://localhost/laravelProjetos/ecommerceApi/public/api/users/me'
+                      post:
+                        login: 'https://localhost/laravelProjetos/ecommerceApi/public/api/auth/login'
+                        register: 'https://localhost/laravelProjetos/ecommerceApi/public/api/auth/register'
+                        logout: 'https://localhost/laravelProjetos/ecommerceApi/public/api/auth/logout'
+                      put:
+                        editNameEmail: 'https://localhost/laravelProjetos/ecommerceApi/public/api/users/me/edit'
+                  code: 200
+                properties:
+                  message:
+                    type: string
+                    example: ''
+                  type:
+                    type: string
+                    example: success
+                  data:
+                    type: object
+                    example:
+                      id: 1
+                      name: 'Kevin Edilson Padilha'
+                      email: danielfalcao.df@gmail.com
+                      token:
+                        access_token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvbG9jYWxob3N0XC9sYXJhdmVsUHJvamV0b3NcL2Vjb21tZXJjZUFwaVwvcHVibGljXC9cL2FwaVwvYXV0aFwvbG9naW4iLCJpYXQiOjE2MzEwNDQyNjksImV4cCI6MTYzMTA0Nzg2OSwibmJmIjoxNjMxMDQ0MjY5LCJqdGkiOiJ4aUR4ajhkUWY2NFZUZWxCIiwic3ViIjoxLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.WHEa91qVOqlg7WT189BkYWiJayYpScY6c8ZIObLZNPQ
+                        token_type: bearer
+                        expires_in: 3600
+                      created_at: 06/09/2021
+                      updated_at: 06/09/2021
+                      link:
+                        get:
+                          getListAll: 'https://localhost/laravelProjetos/ecommerceApi/public/api/users'
+                          getMe: 'https://localhost/laravelProjetos/ecommerceApi/public/api/users/me'
+                        post:
+                          login: 'https://localhost/laravelProjetos/ecommerceApi/public/api/auth/login'
+                          register: 'https://localhost/laravelProjetos/ecommerceApi/public/api/auth/register'
+                          logout: 'https://localhost/laravelProjetos/ecommerceApi/public/api/auth/logout'
+                        put:
+                          editNameEmail: 'https://localhost/laravelProjetos/ecommerceApi/public/api/users/me/edit'
+                  code:
+                    type: integer
+                    example: 200
+        400:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  type: error
+                  message: 'Email ou senha inválidos'
+                  code: 400
+                properties:
+                  type:
+                    type: string
+                    example: error
+                  message:
+                    type: string
+                    example: 'Email ou senha inválidos'
+                  code:
+                    type: integer
+                    example: 400
+        422:
+          description: 'Erros semânticos do código'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  type: error
+                  message: Error
+                  code: 422
+                  data:
+                    errors: 'syntax error, unexpected ''if'' (T_IF)'
+                properties:
+                  type:
+                    type: string
+                    example: error
+                  message:
+                    type: string
+                    example: Error
+                  code:
+                    type: integer
+                    example: 422
+                  data:
+                    type: object
+                    example:
+                      errors: 'syntax error, unexpected ''if'' (T_IF)'
+      tags:
+        - 'Autenticação Jwt'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: 'Email do usuário cadastrado.'
+                  example: danielfalcao.df@gmail.com
+                password:
+                  type: string
+                  description: 'Senha do usuário cadastrado.'
+                  example: '123456'
+              required:
+                - email
+                - password
+      security: []
+  /api/auth/register:
+    post:
+      summary: 'Cadastrar um novo usuário'
+      description: 'Usando name, email, password e password_confirmation, se tudo estiver certo apresenta um token de acesso (JWT) e datalhes do usuario novo'
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: '*/*'
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Usuário Cadastrado!'
+                  type: success
+                  data:
+                    id: 23
+                    name: teste
+                    email: teste@teste.com
+                    token:
+                      access_token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvbG9jYWxob3N0XC9sYXJhdmVsUHJvamV0b3NcL2Vjb21tZXJjZUFwaVwvcHVibGljXC9cL2FwaVwvYXV0aFwvcmVnaXN0ZXIiLCJpYXQiOjE2MzEwNDQ2MTksImV4cCI6MTYzMTA0ODIxOSwibmJmIjoxNjMxMDQ0NjE5LCJqdGkiOiJBaWo2YWdKTjlaUWtkb1hOIiwic3ViIjoyMywicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.thHar_GT9_OIco3Vm85EWn-FJ7AA3EdcWzpBulq7-hQ
+                      token_type: bearer
+                      expires_in: 3600
+                    created_at: 07/09/2021
+                    updated_at: 07/09/2021
+                    link:
+                      get:
+                        getListAll: 'https://localhost/laravelProjetos/ecommerceApi/public/api/users'
+                        getMe: 'https://localhost/laravelProjetos/ecommerceApi/public/api/users/me'
+                      post:
+                        login: 'https://localhost/laravelProjetos/ecommerceApi/public/api/auth/login'
+                        register: 'https://localhost/laravelProjetos/ecommerceApi/public/api/auth/register'
+                        logout: 'https://localhost/laravelProjetos/ecommerceApi/public/api/auth/logout'
+                      put:
+                        editNameEmail: 'https://localhost/laravelProjetos/ecommerceApi/public/api/users/me/edit'
+                  code: 201
+                properties:
+                  message:
+                    type: string
+                    example: 'Usuário Cadastrado!'
+                  type:
+                    type: string
+                    example: success
+                  data:
+                    type: object
+                    example:
+                      id: 23
+                      name: teste
+                      email: teste@teste.com
+                      token:
+                        access_token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvbG9jYWxob3N0XC9sYXJhdmVsUHJvamV0b3NcL2Vjb21tZXJjZUFwaVwvcHVibGljXC9cL2FwaVwvYXV0aFwvcmVnaXN0ZXIiLCJpYXQiOjE2MzEwNDQ2MTksImV4cCI6MTYzMTA0ODIxOSwibmJmIjoxNjMxMDQ0NjE5LCJqdGkiOiJBaWo2YWdKTjlaUWtkb1hOIiwic3ViIjoyMywicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.thHar_GT9_OIco3Vm85EWn-FJ7AA3EdcWzpBulq7-hQ
+                        token_type: bearer
+                        expires_in: 3600
+                      created_at: 07/09/2021
+                      updated_at: 07/09/2021
+                      link:
+                        get:
+                          getListAll: 'https://localhost/laravelProjetos/ecommerceApi/public/api/users'
+                          getMe: 'https://localhost/laravelProjetos/ecommerceApi/public/api/users/me'
+                        post:
+                          login: 'https://localhost/laravelProjetos/ecommerceApi/public/api/auth/login'
+                          register: 'https://localhost/laravelProjetos/ecommerceApi/public/api/auth/register'
+                          logout: 'https://localhost/laravelProjetos/ecommerceApi/public/api/auth/logout'
+                        put:
+                          editNameEmail: 'https://localhost/laravelProjetos/ecommerceApi/public/api/users/me/edit'
+                  code:
+                    type: integer
+                    example: 201
+        422:
+          description: 'Erros semânticos do código'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  type: error
+                  message: Error
+                  code: 422
+                  data:
+                    errors: 'syntax error, unexpected ''if'' (T_IF)'
+                properties:
+                  type:
+                    type: string
+                    example: error
+                  message:
+                    type: string
+                    example: Error
+                  code:
+                    type: integer
+                    example: 422
+                  data:
+                    type: object
+                    example:
+                      errors: 'syntax error, unexpected ''if'' (T_IF)'
+      tags:
+        - 'Autenticação Jwt'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'Nome do usuário.'
+                  example: teste
+                email:
+                  type: string
+                  description: 'Email do usuário que não é cadastrado.'
+                  example: teste@teste.com
+                password:
+                  type: string
+                  description: 'Senha do usuário.'
+                  example: '123456'
+                password_confirmation:
+                  type: string
+                  description: 'Confirmação da senha.'
+                  example: '123456'
+              required:
+                - name
+                - email
+                - password
+                - password_confirmation
+      security: []
+  /api/auth/logout:
+    post:
+      summary: 'Deslogar da Api'
+      description: 'Desconecte o usuário (invalide o token), se tudo estiver certo apresenta as informações do usuário'
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {ACCESS_TOKEN}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: '*/*'
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Successfully logged out'
+                  type: success
+                  data:
+                    id: 1
+                    name: 'Kevin Edilson Padilha'
+                    email: danielfalcao.df@gmail.com
+                    email_verified_at: null
+                    created_at: 06/09/2021
+                    updated_at: 06/09/2021
+                    link:
+                      get:
+                        getListAll: 'https://localhost/laravelProjetos/ecommerceApi/public/api/users'
+                        getMe: 'https://localhost/laravelProjetos/ecommerceApi/public/api/users/me'
+                      post:
+                        login: 'https://localhost/laravelProjetos/ecommerceApi/public/api/auth/login'
+                        register: 'https://localhost/laravelProjetos/ecommerceApi/public/api/auth/register'
+                        logout: 'https://localhost/laravelProjetos/ecommerceApi/public/api/auth/logout'
+                      put:
+                        editNameEmail: 'https://localhost/laravelProjetos/ecommerceApi/public/api/users/me/edit'
+                  code: 200
+                properties:
+                  message:
+                    type: string
+                    example: 'Successfully logged out'
+                  type:
+                    type: string
+                    example: success
+                  data:
+                    type: object
+                    example:
+                      id: 1
+                      name: 'Kevin Edilson Padilha'
+                      email: danielfalcao.df@gmail.com
+                      email_verified_at: null
+                      created_at: 06/09/2021
+                      updated_at: 06/09/2021
+                      link:
+                        get:
+                          getListAll: 'https://localhost/laravelProjetos/ecommerceApi/public/api/users'
+                          getMe: 'https://localhost/laravelProjetos/ecommerceApi/public/api/users/me'
+                        post:
+                          login: 'https://localhost/laravelProjetos/ecommerceApi/public/api/auth/login'
+                          register: 'https://localhost/laravelProjetos/ecommerceApi/public/api/auth/register'
+                          logout: 'https://localhost/laravelProjetos/ecommerceApi/public/api/auth/logout'
+                        put:
+                          editNameEmail: 'https://localhost/laravelProjetos/ecommerceApi/public/api/users/me/edit'
+                  code:
+                    type: integer
+                    example: 200
+        401:
+          description: 'Token is Invalid, Token is Expired, Authorization Token not found'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  type: error
+                  code: 401
+                  massage: 'Token is Invalid'
+                properties:
+                  type:
+                    type: string
+                    example: error
+                  code:
+                    type: integer
+                    example: 401
+                  massage:
+                    type: string
+                    example: 'Token is Invalid'
+        422:
+          description: 'Erros semânticos do código'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  type: error
+                  message: Error
+                  code: 422
+                  data:
+                    errors: 'syntax error, unexpected ''if'' (T_IF)'
+                properties:
+                  type:
+                    type: string
+                    example: error
+                  message:
+                    type: string
+                    example: Error
+                  code:
+                    type: integer
+                    example: 422
+                  data:
+                    type: object
+                    example:
+                      errors: 'syntax error, unexpected ''if'' (T_IF)'
+      tags:
+        - 'Autenticação Jwt'
+  /api/buyers:
+    get:
+      summary: 'Buscar todos Compradores'
+      description: 'Apresenta uma lista de todos os compradores com as informações'
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {ACCESS_TOKEN}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: '*/*'
+          schema:
+            type: string
+      responses:
+        404:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "<!DOCTYPE html>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"utf-8\">\n        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n\n        <title>Not Found</title>\n\n        <!-- Fonts -->\n        <link rel=\"dns-prefetch\" href=\"//fonts.gstatic.com\">\n        <link href=\"https://fonts.googleapis.com/css?family=Nunito\" rel=\"stylesheet\">\n\n        <!-- Styles -->\n        <style>\n            html, body {\n                background-color: #fff;\n                color: #636b6f;\n                font-family: 'Nunito', sans-serif;\n                font-weight: 100;\n                height: 100vh;\n                margin: 0;\n            }\n\n            .full-height {\n                height: 100vh;\n            }\n\n            .flex-center {\n                align-items: center;\n                display: flex;\n                justify-content: center;\n            }\n\n            .position-ref {\n                position: relative;\n            }\n\n            .code {\n                border-right: 2px solid;\n                font-size: 26px;\n                padding: 0 15px 0 15px;\n                text-align: center;\n            }\n\n            .message {\n                font-size: 18px;\n                text-align: center;\n            }\n        </style>\n    </head>\n    <body>\n        <div class=\"flex-center position-ref full-height\">\n            <div class=\"code\">\n                404            </div>\n\n            <div class=\"message\" style=\"padding: 10px;\">\n                Not Found            </div>\n        </div>\n    </body>\n</html>\n"
+      tags:
+        - Compradores
+  '/api/buyers/view/{buyer}':
+    get:
+      summary: 'Buscar Comprador'
+      description: 'Apresenta as informações do comprador especificado'
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {ACCESS_TOKEN}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: '*/*'
+          schema:
+            type: string
+      responses:
+        404:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "<!DOCTYPE html>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"utf-8\">\n        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n\n        <title>Not Found</title>\n\n        <!-- Fonts -->\n        <link rel=\"dns-prefetch\" href=\"//fonts.gstatic.com\">\n        <link href=\"https://fonts.googleapis.com/css?family=Nunito\" rel=\"stylesheet\">\n\n        <!-- Styles -->\n        <style>\n            html, body {\n                background-color: #fff;\n                color: #636b6f;\n                font-family: 'Nunito', sans-serif;\n                font-weight: 100;\n                height: 100vh;\n                margin: 0;\n            }\n\n            .full-height {\n                height: 100vh;\n            }\n\n            .flex-center {\n                align-items: center;\n                display: flex;\n                justify-content: center;\n            }\n\n            .position-ref {\n                position: relative;\n            }\n\n            .code {\n                border-right: 2px solid;\n                font-size: 26px;\n                padding: 0 15px 0 15px;\n                text-align: center;\n            }\n\n            .message {\n                font-size: 18px;\n                text-align: center;\n            }\n        </style>\n    </head>\n    <body>\n        <div class=\"flex-center position-ref full-height\">\n            <div class=\"code\">\n                404            </div>\n\n            <div class=\"message\" style=\"padding: 10px;\">\n                Not Found            </div>\n        </div>\n    </body>\n</html>\n"
+      tags:
+        - Compradores
+    parameters:
+      -
+        in: path
+        name: buyer
+        description: 'O ID do comprador'
+        example: 10
+        required: true
+        schema:
+          type: integer
+  /api/buyers/add:
+    post:
+      summary: 'Cadastrar Comprador'
+      description: 'Cadastrar um comprador, se tudo estiver certo apresenta as informações do comprador'
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {ACCESS_TOKEN}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: '*/*'
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Compradores
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                phone_cell:
+                  type: string
+                  description: 'O Telefone ou celular do comprador.'
+                  example: unde
+                cpf:
+                  type: string
+                  description: 'CPF do comprador.'
+                  example: commodi
+                iduser:
+                  type: string
+                  description: 'O ID do usuário.'
+                  example: ipsam
+              required:
+                - phone_cell
+                - cpf
+                - iduser
+  '/api/buyers/edit/{buyer}':
+    put:
+      summary: 'Editar Comprador'
+      description: 'Editar um comprador especificado, se tudo estiver certo apresenta as informações do comprador'
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {ACCESS_TOKEN}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: '*/*'
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Compradores
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                phone_cell:
+                  type: string
+                  description: 'Telefone ou Celular.'
+                  example: qui
+                cpf:
+                  type: string
+                  description: CPF.
+                  example: reprehenderit
+                iduser:
+                  type: string
+                  description: 'O id do Usuário.'
+                  example: natus
+              required:
+                - phone_cell
+                - cpf
+                - iduser
+    parameters:
+      -
+        in: path
+        name: buyer
+        description: 'O ID do comprador'
+        example: 2
+        required: true
+        schema:
+          type: integer
+  '/api/buyers/delete/{buyer}':
+    delete:
+      summary: 'Deletar Comprador'
+      description: 'Deletar um Comprador especificado'
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {ACCESS_TOKEN}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: '*/*'
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Compradores
+    parameters:
+      -
+        in: path
+        name: buyer
+        description: 'O ID do comprador'
+        example: 16
+        required: true
+        schema:
+          type: integer
+  /api/checkouts/me/list:
+    get:
+      summary: 'Buscar todos pedidos do usuário'
+      description: 'Apresenta todos os pedidos do usuário logado que foi passado com JWT'
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {ACCESS_TOKEN}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: '*/*'
+          schema:
+            type: string
+      responses:
+        404:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "<!DOCTYPE html>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"utf-8\">\n        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n\n        <title>Not Found</title>\n\n        <!-- Fonts -->\n        <link rel=\"dns-prefetch\" href=\"//fonts.gstatic.com\">\n        <link href=\"https://fonts.googleapis.com/css?family=Nunito\" rel=\"stylesheet\">\n\n        <!-- Styles -->\n        <style>\n            html, body {\n                background-color: #fff;\n                color: #636b6f;\n                font-family: 'Nunito', sans-serif;\n                font-weight: 100;\n                height: 100vh;\n                margin: 0;\n            }\n\n            .full-height {\n                height: 100vh;\n            }\n\n            .flex-center {\n                align-items: center;\n                display: flex;\n                justify-content: center;\n            }\n\n            .position-ref {\n                position: relative;\n            }\n\n            .code {\n                border-right: 2px solid;\n                font-size: 26px;\n                padding: 0 15px 0 15px;\n                text-align: center;\n            }\n\n            .message {\n                font-size: 18px;\n                text-align: center;\n            }\n        </style>\n    </head>\n    <body>\n        <div class=\"flex-center position-ref full-height\">\n            <div class=\"code\">\n                404            </div>\n\n            <div class=\"message\" style=\"padding: 10px;\">\n                Not Found            </div>\n        </div>\n    </body>\n</html>\n"
+      tags:
+        - Pedidos
+  '/api/checkouts/me/view/{checkout}':
+    get:
+      summary: 'Buscar pedido do usuário'
+      description: 'Apresenta um pedido especificado do usuário logado que foi passado com JWT, mostrando só o pedido dele'
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {ACCESS_TOKEN}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: '*/*'
+          schema:
+            type: string
+      responses:
+        404:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "<!DOCTYPE html>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"utf-8\">\n        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n\n        <title>Not Found</title>\n\n        <!-- Fonts -->\n        <link rel=\"dns-prefetch\" href=\"//fonts.gstatic.com\">\n        <link href=\"https://fonts.googleapis.com/css?family=Nunito\" rel=\"stylesheet\">\n\n        <!-- Styles -->\n        <style>\n            html, body {\n                background-color: #fff;\n                color: #636b6f;\n                font-family: 'Nunito', sans-serif;\n                font-weight: 100;\n                height: 100vh;\n                margin: 0;\n            }\n\n            .full-height {\n                height: 100vh;\n            }\n\n            .flex-center {\n                align-items: center;\n                display: flex;\n                justify-content: center;\n            }\n\n            .position-ref {\n                position: relative;\n            }\n\n            .code {\n                border-right: 2px solid;\n                font-size: 26px;\n                padding: 0 15px 0 15px;\n                text-align: center;\n            }\n\n            .message {\n                font-size: 18px;\n                text-align: center;\n            }\n        </style>\n    </head>\n    <body>\n        <div class=\"flex-center position-ref full-height\">\n            <div class=\"code\">\n                404            </div>\n\n            <div class=\"message\" style=\"padding: 10px;\">\n                Not Found            </div>\n        </div>\n    </body>\n</html>\n"
+      tags:
+        - Pedidos
+    parameters:
+      -
+        in: path
+        name: checkout
+        description: 'O ID do pedido'
+        example: 15
+        required: true
+        schema:
+          type: integer
+  /api/checkouts/me/new:
+    post:
+      summary: 'Cadastrar pedido do usuário'
+      description: "Cadastrar um pedido do usuário logado, que foi passado com JWT. Caso o usuário\nnão tenha cadastro como comprador, deve informa o CPF e Telefone ou celular do usuário para criar ele como comprador.\nSe estiver tudo certo será enviado um email ao comprador com a confirmação do pedido"
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {ACCESS_TOKEN}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: '*/*'
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Pedidos
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                idbuyer:
+                  type: string
+                  description: ''
+                  example: null
+                products:
+                  type: array
+                  description: 'A lista dos produtos do pedido'
+                  example:
+                    -
+                      id: '4'
+                      quant: '6'
+                    -
+                      id: '7'
+                      quant: '2'
+                    -
+                      id: '2'
+                      quant: '3'
+                  items:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        description: 'O ID do produto.'
+                        example: sed
+                      quant:
+                        type: string
+                        description: 'A quantidade do produto.'
+                        example: et
+                    required:
+                      - id
+                      - quant
+                phone_cell:
+                  type: string
+                  description: 'O telefone ou celular válido.'
+                  example: et
+                cpf:
+                  type: string
+                  description: 'O CPF válido.'
+                  example: et
+              required:
+                - products
+  /api/checkouts/list:
+    get:
+      summary: 'Buscar todos pedidos'
+      description: 'Apresenta uma lista de todos os pedidos com as informações'
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {ACCESS_TOKEN}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: '*/*'
+          schema:
+            type: string
+      responses:
+        404:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "<!DOCTYPE html>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"utf-8\">\n        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n\n        <title>Not Found</title>\n\n        <!-- Fonts -->\n        <link rel=\"dns-prefetch\" href=\"//fonts.gstatic.com\">\n        <link href=\"https://fonts.googleapis.com/css?family=Nunito\" rel=\"stylesheet\">\n\n        <!-- Styles -->\n        <style>\n            html, body {\n                background-color: #fff;\n                color: #636b6f;\n                font-family: 'Nunito', sans-serif;\n                font-weight: 100;\n                height: 100vh;\n                margin: 0;\n            }\n\n            .full-height {\n                height: 100vh;\n            }\n\n            .flex-center {\n                align-items: center;\n                display: flex;\n                justify-content: center;\n            }\n\n            .position-ref {\n                position: relative;\n            }\n\n            .code {\n                border-right: 2px solid;\n                font-size: 26px;\n                padding: 0 15px 0 15px;\n                text-align: center;\n            }\n\n            .message {\n                font-size: 18px;\n                text-align: center;\n            }\n        </style>\n    </head>\n    <body>\n        <div class=\"flex-center position-ref full-height\">\n            <div class=\"code\">\n                404            </div>\n\n            <div class=\"message\" style=\"padding: 10px;\">\n                Not Found            </div>\n        </div>\n    </body>\n</html>\n"
+      tags:
+        - 'Pedidos ADMIN'
+  '/api/checkouts/view/{checkout}':
+    get:
+      summary: 'Buscar pedido'
+      description: 'Apresenta as informações do pedido especificado'
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {ACCESS_TOKEN}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: '*/*'
+          schema:
+            type: string
+      responses:
+        404:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "<!DOCTYPE html>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"utf-8\">\n        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n\n        <title>Not Found</title>\n\n        <!-- Fonts -->\n        <link rel=\"dns-prefetch\" href=\"//fonts.gstatic.com\">\n        <link href=\"https://fonts.googleapis.com/css?family=Nunito\" rel=\"stylesheet\">\n\n        <!-- Styles -->\n        <style>\n            html, body {\n                background-color: #fff;\n                color: #636b6f;\n                font-family: 'Nunito', sans-serif;\n                font-weight: 100;\n                height: 100vh;\n                margin: 0;\n            }\n\n            .full-height {\n                height: 100vh;\n            }\n\n            .flex-center {\n                align-items: center;\n                display: flex;\n                justify-content: center;\n            }\n\n            .position-ref {\n                position: relative;\n            }\n\n            .code {\n                border-right: 2px solid;\n                font-size: 26px;\n                padding: 0 15px 0 15px;\n                text-align: center;\n            }\n\n            .message {\n                font-size: 18px;\n                text-align: center;\n            }\n        </style>\n    </head>\n    <body>\n        <div class=\"flex-center position-ref full-height\">\n            <div class=\"code\">\n                404            </div>\n\n            <div class=\"message\" style=\"padding: 10px;\">\n                Not Found            </div>\n        </div>\n    </body>\n</html>\n"
+      tags:
+        - 'Pedidos ADMIN'
+    parameters:
+      -
+        in: path
+        name: checkout
+        description: 'O ID do pedido'
+        example: 15
+        required: true
+        schema:
+          type: integer
+  /api/checkouts/new:
+    post:
+      summary: 'Criar um pedido do comprador'
+      description: "Cadastra um pedido do comprador especificando o ID do comprador.\nSe estiver tudo certo será enviado um email ao comprador com a confirmação do pedido"
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {ACCESS_TOKEN}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: '*/*'
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - 'Pedidos ADMIN'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                idbuyer:
+                  type: string
+                  description: 'O ID do comprador .'
+                  example: magnam
+                products:
+                  type: array
+                  description: 'A lista dos produtos do pedido'
+                  example:
+                    -
+                      id: '4'
+                      quant: '6'
+                    -
+                      id: '7'
+                      quant: '2'
+                    -
+                      id: '2'
+                      quant: '3'
+                  items:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        description: 'O ID do produto.'
+                        example: cum
+                      quant:
+                        type: string
+                        description: 'A quantidade do produto.'
+                        example: laboriosam
+                    required:
+                      - id
+                      - quant
+              required:
+                - idbuyer
+                - products
+  '/api/checkouts/edit/{checkout}':
+    put:
+      summary: 'Editar Pedido'
+      description: 'Editar um pedido (comprador e os produtos) especificado, se tudo estiver certo apresenta as informações do pedido'
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {ACCESS_TOKEN}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: '*/*'
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - 'Pedidos ADMIN'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                idbuyer:
+                  type: string
+                  description: 'O ID do comprador.'
+                  example: assumenda
+                products:
+                  type: array
+                  description: 'A lista de produtos do pedido'
+                  example:
+                    -
+                      id: '4'
+                      quant: '6'
+                    -
+                      id: '7'
+                      quant: '2'
+                    -
+                      id: '2'
+                      quant: '3'
+                  items:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        description: 'O ID do produto.'
+                        example: perspiciatis
+                      quant:
+                        type: string
+                        description: 'A quantidade do produto.'
+                        example: mollitia
+                    required:
+                      - id
+                      - quant
+              required:
+                - idbuyer
+                - products
+    parameters:
+      -
+        in: path
+        name: checkout
+        description: 'O ID do pedido'
+        example: 9
+        required: true
+        schema:
+          type: integer
+  '/api/checkouts/delete/{checkout}':
+    delete:
+      summary: 'Deletar Pedido'
+      description: 'Deletar um pedido especificado'
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {ACCESS_TOKEN}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: '*/*'
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - 'Pedidos ADMIN'
+    parameters:
+      -
+        in: path
+        name: checkout
+        description: 'O ID do pedido'
+        example: 20
+        required: true
+        schema:
+          type: integer
+  /api/products/list:
+    get:
+      summary: 'Buscar todos os produtos'
+      description: 'Apresenta uma lista de todos os produtos com as informações'
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: '*/*'
+          schema:
+            type: string
+      responses:
+        404:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "<!DOCTYPE html>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"utf-8\">\n        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n\n        <title>Not Found</title>\n\n        <!-- Fonts -->\n        <link rel=\"dns-prefetch\" href=\"//fonts.gstatic.com\">\n        <link href=\"https://fonts.googleapis.com/css?family=Nunito\" rel=\"stylesheet\">\n\n        <!-- Styles -->\n        <style>\n            html, body {\n                background-color: #fff;\n                color: #636b6f;\n                font-family: 'Nunito', sans-serif;\n                font-weight: 100;\n                height: 100vh;\n                margin: 0;\n            }\n\n            .full-height {\n                height: 100vh;\n            }\n\n            .flex-center {\n                align-items: center;\n                display: flex;\n                justify-content: center;\n            }\n\n            .position-ref {\n                position: relative;\n            }\n\n            .code {\n                border-right: 2px solid;\n                font-size: 26px;\n                padding: 0 15px 0 15px;\n                text-align: center;\n            }\n\n            .message {\n                font-size: 18px;\n                text-align: center;\n            }\n        </style>\n    </head>\n    <body>\n        <div class=\"flex-center position-ref full-height\">\n            <div class=\"code\">\n                404            </div>\n\n            <div class=\"message\" style=\"padding: 10px;\">\n                Not Found            </div>\n        </div>\n    </body>\n</html>\n"
+      tags:
+        - Produtos
+      security: []
+  '/api/products/view/{product}':
+    get:
+      summary: 'Buscar produto'
+      description: 'Apresenta as informações do produto especificado'
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: '*/*'
+          schema:
+            type: string
+      responses:
+        404:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "<!DOCTYPE html>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"utf-8\">\n        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n\n        <title>Not Found</title>\n\n        <!-- Fonts -->\n        <link rel=\"dns-prefetch\" href=\"//fonts.gstatic.com\">\n        <link href=\"https://fonts.googleapis.com/css?family=Nunito\" rel=\"stylesheet\">\n\n        <!-- Styles -->\n        <style>\n            html, body {\n                background-color: #fff;\n                color: #636b6f;\n                font-family: 'Nunito', sans-serif;\n                font-weight: 100;\n                height: 100vh;\n                margin: 0;\n            }\n\n            .full-height {\n                height: 100vh;\n            }\n\n            .flex-center {\n                align-items: center;\n                display: flex;\n                justify-content: center;\n            }\n\n            .position-ref {\n                position: relative;\n            }\n\n            .code {\n                border-right: 2px solid;\n                font-size: 26px;\n                padding: 0 15px 0 15px;\n                text-align: center;\n            }\n\n            .message {\n                font-size: 18px;\n                text-align: center;\n            }\n        </style>\n    </head>\n    <body>\n        <div class=\"flex-center position-ref full-height\">\n            <div class=\"code\">\n                404            </div>\n\n            <div class=\"message\" style=\"padding: 10px;\">\n                Not Found            </div>\n        </div>\n    </body>\n</html>\n"
+      tags:
+        - Produtos
+      security: []
+    parameters:
+      -
+        in: path
+        name: product
+        description: 'O ID do produto'
+        example: 10
+        required: true
+        schema:
+          type: integer
+  /api/products/add:
+    post:
+      summary: 'Cadastrar um produto'
+      description: 'Cadastrar um produto com foto ou não, se tudo estiver certo apresenta as informações do produto'
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {ACCESS_TOKEN}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: multipart/form-data
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: '*/*'
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Produtos
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'Um nome do produto.'
+                  example: vero
+                type:
+                  type: string
+                  description: 'O tipo do produto.'
+                  example: ab
+                value:
+                  type: number
+                  description: 'Valor do produto.'
+                  example: 1.1575
+                'images[]':
+                  type: string
+                  format: binary
+                  description: 'As imagens do produto, se não tiver, automanticamente a API irá entender e vai colocar uma foto padrão (semFoto.jpg).'
+              required:
+                - name
+                - type
+                - value
+  '/api/products/edit/{product}':
+    put:
+      summary: 'Editar produto'
+      description: 'Editar um produto especificado, se tudo estiver certo apresenta as informações do produto'
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {ACCESS_TOKEN}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: '*/*'
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Produtos
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'Um nome do produto.'
+                  example: amet
+                type:
+                  type: string
+                  description: 'O tipo do produto.'
+                  example: impedit
+                value:
+                  type: number
+                  description: 'Valor do produto.'
+                  example: 261166.39222351
+              required:
+                - name
+                - type
+                - value
+    parameters:
+      -
+        in: path
+        name: product
+        description: 'O ID do produto'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  '/api/products/delete/{product}':
+    delete:
+      summary: 'Deletar produto'
+      description: 'Deletar um produto especificado'
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {ACCESS_TOKEN}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: '*/*'
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Produtos
+    parameters:
+      -
+        in: path
+        name: product
+        description: 'O ID do produto'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  /api/users:
+    get:
+      summary: 'Buscar todos os usuários'
+      description: 'Apresenta uma lista de todos os usuários com as informações'
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: '*/*'
+          schema:
+            type: string
+      responses:
+        404:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "<!DOCTYPE html>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"utf-8\">\n        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n\n        <title>Not Found</title>\n\n        <!-- Fonts -->\n        <link rel=\"dns-prefetch\" href=\"//fonts.gstatic.com\">\n        <link href=\"https://fonts.googleapis.com/css?family=Nunito\" rel=\"stylesheet\">\n\n        <!-- Styles -->\n        <style>\n            html, body {\n                background-color: #fff;\n                color: #636b6f;\n                font-family: 'Nunito', sans-serif;\n                font-weight: 100;\n                height: 100vh;\n                margin: 0;\n            }\n\n            .full-height {\n                height: 100vh;\n            }\n\n            .flex-center {\n                align-items: center;\n                display: flex;\n                justify-content: center;\n            }\n\n            .position-ref {\n                position: relative;\n            }\n\n            .code {\n                border-right: 2px solid;\n                font-size: 26px;\n                padding: 0 15px 0 15px;\n                text-align: center;\n            }\n\n            .message {\n                font-size: 18px;\n                text-align: center;\n            }\n        </style>\n    </head>\n    <body>\n        <div class=\"flex-center position-ref full-height\">\n            <div class=\"code\">\n                404            </div>\n\n            <div class=\"message\" style=\"padding: 10px;\">\n                Not Found            </div>\n        </div>\n    </body>\n</html>\n"
+      tags:
+        - Usuários
+      security: []
+  /api/users/me:
+    get:
+      summary: 'Buscar usuário JWT'
+      description: 'Apresenta as informações do usuário logado que foi passado com JWT'
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: '*/*'
+          schema:
+            type: string
+      responses:
+        404:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "<!DOCTYPE html>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"utf-8\">\n        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n\n        <title>Not Found</title>\n\n        <!-- Fonts -->\n        <link rel=\"dns-prefetch\" href=\"//fonts.gstatic.com\">\n        <link href=\"https://fonts.googleapis.com/css?family=Nunito\" rel=\"stylesheet\">\n\n        <!-- Styles -->\n        <style>\n            html, body {\n                background-color: #fff;\n                color: #636b6f;\n                font-family: 'Nunito', sans-serif;\n                font-weight: 100;\n                height: 100vh;\n                margin: 0;\n            }\n\n            .full-height {\n                height: 100vh;\n            }\n\n            .flex-center {\n                align-items: center;\n                display: flex;\n                justify-content: center;\n            }\n\n            .position-ref {\n                position: relative;\n            }\n\n            .code {\n                border-right: 2px solid;\n                font-size: 26px;\n                padding: 0 15px 0 15px;\n                text-align: center;\n            }\n\n            .message {\n                font-size: 18px;\n                text-align: center;\n            }\n        </style>\n    </head>\n    <body>\n        <div class=\"flex-center position-ref full-height\">\n            <div class=\"code\">\n                404            </div>\n\n            <div class=\"message\" style=\"padding: 10px;\">\n                Not Found            </div>\n        </div>\n    </body>\n</html>\n"
+      tags:
+        - Usuários
+      security: []
+  /api/users/me/edit:
+    put:
+      summary: 'Editar usuário JWT'
+      description: 'Alterar dados do usuário logado que foi passado com JWT, se tudo estiver certo apresenta as informações do usuário'
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: '*/*'
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Usuários
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'Um nome do usuário.'
+                  example: perferendis
+                email:
+                  type: string
+                  description: 'Email do usuário que não existe no banco de dados.'
+                  example: fugit
+              required:
+                - name
+                - email
+      security: []
+tags:
+  -
+    name: 'Autenticação Jwt'
+    description: ''
+  -
+    name: Compradores
+    description: ''
+  -
+    name: Pedidos
+    description: ''
+  -
+    name: 'Pedidos ADMIN'
+    description: ''
+  -
+    name: Produtos
+    description: ''
+  -
+    name: Usuários
+    description: ''
+components:
+  securitySchemes:
+    default:
+      type: http
+      scheme: bearer
+      description: ''
+security:
+  -
+    default: []

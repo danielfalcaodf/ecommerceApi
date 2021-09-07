@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Requests\ProductRequest;
 use App\Http\Resources\Product as ProductResource;
-use App\Models\Product;
-use App\models\ProductImage;
+use App\Product;
+use App\ProductImage;
 use Exception;
 
 use Illuminate\Http\UploadedFile;
