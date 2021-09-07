@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Requests\UserRequest;
 use App\Http\Resources\User as UserResources;
-use App\User;
+use App\models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
