@@ -21,7 +21,7 @@ class Checkout extends JsonResource
             'id' => $this->id,
             'idbuyer' => $this->idbuyer,
             'status' => $this->status,
-            'value_total' => $this->value_total,
+            'value_total' => number_format($this->value_total, 2),
             'buyer' => new Buyer($this->getBuyer),
             'created_at' => $this->created_at->format('d/m/Y'),
             'updated_at' => $this->updated_at->format('d/m/Y'),
