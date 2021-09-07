@@ -15,13 +15,27 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 
+/**
+ * @group Pedidos
+ *
+ * API Módulo Pedido
+ *
+ */
+
 class CheckoutController extends BaseController
 {
 
     /**
-     * Display a listing of the resource.
+     * Buscar todos pedidos do usuário
      *
-     * @return \Illuminate\Http\Response
+     * Apresenta todos os pedidos do usuário logado que foi passado com JWT
+     *
+     *
+     * @group Pedidos
+     * @groupDescription API Módulo Comprador
+     * @authenticated
+     *
+     *  @return \Illuminate\Http\Response
      */
     public function getCheckouts()
     {
@@ -30,18 +44,18 @@ class CheckoutController extends BaseController
 
         return $this->sendResponse(CheckoutResources::collection($checkouts), 'Pedidos encontrado!');
     }
-    public function getCheckoutsAll()
-    {
-
-        $checkouts = Checkout::all();
-
-        return $this->sendResponse(CheckoutResources::collection($checkouts), 'Pedidos encontrado!');
-    }
     /**
-     * Display the specified resource.
+     * Buscar pedido do usuário
      *
-     * @param  \App\Models\Checkout  $checkout
-     * @return \Illuminate\Http\Response
+     *
+     * Apresenta um pedido especificado do usuário logado que foi passado com JWT, mostrando só o pedido dele
+     * @urlParam checkout integer required  O ID do pedido
+     *
+     *
+     * @group Pedidos
+     * @authenticated
+     *
+     *  @return \Illuminate\Http\Response
      */
     public function getCheckout($checkout)
     {
@@ -57,22 +71,29 @@ class CheckoutController extends BaseController
 
         return $this->sendResponse(new CheckoutResources($checkout), 'Pedindo encontrado!');
     }
-    public function getCheckoutBuyer($checkout)
-    {
 
-        $checkout = Checkout::find($checkout);
-        if (is_null($checkout)) {
-            return $this->sendError('Pedindo não encontrado!');
-        }
-
-        return $this->sendResponse(new CheckoutResources($checkout), 'Pedindo encontrado!');
-    }
     /**
-     * Store a newly created resource in storage.
+     * Cadastrar pedido do usuário
      *
-     * @param  \Illuminate\Http\Request  $request
+     *
+     * Cadastrar um pedido do usuário logado, que foi passado com JWT. Caso o usuário
+     * não tenha cadastro como comprador, deve informa o CPF e Telefone ou celular do usuário para criar ele como comprador.
+     * Se estiver tudo certo será enviado um email ao comprador com a confirmação do pedido
+     *
+     * @bodyParam products object[] required A lista dos produtos do pedido Example: [{"id":"4", "quant":"6"},{"id":"7", "quant":"2"},{"id":"2", "quant":"3"}]
+     * @bodyParam products[].id string required O ID do produto.
+     * @bodyParam products[].quant string required A quantidade do produto.
+     * @bodyParam phone_cell string O telefone ou celular válido.
+     * @bodyParam cpf string O CPF válido.
+     *
+     * @group Pedidos
+     * @authenticated
+     *
+     *  @param CheckoutRequest $request
+     *
      * @return \Illuminate\Http\Response
      */
+
     public function addCheckout(CheckoutRequest $request)
     {
         //
@@ -127,6 +148,70 @@ class CheckoutController extends BaseController
         Mail::send(new newMailCheckout($checkout));
         return $this->sendResponse(new CheckoutResources($checkout), 'Pedido criado com sucesso!', 201);
     }
+    /**
+     * Buscar todos pedidos
+     *
+     * Apresenta uma lista de todos os pedidos com as informações
+     *
+     * @group Pedidos ADMIN
+     * @authenticated
+     *
+     *  @return \Illuminate\Http\Response
+     */
+    public function getCheckoutsAll()
+    {
+
+        $checkouts = Checkout::all();
+
+        return $this->sendResponse(CheckoutResources::collection($checkouts), 'Pedidos encontrado!');
+    }
+
+    /**
+     * Buscar pedido
+     *
+     * Apresenta as informações do pedido especificado
+     *
+     * @urlParam checkout integer required O ID do pedido
+     *
+     * @group Pedidos ADMIN
+     * @authenticated
+     *
+     *  @return \Illuminate\Http\Response
+     */
+    public function getCheckoutBuyer($checkout)
+    {
+
+        $checkout = Checkout::find($checkout);
+        if (is_null($checkout)) {
+            return $this->sendError('Pedindo não encontrado!');
+        }
+
+        return $this->sendResponse(new CheckoutResources($checkout), 'Pedindo encontrado!');
+    }
+
+    /**
+     * Criar um pedido do comprador
+     *
+     *
+     *
+     * Cadastra um pedido do comprador especificando o ID do comprador.
+     * Se estiver tudo certo será enviado um email ao comprador com a confirmação do pedido
+     *
+     * @bodyParam products object[] required A lista dos produtos do pedido Example: [{"id":"4", "quant":"6"},{"id":"7", "quant":"2"},{"id":"2", "quant":"3"}]
+     * @bodyParam products[].id string required O ID do produto.
+     * @bodyParam products[].quant string required A quantidade do produto.
+     * @bodyParam idbuyer string required O ID do comprador .
+
+     *
+     * @group Pedidos ADMIN
+     * @authenticated
+     *
+     *  @param CheckoutRequest $request
+     *
+     * @return \Illuminate\Http\Response
+     */
+
+
     public function addCheckoutBuyer(CheckoutRequest $request)
     {
         //
@@ -167,10 +252,20 @@ class CheckoutController extends BaseController
 
 
     /**
-     * Update the specified resource in storage.
+     * Editar Pedido
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Checkout  $checkout
+     *  Editar um pedido (comprador e os produtos) especificado, se tudo estiver certo apresenta as informações do pedido
+     *
+     * @urlParam checkout integer required O ID do pedido
+     * @bodyParam products object[] required A lista de produtos do pedido Example: [{"id":"4", "quant":"6"},{"id":"7", "quant":"2"},{"id":"2", "quant":"3"}]
+     * @bodyParam products[].id string required O ID do produto.
+     * @bodyParam products[].quant string required A quantidade do produto.
+     * @bodyParam idbuyer string required O ID do comprador.
+     * @group Pedidos ADMIN
+     * @authenticated
+     *
+     * @param  \Illuminate\Http\CheckoutRequest  $request
+     * @param mixed $checkout
      * @return \Illuminate\Http\Response
      */
     public function editCheckout(CheckoutRequest $request, $checkout)
@@ -213,9 +308,16 @@ class CheckoutController extends BaseController
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Deletar Pedido
      *
-     * @param  \App\Models\Checkout  $checkout
+     * Deletar um pedido especificado
+     *
+     * @urlParam checkout integer required O ID do pedido
+     *
+     * @group Pedidos ADMIN
+     * @authenticated
+     *
+     * @param   {checkout} $checkout
      * @return \Illuminate\Http\Response
      */
     public function deleteCheckout($checkout)

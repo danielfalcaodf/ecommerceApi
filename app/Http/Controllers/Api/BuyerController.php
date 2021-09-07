@@ -8,29 +8,41 @@ use App\Models\Buyer;
 use Exception;
 use Illuminate\Http\Request;
 
+/**
+ * @group Compradores
+ *
+ * APIs Módulo Comprador
+ *
+ */
 class BuyerController extends BaseController
 {
+
     /**
-     * Display a listing of the resource.
+     * Buscar todos Compradores
      *
-     * @return \Illuminate\Http\Response
+     * Apresenta uma lista de todos os compradores com as informações
+     *
+     * @group Compradores
+     * @authenticated
+     *
+     *  @return \Illuminate\Http\Response
      */
-    public function addBuyer(BuyerRequest $request)
-    {
-
-
-
-        $buyer = new Buyer();
-        $buyer->iduser = $request->iduser;
-        $buyer->phone_cell = $request->phone_cell;
-        $buyer->cpf = $request->cpf;
-        $buyer->save();
-        return $this->sendResponse(new BuyerResource($buyer), 'Comprador cadastrado!', 201);
-    }
     public function getBuyers()
     {
         return $this->sendResponse(BuyerResource::collection(Buyer::all()), 'Compradores encontrado!');
     }
+    /**
+     * Buscar Comprador
+     *
+     * Apresenta as informações do comprador especificado
+     *
+     * @urlParam buyer integer required  O ID do comprador
+     *
+     * @group Compradores
+     * @authenticated
+     *
+     *  @return \Illuminate\Http\Response
+     */
     public function getBuyer($buyer)
     {
         $buyer = Buyer::find($buyer);
@@ -42,7 +54,45 @@ class BuyerController extends BaseController
     }
 
     /**
-     * Update the specified resource in storage.
+     * Cadastrar Comprador
+     *
+     * Cadastrar um comprador, se tudo estiver certo apresenta as informações do comprador
+     *
+     * @bodyParam iduser string required  O ID do usuário.
+     * @bodyParam phone_cell string required  O Telefone ou celular do comprador.
+     * @bodyParam cpf string required   CPF do comprador.
+     *
+     * @group Compradores
+     * @authenticated
+     *
+     *  @param BuyerRequest $request
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function addBuyer(BuyerRequest $request)
+    {
+        $buyer = new Buyer();
+        $buyer->iduser = $request->iduser;
+        $buyer->phone_cell = $request->phone_cell;
+        $buyer->cpf = $request->cpf;
+        $buyer->save();
+        return $this->sendResponse(new BuyerResource($buyer), 'Comprador cadastrado!', 201);
+    }
+
+
+    /**
+     * Editar Comprador
+     *
+     * Editar um comprador especificado, se tudo estiver certo apresenta as informações do comprador
+     *
+     * @urlParam buyer integer required O ID do comprador
+     *
+     * @bodyParam iduser string required  O id do Usuário.
+     * @bodyParam phone_cell string required  Telefone ou Celular.
+     * @bodyParam cpf string required  CPF.
+     *
+     * @group Compradores
+     * @authenticated
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Buyer  $buyer
@@ -66,7 +116,14 @@ class BuyerController extends BaseController
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Deletar Comprador
+     *
+     * Deletar um Comprador especificado
+     *
+     * @urlParam buyer integer required O ID do comprador
+     *
+     * @group Compradores
+     * @authenticated
      *
      * @param  \App\Models\Buyer  $buyer
      * @return \Illuminate\Http\Response

@@ -1,0 +1,31 @@
+{
+    "message": "Usuário Cadastrado!",
+    "type": "success",
+    "data": {
+        "id": 23,
+        "name": "teste",
+        "email": "teste@teste.com",
+        "token": {
+            "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvbG9jYWxob3N0XC9sYXJhdmVsUHJvamV0b3NcL2Vjb21tZXJjZUFwaVwvcHVibGljXC9cL2FwaVwvYXV0aFwvcmVnaXN0ZXIiLCJpYXQiOjE2MzEwNDQ2MTksImV4cCI6MTYzMTA0ODIxOSwibmJmIjoxNjMxMDQ0NjE5LCJqdGkiOiJBaWo2YWdKTjlaUWtkb1hOIiwic3ViIjoyMywicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.thHar_GT9_OIco3Vm85EWn-FJ7AA3EdcWzpBulq7-hQ",
+            "token_type": "bearer",
+            "expires_in": 3600
+        },
+        "created_at": "07/09/2021",
+        "updated_at": "07/09/2021",
+        "link": {
+            "get": {
+                "getListAll": "https://localhost/laravelProjetos/ecommerceApi/public/api/users",
+                "getMe": "https://localhost/laravelProjetos/ecommerceApi/public/api/users/me"
+            },
+            "post": {
+                "login": "https://localhost/laravelProjetos/ecommerceApi/public/api/auth/login",
+                "register": "https://localhost/laravelProjetos/ecommerceApi/public/api/auth/register",
+                "logout": "https://localhost/laravelProjetos/ecommerceApi/public/api/auth/logout"
+            },
+            "put": {
+                "editNameEmail": "https://localhost/laravelProjetos/ecommerceApi/public/api/users/me/edit"
+            }
+        }
+    },
+    "code": 201
+}

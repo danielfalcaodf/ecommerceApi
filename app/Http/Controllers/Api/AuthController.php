@@ -10,25 +10,75 @@ use App\models\User;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Hash;
 
+/**
+ * @group Autenticação Jwt
+ *
+ * API Autenticação Jwt
+ *
+ */
 class AuthController extends BaseController
 {
     //
 
+
     /**
-     * @param Request $request
      *
-     * @return [type]
+     * Autenticação com email e senha
+     *
+     * Obtenha um JWT com credenciais fornecidas
+     *
+     * @bodyParam email string required  Email do usuário cadastrado. Example: danielfalcao.df@gmail.com
+     * @bodyParam password string required  Senha do usuário cadastrado.  Example: 123456
+     * @responseFile responses/auth/login.post.json
+     * @responseFile status=400 responses/auth/login.400.json
+     * @responseFile status=422 scenario="Erros semânticos do código" responses/errorsInCode.json
+     *
+     * @group Autenticação Jwt
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
      */
+
+    public function login(Request $request)
+    {
+        $credentials = $request->only(['email', 'password']);
+
+        if (!$token = auth('api')->attempt($credentials)) {
+            return $this->sendError('Email ou senha inválidos', [], 400);
+        }
+
+        $user = auth('api')->user();
+        $user->token = $this->arrayWithToken($token);;
+        return $this->sendResponse(new AuthResource($user), '');
+    }
+
+
     /**
+     * Cadastrar um novo usuário
+     *
+     * Usando name, email, password e password_confirmation, se tudo estiver certo apresenta um token de acesso (JWT) e datalhes do usuario novo
+     *
+     * @responseFile responses/auth/register.post.json
+     * @responseFile status=422 scenario="Validação do bodyparam" responses/auth/register.422.json
+     * @responseFile status=422 scenario="Validação do bodyparam" responses/auth/register.422.email_invalid.json
+     * @responseFile status=422 scenario="Validação do bodyparam" responses/auth/register.422.email_password.json
+     * @responseFile status=422 scenario="Erros semânticos do código" responses/errorsInCode.json
+     *
+     * @bodyParam name string required  Nome do usuário. Example: teste
+     * @bodyParam email string required  Email do usuário que não é cadastrado. Example: teste@teste.com
+     * @bodyParam password string required  Senha do usuário. Example: 123456
+     * @bodyParam password_confirmation string required  Confirmação da senha. Example: 123456
+     * @group Autenticação Jwt
+     *
      * @param AuthResquest $request
      *
-     * @return [type]
+     * @return \Illuminate\Http\JsonResponse
      */
     public function register(AuthRequest $request)
     {
-        # code...
+
         $user = new User();
         $user->name = $request->name;
         $user->email = $request->email;
@@ -49,26 +99,19 @@ class AuthController extends BaseController
         return $this->sendResponse(new AuthResource($user), 'Usuário Cadastrado!', 201);
     }
 
+
     /**
-     * Get a JWT via given credentials.
      *
-     * @return \Illuminate\Http\JsonResponse
-     */
-    public function login(Request $request)
-    {
-        $credentials = $request->only(['email', 'password']);
-
-        if (!$token = auth('api')->attempt($credentials)) {
-            return $this->sendError('Email ou senha inválidos', [], 400);
-        }
-
-        $user = auth('api')->user();
-        $user->token = $this->arrayWithToken($token);;
-        return $this->sendResponse(new AuthResource($user), '');
-    }
-
-    /**
-     * Log the user out (Invalidate the token).
+     * Deslogar da Api
+     *
+     * Desconecte o usuário (invalide o token), se tudo estiver certo apresenta as informações do usuário
+     *
+     * @responseFile responses/auth/logout.post.json
+     * @responseFile status=401 scenario="Token is Invalid, Token is Expired, Authorization Token not found" responses/token.invalid.json
+     * @responseFile status=422 scenario="Erros semânticos do código" responses/errorsInCode.json
+     *
+     * @group Autenticação Jwt
+     * @authenticated
      *
      * @return \Illuminate\Http\JsonResponse
      */
@@ -81,9 +124,8 @@ class AuthController extends BaseController
         return $this->sendResponse(new UserResources($user), 'Successfully logged out');
     }
 
-
     /**
-     * Get the token array structure.
+     * Obtenha a estrutura tokens com JsonResponse.
      *
      * @param  string $token
      *
@@ -99,9 +141,10 @@ class AuthController extends BaseController
     }
 
     /**
+     * Obtenha a estrutura tokens com array.
      * @param mixed $token
      *
-     * @return [type]
+     * @return array
      */
     protected function arrayWithToken($token)
     {

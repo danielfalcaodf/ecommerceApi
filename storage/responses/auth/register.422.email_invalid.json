@@ -1,0 +1,1 @@
+{"type":"error","message":"Campos inv\u00e1lidos","code":422,"data":{"email":["The email must be a valid email address."],"password":["The password must be at least 6 characters.","The password confirmation does not match."]}}

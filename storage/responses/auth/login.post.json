@@ -1,0 +1,31 @@
+{
+    "message": "",
+    "type": "success",
+    "data": {
+        "id": 1,
+        "name": "Kevin Edilson Padilha",
+        "email": "danielfalcao.df@gmail.com",
+        "token": {
+            "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvbG9jYWxob3N0XC9sYXJhdmVsUHJvamV0b3NcL2Vjb21tZXJjZUFwaVwvcHVibGljXC9cL2FwaVwvYXV0aFwvbG9naW4iLCJpYXQiOjE2MzEwNDQyNjksImV4cCI6MTYzMTA0Nzg2OSwibmJmIjoxNjMxMDQ0MjY5LCJqdGkiOiJ4aUR4ajhkUWY2NFZUZWxCIiwic3ViIjoxLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.WHEa91qVOqlg7WT189BkYWiJayYpScY6c8ZIObLZNPQ",
+            "token_type": "bearer",
+            "expires_in": 3600
+        },
+        "created_at": "06/09/2021",
+        "updated_at": "06/09/2021",
+        "link": {
+            "get": {
+                "getListAll": "https://localhost/laravelProjetos/ecommerceApi/public/api/users",
+                "getMe": "https://localhost/laravelProjetos/ecommerceApi/public/api/users/me"
+            },
+            "post": {
+                "login": "https://localhost/laravelProjetos/ecommerceApi/public/api/auth/login",
+                "register": "https://localhost/laravelProjetos/ecommerceApi/public/api/auth/register",
+                "logout": "https://localhost/laravelProjetos/ecommerceApi/public/api/auth/logout"
+            },
+            "put": {
+                "editNameEmail": "https://localhost/laravelProjetos/ecommerceApi/public/api/users/me/edit"
+            }
+        }
+    },
+    "code": 200
+}

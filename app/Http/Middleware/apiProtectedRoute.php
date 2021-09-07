@@ -26,7 +26,7 @@ class apiProtectedRoute extends BaseMiddleware
         $response = [
 
             'type' => 'error',
-            'message' => '',
+
             'code' => 401
         ];
         try {

@@ -7,11 +7,36 @@ use App\Http\Resources\Product as ProductResource;
 use App\Models\Product;
 use App\models\ProductImage;
 use Exception;
-use Illuminate\Http\Request;
+
 use Illuminate\Http\UploadedFile;
 
+/**
+ * @group Produtos
+ *
+ * API Módulo Produto
+ */
 class ProductController extends BaseController
 {
+
+
+    /**
+     * Cadastrar um produto
+     *
+     *
+     * Cadastrar um produto com foto ou não, se tudo estiver certo apresenta as informações do produto
+     *
+     * @bodyParam name string required  Um nome do produto.
+     * @bodyParam type string required  O tipo do produto.
+     * @bodyParam value number required Valor do produto.
+     * @bodyParam images[] file As imagens do produto, se não tiver, automanticamente a API irá entender e vai colocar uma foto padrão (semFoto.jpg).
+     *
+     * @group Produtos
+     * @authenticated
+     *
+     *  @param ProductRequest $request
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function addProduct(ProductRequest $request)
     {
 
@@ -49,7 +74,12 @@ class ProductController extends BaseController
     }
 
     /**
-     * Display a listing of the resource.
+     * Buscar todos os produtos
+     *
+     * Apresenta uma lista de todos os produtos com as informações
+     *
+     *
+     * @group Produtos
      *
      * @return \Illuminate\Http\Response
      */
@@ -60,8 +90,15 @@ class ProductController extends BaseController
 
         return $this->sendResponse(ProductResource::collection($products), 'Produtos encontrado!');
     }
+
     /**
-     * Display the specified resource.
+     * Buscar produto
+     *
+     * Apresenta as informações do produto especificado
+     *
+     * @urlParam product integer required O ID do produto
+     *
+     * @group Produtos
      *
      * @param  mixed $product
      * @return \Illuminate\Http\Response
@@ -77,10 +114,20 @@ class ProductController extends BaseController
         return $this->sendResponse(new ProductResource($product), 'Produto encontrado!');
     }
     /**
-     * Update the specified resource in storage.
+     * Editar produto
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Product  $product
+     * Editar um produto especificado, se tudo estiver certo apresenta as informações do produto
+     *
+     * @urlParam product integer required O ID do produto
+     * @bodyParam name string required  Um nome do produto.
+     * @bodyParam type string required  O tipo do produto.
+     * @bodyParam value number required Valor do produto.
+     *
+     * @group Produtos
+     * @authenticated
+     *
+     * @param  ProductRequest  $request
+     * @param  mixed $product
      * @return \Illuminate\Http\Response
      */
     public function editProduct(ProductRequest $request, $product)
@@ -102,9 +149,16 @@ class ProductController extends BaseController
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Deletar produto
      *
-     * @param  \App\Models\Product  $product
+     * Deletar um produto especificado
+     *
+     * @urlParam product integer required O ID do produto
+     *
+     * @group Produtos
+     * @authenticated
+     *
+     * @param  mixed $product
      * @return \Illuminate\Http\Response
      */
     public function deleteProduct($product)

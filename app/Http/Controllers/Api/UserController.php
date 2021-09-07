@@ -8,10 +8,20 @@ use App\models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
+/**
+ * @group Usuários
+ *
+ * API Módulo Usuário
+ */
 class UserController extends BaseController
 {
     /**
-     * Display a listing of the resource.
+     * Buscar todos os usuários
+     *
+     * Apresenta uma lista de todos os usuários com as informações
+     *
+     *
+     * @group Usuários
      *
      * @return \Illuminate\Http\Response
      */
@@ -20,6 +30,16 @@ class UserController extends BaseController
         $users = User::all();
         return $this->sendResponse(UserResources::collection($users), 'Usuários encontrado!');
     }
+    /**
+     * Buscar usuário JWT
+     *
+     * Apresenta as informações do usuário logado que foi passado com JWT
+     *
+     *
+     * @group Usuários
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function getMe()
     {
         $user = $this->user();
@@ -30,6 +50,19 @@ class UserController extends BaseController
 
         return $this->sendResponse(new UserResources($user), 'Usuário encontrado!');
     }
+    /**
+     * Editar usuário JWT
+     *
+     * Alterar dados do usuário logado que foi passado com JWT, se tudo estiver certo apresenta as informações do usuário
+     *
+     * @bodyParam name string required  Um nome do usuário.
+     * @bodyParam email string required  Email do usuário que não existe no banco de dados.
+     *
+     * @group Usuários
+     * @param UserRequest $request
+     * @return \Illuminate\Http\Response
+     */
+
     public function editNameEmail(UserRequest $request)
     {
         //
