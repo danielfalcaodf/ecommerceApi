@@ -19,7 +19,7 @@ class CheckoutsProducts extends JsonResource
             'idcheck' => $this->idcheck,
             'idprod' => $this->idprod,
             'quant' => $this->quant,
-            'subtotal' => number_format($this->subtotal),
+            'subtotal' => number_format($this->subtotal, 2),
             'product' => new Product($this->product),
             'created_at' => $this->created_at->format('d/m/Y'),
             'updated_at' => $this->updated_at->format('d/m/Y'),
