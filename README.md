@@ -164,19 +164,67 @@ baseUrl = https://apiteste.grupodouglascosta.com.br
 
 > Importar collections para [Postman](https://www.postman.com "Postman"): https://apiteste.grupodouglascosta.com.br/docs/collection.json
 
+### Estruras da api
+
+-
+
 -   Rotas
 
-    ![img-router](https://github.com/danielfalcaodf/ecommerceApi/blob/master/public/demos/testes/img-route.png?raw=true)
+    ![img-route](https://github.com/danielfalcaodf/ecommerceApi/blob/master/public/demos/testes/img-route.png?raw=true)
 
-    ## Indices
+-   Controllers
 
-*   [Autenticação Jwt](#autenticação-jwt)
+    ![img-controllers](https://github.com/danielfalcaodf/ecommerceApi/blob/master/public/demos/testes/img-controllers.png?raw=true)
+
+-   Models
+
+    ![img-models](https://github.com/danielfalcaodf/ecommerceApi/blob/master/public/demos/testes/img-models.png?raw=true)
+
+-   Middleware
+
+    > Responsável de tratar as JWT antes de acessar a rota
+
+    ![img-middleware](https://github.com/danielfalcaodf/ecommerceApi/blob/master/public/demos/testes/img-middleware.png?raw=true)
+
+-   Mail
+
+    > Responsável de mandar emails quando pedido é criado
+
+    ![img-mail](https://github.com/danielfalcaodf/ecommerceApi/blob/master/public/demos/testes/img-mail.png?raw=true)
+
+    ![img-mailsend](https://github.com/danielfalcaodf/ecommerceApi/blob/master/public/demos/testes/img-mailsend.png?raw=true)
+
+-   Requests
+
+    > Responsável criar regras para validar os dados do client
+
+    ![img-requests](https://github.com/danielfalcaodf/ecommerceApi/blob/master/public/demos/testes/img-requests.png?raw=true)
+
+    ![img-rules](https://github.com/danielfalcaodf/ecommerceApi/blob/master/public/demos/testes/img-rules.png?raw=true)
+
+-   Resources
+
+    > Responsável estruturar as respostar do banco de dados
+
+    ![img-resources](https://github.com/danielfalcaodf/ecommerceApi/blob/master/public/demos/testes/img-resources.png?raw=true)
+
+    ![img-resource](https://github.com/danielfalcaodf/ecommerceApi/blob/master/public/demos/testes/img-resource.png?raw=true)
+
+-   ApiResponser
+
+    > Responsável estruturar os Resources assim padronizando a API
+
+    ![img-apiresponser](https://github.com/danielfalcaodf/ecommerceApi/blob/master/public/demos/testes/img-apiresponser.png?raw=true)
+
+## :memo: Indices
+
+-   [Autenticação Jwt](#autenticação-jwt)
 
     -   [Autenticação com email e senha](#1-autenticação-com-email-e-senha)
     -   [Cadastrar um novo usuário](#2-cadastrar-um-novo-usuário)
     -   [Deslogar da Api](#3-deslogar-da-api)
 
-*   [Compradores](#compradores)
+-   [Compradores](#compradores)
 
     -   [Buscar Comprador](#1-buscar-comprador)
     -   [Buscar todos Compradores](#2-buscar-todos-compradores)
@@ -184,13 +232,13 @@ baseUrl = https://apiteste.grupodouglascosta.com.br
     -   [Deletar Comprador](#4-deletar-comprador)
     -   [Editar Comprador](#5-editar-comprador)
 
-*   [Pedidos](#pedidos)
+-   [Pedidos](#pedidos)
 
     -   [Buscar pedido do usuário](#1-buscar-pedido-do-usuário)
     -   [Buscar todos pedidos do usuário](#2-buscar-todos-pedidos-do-usuário)
     -   [Cadastrar pedido do usuário](#3-cadastrar-pedido-do-usuário)
 
-*   [Pedidos ADMIN](#pedidos-admin)
+-   [Pedidos ADMIN](#pedidos-admin)
 
     -   [Buscar pedido](#1-buscar-pedido)
     -   [Buscar todos pedidos](#2-buscar-todos-pedidos)
@@ -198,7 +246,7 @@ baseUrl = https://apiteste.grupodouglascosta.com.br
     -   [Deletar Pedido](#4-deletar-pedido)
     -   [Editar Pedido](#5-editar-pedido)
 
-*   [Produtos](#produtos)
+-   [Produtos](#produtos)
 
     -   [Buscar produto](#1-buscar-produto)
     -   [Buscar todos os produtos](#2-buscar-todos-os-produtos)
@@ -206,7 +254,7 @@ baseUrl = https://apiteste.grupodouglascosta.com.br
     -   [Deletar produto](#4-deletar-produto)
     -   [Editar produto](#5-editar-produto)
 
-*   [Usuários](#usuários)
+-   [Usuários](#usuários)
 
     -   [Buscar todos os usuários](#1-buscar-todos-os-usuários)
     -   [Buscar usuário JWT](#2-buscar-usuário-jwt)

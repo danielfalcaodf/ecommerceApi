@@ -21,7 +21,7 @@ class Product extends JsonResource
             'name' => $this->name,
             'type' => $this->type,
             'value' => number_format($this->value, 2),
-            'images' => ProdImgsResource::collection($this->images),
+            'images' => ProdImgsResource::collection($this->images), //array de images do produto
             'created_at' => $this->created_at->format('d/m/Y'),
             'updated_at' => $this->updated_at->format('d/m/Y'),
             'link' => [
