@@ -50,7 +50,7 @@ return [
                 /*
                  * [Dingo router only] Match only routes registered under this version. Wildcards are not supported.
                  */
-                'versions' => ['v1'],
+                'versions' => ['*'],
             ],
 
             /*
@@ -78,7 +78,7 @@ return [
                  */
                 'headers' => [
                     'Content-Type' => 'application/json',
-                    'Accept' => '*/*',
+                    'Accept' => 'application/json',
                 ],
 
                 /*
