@@ -30,6 +30,10 @@ class ProductController extends ApiController
      * @bodyParam value number required Valor do produto.
      * @bodyParam images[] file As imagens do produto, se não tiver, automanticamente a API irá entender e vai colocar uma foto padrão (semFoto.jpg).
      *
+     * @responseFile status=201 scenario=(result) responses/products/addProduct.201.json
+     * @responseFile status=401 scenario="Token is Invalid, Token is Expired, Authorization Token not found" responses/token.invalid.json
+     * @responseFile status=422 scenario="Erros semânticos do código" responses/errorsInCode.json
+     *
      * @group Produtos
      * @authenticated
      *
@@ -78,6 +82,9 @@ class ProductController extends ApiController
      *
      * Apresenta uma lista de todos os produtos com as informações
      *
+     * @responseFile scenario=(result) responses/products/getProducts.200.json
+     * @responseFile status=401 scenario="Token is Invalid, Token is Expired, Authorization Token not found" responses/token.invalid.json
+     * @responseFile status=422 scenario="Erros semânticos do código" responses/errorsInCode.json
      *
      * @group Produtos
      *
@@ -87,7 +94,9 @@ class ProductController extends ApiController
     {
         //
         $products = Product::all();
-
+        if ($products->isEmpty()) {
+            return $this->sendError('Não tem produtos');
+        }
         return $this->sendResponse(ProductResource::collection($products), 'Produtos encontrado!');
     }
 
@@ -95,6 +104,10 @@ class ProductController extends ApiController
      * Buscar produto
      *
      * Apresenta as informações do produto especificado
+     *
+     * @responseFile scenario=(result) responses/products/getProduct.200.json
+     * @responseFile status=401 scenario="Token is Invalid, Token is Expired, Authorization Token not found" responses/token.invalid.json
+     * @responseFile status=422 scenario="Erros semânticos do código" responses/errorsInCode.json
      *
      * @urlParam product integer required O ID do produto
      *
@@ -122,6 +135,10 @@ class ProductController extends ApiController
      * @bodyParam name string required  Um nome do produto.
      * @bodyParam type string required  O tipo do produto.
      * @bodyParam value number required Valor do produto.
+     *
+     * @responseFile scenario=(result) responses/products/editProduct.200.json
+     * @responseFile status=401 scenario="Token is Invalid, Token is Expired, Authorization Token not found" responses/token.invalid.json
+     * @responseFile status=422 scenario="Erros semânticos do código" responses/errorsInCode.json
      *
      * @group Produtos
      * @authenticated
@@ -154,6 +171,10 @@ class ProductController extends ApiController
      * Deletar um produto especificado
      *
      * @urlParam product integer required O ID do produto
+     *
+     * @responseFile scenario=(result) responses/products/deleteProduct.200.json
+     * @responseFile status=401 scenario="Token is Invalid, Token is Expired, Authorization Token not found" responses/token.invalid.json
+     * @responseFile status=422 scenario="Erros semânticos do código" responses/errorsInCode.json
      *
      * @group Produtos
      * @authenticated

@@ -20,6 +20,9 @@ class UserController extends ApiController
      *
      * Apresenta uma lista de todos os usuários com as informações
      *
+     * @responseFile scenario=(result) responses/users/getListAll.200.json
+     * @responseFile status=401 scenario="Token is Invalid, Token is Expired, Authorization Token not found" responses/token.invalid.json
+     * @responseFile status=422 scenario="Erros semânticos do código" responses/errorsInCode.json
      *
      * @group Usuários
      * @authenticated
@@ -28,12 +31,19 @@ class UserController extends ApiController
     public function getListAll()
     {
         $users = User::all();
+        if ($users->isEmpty()) {
+            return $this->sendError('Não encontrado!');
+        }
         return $this->sendResponse(UserResources::collection($users), 'Usuários encontrado!');
     }
     /**
      * Buscar usuário JWT
      *
      * Apresenta as informações do usuário logado que foi passado com JWT
+     *
+     * @responseFile scenario=(result) responses/users/getMe.200.json
+     * @responseFile status=401 scenario="Token is Invalid, Token is Expired, Authorization Token not found" responses/token.invalid.json
+     * @responseFile status=422 scenario="Erros semânticos do código" responses/errorsInCode.json
      *
      * @group Usuários
      * @authenticated
@@ -56,6 +66,10 @@ class UserController extends ApiController
      *
      * @bodyParam name string required  Um nome do usuário.
      * @bodyParam email string required  Email do usuário que não existe no banco de dados.
+     *
+     * @responseFile scenario=(result) responses/users/editNameEmail.200.json
+     * @responseFile status=401 scenario="Token is Invalid, Token is Expired, Authorization Token not found" responses/token.invalid.json
+     * @responseFile status=422 scenario="Erros semânticos do código" responses/errorsInCode.json
      *
      * @group Usuários
      * @authenticated

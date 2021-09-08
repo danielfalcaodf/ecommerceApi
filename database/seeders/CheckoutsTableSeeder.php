@@ -15,7 +15,12 @@ class CheckoutsTableSeeder extends Seeder
     public function run()
     {
         $faker = Faker::create('pt_BR');
-        foreach (range(1, 10) as $key => $value) {
+        DB::table('checkouts')->insert([
+            'idbuyer' => 1,
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+        ]);
+        foreach (range(2, 10) as $key => $value) {
             DB::table('checkouts')->insert([
                 'idbuyer' => $faker->numberBetween(1, 21),
                 'created_at' => Carbon::now(),

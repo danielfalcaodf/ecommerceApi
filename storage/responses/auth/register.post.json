@@ -2,28 +2,28 @@
     "message": "Usuário Cadastrado!",
     "type": "success",
     "data": {
-        "id": 23,
+        "id": 22,
         "name": "teste",
         "email": "teste@teste.com",
         "token": {
-            "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvbG9jYWxob3N0XC9sYXJhdmVsUHJvamV0b3NcL2Vjb21tZXJjZUFwaVwvcHVibGljXC9cL2FwaVwvYXV0aFwvcmVnaXN0ZXIiLCJpYXQiOjE2MzEwNDQ2MTksImV4cCI6MTYzMTA0ODIxOSwibmJmIjoxNjMxMDQ0NjE5LCJqdGkiOiJBaWo2YWdKTjlaUWtkb1hOIiwic3ViIjoyMywicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.thHar_GT9_OIco3Vm85EWn-FJ7AA3EdcWzpBulq7-hQ",
+            "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvYXBpdGVzdGUuZ3J1cG9kb3VnbGFzY29zdGEuY29tLmJyXC9hcGlcL2F1dGhcL3JlZ2lzdGVyIiwiaWF0IjoxNjMxMDc5MDM3LCJleHAiOjE2MzEwODI2MzcsIm5iZiI6MTYzMTA3OTAzNywianRpIjoiR1luQ3lHNDVmSUt2WUNmTiIsInN1YiI6MjIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.KRzcIg8qicBgELMpuqLzQL2boOTpKlh8RgFG-ylwlN4",
             "token_type": "bearer",
             "expires_in": 3600
         },
-        "created_at": "07/09/2021",
-        "updated_at": "07/09/2021",
+        "created_at": "08/09/2021",
+        "updated_at": "08/09/2021",
         "link": {
             "get": {
-                "getListAll": "https://localhost/laravelProjetos/ecommerceApi/public/api/users",
-                "getMe": "https://localhost/laravelProjetos/ecommerceApi/public/api/users/me"
+                "getListAll": "https://apiteste.grupodouglascosta.com.br/api/users",
+                "getMe": "https://apiteste.grupodouglascosta.com.br/api/users/me"
             },
             "post": {
-                "login": "https://localhost/laravelProjetos/ecommerceApi/public/api/auth/login",
-                "register": "https://localhost/laravelProjetos/ecommerceApi/public/api/auth/register",
-                "logout": "https://localhost/laravelProjetos/ecommerceApi/public/api/auth/logout"
+                "login": "https://apiteste.grupodouglascosta.com.br/api/auth/login",
+                "register": "https://apiteste.grupodouglascosta.com.br/api/auth/register",
+                "logout": "https://apiteste.grupodouglascosta.com.br/api/auth/logout"
             },
             "put": {
-                "editNameEmail": "https://localhost/laravelProjetos/ecommerceApi/public/api/users/me/edit"
+                "editNameEmail": "https://apiteste.grupodouglascosta.com.br/api/users/me/edit"
             }
         }
     },

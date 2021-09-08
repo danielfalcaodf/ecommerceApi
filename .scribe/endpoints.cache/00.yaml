@@ -32,9 +32,40 @@ endpoints:
     responses:
       -
         status: 200
-        content: "{\r\n    \"message\": \"\",\r\n    \"type\": \"success\",\r\n    \"data\": {\r\n        \"id\": 1,\r\n        \"name\": \"Kevin Edilson Padilha\",\r\n        \"email\": \"danielfalcao.df@gmail.com\",\r\n        \"token\": {\r\n            \"access_token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvbG9jYWxob3N0XC9sYXJhdmVsUHJvamV0b3NcL2Vjb21tZXJjZUFwaVwvcHVibGljXC9cL2FwaVwvYXV0aFwvbG9naW4iLCJpYXQiOjE2MzEwNDQyNjksImV4cCI6MTYzMTA0Nzg2OSwibmJmIjoxNjMxMDQ0MjY5LCJqdGkiOiJ4aUR4ajhkUWY2NFZUZWxCIiwic3ViIjoxLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.WHEa91qVOqlg7WT189BkYWiJayYpScY6c8ZIObLZNPQ\",\r\n            \"token_type\": \"bearer\",\r\n            \"expires_in\": 3600\r\n        },\r\n        \"created_at\": \"06/09/2021\",\r\n        \"updated_at\": \"06/09/2021\",\r\n        \"link\": {\r\n            \"get\": {\r\n                \"getListAll\": \"https://localhost/laravelProjetos/ecommerceApi/public/api/users\",\r\n                \"getMe\": \"https://localhost/laravelProjetos/ecommerceApi/public/api/users/me\"\r\n            },\r\n            \"post\": {\r\n                \"login\": \"https://localhost/laravelProjetos/ecommerceApi/public/api/auth/login\",\r\n                \"register\": \"https://localhost/laravelProjetos/ecommerceApi/public/api/auth/register\",\r\n                \"logout\": \"https://localhost/laravelProjetos/ecommerceApi/public/api/auth/logout\"\r\n            },\r\n            \"put\": {\r\n                \"editNameEmail\": \"https://localhost/laravelProjetos/ecommerceApi/public/api/users/me/edit\"\r\n            }\r\n        }\r\n    },\r\n    \"code\": 200\r\n}\r\n"
+        content: |
+          {
+              "message": "",
+              "type": "success",
+              "data": {
+                  "id": 1,
+                  "name": "Dr. Julieta Queirós Cervantes Jr.",
+                  "email": "danielfalcao.df@gmail.com",
+                  "token": {
+                      "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvYXBpdGVzdGUuZ3J1cG9kb3VnbGFzY29zdGEuY29tLmJyXC9hcGlcL2F1dGhcL2xvZ2luIiwiaWF0IjoxNjMxMDc5MDAxLCJleHAiOjE2MzEwODI2MDEsIm5iZiI6MTYzMTA3OTAwMSwianRpIjoiN2U4NzFXeVNIQmJkbTFvdSIsInN1YiI6MSwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.dfX8b0_T7ps4OTuUwedsSBaTNCp-kg43HTeE0LPFduo",
+                      "token_type": "bearer",
+                      "expires_in": 3600
+                  },
+                  "created_at": "08/09/2021",
+                  "updated_at": "08/09/2021",
+                  "link": {
+                      "get": {
+                          "getListAll": "https://apiteste.grupodouglascosta.com.br/api/users",
+                          "getMe": "https://apiteste.grupodouglascosta.com.br/api/users/me"
+                      },
+                      "post": {
+                          "login": "https://apiteste.grupodouglascosta.com.br/api/auth/login",
+                          "register": "https://apiteste.grupodouglascosta.com.br/api/auth/register",
+                          "logout": "https://apiteste.grupodouglascosta.com.br/api/auth/logout"
+                      },
+                      "put": {
+                          "editNameEmail": "https://apiteste.grupodouglascosta.com.br/api/users/me/edit"
+                      }
+                  }
+              },
+              "code": 200
+          }
         headers: []
-        description: '200'
+        description: '200, (result)'
       -
         status: 400
         content: '{"type":"error","message":"Email ou senha inv\u00e1lidos","code":400}'
@@ -87,9 +118,40 @@ endpoints:
     responses:
       -
         status: 200
-        content: "{\r\n    \"message\": \"Usuário Cadastrado!\",\r\n    \"type\": \"success\",\r\n    \"data\": {\r\n        \"id\": 23,\r\n        \"name\": \"teste\",\r\n        \"email\": \"teste@teste.com\",\r\n        \"token\": {\r\n            \"access_token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvbG9jYWxob3N0XC9sYXJhdmVsUHJvamV0b3NcL2Vjb21tZXJjZUFwaVwvcHVibGljXC9cL2FwaVwvYXV0aFwvcmVnaXN0ZXIiLCJpYXQiOjE2MzEwNDQ2MTksImV4cCI6MTYzMTA0ODIxOSwibmJmIjoxNjMxMDQ0NjE5LCJqdGkiOiJBaWo2YWdKTjlaUWtkb1hOIiwic3ViIjoyMywicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.thHar_GT9_OIco3Vm85EWn-FJ7AA3EdcWzpBulq7-hQ\",\r\n            \"token_type\": \"bearer\",\r\n            \"expires_in\": 3600\r\n        },\r\n        \"created_at\": \"07/09/2021\",\r\n        \"updated_at\": \"07/09/2021\",\r\n        \"link\": {\r\n            \"get\": {\r\n                \"getListAll\": \"https://localhost/laravelProjetos/ecommerceApi/public/api/users\",\r\n                \"getMe\": \"https://localhost/laravelProjetos/ecommerceApi/public/api/users/me\"\r\n            },\r\n            \"post\": {\r\n                \"login\": \"https://localhost/laravelProjetos/ecommerceApi/public/api/auth/login\",\r\n                \"register\": \"https://localhost/laravelProjetos/ecommerceApi/public/api/auth/register\",\r\n                \"logout\": \"https://localhost/laravelProjetos/ecommerceApi/public/api/auth/logout\"\r\n            },\r\n            \"put\": {\r\n                \"editNameEmail\": \"https://localhost/laravelProjetos/ecommerceApi/public/api/users/me/edit\"\r\n            }\r\n        }\r\n    },\r\n    \"code\": 201\r\n}\r\n"
+        content: |
+          {
+              "message": "Usuário Cadastrado!",
+              "type": "success",
+              "data": {
+                  "id": 22,
+                  "name": "teste",
+                  "email": "teste@teste.com",
+                  "token": {
+                      "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvYXBpdGVzdGUuZ3J1cG9kb3VnbGFzY29zdGEuY29tLmJyXC9hcGlcL2F1dGhcL3JlZ2lzdGVyIiwiaWF0IjoxNjMxMDc5MDM3LCJleHAiOjE2MzEwODI2MzcsIm5iZiI6MTYzMTA3OTAzNywianRpIjoiR1luQ3lHNDVmSUt2WUNmTiIsInN1YiI6MjIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.KRzcIg8qicBgELMpuqLzQL2boOTpKlh8RgFG-ylwlN4",
+                      "token_type": "bearer",
+                      "expires_in": 3600
+                  },
+                  "created_at": "08/09/2021",
+                  "updated_at": "08/09/2021",
+                  "link": {
+                      "get": {
+                          "getListAll": "https://apiteste.grupodouglascosta.com.br/api/users",
+                          "getMe": "https://apiteste.grupodouglascosta.com.br/api/users/me"
+                      },
+                      "post": {
+                          "login": "https://apiteste.grupodouglascosta.com.br/api/auth/login",
+                          "register": "https://apiteste.grupodouglascosta.com.br/api/auth/register",
+                          "logout": "https://apiteste.grupodouglascosta.com.br/api/auth/logout"
+                      },
+                      "put": {
+                          "editNameEmail": "https://apiteste.grupodouglascosta.com.br/api/users/me/edit"
+                      }
+                  }
+              },
+              "code": 201
+          }
         headers: []
-        description: '200'
+        description: '200, (result)'
       -
         status: 422
         content: '{"type":"error","message":"Campos inv\u00e1lidos","code":422,"data":{"name":["Obrigat\u00f3rio"],"email":["The email field is required."],"password":["The password field is required."]}}'
@@ -131,7 +193,7 @@ endpoints:
         status: 200
         content: "{\"message\":\"Successfully logged out\",\"type\":\"success\",\"data\":{\"id\":1,\"name\":\"Kevin Edilson Padilha\",\"email\":\"danielfalcao.df@gmail.com\",\"email_verified_at\":null,\"created_at\":\"06\\/09\\/2021\",\"updated_at\":\"06\\/09\\/2021\",\"link\":{\"get\":{\"getListAll\":\"https:\\/\\/localhost\\/laravelProjetos\\/ecommerceApi\\/public\\/api\\/users\",\"getMe\":\"https:\\/\\/localhost\\/laravelProjetos\\/ecommerceApi\\/public\\/api\\/users\\/me\"},\"post\":{\"login\":\"https:\\/\\/localhost\\/laravelProjetos\\/ecommerceApi\\/public\\/api\\/auth\\/login\",\"register\":\"https:\\/\\/localhost\\/laravelProjetos\\/ecommerceApi\\/public\\/api\\/auth\\/register\",\"logout\":\"https:\\/\\/localhost\\/laravelProjetos\\/ecommerceApi\\/public\\/api\\/auth\\/logout\"},\"put\":{\"editNameEmail\":\"https:\\/\\/localhost\\/laravelProjetos\\/ecommerceApi\\/public\\/api\\/users\\/me\\/edit\"}}},\"code\":200}\r\n"
         headers: []
-        description: '200'
+        description: '200, (result)'
       -
         status: 401
         content: '{"type":"error","code":401,"massage":"Token is Invalid"}'

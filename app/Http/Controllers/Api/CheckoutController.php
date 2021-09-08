@@ -30,6 +30,9 @@ class CheckoutController extends ApiController
      *
      * Apresenta todos os pedidos do usuário logado que foi passado com JWT
      *
+     * @responseFile scenario=(result) responses/checkouts/getCheckouts.200.json
+     * @responseFile status=401 scenario="Token is Invalid, Token is Expired, Authorization Token not found" responses/token.invalid.json
+     * @responseFile status=422 scenario="Erros semânticos do código" responses/errorsInCode.json
      *
      * @group Pedidos
      * @groupDescription API Módulo Comprador
@@ -45,6 +48,10 @@ class CheckoutController extends ApiController
             return $this->sendError('Você não tem pedidos');
         }
         $checkouts = Checkout::where('idbuyer', $buyer->id)->get();
+        if ($checkouts->isEmpty()) {
+            return $this->sendError('Você não tem pedidos');
+        }
+
 
         return $this->sendResponse(CheckoutResources::collection($checkouts), 'Pedidos encontrados!');
     }
@@ -55,6 +62,9 @@ class CheckoutController extends ApiController
      * Apresenta um pedido especificado do usuário logado que foi passado com JWT, mostrando só o pedido dele
      * @urlParam checkout integer required  O ID do pedido
      *
+     * @responseFile scenario=(result) responses/checkouts/getCheckout.200.json
+     * @responseFile status=401 scenario="Token is Invalid, Token is Expired, Authorization Token not found" responses/token.invalid.json
+     * @responseFile status=422 scenario="Erros semânticos do código" responses/errorsInCode.json
      *
      * @group Pedidos
      * @authenticated
@@ -87,8 +97,12 @@ class CheckoutController extends ApiController
      * @bodyParam products object[] required A lista dos produtos do pedido Example: [{"id":"4", "quant":"6"},{"id":"7", "quant":"2"},{"id":"2", "quant":"3"}]
      * @bodyParam products[].id string required O ID do produto.
      * @bodyParam products[].quant string required A quantidade do produto.
-     * @bodyParam phone_cell string O telefone ou celular válido.
-     * @bodyParam cpf string O CPF válido.
+     * @bodyParam phone_cell string O telefone ou celular válido. Example: (12) 99994-2999
+     * @bodyParam cpf string O CPF válido.  Example: 68181045092
+     *
+     * @responseFile status=201 scenario=(result) responses/checkouts/addCheckout.201.json
+     * @responseFile status=401 scenario="Token is Invalid, Token is Expired, Authorization Token not found" responses/token.invalid.json
+     * @responseFile status=422 scenario="Erros semânticos do código" responses/errorsInCode.json
      *
      * @group Pedidos
      * @authenticated
@@ -157,6 +171,10 @@ class CheckoutController extends ApiController
      *
      * Apresenta uma lista de todos os pedidos com as informações
      *
+     * @responseFile scenario=(result) responses/checkouts/getCheckoutsAll.200.json
+     * @responseFile status=401 scenario="Token is Invalid, Token is Expired, Authorization Token not found" responses/token.invalid.json
+     * @responseFile status=422 scenario="Erros semânticos do código" responses/errorsInCode.json
+     *
      * @group Pedidos ADMIN
      * @authenticated
      *
@@ -166,7 +184,9 @@ class CheckoutController extends ApiController
     {
 
         $checkouts = Checkout::all();
-
+        if ($checkouts->isEmpty()) {
+            return $this->sendError('Não tem pedidos');
+        }
         return $this->sendResponse(CheckoutResources::collection($checkouts), 'Pedidos encontrado!');
     }
 
@@ -176,6 +196,10 @@ class CheckoutController extends ApiController
      * Apresenta as informações do pedido especificado
      *
      * @urlParam checkout integer required O ID do pedido
+     *
+     * @responseFile scenario=(result) responses/checkouts/getCheckoutBuyer.200.json
+     * @responseFile status=401 scenario="Token is Invalid, Token is Expired, Authorization Token not found" responses/token.invalid.json
+     * @responseFile status=422 scenario="Erros semânticos do código" responses/errorsInCode.json
      *
      * @group Pedidos ADMIN
      * @authenticated
@@ -204,8 +228,11 @@ class CheckoutController extends ApiController
      * @bodyParam products object[] required A lista dos produtos do pedido Example: [{"id":"4", "quant":"6"},{"id":"7", "quant":"2"},{"id":"2", "quant":"3"}]
      * @bodyParam products[].id string required O ID do produto.
      * @bodyParam products[].quant string required A quantidade do produto.
-     * @bodyParam idbuyer string required O ID do comprador .
-
+     * @bodyParam idbuyer string required O ID do comprador . Example: 1
+     *
+     * @responseFile status=201 scenario=(result) responses/checkouts/addCheckoutBuyer.201.json
+     * @responseFile status=401 scenario="Token is Invalid, Token is Expired, Authorization Token not found" responses/token.invalid.json
+     * @responseFile status=422 scenario="Erros semânticos do código" responses/errorsInCode.json
      *
      * @group Pedidos ADMIN
      * @authenticated
@@ -260,11 +287,16 @@ class CheckoutController extends ApiController
      *
      *  Editar um pedido (comprador e os produtos) especificado, se tudo estiver certo apresenta as informações do pedido
      *
-     * @urlParam checkout integer required O ID do pedido
+     * @urlParam checkout integer required O ID do pedido Example: 1
      * @bodyParam products object[] required A lista de produtos do pedido Example: [{"id":"4", "quant":"6"},{"id":"7", "quant":"2"},{"id":"2", "quant":"3"}]
      * @bodyParam products[].id string required O ID do produto.
      * @bodyParam products[].quant string required A quantidade do produto.
-     * @bodyParam idbuyer string required O ID do comprador.
+     * @bodyParam idbuyer string required O ID do comprador. Example: 1
+     *
+     * @responseFile status=200 scenario=(result) responses/checkouts/editCheckout.200.json
+     * @responseFile status=401 scenario="Token is Invalid, Token is Expired, Authorization Token not found" responses/token.invalid.json
+     * @responseFile status=422 scenario="Erros semânticos do código" responses/errorsInCode.json
+     *
      * @group Pedidos ADMIN
      * @authenticated
      *
@@ -317,6 +349,10 @@ class CheckoutController extends ApiController
      * Deletar um pedido especificado
      *
      * @urlParam checkout integer required O ID do pedido
+     *
+     * @responseFile status=200 scenario=(result) responses/checkouts/deleteCheckout.200.json
+     * @responseFile status=401 scenario="Token is Invalid, Token is Expired, Authorization Token not found" responses/token.invalid.json
+     * @responseFile status=422 scenario="Erros semânticos do código" responses/errorsInCode.json
      *
      * @group Pedidos ADMIN
      * @authenticated

@@ -31,7 +31,7 @@ class AuthController extends ApiController
      *
      * @bodyParam email string required  Email do usuário cadastrado. Example: danielfalcao.df@gmail.com
      * @bodyParam password string required  Senha do usuário cadastrado.  Example: 123456
-     * @responseFile responses/auth/login.post.json
+     * @responseFile scenario=(result) responses/auth/login.post.json
      * @responseFile status=400 responses/auth/login.400.json
      * @responseFile status=422 scenario="Erros semânticos do código" responses/errorsInCode.json
      *
@@ -59,7 +59,7 @@ class AuthController extends ApiController
      *
      * Usando name, email, password e password_confirmation, se tudo estiver certo apresenta um token de acesso (JWT) e datalhes do usuario novo
      *
-     * @responseFile responses/auth/register.post.json
+     * @responseFile scenario=(result) responses/auth/register.post.json
      * @responseFile status=422 scenario="Validação do bodyparam" responses/auth/register.422.json
      * @responseFile status=422 scenario="Validação do bodyparam" responses/auth/register.422.email_invalid.json
      * @responseFile status=422 scenario="Validação do bodyparam" responses/auth/register.422.email_password.json
@@ -105,7 +105,7 @@ class AuthController extends ApiController
      *
      * Desconecte o usuário (invalide o token), se tudo estiver certo apresenta as informações do usuário
      *
-     * @responseFile responses/auth/logout.post.json
+     * @responseFile  scenario=(result) responses/auth/logout.post.json
      * @responseFile status=401 scenario="Token is Invalid, Token is Expired, Authorization Token not found" responses/token.invalid.json
      * @responseFile status=422 scenario="Erros semânticos do código" responses/errorsInCode.json
      *

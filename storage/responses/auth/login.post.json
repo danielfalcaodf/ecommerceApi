@@ -3,27 +3,27 @@
     "type": "success",
     "data": {
         "id": 1,
-        "name": "Kevin Edilson Padilha",
+        "name": "Dr. Julieta Queirós Cervantes Jr.",
         "email": "danielfalcao.df@gmail.com",
         "token": {
-            "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvbG9jYWxob3N0XC9sYXJhdmVsUHJvamV0b3NcL2Vjb21tZXJjZUFwaVwvcHVibGljXC9cL2FwaVwvYXV0aFwvbG9naW4iLCJpYXQiOjE2MzEwNDQyNjksImV4cCI6MTYzMTA0Nzg2OSwibmJmIjoxNjMxMDQ0MjY5LCJqdGkiOiJ4aUR4ajhkUWY2NFZUZWxCIiwic3ViIjoxLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.WHEa91qVOqlg7WT189BkYWiJayYpScY6c8ZIObLZNPQ",
+            "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvYXBpdGVzdGUuZ3J1cG9kb3VnbGFzY29zdGEuY29tLmJyXC9hcGlcL2F1dGhcL2xvZ2luIiwiaWF0IjoxNjMxMDc5MDAxLCJleHAiOjE2MzEwODI2MDEsIm5iZiI6MTYzMTA3OTAwMSwianRpIjoiN2U4NzFXeVNIQmJkbTFvdSIsInN1YiI6MSwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.dfX8b0_T7ps4OTuUwedsSBaTNCp-kg43HTeE0LPFduo",
             "token_type": "bearer",
             "expires_in": 3600
         },
-        "created_at": "06/09/2021",
-        "updated_at": "06/09/2021",
+        "created_at": "08/09/2021",
+        "updated_at": "08/09/2021",
         "link": {
             "get": {
-                "getListAll": "https://localhost/laravelProjetos/ecommerceApi/public/api/users",
-                "getMe": "https://localhost/laravelProjetos/ecommerceApi/public/api/users/me"
+                "getListAll": "https://apiteste.grupodouglascosta.com.br/api/users",
+                "getMe": "https://apiteste.grupodouglascosta.com.br/api/users/me"
             },
             "post": {
-                "login": "https://localhost/laravelProjetos/ecommerceApi/public/api/auth/login",
-                "register": "https://localhost/laravelProjetos/ecommerceApi/public/api/auth/register",
-                "logout": "https://localhost/laravelProjetos/ecommerceApi/public/api/auth/logout"
+                "login": "https://apiteste.grupodouglascosta.com.br/api/auth/login",
+                "register": "https://apiteste.grupodouglascosta.com.br/api/auth/register",
+                "logout": "https://apiteste.grupodouglascosta.com.br/api/auth/logout"
             },
             "put": {
-                "editNameEmail": "https://localhost/laravelProjetos/ecommerceApi/public/api/users/me/edit"
+                "editNameEmail": "https://apiteste.grupodouglascosta.com.br/api/users/me/edit"
             }
         }
     },
