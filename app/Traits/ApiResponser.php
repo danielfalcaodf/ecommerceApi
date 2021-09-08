@@ -1,20 +1,22 @@
 <?php
 
 
-namespace App\Http\Controllers\Api;
+namespace App\Traits;
 
+use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Pagination\LengthAwarePaginator;
 
-use App\Http\Controllers\Controller as Controller;
-
-
-class BaseController extends Controller
+trait ApiResponser
 {
     /**
      * success response method.
      *
      * @return \Illuminate\Http\Response
      */
-    public function sendResponse($result, $message, $code = 200)
+    protected  function sendResponse($result, $message, $code = 200)
     {
         $response = [
 
@@ -35,7 +37,7 @@ class BaseController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function sendError($error, $errorMessages = [], $code = 404)
+    protected  function sendError($error, $errorMessages = [], $code = 404)
     {
         $response = [
 

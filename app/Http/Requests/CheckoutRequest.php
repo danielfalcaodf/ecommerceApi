@@ -25,7 +25,7 @@ class CheckoutRequest extends FormRequest
     {
         return [
 
-            'idbuyer' => 'exists:App\Buyer,id',
+            'idbuyer' => 'exists:App\Models\Buyer,id',
             'products' => 'required|array',
         ];
     }

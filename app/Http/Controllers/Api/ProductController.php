@@ -15,7 +15,7 @@ use Illuminate\Http\UploadedFile;
  *
  * API Módulo Produto
  */
-class ProductController extends BaseController
+class ProductController extends ApiController
 {
 
 

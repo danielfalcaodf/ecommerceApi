@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Hash;
  * API Autenticação Jwt
  *
  */
-class AuthController extends BaseController
+class AuthController extends ApiController
 {
     //
 

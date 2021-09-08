@@ -14,7 +14,7 @@ use Exception;
  * APIs Módulo Comprador
  *
  */
-class BuyerController extends BaseController
+class BuyerController extends ApiController
 {
 
     /**

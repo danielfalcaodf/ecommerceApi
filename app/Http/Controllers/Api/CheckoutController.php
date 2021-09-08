@@ -22,7 +22,7 @@ use Illuminate\Support\Facades\Validator;
  *
  */
 
-class CheckoutController extends BaseController
+class CheckoutController extends ApiController
 {
 
     /**

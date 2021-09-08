@@ -2,14 +2,15 @@
 
 namespace App\Exceptions;
 
-use App\Http\Controllers\Api\BaseController;
+use App\Traits\ApiResponser;
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Illuminate\Validation\ValidationException;
-
+use Throwable;
 
 class Handler extends ExceptionHandler
 {
+    use ApiResponser;
     /**
      * A list of the exception types that are not reported.
      *
@@ -25,45 +26,30 @@ class Handler extends ExceptionHandler
      * @var array
      */
     protected $dontFlash = [
+        'current_password',
         'password',
         'password_confirmation',
     ];
 
     /**
-     * Report or log an exception.
+     * Register the exception handling callbacks for the application.
      *
-     * @param  \Exception  $exception
      * @return void
-     *
-     * @throws \Exception
      */
-    public function report(Exception $exception)
+    public function register()
     {
-        parent::report($exception);
-    }
+        $this->renderable(function (Throwable $e, $request) {
+            if ($request->is("api/*")) {
 
-    /**
-     * Render an exception into an HTTP response.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Exception  $exception
-     * @return \Symfony\Component\HttpFoundation\Response
-     *
-     * @throws \Exception
-     */
-    public function render($request, Exception $exception)
-    {
 
-        if ($request->is("api/*")) {
 
-            $baseCon = new  BaseController();
+                if ($e instanceof ValidationException) {
+                    return  $this->sendError('Campos inválidos', $e->errors(),  $e->status ?? $e->getStatusCode());
+                }
 
-            if ($exception instanceof ValidationException) {
-                return  $baseCon->sendError('Campos inválidos', $exception->errors(), $exception->status);
+
+                return  $this->sendError('Error', ['errors' => $e->getMessage()],  422);
             }
-
-            // return  $baseCon->sendError('Error', ['errors' => $exception->getMessage()], 422);
-        }
-        return parent::render($request, $exception);
+        });
     }
 }

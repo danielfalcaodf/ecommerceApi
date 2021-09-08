@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Auth;
  *
  * API Módulo Usuário
  */
-class UserController extends BaseController
+class UserController extends ApiController
 {
     /**
      * Buscar todos os usuários

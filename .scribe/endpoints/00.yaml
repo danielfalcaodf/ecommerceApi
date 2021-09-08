@@ -30,48 +30,17 @@ endpoints:
     responses:
       -
         status: 200
-        content: |
-          {
-              "message": "",
-              "type": "success",
-              "data": {
-                  "id": 1,
-                  "name": "Kevin Edilson Padilha",
-                  "email": "danielfalcao.df@gmail.com",
-                  "token": {
-                      "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvbG9jYWxob3N0XC9sYXJhdmVsUHJvamV0b3NcL2Vjb21tZXJjZUFwaVwvcHVibGljXC9cL2FwaVwvYXV0aFwvbG9naW4iLCJpYXQiOjE2MzEwNDQyNjksImV4cCI6MTYzMTA0Nzg2OSwibmJmIjoxNjMxMDQ0MjY5LCJqdGkiOiJ4aUR4ajhkUWY2NFZUZWxCIiwic3ViIjoxLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.WHEa91qVOqlg7WT189BkYWiJayYpScY6c8ZIObLZNPQ",
-                      "token_type": "bearer",
-                      "expires_in": 3600
-                  },
-                  "created_at": "06/09/2021",
-                  "updated_at": "06/09/2021",
-                  "link": {
-                      "get": {
-                          "getListAll": "https://localhost/laravelProjetos/ecommerceApi/public/api/users",
-                          "getMe": "https://localhost/laravelProjetos/ecommerceApi/public/api/users/me"
-                      },
-                      "post": {
-                          "login": "https://localhost/laravelProjetos/ecommerceApi/public/api/auth/login",
-                          "register": "https://localhost/laravelProjetos/ecommerceApi/public/api/auth/register",
-                          "logout": "https://localhost/laravelProjetos/ecommerceApi/public/api/auth/logout"
-                      },
-                      "put": {
-                          "editNameEmail": "https://localhost/laravelProjetos/ecommerceApi/public/api/users/me/edit"
-                      }
-                  }
-              },
-              "code": 200
-          }
+        content: null
         headers: []
         description: '200'
       -
         status: 400
-        content: '{"type":"error","message":"Email ou senha inv\u00e1lidos","code":400}'
+        content: null
         headers: []
         description: '400'
       -
         status: 422
-        content: '{"type":"error","message":"Error","code":422,"data":{"errors":"syntax error, unexpected ''if'' (T_IF)"}}'
+        content: null
         headers: []
         description: '422, Erros semânticos do código'
     responseFields: []
@@ -116,58 +85,27 @@ endpoints:
     responses:
       -
         status: 200
-        content: |
-          {
-              "message": "Usuário Cadastrado!",
-              "type": "success",
-              "data": {
-                  "id": 23,
-                  "name": "teste",
-                  "email": "teste@teste.com",
-                  "token": {
-                      "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvbG9jYWxob3N0XC9sYXJhdmVsUHJvamV0b3NcL2Vjb21tZXJjZUFwaVwvcHVibGljXC9cL2FwaVwvYXV0aFwvcmVnaXN0ZXIiLCJpYXQiOjE2MzEwNDQ2MTksImV4cCI6MTYzMTA0ODIxOSwibmJmIjoxNjMxMDQ0NjE5LCJqdGkiOiJBaWo2YWdKTjlaUWtkb1hOIiwic3ViIjoyMywicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.thHar_GT9_OIco3Vm85EWn-FJ7AA3EdcWzpBulq7-hQ",
-                      "token_type": "bearer",
-                      "expires_in": 3600
-                  },
-                  "created_at": "07/09/2021",
-                  "updated_at": "07/09/2021",
-                  "link": {
-                      "get": {
-                          "getListAll": "https://localhost/laravelProjetos/ecommerceApi/public/api/users",
-                          "getMe": "https://localhost/laravelProjetos/ecommerceApi/public/api/users/me"
-                      },
-                      "post": {
-                          "login": "https://localhost/laravelProjetos/ecommerceApi/public/api/auth/login",
-                          "register": "https://localhost/laravelProjetos/ecommerceApi/public/api/auth/register",
-                          "logout": "https://localhost/laravelProjetos/ecommerceApi/public/api/auth/logout"
-                      },
-                      "put": {
-                          "editNameEmail": "https://localhost/laravelProjetos/ecommerceApi/public/api/users/me/edit"
-                      }
-                  }
-              },
-              "code": 201
-          }
+        content: null
         headers: []
         description: '200'
       -
         status: 422
-        content: '{"type":"error","message":"Campos inv\u00e1lidos","code":422,"data":{"name":["Obrigat\u00f3rio"],"email":["The email field is required."],"password":["The password field is required."]}}'
+        content: null
         headers: []
         description: '422, Validação do bodyparam'
       -
         status: 422
-        content: '{"type":"error","message":"Campos inv\u00e1lidos","code":422,"data":{"email":["The email must be a valid email address."],"password":["The password must be at least 6 characters.","The password confirmation does not match."]}}'
+        content: null
         headers: []
         description: '422, Validação do bodyparam'
       -
         status: 422
-        content: '{"type":"error","message":"Campos inv\u00e1lidos","code":422,"data":{"email":["The email has already been taken."],"password":["The password must be at least 6 characters.","The password confirmation does not match."]}}'
+        content: null
         headers: []
         description: '422, Validação do bodyparam'
       -
         status: 422
-        content: '{"type":"error","message":"Error","code":422,"data":{"errors":"syntax error, unexpected ''if'' (T_IF)"}}'
+        content: null
         headers: []
         description: '422, Erros semânticos do código'
     responseFields: []
@@ -189,18 +127,17 @@ endpoints:
     responses:
       -
         status: 200
-        content: |
-          {"message":"Successfully logged out","type":"success","data":{"id":1,"name":"Kevin Edilson Padilha","email":"danielfalcao.df@gmail.com","email_verified_at":null,"created_at":"06\/09\/2021","updated_at":"06\/09\/2021","link":{"get":{"getListAll":"https:\/\/localhost\/laravelProjetos\/ecommerceApi\/public\/api\/users","getMe":"https:\/\/localhost\/laravelProjetos\/ecommerceApi\/public\/api\/users\/me"},"post":{"login":"https:\/\/localhost\/laravelProjetos\/ecommerceApi\/public\/api\/auth\/login","register":"https:\/\/localhost\/laravelProjetos\/ecommerceApi\/public\/api\/auth\/register","logout":"https:\/\/localhost\/laravelProjetos\/ecommerceApi\/public\/api\/auth\/logout"},"put":{"editNameEmail":"https:\/\/localhost\/laravelProjetos\/ecommerceApi\/public\/api\/users\/me\/edit"}}},"code":200}
+        content: null
         headers: []
         description: '200'
       -
         status: 401
-        content: '{"type":"error","code":401,"massage":"Token is Invalid"}'
+        content: null
         headers: []
         description: '401, Token is Invalid, Token is Expired, Authorization Token not found'
       -
         status: 422
-        content: '{"type":"error","message":"Error","code":422,"data":{"errors":"syntax error, unexpected ''if'' (T_IF)"}}'
+        content: null
         headers: []
         description: '422, Erros semânticos do código'
     responseFields: []

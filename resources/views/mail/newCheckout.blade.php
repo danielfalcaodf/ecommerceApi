@@ -31,4 +31,3 @@ Acompanhe seu pedido
 @endcomponent
 
 @endcomponent
-

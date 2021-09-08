@@ -19,7 +19,7 @@
 
     <script src="//cdn.jsdelivr.net/npm/lodash@4.17.10/lodash.min.js"></script>
     <script>
-        var baseUrl = "https://localhost/laravelProjetos/ecommerceApi/public";
+        var baseUrl = "https://localhost/laravelProjetos/ecommerceApi/public/";
     </script>
     <script src="../docs/js/tryitout-3.9.1.js"></script>
 
@@ -53,7 +53,7 @@
                             <li><a href="http://github.com/knuckleswtf/scribe">Documentation powered by Scribe ✍</a></li>
                     </ul>
             <ul class="toc-footer" id="last-updated">
-            <li>Last updated: September 7 2021</li>
+            <li>Last updated: September 8 2021</li>
         </ul>
 </div>
 <div class="page-wrapper">
@@ -65,7 +65,7 @@
 <blockquote>
 <p>Base URL</p>
 </blockquote>
-<pre><code class="language-yaml">https://localhost/laravelProjetos/ecommerceApi/public</code></pre>
+<pre><code class="language-yaml">https://localhost/laravelProjetos/ecommerceApi/public/</code></pre>
 
         <h1>Authenticating requests</h1>
 <p>To authenticate requests, include an <strong><code>Authorization</code></strong> header with the value <strong><code>"Bearer {ACCESS_TOKEN}"</code></strong>.</p>
@@ -156,62 +156,21 @@ response.json()</code></pre>
         </blockquote>
                 <pre>
 
-<code class="language-json">{
-    &quot;message&quot;: &quot;&quot;,
-    &quot;type&quot;: &quot;success&quot;,
-    &quot;data&quot;: {
-        &quot;id&quot;: 1,
-        &quot;name&quot;: &quot;Kevin Edilson Padilha&quot;,
-        &quot;email&quot;: &quot;danielfalcao.df@gmail.com&quot;,
-        &quot;token&quot;: {
-            &quot;access_token&quot;: &quot;eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvbG9jYWxob3N0XC9sYXJhdmVsUHJvamV0b3NcL2Vjb21tZXJjZUFwaVwvcHVibGljXC9cL2FwaVwvYXV0aFwvbG9naW4iLCJpYXQiOjE2MzEwNDQyNjksImV4cCI6MTYzMTA0Nzg2OSwibmJmIjoxNjMxMDQ0MjY5LCJqdGkiOiJ4aUR4ajhkUWY2NFZUZWxCIiwic3ViIjoxLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.WHEa91qVOqlg7WT189BkYWiJayYpScY6c8ZIObLZNPQ&quot;,
-            &quot;token_type&quot;: &quot;bearer&quot;,
-            &quot;expires_in&quot;: 3600
-        },
-        &quot;created_at&quot;: &quot;06/09/2021&quot;,
-        &quot;updated_at&quot;: &quot;06/09/2021&quot;,
-        &quot;link&quot;: {
-            &quot;get&quot;: {
-                &quot;getListAll&quot;: &quot;https://localhost/laravelProjetos/ecommerceApi/public/api/users&quot;,
-                &quot;getMe&quot;: &quot;https://localhost/laravelProjetos/ecommerceApi/public/api/users/me&quot;
-            },
-            &quot;post&quot;: {
-                &quot;login&quot;: &quot;https://localhost/laravelProjetos/ecommerceApi/public/api/auth/login&quot;,
-                &quot;register&quot;: &quot;https://localhost/laravelProjetos/ecommerceApi/public/api/auth/register&quot;,
-                &quot;logout&quot;: &quot;https://localhost/laravelProjetos/ecommerceApi/public/api/auth/logout&quot;
-            },
-            &quot;put&quot;: {
-                &quot;editNameEmail&quot;: &quot;https://localhost/laravelProjetos/ecommerceApi/public/api/users/me/edit&quot;
-            }
-        }
-    },
-    &quot;code&quot;: 200
-}</code>
+<code class="language-json"></code>
  </pre>
             <blockquote>
             <p>Example response (400):</p>
         </blockquote>
                 <pre>
 
-<code class="language-json">{
-    &quot;type&quot;: &quot;error&quot;,
-    &quot;message&quot;: &quot;Email ou senha inv&aacute;lidos&quot;,
-    &quot;code&quot;: 400
-}</code>
+<code class="language-json"></code>
  </pre>
             <blockquote>
             <p>Example response (422, Erros semânticos do código):</p>
         </blockquote>
                 <pre>
 
-<code class="language-json">{
-    &quot;type&quot;: &quot;error&quot;,
-    &quot;message&quot;: &quot;Error&quot;,
-    &quot;code&quot;: 422,
-    &quot;data&quot;: {
-        &quot;errors&quot;: &quot;syntax error, unexpected 'if' (T_IF)&quot;
-    }
-}</code>
+<code class="language-json"></code>
  </pre>
     </span>
 <span id="execution-results-POSTapi-auth-login" hidden>
@@ -361,113 +320,35 @@ response.json()</code></pre>
         </blockquote>
                 <pre>
 
-<code class="language-json">{
-    &quot;message&quot;: &quot;Usu&aacute;rio Cadastrado!&quot;,
-    &quot;type&quot;: &quot;success&quot;,
-    &quot;data&quot;: {
-        &quot;id&quot;: 23,
-        &quot;name&quot;: &quot;teste&quot;,
-        &quot;email&quot;: &quot;teste@teste.com&quot;,
-        &quot;token&quot;: {
-            &quot;access_token&quot;: &quot;eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvbG9jYWxob3N0XC9sYXJhdmVsUHJvamV0b3NcL2Vjb21tZXJjZUFwaVwvcHVibGljXC9cL2FwaVwvYXV0aFwvcmVnaXN0ZXIiLCJpYXQiOjE2MzEwNDQ2MTksImV4cCI6MTYzMTA0ODIxOSwibmJmIjoxNjMxMDQ0NjE5LCJqdGkiOiJBaWo2YWdKTjlaUWtkb1hOIiwic3ViIjoyMywicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.thHar_GT9_OIco3Vm85EWn-FJ7AA3EdcWzpBulq7-hQ&quot;,
-            &quot;token_type&quot;: &quot;bearer&quot;,
-            &quot;expires_in&quot;: 3600
-        },
-        &quot;created_at&quot;: &quot;07/09/2021&quot;,
-        &quot;updated_at&quot;: &quot;07/09/2021&quot;,
-        &quot;link&quot;: {
-            &quot;get&quot;: {
-                &quot;getListAll&quot;: &quot;https://localhost/laravelProjetos/ecommerceApi/public/api/users&quot;,
-                &quot;getMe&quot;: &quot;https://localhost/laravelProjetos/ecommerceApi/public/api/users/me&quot;
-            },
-            &quot;post&quot;: {
-                &quot;login&quot;: &quot;https://localhost/laravelProjetos/ecommerceApi/public/api/auth/login&quot;,
-                &quot;register&quot;: &quot;https://localhost/laravelProjetos/ecommerceApi/public/api/auth/register&quot;,
-                &quot;logout&quot;: &quot;https://localhost/laravelProjetos/ecommerceApi/public/api/auth/logout&quot;
-            },
-            &quot;put&quot;: {
-                &quot;editNameEmail&quot;: &quot;https://localhost/laravelProjetos/ecommerceApi/public/api/users/me/edit&quot;
-            }
-        }
-    },
-    &quot;code&quot;: 201
-}</code>
+<code class="language-json"></code>
  </pre>
             <blockquote>
             <p>Example response (422, Validação do bodyparam):</p>
         </blockquote>
                 <pre>
 
-<code class="language-json">{
-    &quot;type&quot;: &quot;error&quot;,
-    &quot;message&quot;: &quot;Campos inv&aacute;lidos&quot;,
-    &quot;code&quot;: 422,
-    &quot;data&quot;: {
-        &quot;name&quot;: [
-            &quot;Obrigat&oacute;rio&quot;
-        ],
-        &quot;email&quot;: [
-            &quot;The email field is required.&quot;
-        ],
-        &quot;password&quot;: [
-            &quot;The password field is required.&quot;
-        ]
-    }
-}</code>
+<code class="language-json"></code>
  </pre>
             <blockquote>
             <p>Example response (422, Validação do bodyparam):</p>
         </blockquote>
                 <pre>
 
-<code class="language-json">{
-    &quot;type&quot;: &quot;error&quot;,
-    &quot;message&quot;: &quot;Campos inv&aacute;lidos&quot;,
-    &quot;code&quot;: 422,
-    &quot;data&quot;: {
-        &quot;email&quot;: [
-            &quot;The email must be a valid email address.&quot;
-        ],
-        &quot;password&quot;: [
-            &quot;The password must be at least 6 characters.&quot;,
-            &quot;The password confirmation does not match.&quot;
-        ]
-    }
-}</code>
+<code class="language-json"></code>
  </pre>
             <blockquote>
             <p>Example response (422, Validação do bodyparam):</p>
         </blockquote>
                 <pre>
 
-<code class="language-json">{
-    &quot;type&quot;: &quot;error&quot;,
-    &quot;message&quot;: &quot;Campos inv&aacute;lidos&quot;,
-    &quot;code&quot;: 422,
-    &quot;data&quot;: {
-        &quot;email&quot;: [
-            &quot;The email has already been taken.&quot;
-        ],
-        &quot;password&quot;: [
-            &quot;The password must be at least 6 characters.&quot;,
-            &quot;The password confirmation does not match.&quot;
-        ]
-    }
-}</code>
+<code class="language-json"></code>
  </pre>
             <blockquote>
             <p>Example response (422, Erros semânticos do código):</p>
         </blockquote>
                 <pre>
 
-<code class="language-json">{
-    &quot;type&quot;: &quot;error&quot;,
-    &quot;message&quot;: &quot;Error&quot;,
-    &quot;code&quot;: 422,
-    &quot;data&quot;: {
-        &quot;errors&quot;: &quot;syntax error, unexpected 'if' (T_IF)&quot;
-    }
-}</code>
+<code class="language-json"></code>
  </pre>
     </span>
 <span id="execution-results-POSTapi-auth-register" hidden>
@@ -611,58 +492,21 @@ response.json()</code></pre>
         </blockquote>
                 <pre>
 
-<code class="language-json">{
-    &quot;message&quot;: &quot;Successfully logged out&quot;,
-    &quot;type&quot;: &quot;success&quot;,
-    &quot;data&quot;: {
-        &quot;id&quot;: 1,
-        &quot;name&quot;: &quot;Kevin Edilson Padilha&quot;,
-        &quot;email&quot;: &quot;danielfalcao.df@gmail.com&quot;,
-        &quot;email_verified_at&quot;: null,
-        &quot;created_at&quot;: &quot;06/09/2021&quot;,
-        &quot;updated_at&quot;: &quot;06/09/2021&quot;,
-        &quot;link&quot;: {
-            &quot;get&quot;: {
-                &quot;getListAll&quot;: &quot;https://localhost/laravelProjetos/ecommerceApi/public/api/users&quot;,
-                &quot;getMe&quot;: &quot;https://localhost/laravelProjetos/ecommerceApi/public/api/users/me&quot;
-            },
-            &quot;post&quot;: {
-                &quot;login&quot;: &quot;https://localhost/laravelProjetos/ecommerceApi/public/api/auth/login&quot;,
-                &quot;register&quot;: &quot;https://localhost/laravelProjetos/ecommerceApi/public/api/auth/register&quot;,
-                &quot;logout&quot;: &quot;https://localhost/laravelProjetos/ecommerceApi/public/api/auth/logout&quot;
-            },
-            &quot;put&quot;: {
-                &quot;editNameEmail&quot;: &quot;https://localhost/laravelProjetos/ecommerceApi/public/api/users/me/edit&quot;
-            }
-        }
-    },
-    &quot;code&quot;: 200
-}</code>
+<code class="language-json"></code>
  </pre>
             <blockquote>
             <p>Example response (401, Token is Invalid, Token is Expired, Authorization Token not found):</p>
         </blockquote>
                 <pre>
 
-<code class="language-json">{
-    &quot;type&quot;: &quot;error&quot;,
-    &quot;code&quot;: 401,
-    &quot;massage&quot;: &quot;Token is Invalid&quot;
-}</code>
+<code class="language-json"></code>
  </pre>
             <blockquote>
             <p>Example response (422, Erros semânticos do código):</p>
         </blockquote>
                 <pre>
 
-<code class="language-json">{
-    &quot;type&quot;: &quot;error&quot;,
-    &quot;message&quot;: &quot;Error&quot;,
-    &quot;code&quot;: 422,
-    &quot;data&quot;: {
-        &quot;errors&quot;: &quot;syntax error, unexpected 'if' (T_IF)&quot;
-    }
-}</code>
+<code class="language-json"></code>
  </pre>
     </span>
 <span id="execution-results-POSTapi-auth-logout" hidden>
@@ -799,54 +643,30 @@ response.json()</code></pre>
         &lt;title&gt;Not Found&lt;/title&gt;
 
         &lt;!-- Fonts --&gt;
-        &lt;link rel=&quot;dns-prefetch&quot; href=&quot;//fonts.gstatic.com&quot;&gt;
-        &lt;link href=&quot;https://fonts.googleapis.com/css?family=Nunito&quot; rel=&quot;stylesheet&quot;&gt;
+        &lt;link rel=&quot;preconnect&quot; href=&quot;https://fonts.gstatic.com&quot;&gt;
+        &lt;link href=&quot;https://fonts.googleapis.com/css2?family=Nunito&amp;display=swap&quot; rel=&quot;stylesheet&quot;&gt;
 
-        &lt;!-- Styles --&gt;
         &lt;style&gt;
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
+            /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}a{background-color:transparent}code{font-family:monospace,monospace;font-size:1em}[hidden]{display:none}html{font-family:system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;line-height:1.5}*,:after,:before{box-sizing:border-box;border:0 solid #e2e8f0}a{color:inherit;text-decoration:inherit}code{font-family:Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace}svg,video{display:block;vertical-align:middle}video{max-width:100%;height:auto}.bg-white{--bg-opacity:1;background-color:#fff;background-color:rgba(255,255,255,var(--bg-opacity))}.bg-gray-100{--bg-opacity:1;background-color:#f7fafc;background-color:rgba(247,250,252,var(--bg-opacity))}.border-gray-200{--border-opacity:1;border-color:#edf2f7;border-color:rgba(237,242,247,var(--border-opacity))}.border-gray-400{--border-opacity:1;border-color:#cbd5e0;border-color:rgba(203,213,224,var(--border-opacity))}.border-t{border-top-width:1px}.border-r{border-right-width:1px}.flex{display:flex}.grid{display:grid}.hidden{display:none}.items-center{align-items:center}.justify-center{justify-content:center}.font-semibold{font-weight:600}.h-5{height:1.25rem}.h-8{height:2rem}.h-16{height:4rem}.text-sm{font-size:.875rem}.text-lg{font-size:1.125rem}.leading-7{line-height:1.75rem}.mx-auto{margin-left:auto;margin-right:auto}.ml-1{margin-left:.25rem}.mt-2{margin-top:.5rem}.mr-2{margin-right:.5rem}.ml-2{margin-left:.5rem}.mt-4{margin-top:1rem}.ml-4{margin-left:1rem}.mt-8{margin-top:2rem}.ml-12{margin-left:3rem}.-mt-px{margin-top:-1px}.max-w-xl{max-width:36rem}.max-w-6xl{max-width:72rem}.min-h-screen{min-height:100vh}.overflow-hidden{overflow:hidden}.p-6{padding:1.5rem}.py-4{padding-top:1rem;padding-bottom:1rem}.px-4{padding-left:1rem;padding-right:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.pt-8{padding-top:2rem}.fixed{position:fixed}.relative{position:relative}.top-0{top:0}.right-0{right:0}.shadow{box-shadow:0 1px 3px 0 rgba(0,0,0,.1),0 1px 2px 0 rgba(0,0,0,.06)}.text-center{text-align:center}.text-gray-200{--text-opacity:1;color:#edf2f7;color:rgba(237,242,247,var(--text-opacity))}.text-gray-300{--text-opacity:1;color:#e2e8f0;color:rgba(226,232,240,var(--text-opacity))}.text-gray-400{--text-opacity:1;color:#cbd5e0;color:rgba(203,213,224,var(--text-opacity))}.text-gray-500{--text-opacity:1;color:#a0aec0;color:rgba(160,174,192,var(--text-opacity))}.text-gray-600{--text-opacity:1;color:#718096;color:rgba(113,128,150,var(--text-opacity))}.text-gray-700{--text-opacity:1;color:#4a5568;color:rgba(74,85,104,var(--text-opacity))}.text-gray-900{--text-opacity:1;color:#1a202c;color:rgba(26,32,44,var(--text-opacity))}.uppercase{text-transform:uppercase}.underline{text-decoration:underline}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.tracking-wider{letter-spacing:.05em}.w-5{width:1.25rem}.w-8{width:2rem}.w-auto{width:auto}.grid-cols-1{grid-template-columns:repeat(1,minmax(0,1fr))}@-webkit-keyframes spin{0%{transform:rotate(0deg)}to{transform:rotate(1turn)}}@keyframes  spin{0%{transform:rotate(0deg)}to{transform:rotate(1turn)}}@-webkit-keyframes ping{0%{transform:scale(1);opacity:1}75%,to{transform:scale(2);opacity:0}}@keyframes  ping{0%{transform:scale(1);opacity:1}75%,to{transform:scale(2);opacity:0}}@-webkit-keyframes pulse{0%,to{opacity:1}50%{opacity:.5}}@keyframes  pulse{0%,to{opacity:1}50%{opacity:.5}}@-webkit-keyframes bounce{0%,to{transform:translateY(-25%);-webkit-animation-timing-function:cubic-bezier(.8,0,1,1);animation-timing-function:cubic-bezier(.8,0,1,1)}50%{transform:translateY(0);-webkit-animation-timing-function:cubic-bezier(0,0,.2,1);animation-timing-function:cubic-bezier(0,0,.2,1)}}@keyframes  bounce{0%,to{transform:translateY(-25%);-webkit-animation-timing-function:cubic-bezier(.8,0,1,1);animation-timing-function:cubic-bezier(.8,0,1,1)}50%{transform:translateY(0);-webkit-animation-timing-function:cubic-bezier(0,0,.2,1);animation-timing-function:cubic-bezier(0,0,.2,1)}}@media (min-width:640px){.sm\:rounded-lg{border-radius:.5rem}.sm\:block{display:block}.sm\:items-center{align-items:center}.sm\:justify-start{justify-content:flex-start}.sm\:justify-between{justify-content:space-between}.sm\:h-20{height:5rem}.sm\:ml-0{margin-left:0}.sm\:px-6{padding-left:1.5rem;padding-right:1.5rem}.sm\:pt-0{padding-top:0}.sm\:text-left{text-align:left}.sm\:text-right{text-align:right}}@media (min-width:768px){.md\:border-t-0{border-top-width:0}.md\:border-l{border-left-width:1px}.md\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}}@media (min-width:1024px){.lg\:px-8{padding-left:2rem;padding-right:2rem}}@media (prefers-color-scheme:dark){.dark\:bg-gray-800{--bg-opacity:1;background-color:#2d3748;background-color:rgba(45,55,72,var(--bg-opacity))}.dark\:bg-gray-900{--bg-opacity:1;background-color:#1a202c;background-color:rgba(26,32,44,var(--bg-opacity))}.dark\:border-gray-700{--border-opacity:1;border-color:#4a5568;border-color:rgba(74,85,104,var(--border-opacity))}.dark\:text-white{--text-opacity:1;color:#fff;color:rgba(255,255,255,var(--text-opacity))}.dark\:text-gray-400{--text-opacity:1;color:#cbd5e0;color:rgba(203,213,224,var(--text-opacity))}}
+        &lt;/style&gt;
+
+        &lt;style&gt;
+            body {
                 font-family: 'Nunito', sans-serif;
-                font-weight: 100;
-                height: 100vh;
-                margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .code {
-                border-right: 2px solid;
-                font-size: 26px;
-                padding: 0 15px 0 15px;
-                text-align: center;
-            }
-
-            .message {
-                font-size: 18px;
-                text-align: center;
             }
         &lt;/style&gt;
     &lt;/head&gt;
-    &lt;body&gt;
-        &lt;div class=&quot;flex-center position-ref full-height&quot;&gt;
-            &lt;div class=&quot;code&quot;&gt;
-                404            &lt;/div&gt;
+    &lt;body class=&quot;antialiased&quot;&gt;
+        &lt;div class=&quot;relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center sm:pt-0&quot;&gt;
+            &lt;div class=&quot;max-w-xl mx-auto sm:px-6 lg:px-8&quot;&gt;
+                &lt;div class=&quot;flex items-center pt-8 sm:justify-start sm:pt-0&quot;&gt;
+                    &lt;div class=&quot;px-4 text-lg text-gray-500 border-r border-gray-400 tracking-wider&quot;&gt;
+                        404                    &lt;/div&gt;
 
-            &lt;div class=&quot;message&quot; style=&quot;padding: 10px;&quot;&gt;
-                Not Found            &lt;/div&gt;
+                    &lt;div class=&quot;ml-4 text-lg text-gray-500 uppercase tracking-wider&quot;&gt;
+                        Not Found                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
         &lt;/div&gt;
     &lt;/body&gt;
 &lt;/html&gt;
@@ -915,14 +735,14 @@ response.json()</code></pre>
 
 
 <pre><code class="language-bash">curl --request GET \
-    --get "https://localhost/laravelProjetos/ecommerceApi/public/api/buyers/view/10" \
+    --get "https://localhost/laravelProjetos/ecommerceApi/public/api/buyers/view/3" \
     --header "Authorization: Bearer {ACCESS_TOKEN}" \
     --header "Content-Type: application/json" \
     --header "Accept: */*"</code></pre>
 
 <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;get(
-    'https://localhost/laravelProjetos/ecommerceApi/public/api/buyers/view/10',
+    'https://localhost/laravelProjetos/ecommerceApi/public/api/buyers/view/3',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {ACCESS_TOKEN}',
@@ -934,7 +754,7 @@ $body = $response-&gt;getBody();
 print_r(json_decode((string) $body));</code></pre>
 
 <pre><code class="language-javascript">const url = new URL(
-    "https://localhost/laravelProjetos/ecommerceApi/public/api/buyers/view/10"
+    "https://localhost/laravelProjetos/ecommerceApi/public/api/buyers/view/3"
 );
 
 const headers = {
@@ -951,7 +771,7 @@ fetch(url, {
 <pre><code class="language-python">import requests
 import json
 
-url = 'https://localhost/laravelProjetos/ecommerceApi/public/api/buyers/view/10'
+url = 'https://localhost/laravelProjetos/ecommerceApi/public/api/buyers/view/3'
 headers = {
   'Authorization': 'Bearer {ACCESS_TOKEN}',
   'Content-Type': 'application/json',
@@ -983,54 +803,30 @@ response.json()</code></pre>
         &lt;title&gt;Not Found&lt;/title&gt;
 
         &lt;!-- Fonts --&gt;
-        &lt;link rel=&quot;dns-prefetch&quot; href=&quot;//fonts.gstatic.com&quot;&gt;
-        &lt;link href=&quot;https://fonts.googleapis.com/css?family=Nunito&quot; rel=&quot;stylesheet&quot;&gt;
+        &lt;link rel=&quot;preconnect&quot; href=&quot;https://fonts.gstatic.com&quot;&gt;
+        &lt;link href=&quot;https://fonts.googleapis.com/css2?family=Nunito&amp;display=swap&quot; rel=&quot;stylesheet&quot;&gt;
 
-        &lt;!-- Styles --&gt;
         &lt;style&gt;
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
+            /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}a{background-color:transparent}code{font-family:monospace,monospace;font-size:1em}[hidden]{display:none}html{font-family:system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;line-height:1.5}*,:after,:before{box-sizing:border-box;border:0 solid #e2e8f0}a{color:inherit;text-decoration:inherit}code{font-family:Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace}svg,video{display:block;vertical-align:middle}video{max-width:100%;height:auto}.bg-white{--bg-opacity:1;background-color:#fff;background-color:rgba(255,255,255,var(--bg-opacity))}.bg-gray-100{--bg-opacity:1;background-color:#f7fafc;background-color:rgba(247,250,252,var(--bg-opacity))}.border-gray-200{--border-opacity:1;border-color:#edf2f7;border-color:rgba(237,242,247,var(--border-opacity))}.border-gray-400{--border-opacity:1;border-color:#cbd5e0;border-color:rgba(203,213,224,var(--border-opacity))}.border-t{border-top-width:1px}.border-r{border-right-width:1px}.flex{display:flex}.grid{display:grid}.hidden{display:none}.items-center{align-items:center}.justify-center{justify-content:center}.font-semibold{font-weight:600}.h-5{height:1.25rem}.h-8{height:2rem}.h-16{height:4rem}.text-sm{font-size:.875rem}.text-lg{font-size:1.125rem}.leading-7{line-height:1.75rem}.mx-auto{margin-left:auto;margin-right:auto}.ml-1{margin-left:.25rem}.mt-2{margin-top:.5rem}.mr-2{margin-right:.5rem}.ml-2{margin-left:.5rem}.mt-4{margin-top:1rem}.ml-4{margin-left:1rem}.mt-8{margin-top:2rem}.ml-12{margin-left:3rem}.-mt-px{margin-top:-1px}.max-w-xl{max-width:36rem}.max-w-6xl{max-width:72rem}.min-h-screen{min-height:100vh}.overflow-hidden{overflow:hidden}.p-6{padding:1.5rem}.py-4{padding-top:1rem;padding-bottom:1rem}.px-4{padding-left:1rem;padding-right:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.pt-8{padding-top:2rem}.fixed{position:fixed}.relative{position:relative}.top-0{top:0}.right-0{right:0}.shadow{box-shadow:0 1px 3px 0 rgba(0,0,0,.1),0 1px 2px 0 rgba(0,0,0,.06)}.text-center{text-align:center}.text-gray-200{--text-opacity:1;color:#edf2f7;color:rgba(237,242,247,var(--text-opacity))}.text-gray-300{--text-opacity:1;color:#e2e8f0;color:rgba(226,232,240,var(--text-opacity))}.text-gray-400{--text-opacity:1;color:#cbd5e0;color:rgba(203,213,224,var(--text-opacity))}.text-gray-500{--text-opacity:1;color:#a0aec0;color:rgba(160,174,192,var(--text-opacity))}.text-gray-600{--text-opacity:1;color:#718096;color:rgba(113,128,150,var(--text-opacity))}.text-gray-700{--text-opacity:1;color:#4a5568;color:rgba(74,85,104,var(--text-opacity))}.text-gray-900{--text-opacity:1;color:#1a202c;color:rgba(26,32,44,var(--text-opacity))}.uppercase{text-transform:uppercase}.underline{text-decoration:underline}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.tracking-wider{letter-spacing:.05em}.w-5{width:1.25rem}.w-8{width:2rem}.w-auto{width:auto}.grid-cols-1{grid-template-columns:repeat(1,minmax(0,1fr))}@-webkit-keyframes spin{0%{transform:rotate(0deg)}to{transform:rotate(1turn)}}@keyframes  spin{0%{transform:rotate(0deg)}to{transform:rotate(1turn)}}@-webkit-keyframes ping{0%{transform:scale(1);opacity:1}75%,to{transform:scale(2);opacity:0}}@keyframes  ping{0%{transform:scale(1);opacity:1}75%,to{transform:scale(2);opacity:0}}@-webkit-keyframes pulse{0%,to{opacity:1}50%{opacity:.5}}@keyframes  pulse{0%,to{opacity:1}50%{opacity:.5}}@-webkit-keyframes bounce{0%,to{transform:translateY(-25%);-webkit-animation-timing-function:cubic-bezier(.8,0,1,1);animation-timing-function:cubic-bezier(.8,0,1,1)}50%{transform:translateY(0);-webkit-animation-timing-function:cubic-bezier(0,0,.2,1);animation-timing-function:cubic-bezier(0,0,.2,1)}}@keyframes  bounce{0%,to{transform:translateY(-25%);-webkit-animation-timing-function:cubic-bezier(.8,0,1,1);animation-timing-function:cubic-bezier(.8,0,1,1)}50%{transform:translateY(0);-webkit-animation-timing-function:cubic-bezier(0,0,.2,1);animation-timing-function:cubic-bezier(0,0,.2,1)}}@media (min-width:640px){.sm\:rounded-lg{border-radius:.5rem}.sm\:block{display:block}.sm\:items-center{align-items:center}.sm\:justify-start{justify-content:flex-start}.sm\:justify-between{justify-content:space-between}.sm\:h-20{height:5rem}.sm\:ml-0{margin-left:0}.sm\:px-6{padding-left:1.5rem;padding-right:1.5rem}.sm\:pt-0{padding-top:0}.sm\:text-left{text-align:left}.sm\:text-right{text-align:right}}@media (min-width:768px){.md\:border-t-0{border-top-width:0}.md\:border-l{border-left-width:1px}.md\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}}@media (min-width:1024px){.lg\:px-8{padding-left:2rem;padding-right:2rem}}@media (prefers-color-scheme:dark){.dark\:bg-gray-800{--bg-opacity:1;background-color:#2d3748;background-color:rgba(45,55,72,var(--bg-opacity))}.dark\:bg-gray-900{--bg-opacity:1;background-color:#1a202c;background-color:rgba(26,32,44,var(--bg-opacity))}.dark\:border-gray-700{--border-opacity:1;border-color:#4a5568;border-color:rgba(74,85,104,var(--border-opacity))}.dark\:text-white{--text-opacity:1;color:#fff;color:rgba(255,255,255,var(--text-opacity))}.dark\:text-gray-400{--text-opacity:1;color:#cbd5e0;color:rgba(203,213,224,var(--text-opacity))}}
+        &lt;/style&gt;
+
+        &lt;style&gt;
+            body {
                 font-family: 'Nunito', sans-serif;
-                font-weight: 100;
-                height: 100vh;
-                margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .code {
-                border-right: 2px solid;
-                font-size: 26px;
-                padding: 0 15px 0 15px;
-                text-align: center;
-            }
-
-            .message {
-                font-size: 18px;
-                text-align: center;
             }
         &lt;/style&gt;
     &lt;/head&gt;
-    &lt;body&gt;
-        &lt;div class=&quot;flex-center position-ref full-height&quot;&gt;
-            &lt;div class=&quot;code&quot;&gt;
-                404            &lt;/div&gt;
+    &lt;body class=&quot;antialiased&quot;&gt;
+        &lt;div class=&quot;relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center sm:pt-0&quot;&gt;
+            &lt;div class=&quot;max-w-xl mx-auto sm:px-6 lg:px-8&quot;&gt;
+                &lt;div class=&quot;flex items-center pt-8 sm:justify-start sm:pt-0&quot;&gt;
+                    &lt;div class=&quot;px-4 text-lg text-gray-500 border-r border-gray-400 tracking-wider&quot;&gt;
+                        404                    &lt;/div&gt;
 
-            &lt;div class=&quot;message&quot; style=&quot;padding: 10px;&quot;&gt;
-                Not Found            &lt;/div&gt;
+                    &lt;div class=&quot;ml-4 text-lg text-gray-500 uppercase tracking-wider&quot;&gt;
+                        Not Found                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
         &lt;/div&gt;
     &lt;/body&gt;
 &lt;/html&gt;
@@ -1113,9 +909,9 @@ response.json()</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: */*" \
     --data "{
-    \"phone_cell\": \"unde\",
-    \"cpf\": \"commodi\",
-    \"iduser\": \"ipsam\"
+    \"phone_cell\": \"sed\",
+    \"cpf\": \"accusantium\",
+    \"iduser\": \"facere\"
 }"
 </code></pre>
 
@@ -1128,9 +924,9 @@ $response = $client-&gt;post(
             'Accept' =&gt; '*/*',
         ],
         'json' =&gt; [
-            'phone_cell' =&gt; 'unde',
-            'cpf' =&gt; 'commodi',
-            'iduser' =&gt; 'ipsam',
+            'phone_cell' =&gt; 'sed',
+            'cpf' =&gt; 'accusantium',
+            'iduser' =&gt; 'facere',
         ],
     ]
 );
@@ -1148,9 +944,9 @@ const headers = {
 };
 
 let body = {
-    "phone_cell": "unde",
-    "cpf": "commodi",
-    "iduser": "ipsam"
+    "phone_cell": "sed",
+    "cpf": "accusantium",
+    "iduser": "facere"
 }
 
 fetch(url, {
@@ -1164,9 +960,9 @@ import json
 
 url = 'https://localhost/laravelProjetos/ecommerceApi/public/api/buyers/add'
 payload = {
-    "phone_cell": "unde",
-    "cpf": "commodi",
-    "iduser": "ipsam"
+    "phone_cell": "sed",
+    "cpf": "accusantium",
+    "iduser": "facere"
 }
 headers = {
   'Authorization': 'Bearer {ACCESS_TOKEN}',
@@ -1268,29 +1064,29 @@ response.json()</code></pre>
 
 
 <pre><code class="language-bash">curl --request PUT \
-    "https://localhost/laravelProjetos/ecommerceApi/public/api/buyers/edit/2" \
+    "https://localhost/laravelProjetos/ecommerceApi/public/api/buyers/edit/15" \
     --header "Authorization: Bearer {ACCESS_TOKEN}" \
     --header "Content-Type: application/json" \
     --header "Accept: */*" \
     --data "{
-    \"phone_cell\": \"qui\",
-    \"cpf\": \"reprehenderit\",
-    \"iduser\": \"natus\"
+    \"phone_cell\": \"illo\",
+    \"cpf\": \"corrupti\",
+    \"iduser\": \"nam\"
 }"
 </code></pre>
 
 <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;put(
-    'https://localhost/laravelProjetos/ecommerceApi/public/api/buyers/edit/2',
+    'https://localhost/laravelProjetos/ecommerceApi/public/api/buyers/edit/15',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {ACCESS_TOKEN}',
             'Accept' =&gt; '*/*',
         ],
         'json' =&gt; [
-            'phone_cell' =&gt; 'qui',
-            'cpf' =&gt; 'reprehenderit',
-            'iduser' =&gt; 'natus',
+            'phone_cell' =&gt; 'illo',
+            'cpf' =&gt; 'corrupti',
+            'iduser' =&gt; 'nam',
         ],
     ]
 );
@@ -1298,7 +1094,7 @@ $body = $response-&gt;getBody();
 print_r(json_decode((string) $body));</code></pre>
 
 <pre><code class="language-javascript">const url = new URL(
-    "https://localhost/laravelProjetos/ecommerceApi/public/api/buyers/edit/2"
+    "https://localhost/laravelProjetos/ecommerceApi/public/api/buyers/edit/15"
 );
 
 const headers = {
@@ -1308,9 +1104,9 @@ const headers = {
 };
 
 let body = {
-    "phone_cell": "qui",
-    "cpf": "reprehenderit",
-    "iduser": "natus"
+    "phone_cell": "illo",
+    "cpf": "corrupti",
+    "iduser": "nam"
 }
 
 fetch(url, {
@@ -1322,11 +1118,11 @@ fetch(url, {
 <pre><code class="language-python">import requests
 import json
 
-url = 'https://localhost/laravelProjetos/ecommerceApi/public/api/buyers/edit/2'
+url = 'https://localhost/laravelProjetos/ecommerceApi/public/api/buyers/edit/15'
 payload = {
-    "phone_cell": "qui",
-    "cpf": "reprehenderit",
-    "iduser": "natus"
+    "phone_cell": "illo",
+    "cpf": "corrupti",
+    "iduser": "nam"
 }
 headers = {
   'Authorization': 'Bearer {ACCESS_TOKEN}',
@@ -1437,14 +1233,14 @@ response.json()</code></pre>
 
 
 <pre><code class="language-bash">curl --request DELETE \
-    "https://localhost/laravelProjetos/ecommerceApi/public/api/buyers/delete/16" \
+    "https://localhost/laravelProjetos/ecommerceApi/public/api/buyers/delete/15" \
     --header "Authorization: Bearer {ACCESS_TOKEN}" \
     --header "Content-Type: application/json" \
     --header "Accept: */*"</code></pre>
 
 <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;delete(
-    'https://localhost/laravelProjetos/ecommerceApi/public/api/buyers/delete/16',
+    'https://localhost/laravelProjetos/ecommerceApi/public/api/buyers/delete/15',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {ACCESS_TOKEN}',
@@ -1456,7 +1252,7 @@ $body = $response-&gt;getBody();
 print_r(json_decode((string) $body));</code></pre>
 
 <pre><code class="language-javascript">const url = new URL(
-    "https://localhost/laravelProjetos/ecommerceApi/public/api/buyers/delete/16"
+    "https://localhost/laravelProjetos/ecommerceApi/public/api/buyers/delete/15"
 );
 
 const headers = {
@@ -1473,7 +1269,7 @@ fetch(url, {
 <pre><code class="language-python">import requests
 import json
 
-url = 'https://localhost/laravelProjetos/ecommerceApi/public/api/buyers/delete/16'
+url = 'https://localhost/laravelProjetos/ecommerceApi/public/api/buyers/delete/15'
 headers = {
   'Authorization': 'Bearer {ACCESS_TOKEN}',
   'Content-Type': 'application/json',
@@ -1629,54 +1425,30 @@ response.json()</code></pre>
         &lt;title&gt;Not Found&lt;/title&gt;
 
         &lt;!-- Fonts --&gt;
-        &lt;link rel=&quot;dns-prefetch&quot; href=&quot;//fonts.gstatic.com&quot;&gt;
-        &lt;link href=&quot;https://fonts.googleapis.com/css?family=Nunito&quot; rel=&quot;stylesheet&quot;&gt;
+        &lt;link rel=&quot;preconnect&quot; href=&quot;https://fonts.gstatic.com&quot;&gt;
+        &lt;link href=&quot;https://fonts.googleapis.com/css2?family=Nunito&amp;display=swap&quot; rel=&quot;stylesheet&quot;&gt;
 
-        &lt;!-- Styles --&gt;
         &lt;style&gt;
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
+            /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}a{background-color:transparent}code{font-family:monospace,monospace;font-size:1em}[hidden]{display:none}html{font-family:system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;line-height:1.5}*,:after,:before{box-sizing:border-box;border:0 solid #e2e8f0}a{color:inherit;text-decoration:inherit}code{font-family:Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace}svg,video{display:block;vertical-align:middle}video{max-width:100%;height:auto}.bg-white{--bg-opacity:1;background-color:#fff;background-color:rgba(255,255,255,var(--bg-opacity))}.bg-gray-100{--bg-opacity:1;background-color:#f7fafc;background-color:rgba(247,250,252,var(--bg-opacity))}.border-gray-200{--border-opacity:1;border-color:#edf2f7;border-color:rgba(237,242,247,var(--border-opacity))}.border-gray-400{--border-opacity:1;border-color:#cbd5e0;border-color:rgba(203,213,224,var(--border-opacity))}.border-t{border-top-width:1px}.border-r{border-right-width:1px}.flex{display:flex}.grid{display:grid}.hidden{display:none}.items-center{align-items:center}.justify-center{justify-content:center}.font-semibold{font-weight:600}.h-5{height:1.25rem}.h-8{height:2rem}.h-16{height:4rem}.text-sm{font-size:.875rem}.text-lg{font-size:1.125rem}.leading-7{line-height:1.75rem}.mx-auto{margin-left:auto;margin-right:auto}.ml-1{margin-left:.25rem}.mt-2{margin-top:.5rem}.mr-2{margin-right:.5rem}.ml-2{margin-left:.5rem}.mt-4{margin-top:1rem}.ml-4{margin-left:1rem}.mt-8{margin-top:2rem}.ml-12{margin-left:3rem}.-mt-px{margin-top:-1px}.max-w-xl{max-width:36rem}.max-w-6xl{max-width:72rem}.min-h-screen{min-height:100vh}.overflow-hidden{overflow:hidden}.p-6{padding:1.5rem}.py-4{padding-top:1rem;padding-bottom:1rem}.px-4{padding-left:1rem;padding-right:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.pt-8{padding-top:2rem}.fixed{position:fixed}.relative{position:relative}.top-0{top:0}.right-0{right:0}.shadow{box-shadow:0 1px 3px 0 rgba(0,0,0,.1),0 1px 2px 0 rgba(0,0,0,.06)}.text-center{text-align:center}.text-gray-200{--text-opacity:1;color:#edf2f7;color:rgba(237,242,247,var(--text-opacity))}.text-gray-300{--text-opacity:1;color:#e2e8f0;color:rgba(226,232,240,var(--text-opacity))}.text-gray-400{--text-opacity:1;color:#cbd5e0;color:rgba(203,213,224,var(--text-opacity))}.text-gray-500{--text-opacity:1;color:#a0aec0;color:rgba(160,174,192,var(--text-opacity))}.text-gray-600{--text-opacity:1;color:#718096;color:rgba(113,128,150,var(--text-opacity))}.text-gray-700{--text-opacity:1;color:#4a5568;color:rgba(74,85,104,var(--text-opacity))}.text-gray-900{--text-opacity:1;color:#1a202c;color:rgba(26,32,44,var(--text-opacity))}.uppercase{text-transform:uppercase}.underline{text-decoration:underline}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.tracking-wider{letter-spacing:.05em}.w-5{width:1.25rem}.w-8{width:2rem}.w-auto{width:auto}.grid-cols-1{grid-template-columns:repeat(1,minmax(0,1fr))}@-webkit-keyframes spin{0%{transform:rotate(0deg)}to{transform:rotate(1turn)}}@keyframes  spin{0%{transform:rotate(0deg)}to{transform:rotate(1turn)}}@-webkit-keyframes ping{0%{transform:scale(1);opacity:1}75%,to{transform:scale(2);opacity:0}}@keyframes  ping{0%{transform:scale(1);opacity:1}75%,to{transform:scale(2);opacity:0}}@-webkit-keyframes pulse{0%,to{opacity:1}50%{opacity:.5}}@keyframes  pulse{0%,to{opacity:1}50%{opacity:.5}}@-webkit-keyframes bounce{0%,to{transform:translateY(-25%);-webkit-animation-timing-function:cubic-bezier(.8,0,1,1);animation-timing-function:cubic-bezier(.8,0,1,1)}50%{transform:translateY(0);-webkit-animation-timing-function:cubic-bezier(0,0,.2,1);animation-timing-function:cubic-bezier(0,0,.2,1)}}@keyframes  bounce{0%,to{transform:translateY(-25%);-webkit-animation-timing-function:cubic-bezier(.8,0,1,1);animation-timing-function:cubic-bezier(.8,0,1,1)}50%{transform:translateY(0);-webkit-animation-timing-function:cubic-bezier(0,0,.2,1);animation-timing-function:cubic-bezier(0,0,.2,1)}}@media (min-width:640px){.sm\:rounded-lg{border-radius:.5rem}.sm\:block{display:block}.sm\:items-center{align-items:center}.sm\:justify-start{justify-content:flex-start}.sm\:justify-between{justify-content:space-between}.sm\:h-20{height:5rem}.sm\:ml-0{margin-left:0}.sm\:px-6{padding-left:1.5rem;padding-right:1.5rem}.sm\:pt-0{padding-top:0}.sm\:text-left{text-align:left}.sm\:text-right{text-align:right}}@media (min-width:768px){.md\:border-t-0{border-top-width:0}.md\:border-l{border-left-width:1px}.md\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}}@media (min-width:1024px){.lg\:px-8{padding-left:2rem;padding-right:2rem}}@media (prefers-color-scheme:dark){.dark\:bg-gray-800{--bg-opacity:1;background-color:#2d3748;background-color:rgba(45,55,72,var(--bg-opacity))}.dark\:bg-gray-900{--bg-opacity:1;background-color:#1a202c;background-color:rgba(26,32,44,var(--bg-opacity))}.dark\:border-gray-700{--border-opacity:1;border-color:#4a5568;border-color:rgba(74,85,104,var(--border-opacity))}.dark\:text-white{--text-opacity:1;color:#fff;color:rgba(255,255,255,var(--text-opacity))}.dark\:text-gray-400{--text-opacity:1;color:#cbd5e0;color:rgba(203,213,224,var(--text-opacity))}}
+        &lt;/style&gt;
+
+        &lt;style&gt;
+            body {
                 font-family: 'Nunito', sans-serif;
-                font-weight: 100;
-                height: 100vh;
-                margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .code {
-                border-right: 2px solid;
-                font-size: 26px;
-                padding: 0 15px 0 15px;
-                text-align: center;
-            }
-
-            .message {
-                font-size: 18px;
-                text-align: center;
             }
         &lt;/style&gt;
     &lt;/head&gt;
-    &lt;body&gt;
-        &lt;div class=&quot;flex-center position-ref full-height&quot;&gt;
-            &lt;div class=&quot;code&quot;&gt;
-                404            &lt;/div&gt;
+    &lt;body class=&quot;antialiased&quot;&gt;
+        &lt;div class=&quot;relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center sm:pt-0&quot;&gt;
+            &lt;div class=&quot;max-w-xl mx-auto sm:px-6 lg:px-8&quot;&gt;
+                &lt;div class=&quot;flex items-center pt-8 sm:justify-start sm:pt-0&quot;&gt;
+                    &lt;div class=&quot;px-4 text-lg text-gray-500 border-r border-gray-400 tracking-wider&quot;&gt;
+                        404                    &lt;/div&gt;
 
-            &lt;div class=&quot;message&quot; style=&quot;padding: 10px;&quot;&gt;
-                Not Found            &lt;/div&gt;
+                    &lt;div class=&quot;ml-4 text-lg text-gray-500 uppercase tracking-wider&quot;&gt;
+                        Not Found                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
         &lt;/div&gt;
     &lt;/body&gt;
 &lt;/html&gt;
@@ -1745,14 +1517,14 @@ response.json()</code></pre>
 
 
 <pre><code class="language-bash">curl --request GET \
-    --get "https://localhost/laravelProjetos/ecommerceApi/public/api/checkouts/me/view/15" \
+    --get "https://localhost/laravelProjetos/ecommerceApi/public/api/checkouts/me/view/14" \
     --header "Authorization: Bearer {ACCESS_TOKEN}" \
     --header "Content-Type: application/json" \
     --header "Accept: */*"</code></pre>
 
 <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;get(
-    'https://localhost/laravelProjetos/ecommerceApi/public/api/checkouts/me/view/15',
+    'https://localhost/laravelProjetos/ecommerceApi/public/api/checkouts/me/view/14',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {ACCESS_TOKEN}',
@@ -1764,7 +1536,7 @@ $body = $response-&gt;getBody();
 print_r(json_decode((string) $body));</code></pre>
 
 <pre><code class="language-javascript">const url = new URL(
-    "https://localhost/laravelProjetos/ecommerceApi/public/api/checkouts/me/view/15"
+    "https://localhost/laravelProjetos/ecommerceApi/public/api/checkouts/me/view/14"
 );
 
 const headers = {
@@ -1781,7 +1553,7 @@ fetch(url, {
 <pre><code class="language-python">import requests
 import json
 
-url = 'https://localhost/laravelProjetos/ecommerceApi/public/api/checkouts/me/view/15'
+url = 'https://localhost/laravelProjetos/ecommerceApi/public/api/checkouts/me/view/14'
 headers = {
   'Authorization': 'Bearer {ACCESS_TOKEN}',
   'Content-Type': 'application/json',
@@ -1813,54 +1585,30 @@ response.json()</code></pre>
         &lt;title&gt;Not Found&lt;/title&gt;
 
         &lt;!-- Fonts --&gt;
-        &lt;link rel=&quot;dns-prefetch&quot; href=&quot;//fonts.gstatic.com&quot;&gt;
-        &lt;link href=&quot;https://fonts.googleapis.com/css?family=Nunito&quot; rel=&quot;stylesheet&quot;&gt;
+        &lt;link rel=&quot;preconnect&quot; href=&quot;https://fonts.gstatic.com&quot;&gt;
+        &lt;link href=&quot;https://fonts.googleapis.com/css2?family=Nunito&amp;display=swap&quot; rel=&quot;stylesheet&quot;&gt;
 
-        &lt;!-- Styles --&gt;
         &lt;style&gt;
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
+            /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}a{background-color:transparent}code{font-family:monospace,monospace;font-size:1em}[hidden]{display:none}html{font-family:system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;line-height:1.5}*,:after,:before{box-sizing:border-box;border:0 solid #e2e8f0}a{color:inherit;text-decoration:inherit}code{font-family:Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace}svg,video{display:block;vertical-align:middle}video{max-width:100%;height:auto}.bg-white{--bg-opacity:1;background-color:#fff;background-color:rgba(255,255,255,var(--bg-opacity))}.bg-gray-100{--bg-opacity:1;background-color:#f7fafc;background-color:rgba(247,250,252,var(--bg-opacity))}.border-gray-200{--border-opacity:1;border-color:#edf2f7;border-color:rgba(237,242,247,var(--border-opacity))}.border-gray-400{--border-opacity:1;border-color:#cbd5e0;border-color:rgba(203,213,224,var(--border-opacity))}.border-t{border-top-width:1px}.border-r{border-right-width:1px}.flex{display:flex}.grid{display:grid}.hidden{display:none}.items-center{align-items:center}.justify-center{justify-content:center}.font-semibold{font-weight:600}.h-5{height:1.25rem}.h-8{height:2rem}.h-16{height:4rem}.text-sm{font-size:.875rem}.text-lg{font-size:1.125rem}.leading-7{line-height:1.75rem}.mx-auto{margin-left:auto;margin-right:auto}.ml-1{margin-left:.25rem}.mt-2{margin-top:.5rem}.mr-2{margin-right:.5rem}.ml-2{margin-left:.5rem}.mt-4{margin-top:1rem}.ml-4{margin-left:1rem}.mt-8{margin-top:2rem}.ml-12{margin-left:3rem}.-mt-px{margin-top:-1px}.max-w-xl{max-width:36rem}.max-w-6xl{max-width:72rem}.min-h-screen{min-height:100vh}.overflow-hidden{overflow:hidden}.p-6{padding:1.5rem}.py-4{padding-top:1rem;padding-bottom:1rem}.px-4{padding-left:1rem;padding-right:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.pt-8{padding-top:2rem}.fixed{position:fixed}.relative{position:relative}.top-0{top:0}.right-0{right:0}.shadow{box-shadow:0 1px 3px 0 rgba(0,0,0,.1),0 1px 2px 0 rgba(0,0,0,.06)}.text-center{text-align:center}.text-gray-200{--text-opacity:1;color:#edf2f7;color:rgba(237,242,247,var(--text-opacity))}.text-gray-300{--text-opacity:1;color:#e2e8f0;color:rgba(226,232,240,var(--text-opacity))}.text-gray-400{--text-opacity:1;color:#cbd5e0;color:rgba(203,213,224,var(--text-opacity))}.text-gray-500{--text-opacity:1;color:#a0aec0;color:rgba(160,174,192,var(--text-opacity))}.text-gray-600{--text-opacity:1;color:#718096;color:rgba(113,128,150,var(--text-opacity))}.text-gray-700{--text-opacity:1;color:#4a5568;color:rgba(74,85,104,var(--text-opacity))}.text-gray-900{--text-opacity:1;color:#1a202c;color:rgba(26,32,44,var(--text-opacity))}.uppercase{text-transform:uppercase}.underline{text-decoration:underline}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.tracking-wider{letter-spacing:.05em}.w-5{width:1.25rem}.w-8{width:2rem}.w-auto{width:auto}.grid-cols-1{grid-template-columns:repeat(1,minmax(0,1fr))}@-webkit-keyframes spin{0%{transform:rotate(0deg)}to{transform:rotate(1turn)}}@keyframes  spin{0%{transform:rotate(0deg)}to{transform:rotate(1turn)}}@-webkit-keyframes ping{0%{transform:scale(1);opacity:1}75%,to{transform:scale(2);opacity:0}}@keyframes  ping{0%{transform:scale(1);opacity:1}75%,to{transform:scale(2);opacity:0}}@-webkit-keyframes pulse{0%,to{opacity:1}50%{opacity:.5}}@keyframes  pulse{0%,to{opacity:1}50%{opacity:.5}}@-webkit-keyframes bounce{0%,to{transform:translateY(-25%);-webkit-animation-timing-function:cubic-bezier(.8,0,1,1);animation-timing-function:cubic-bezier(.8,0,1,1)}50%{transform:translateY(0);-webkit-animation-timing-function:cubic-bezier(0,0,.2,1);animation-timing-function:cubic-bezier(0,0,.2,1)}}@keyframes  bounce{0%,to{transform:translateY(-25%);-webkit-animation-timing-function:cubic-bezier(.8,0,1,1);animation-timing-function:cubic-bezier(.8,0,1,1)}50%{transform:translateY(0);-webkit-animation-timing-function:cubic-bezier(0,0,.2,1);animation-timing-function:cubic-bezier(0,0,.2,1)}}@media (min-width:640px){.sm\:rounded-lg{border-radius:.5rem}.sm\:block{display:block}.sm\:items-center{align-items:center}.sm\:justify-start{justify-content:flex-start}.sm\:justify-between{justify-content:space-between}.sm\:h-20{height:5rem}.sm\:ml-0{margin-left:0}.sm\:px-6{padding-left:1.5rem;padding-right:1.5rem}.sm\:pt-0{padding-top:0}.sm\:text-left{text-align:left}.sm\:text-right{text-align:right}}@media (min-width:768px){.md\:border-t-0{border-top-width:0}.md\:border-l{border-left-width:1px}.md\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}}@media (min-width:1024px){.lg\:px-8{padding-left:2rem;padding-right:2rem}}@media (prefers-color-scheme:dark){.dark\:bg-gray-800{--bg-opacity:1;background-color:#2d3748;background-color:rgba(45,55,72,var(--bg-opacity))}.dark\:bg-gray-900{--bg-opacity:1;background-color:#1a202c;background-color:rgba(26,32,44,var(--bg-opacity))}.dark\:border-gray-700{--border-opacity:1;border-color:#4a5568;border-color:rgba(74,85,104,var(--border-opacity))}.dark\:text-white{--text-opacity:1;color:#fff;color:rgba(255,255,255,var(--text-opacity))}.dark\:text-gray-400{--text-opacity:1;color:#cbd5e0;color:rgba(203,213,224,var(--text-opacity))}}
+        &lt;/style&gt;
+
+        &lt;style&gt;
+            body {
                 font-family: 'Nunito', sans-serif;
-                font-weight: 100;
-                height: 100vh;
-                margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .code {
-                border-right: 2px solid;
-                font-size: 26px;
-                padding: 0 15px 0 15px;
-                text-align: center;
-            }
-
-            .message {
-                font-size: 18px;
-                text-align: center;
             }
         &lt;/style&gt;
     &lt;/head&gt;
-    &lt;body&gt;
-        &lt;div class=&quot;flex-center position-ref full-height&quot;&gt;
-            &lt;div class=&quot;code&quot;&gt;
-                404            &lt;/div&gt;
+    &lt;body class=&quot;antialiased&quot;&gt;
+        &lt;div class=&quot;relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center sm:pt-0&quot;&gt;
+            &lt;div class=&quot;max-w-xl mx-auto sm:px-6 lg:px-8&quot;&gt;
+                &lt;div class=&quot;flex items-center pt-8 sm:justify-start sm:pt-0&quot;&gt;
+                    &lt;div class=&quot;px-4 text-lg text-gray-500 border-r border-gray-400 tracking-wider&quot;&gt;
+                        404                    &lt;/div&gt;
 
-            &lt;div class=&quot;message&quot; style=&quot;padding: 10px;&quot;&gt;
-                Not Found            &lt;/div&gt;
+                    &lt;div class=&quot;ml-4 text-lg text-gray-500 uppercase tracking-wider&quot;&gt;
+                        Not Found                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
         &lt;/div&gt;
     &lt;/body&gt;
 &lt;/html&gt;
@@ -1947,20 +1695,20 @@ Se estiver tudo certo será enviado um email ao comprador com a confirmação do
     --data "{
     \"products\": [
         {
-            \"id\": \"sed\",
-            \"quant\": \"et\"
+            \"id\": \"eos\",
+            \"quant\": \"sit\"
         },
         {
-            \"id\": \"sed\",
-            \"quant\": \"et\"
+            \"id\": \"eos\",
+            \"quant\": \"sit\"
         },
         {
             \"id\": \"2\",
             \"quant\": \"3\"
         }
     ],
-    \"phone_cell\": \"et\",
-    \"cpf\": \"et\"
+    \"phone_cell\": \"sequi\",
+    \"cpf\": \"odio\"
 }"
 </code></pre>
 
@@ -1990,17 +1738,17 @@ $response = $client-&gt;post(
             [
                 'products' =&gt; [
                     [
-                        'id' =&gt; 'sed',
-                        'quant' =&gt; 'et',
+                        'id' =&gt; 'eos',
+                        'quant' =&gt; 'sit',
                     ],
                     [
-                        'id' =&gt; 'sed',
-                        'quant' =&gt; 'et',
+                        'id' =&gt; 'eos',
+                        'quant' =&gt; 'sit',
                     ],
                     $o[0],
                 ],
-                'phone_cell' =&gt; 'et',
-                'cpf' =&gt; 'et',
+                'phone_cell' =&gt; 'sequi',
+                'cpf' =&gt; 'odio',
             ],
             []
         ),
@@ -2022,20 +1770,20 @@ const headers = {
 let body = {
     "products": [
         {
-            "id": "sed",
-            "quant": "et"
+            "id": "eos",
+            "quant": "sit"
         },
         {
-            "id": "sed",
-            "quant": "et"
+            "id": "eos",
+            "quant": "sit"
         },
         {
             "id": "2",
             "quant": "3"
         }
     ],
-    "phone_cell": "et",
-    "cpf": "et"
+    "phone_cell": "sequi",
+    "cpf": "odio"
 }
 
 fetch(url, {
@@ -2051,20 +1799,20 @@ url = 'https://localhost/laravelProjetos/ecommerceApi/public/api/checkouts/me/ne
 payload = {
     "products": [
         {
-            "id": "sed",
-            "quant": "et"
+            "id": "eos",
+            "quant": "sit"
         },
         {
-            "id": "sed",
-            "quant": "et"
+            "id": "eos",
+            "quant": "sit"
         },
         {
             "id": "2",
             "quant": "3"
         }
     ],
-    "phone_cell": "et",
-    "cpf": "et"
+    "phone_cell": "sequi",
+    "cpf": "odio"
 }
 headers = {
   'Authorization': 'Bearer {ACCESS_TOKEN}',
@@ -2262,54 +2010,30 @@ response.json()</code></pre>
         &lt;title&gt;Not Found&lt;/title&gt;
 
         &lt;!-- Fonts --&gt;
-        &lt;link rel=&quot;dns-prefetch&quot; href=&quot;//fonts.gstatic.com&quot;&gt;
-        &lt;link href=&quot;https://fonts.googleapis.com/css?family=Nunito&quot; rel=&quot;stylesheet&quot;&gt;
+        &lt;link rel=&quot;preconnect&quot; href=&quot;https://fonts.gstatic.com&quot;&gt;
+        &lt;link href=&quot;https://fonts.googleapis.com/css2?family=Nunito&amp;display=swap&quot; rel=&quot;stylesheet&quot;&gt;
 
-        &lt;!-- Styles --&gt;
         &lt;style&gt;
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
+            /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}a{background-color:transparent}code{font-family:monospace,monospace;font-size:1em}[hidden]{display:none}html{font-family:system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;line-height:1.5}*,:after,:before{box-sizing:border-box;border:0 solid #e2e8f0}a{color:inherit;text-decoration:inherit}code{font-family:Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace}svg,video{display:block;vertical-align:middle}video{max-width:100%;height:auto}.bg-white{--bg-opacity:1;background-color:#fff;background-color:rgba(255,255,255,var(--bg-opacity))}.bg-gray-100{--bg-opacity:1;background-color:#f7fafc;background-color:rgba(247,250,252,var(--bg-opacity))}.border-gray-200{--border-opacity:1;border-color:#edf2f7;border-color:rgba(237,242,247,var(--border-opacity))}.border-gray-400{--border-opacity:1;border-color:#cbd5e0;border-color:rgba(203,213,224,var(--border-opacity))}.border-t{border-top-width:1px}.border-r{border-right-width:1px}.flex{display:flex}.grid{display:grid}.hidden{display:none}.items-center{align-items:center}.justify-center{justify-content:center}.font-semibold{font-weight:600}.h-5{height:1.25rem}.h-8{height:2rem}.h-16{height:4rem}.text-sm{font-size:.875rem}.text-lg{font-size:1.125rem}.leading-7{line-height:1.75rem}.mx-auto{margin-left:auto;margin-right:auto}.ml-1{margin-left:.25rem}.mt-2{margin-top:.5rem}.mr-2{margin-right:.5rem}.ml-2{margin-left:.5rem}.mt-4{margin-top:1rem}.ml-4{margin-left:1rem}.mt-8{margin-top:2rem}.ml-12{margin-left:3rem}.-mt-px{margin-top:-1px}.max-w-xl{max-width:36rem}.max-w-6xl{max-width:72rem}.min-h-screen{min-height:100vh}.overflow-hidden{overflow:hidden}.p-6{padding:1.5rem}.py-4{padding-top:1rem;padding-bottom:1rem}.px-4{padding-left:1rem;padding-right:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.pt-8{padding-top:2rem}.fixed{position:fixed}.relative{position:relative}.top-0{top:0}.right-0{right:0}.shadow{box-shadow:0 1px 3px 0 rgba(0,0,0,.1),0 1px 2px 0 rgba(0,0,0,.06)}.text-center{text-align:center}.text-gray-200{--text-opacity:1;color:#edf2f7;color:rgba(237,242,247,var(--text-opacity))}.text-gray-300{--text-opacity:1;color:#e2e8f0;color:rgba(226,232,240,var(--text-opacity))}.text-gray-400{--text-opacity:1;color:#cbd5e0;color:rgba(203,213,224,var(--text-opacity))}.text-gray-500{--text-opacity:1;color:#a0aec0;color:rgba(160,174,192,var(--text-opacity))}.text-gray-600{--text-opacity:1;color:#718096;color:rgba(113,128,150,var(--text-opacity))}.text-gray-700{--text-opacity:1;color:#4a5568;color:rgba(74,85,104,var(--text-opacity))}.text-gray-900{--text-opacity:1;color:#1a202c;color:rgba(26,32,44,var(--text-opacity))}.uppercase{text-transform:uppercase}.underline{text-decoration:underline}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.tracking-wider{letter-spacing:.05em}.w-5{width:1.25rem}.w-8{width:2rem}.w-auto{width:auto}.grid-cols-1{grid-template-columns:repeat(1,minmax(0,1fr))}@-webkit-keyframes spin{0%{transform:rotate(0deg)}to{transform:rotate(1turn)}}@keyframes  spin{0%{transform:rotate(0deg)}to{transform:rotate(1turn)}}@-webkit-keyframes ping{0%{transform:scale(1);opacity:1}75%,to{transform:scale(2);opacity:0}}@keyframes  ping{0%{transform:scale(1);opacity:1}75%,to{transform:scale(2);opacity:0}}@-webkit-keyframes pulse{0%,to{opacity:1}50%{opacity:.5}}@keyframes  pulse{0%,to{opacity:1}50%{opacity:.5}}@-webkit-keyframes bounce{0%,to{transform:translateY(-25%);-webkit-animation-timing-function:cubic-bezier(.8,0,1,1);animation-timing-function:cubic-bezier(.8,0,1,1)}50%{transform:translateY(0);-webkit-animation-timing-function:cubic-bezier(0,0,.2,1);animation-timing-function:cubic-bezier(0,0,.2,1)}}@keyframes  bounce{0%,to{transform:translateY(-25%);-webkit-animation-timing-function:cubic-bezier(.8,0,1,1);animation-timing-function:cubic-bezier(.8,0,1,1)}50%{transform:translateY(0);-webkit-animation-timing-function:cubic-bezier(0,0,.2,1);animation-timing-function:cubic-bezier(0,0,.2,1)}}@media (min-width:640px){.sm\:rounded-lg{border-radius:.5rem}.sm\:block{display:block}.sm\:items-center{align-items:center}.sm\:justify-start{justify-content:flex-start}.sm\:justify-between{justify-content:space-between}.sm\:h-20{height:5rem}.sm\:ml-0{margin-left:0}.sm\:px-6{padding-left:1.5rem;padding-right:1.5rem}.sm\:pt-0{padding-top:0}.sm\:text-left{text-align:left}.sm\:text-right{text-align:right}}@media (min-width:768px){.md\:border-t-0{border-top-width:0}.md\:border-l{border-left-width:1px}.md\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}}@media (min-width:1024px){.lg\:px-8{padding-left:2rem;padding-right:2rem}}@media (prefers-color-scheme:dark){.dark\:bg-gray-800{--bg-opacity:1;background-color:#2d3748;background-color:rgba(45,55,72,var(--bg-opacity))}.dark\:bg-gray-900{--bg-opacity:1;background-color:#1a202c;background-color:rgba(26,32,44,var(--bg-opacity))}.dark\:border-gray-700{--border-opacity:1;border-color:#4a5568;border-color:rgba(74,85,104,var(--border-opacity))}.dark\:text-white{--text-opacity:1;color:#fff;color:rgba(255,255,255,var(--text-opacity))}.dark\:text-gray-400{--text-opacity:1;color:#cbd5e0;color:rgba(203,213,224,var(--text-opacity))}}
+        &lt;/style&gt;
+
+        &lt;style&gt;
+            body {
                 font-family: 'Nunito', sans-serif;
-                font-weight: 100;
-                height: 100vh;
-                margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .code {
-                border-right: 2px solid;
-                font-size: 26px;
-                padding: 0 15px 0 15px;
-                text-align: center;
-            }
-
-            .message {
-                font-size: 18px;
-                text-align: center;
             }
         &lt;/style&gt;
     &lt;/head&gt;
-    &lt;body&gt;
-        &lt;div class=&quot;flex-center position-ref full-height&quot;&gt;
-            &lt;div class=&quot;code&quot;&gt;
-                404            &lt;/div&gt;
+    &lt;body class=&quot;antialiased&quot;&gt;
+        &lt;div class=&quot;relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center sm:pt-0&quot;&gt;
+            &lt;div class=&quot;max-w-xl mx-auto sm:px-6 lg:px-8&quot;&gt;
+                &lt;div class=&quot;flex items-center pt-8 sm:justify-start sm:pt-0&quot;&gt;
+                    &lt;div class=&quot;px-4 text-lg text-gray-500 border-r border-gray-400 tracking-wider&quot;&gt;
+                        404                    &lt;/div&gt;
 
-            &lt;div class=&quot;message&quot; style=&quot;padding: 10px;&quot;&gt;
-                Not Found            &lt;/div&gt;
+                    &lt;div class=&quot;ml-4 text-lg text-gray-500 uppercase tracking-wider&quot;&gt;
+                        Not Found                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
         &lt;/div&gt;
     &lt;/body&gt;
 &lt;/html&gt;
@@ -2378,14 +2102,14 @@ response.json()</code></pre>
 
 
 <pre><code class="language-bash">curl --request GET \
-    --get "https://localhost/laravelProjetos/ecommerceApi/public/api/checkouts/view/15" \
+    --get "https://localhost/laravelProjetos/ecommerceApi/public/api/checkouts/view/18" \
     --header "Authorization: Bearer {ACCESS_TOKEN}" \
     --header "Content-Type: application/json" \
     --header "Accept: */*"</code></pre>
 
 <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;get(
-    'https://localhost/laravelProjetos/ecommerceApi/public/api/checkouts/view/15',
+    'https://localhost/laravelProjetos/ecommerceApi/public/api/checkouts/view/18',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {ACCESS_TOKEN}',
@@ -2397,7 +2121,7 @@ $body = $response-&gt;getBody();
 print_r(json_decode((string) $body));</code></pre>
 
 <pre><code class="language-javascript">const url = new URL(
-    "https://localhost/laravelProjetos/ecommerceApi/public/api/checkouts/view/15"
+    "https://localhost/laravelProjetos/ecommerceApi/public/api/checkouts/view/18"
 );
 
 const headers = {
@@ -2414,7 +2138,7 @@ fetch(url, {
 <pre><code class="language-python">import requests
 import json
 
-url = 'https://localhost/laravelProjetos/ecommerceApi/public/api/checkouts/view/15'
+url = 'https://localhost/laravelProjetos/ecommerceApi/public/api/checkouts/view/18'
 headers = {
   'Authorization': 'Bearer {ACCESS_TOKEN}',
   'Content-Type': 'application/json',
@@ -2446,54 +2170,30 @@ response.json()</code></pre>
         &lt;title&gt;Not Found&lt;/title&gt;
 
         &lt;!-- Fonts --&gt;
-        &lt;link rel=&quot;dns-prefetch&quot; href=&quot;//fonts.gstatic.com&quot;&gt;
-        &lt;link href=&quot;https://fonts.googleapis.com/css?family=Nunito&quot; rel=&quot;stylesheet&quot;&gt;
+        &lt;link rel=&quot;preconnect&quot; href=&quot;https://fonts.gstatic.com&quot;&gt;
+        &lt;link href=&quot;https://fonts.googleapis.com/css2?family=Nunito&amp;display=swap&quot; rel=&quot;stylesheet&quot;&gt;
 
-        &lt;!-- Styles --&gt;
         &lt;style&gt;
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
+            /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}a{background-color:transparent}code{font-family:monospace,monospace;font-size:1em}[hidden]{display:none}html{font-family:system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;line-height:1.5}*,:after,:before{box-sizing:border-box;border:0 solid #e2e8f0}a{color:inherit;text-decoration:inherit}code{font-family:Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace}svg,video{display:block;vertical-align:middle}video{max-width:100%;height:auto}.bg-white{--bg-opacity:1;background-color:#fff;background-color:rgba(255,255,255,var(--bg-opacity))}.bg-gray-100{--bg-opacity:1;background-color:#f7fafc;background-color:rgba(247,250,252,var(--bg-opacity))}.border-gray-200{--border-opacity:1;border-color:#edf2f7;border-color:rgba(237,242,247,var(--border-opacity))}.border-gray-400{--border-opacity:1;border-color:#cbd5e0;border-color:rgba(203,213,224,var(--border-opacity))}.border-t{border-top-width:1px}.border-r{border-right-width:1px}.flex{display:flex}.grid{display:grid}.hidden{display:none}.items-center{align-items:center}.justify-center{justify-content:center}.font-semibold{font-weight:600}.h-5{height:1.25rem}.h-8{height:2rem}.h-16{height:4rem}.text-sm{font-size:.875rem}.text-lg{font-size:1.125rem}.leading-7{line-height:1.75rem}.mx-auto{margin-left:auto;margin-right:auto}.ml-1{margin-left:.25rem}.mt-2{margin-top:.5rem}.mr-2{margin-right:.5rem}.ml-2{margin-left:.5rem}.mt-4{margin-top:1rem}.ml-4{margin-left:1rem}.mt-8{margin-top:2rem}.ml-12{margin-left:3rem}.-mt-px{margin-top:-1px}.max-w-xl{max-width:36rem}.max-w-6xl{max-width:72rem}.min-h-screen{min-height:100vh}.overflow-hidden{overflow:hidden}.p-6{padding:1.5rem}.py-4{padding-top:1rem;padding-bottom:1rem}.px-4{padding-left:1rem;padding-right:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.pt-8{padding-top:2rem}.fixed{position:fixed}.relative{position:relative}.top-0{top:0}.right-0{right:0}.shadow{box-shadow:0 1px 3px 0 rgba(0,0,0,.1),0 1px 2px 0 rgba(0,0,0,.06)}.text-center{text-align:center}.text-gray-200{--text-opacity:1;color:#edf2f7;color:rgba(237,242,247,var(--text-opacity))}.text-gray-300{--text-opacity:1;color:#e2e8f0;color:rgba(226,232,240,var(--text-opacity))}.text-gray-400{--text-opacity:1;color:#cbd5e0;color:rgba(203,213,224,var(--text-opacity))}.text-gray-500{--text-opacity:1;color:#a0aec0;color:rgba(160,174,192,var(--text-opacity))}.text-gray-600{--text-opacity:1;color:#718096;color:rgba(113,128,150,var(--text-opacity))}.text-gray-700{--text-opacity:1;color:#4a5568;color:rgba(74,85,104,var(--text-opacity))}.text-gray-900{--text-opacity:1;color:#1a202c;color:rgba(26,32,44,var(--text-opacity))}.uppercase{text-transform:uppercase}.underline{text-decoration:underline}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.tracking-wider{letter-spacing:.05em}.w-5{width:1.25rem}.w-8{width:2rem}.w-auto{width:auto}.grid-cols-1{grid-template-columns:repeat(1,minmax(0,1fr))}@-webkit-keyframes spin{0%{transform:rotate(0deg)}to{transform:rotate(1turn)}}@keyframes  spin{0%{transform:rotate(0deg)}to{transform:rotate(1turn)}}@-webkit-keyframes ping{0%{transform:scale(1);opacity:1}75%,to{transform:scale(2);opacity:0}}@keyframes  ping{0%{transform:scale(1);opacity:1}75%,to{transform:scale(2);opacity:0}}@-webkit-keyframes pulse{0%,to{opacity:1}50%{opacity:.5}}@keyframes  pulse{0%,to{opacity:1}50%{opacity:.5}}@-webkit-keyframes bounce{0%,to{transform:translateY(-25%);-webkit-animation-timing-function:cubic-bezier(.8,0,1,1);animation-timing-function:cubic-bezier(.8,0,1,1)}50%{transform:translateY(0);-webkit-animation-timing-function:cubic-bezier(0,0,.2,1);animation-timing-function:cubic-bezier(0,0,.2,1)}}@keyframes  bounce{0%,to{transform:translateY(-25%);-webkit-animation-timing-function:cubic-bezier(.8,0,1,1);animation-timing-function:cubic-bezier(.8,0,1,1)}50%{transform:translateY(0);-webkit-animation-timing-function:cubic-bezier(0,0,.2,1);animation-timing-function:cubic-bezier(0,0,.2,1)}}@media (min-width:640px){.sm\:rounded-lg{border-radius:.5rem}.sm\:block{display:block}.sm\:items-center{align-items:center}.sm\:justify-start{justify-content:flex-start}.sm\:justify-between{justify-content:space-between}.sm\:h-20{height:5rem}.sm\:ml-0{margin-left:0}.sm\:px-6{padding-left:1.5rem;padding-right:1.5rem}.sm\:pt-0{padding-top:0}.sm\:text-left{text-align:left}.sm\:text-right{text-align:right}}@media (min-width:768px){.md\:border-t-0{border-top-width:0}.md\:border-l{border-left-width:1px}.md\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}}@media (min-width:1024px){.lg\:px-8{padding-left:2rem;padding-right:2rem}}@media (prefers-color-scheme:dark){.dark\:bg-gray-800{--bg-opacity:1;background-color:#2d3748;background-color:rgba(45,55,72,var(--bg-opacity))}.dark\:bg-gray-900{--bg-opacity:1;background-color:#1a202c;background-color:rgba(26,32,44,var(--bg-opacity))}.dark\:border-gray-700{--border-opacity:1;border-color:#4a5568;border-color:rgba(74,85,104,var(--border-opacity))}.dark\:text-white{--text-opacity:1;color:#fff;color:rgba(255,255,255,var(--text-opacity))}.dark\:text-gray-400{--text-opacity:1;color:#cbd5e0;color:rgba(203,213,224,var(--text-opacity))}}
+        &lt;/style&gt;
+
+        &lt;style&gt;
+            body {
                 font-family: 'Nunito', sans-serif;
-                font-weight: 100;
-                height: 100vh;
-                margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .code {
-                border-right: 2px solid;
-                font-size: 26px;
-                padding: 0 15px 0 15px;
-                text-align: center;
-            }
-
-            .message {
-                font-size: 18px;
-                text-align: center;
             }
         &lt;/style&gt;
     &lt;/head&gt;
-    &lt;body&gt;
-        &lt;div class=&quot;flex-center position-ref full-height&quot;&gt;
-            &lt;div class=&quot;code&quot;&gt;
-                404            &lt;/div&gt;
+    &lt;body class=&quot;antialiased&quot;&gt;
+        &lt;div class=&quot;relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center sm:pt-0&quot;&gt;
+            &lt;div class=&quot;max-w-xl mx-auto sm:px-6 lg:px-8&quot;&gt;
+                &lt;div class=&quot;flex items-center pt-8 sm:justify-start sm:pt-0&quot;&gt;
+                    &lt;div class=&quot;px-4 text-lg text-gray-500 border-r border-gray-400 tracking-wider&quot;&gt;
+                        404                    &lt;/div&gt;
 
-            &lt;div class=&quot;message&quot; style=&quot;padding: 10px;&quot;&gt;
-                Not Found            &lt;/div&gt;
+                    &lt;div class=&quot;ml-4 text-lg text-gray-500 uppercase tracking-wider&quot;&gt;
+                        Not Found                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
         &lt;/div&gt;
     &lt;/body&gt;
 &lt;/html&gt;
@@ -2577,15 +2277,15 @@ Se estiver tudo certo será enviado um email ao comprador com a confirmação do
     --header "Content-Type: application/json" \
     --header "Accept: */*" \
     --data "{
-    \"idbuyer\": \"magnam\",
+    \"idbuyer\": \"assumenda\",
     \"products\": [
         {
-            \"id\": \"cum\",
-            \"quant\": \"laboriosam\"
+            \"id\": \"atque\",
+            \"quant\": \"a\"
         },
         {
-            \"id\": \"cum\",
-            \"quant\": \"laboriosam\"
+            \"id\": \"atque\",
+            \"quant\": \"a\"
         },
         {
             \"id\": \"2\",
@@ -2619,15 +2319,15 @@ $response = $client-&gt;post(
                 ],
             ],
             [
-                'idbuyer' =&gt; 'magnam',
+                'idbuyer' =&gt; 'assumenda',
                 'products' =&gt; [
                     [
-                        'id' =&gt; 'cum',
-                        'quant' =&gt; 'laboriosam',
+                        'id' =&gt; 'atque',
+                        'quant' =&gt; 'a',
                     ],
                     [
-                        'id' =&gt; 'cum',
-                        'quant' =&gt; 'laboriosam',
+                        'id' =&gt; 'atque',
+                        'quant' =&gt; 'a',
                     ],
                     $o[0],
                 ],
@@ -2650,15 +2350,15 @@ const headers = {
 };
 
 let body = {
-    "idbuyer": "magnam",
+    "idbuyer": "assumenda",
     "products": [
         {
-            "id": "cum",
-            "quant": "laboriosam"
+            "id": "atque",
+            "quant": "a"
         },
         {
-            "id": "cum",
-            "quant": "laboriosam"
+            "id": "atque",
+            "quant": "a"
         },
         {
             "id": "2",
@@ -2678,15 +2378,15 @@ import json
 
 url = 'https://localhost/laravelProjetos/ecommerceApi/public/api/checkouts/new'
 payload = {
-    "idbuyer": "magnam",
+    "idbuyer": "assumenda",
     "products": [
         {
-            "id": "cum",
-            "quant": "laboriosam"
+            "id": "atque",
+            "quant": "a"
         },
         {
-            "id": "cum",
-            "quant": "laboriosam"
+            "id": "atque",
+            "quant": "a"
         },
         {
             "id": "2",
@@ -2802,20 +2502,20 @@ response.json()</code></pre>
 
 
 <pre><code class="language-bash">curl --request PUT \
-    "https://localhost/laravelProjetos/ecommerceApi/public/api/checkouts/edit/9" \
+    "https://localhost/laravelProjetos/ecommerceApi/public/api/checkouts/edit/13" \
     --header "Authorization: Bearer {ACCESS_TOKEN}" \
     --header "Content-Type: application/json" \
     --header "Accept: */*" \
     --data "{
-    \"idbuyer\": \"assumenda\",
+    \"idbuyer\": \"magnam\",
     \"products\": [
         {
-            \"id\": \"perspiciatis\",
-            \"quant\": \"mollitia\"
+            \"id\": \"ut\",
+            \"quant\": \"dolorem\"
         },
         {
-            \"id\": \"perspiciatis\",
-            \"quant\": \"mollitia\"
+            \"id\": \"ut\",
+            \"quant\": \"dolorem\"
         },
         {
             \"id\": \"2\",
@@ -2827,7 +2527,7 @@ response.json()</code></pre>
 
 <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;put(
-    'https://localhost/laravelProjetos/ecommerceApi/public/api/checkouts/edit/9',
+    'https://localhost/laravelProjetos/ecommerceApi/public/api/checkouts/edit/13',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {ACCESS_TOKEN}',
@@ -2849,15 +2549,15 @@ $response = $client-&gt;put(
                 ],
             ],
             [
-                'idbuyer' =&gt; 'assumenda',
+                'idbuyer' =&gt; 'magnam',
                 'products' =&gt; [
                     [
-                        'id' =&gt; 'perspiciatis',
-                        'quant' =&gt; 'mollitia',
+                        'id' =&gt; 'ut',
+                        'quant' =&gt; 'dolorem',
                     ],
                     [
-                        'id' =&gt; 'perspiciatis',
-                        'quant' =&gt; 'mollitia',
+                        'id' =&gt; 'ut',
+                        'quant' =&gt; 'dolorem',
                     ],
                     $o[0],
                 ],
@@ -2870,7 +2570,7 @@ $body = $response-&gt;getBody();
 print_r(json_decode((string) $body));</code></pre>
 
 <pre><code class="language-javascript">const url = new URL(
-    "https://localhost/laravelProjetos/ecommerceApi/public/api/checkouts/edit/9"
+    "https://localhost/laravelProjetos/ecommerceApi/public/api/checkouts/edit/13"
 );
 
 const headers = {
@@ -2880,15 +2580,15 @@ const headers = {
 };
 
 let body = {
-    "idbuyer": "assumenda",
+    "idbuyer": "magnam",
     "products": [
         {
-            "id": "perspiciatis",
-            "quant": "mollitia"
+            "id": "ut",
+            "quant": "dolorem"
         },
         {
-            "id": "perspiciatis",
-            "quant": "mollitia"
+            "id": "ut",
+            "quant": "dolorem"
         },
         {
             "id": "2",
@@ -2906,17 +2606,17 @@ fetch(url, {
 <pre><code class="language-python">import requests
 import json
 
-url = 'https://localhost/laravelProjetos/ecommerceApi/public/api/checkouts/edit/9'
+url = 'https://localhost/laravelProjetos/ecommerceApi/public/api/checkouts/edit/13'
 payload = {
-    "idbuyer": "assumenda",
+    "idbuyer": "magnam",
     "products": [
         {
-            "id": "perspiciatis",
-            "quant": "mollitia"
+            "id": "ut",
+            "quant": "dolorem"
         },
         {
-            "id": "perspiciatis",
-            "quant": "mollitia"
+            "id": "ut",
+            "quant": "dolorem"
         },
         {
             "id": "2",
@@ -3041,14 +2741,14 @@ response.json()</code></pre>
 
 
 <pre><code class="language-bash">curl --request DELETE \
-    "https://localhost/laravelProjetos/ecommerceApi/public/api/checkouts/delete/20" \
+    "https://localhost/laravelProjetos/ecommerceApi/public/api/checkouts/delete/4" \
     --header "Authorization: Bearer {ACCESS_TOKEN}" \
     --header "Content-Type: application/json" \
     --header "Accept: */*"</code></pre>
 
 <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;delete(
-    'https://localhost/laravelProjetos/ecommerceApi/public/api/checkouts/delete/20',
+    'https://localhost/laravelProjetos/ecommerceApi/public/api/checkouts/delete/4',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {ACCESS_TOKEN}',
@@ -3060,7 +2760,7 @@ $body = $response-&gt;getBody();
 print_r(json_decode((string) $body));</code></pre>
 
 <pre><code class="language-javascript">const url = new URL(
-    "https://localhost/laravelProjetos/ecommerceApi/public/api/checkouts/delete/20"
+    "https://localhost/laravelProjetos/ecommerceApi/public/api/checkouts/delete/4"
 );
 
 const headers = {
@@ -3077,7 +2777,7 @@ fetch(url, {
 <pre><code class="language-python">import requests
 import json
 
-url = 'https://localhost/laravelProjetos/ecommerceApi/public/api/checkouts/delete/20'
+url = 'https://localhost/laravelProjetos/ecommerceApi/public/api/checkouts/delete/4'
 headers = {
   'Authorization': 'Bearer {ACCESS_TOKEN}',
   'Content-Type': 'application/json',
@@ -3228,54 +2928,30 @@ response.json()</code></pre>
         &lt;title&gt;Not Found&lt;/title&gt;
 
         &lt;!-- Fonts --&gt;
-        &lt;link rel=&quot;dns-prefetch&quot; href=&quot;//fonts.gstatic.com&quot;&gt;
-        &lt;link href=&quot;https://fonts.googleapis.com/css?family=Nunito&quot; rel=&quot;stylesheet&quot;&gt;
+        &lt;link rel=&quot;preconnect&quot; href=&quot;https://fonts.gstatic.com&quot;&gt;
+        &lt;link href=&quot;https://fonts.googleapis.com/css2?family=Nunito&amp;display=swap&quot; rel=&quot;stylesheet&quot;&gt;
 
-        &lt;!-- Styles --&gt;
         &lt;style&gt;
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
+            /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}a{background-color:transparent}code{font-family:monospace,monospace;font-size:1em}[hidden]{display:none}html{font-family:system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;line-height:1.5}*,:after,:before{box-sizing:border-box;border:0 solid #e2e8f0}a{color:inherit;text-decoration:inherit}code{font-family:Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace}svg,video{display:block;vertical-align:middle}video{max-width:100%;height:auto}.bg-white{--bg-opacity:1;background-color:#fff;background-color:rgba(255,255,255,var(--bg-opacity))}.bg-gray-100{--bg-opacity:1;background-color:#f7fafc;background-color:rgba(247,250,252,var(--bg-opacity))}.border-gray-200{--border-opacity:1;border-color:#edf2f7;border-color:rgba(237,242,247,var(--border-opacity))}.border-gray-400{--border-opacity:1;border-color:#cbd5e0;border-color:rgba(203,213,224,var(--border-opacity))}.border-t{border-top-width:1px}.border-r{border-right-width:1px}.flex{display:flex}.grid{display:grid}.hidden{display:none}.items-center{align-items:center}.justify-center{justify-content:center}.font-semibold{font-weight:600}.h-5{height:1.25rem}.h-8{height:2rem}.h-16{height:4rem}.text-sm{font-size:.875rem}.text-lg{font-size:1.125rem}.leading-7{line-height:1.75rem}.mx-auto{margin-left:auto;margin-right:auto}.ml-1{margin-left:.25rem}.mt-2{margin-top:.5rem}.mr-2{margin-right:.5rem}.ml-2{margin-left:.5rem}.mt-4{margin-top:1rem}.ml-4{margin-left:1rem}.mt-8{margin-top:2rem}.ml-12{margin-left:3rem}.-mt-px{margin-top:-1px}.max-w-xl{max-width:36rem}.max-w-6xl{max-width:72rem}.min-h-screen{min-height:100vh}.overflow-hidden{overflow:hidden}.p-6{padding:1.5rem}.py-4{padding-top:1rem;padding-bottom:1rem}.px-4{padding-left:1rem;padding-right:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.pt-8{padding-top:2rem}.fixed{position:fixed}.relative{position:relative}.top-0{top:0}.right-0{right:0}.shadow{box-shadow:0 1px 3px 0 rgba(0,0,0,.1),0 1px 2px 0 rgba(0,0,0,.06)}.text-center{text-align:center}.text-gray-200{--text-opacity:1;color:#edf2f7;color:rgba(237,242,247,var(--text-opacity))}.text-gray-300{--text-opacity:1;color:#e2e8f0;color:rgba(226,232,240,var(--text-opacity))}.text-gray-400{--text-opacity:1;color:#cbd5e0;color:rgba(203,213,224,var(--text-opacity))}.text-gray-500{--text-opacity:1;color:#a0aec0;color:rgba(160,174,192,var(--text-opacity))}.text-gray-600{--text-opacity:1;color:#718096;color:rgba(113,128,150,var(--text-opacity))}.text-gray-700{--text-opacity:1;color:#4a5568;color:rgba(74,85,104,var(--text-opacity))}.text-gray-900{--text-opacity:1;color:#1a202c;color:rgba(26,32,44,var(--text-opacity))}.uppercase{text-transform:uppercase}.underline{text-decoration:underline}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.tracking-wider{letter-spacing:.05em}.w-5{width:1.25rem}.w-8{width:2rem}.w-auto{width:auto}.grid-cols-1{grid-template-columns:repeat(1,minmax(0,1fr))}@-webkit-keyframes spin{0%{transform:rotate(0deg)}to{transform:rotate(1turn)}}@keyframes  spin{0%{transform:rotate(0deg)}to{transform:rotate(1turn)}}@-webkit-keyframes ping{0%{transform:scale(1);opacity:1}75%,to{transform:scale(2);opacity:0}}@keyframes  ping{0%{transform:scale(1);opacity:1}75%,to{transform:scale(2);opacity:0}}@-webkit-keyframes pulse{0%,to{opacity:1}50%{opacity:.5}}@keyframes  pulse{0%,to{opacity:1}50%{opacity:.5}}@-webkit-keyframes bounce{0%,to{transform:translateY(-25%);-webkit-animation-timing-function:cubic-bezier(.8,0,1,1);animation-timing-function:cubic-bezier(.8,0,1,1)}50%{transform:translateY(0);-webkit-animation-timing-function:cubic-bezier(0,0,.2,1);animation-timing-function:cubic-bezier(0,0,.2,1)}}@keyframes  bounce{0%,to{transform:translateY(-25%);-webkit-animation-timing-function:cubic-bezier(.8,0,1,1);animation-timing-function:cubic-bezier(.8,0,1,1)}50%{transform:translateY(0);-webkit-animation-timing-function:cubic-bezier(0,0,.2,1);animation-timing-function:cubic-bezier(0,0,.2,1)}}@media (min-width:640px){.sm\:rounded-lg{border-radius:.5rem}.sm\:block{display:block}.sm\:items-center{align-items:center}.sm\:justify-start{justify-content:flex-start}.sm\:justify-between{justify-content:space-between}.sm\:h-20{height:5rem}.sm\:ml-0{margin-left:0}.sm\:px-6{padding-left:1.5rem;padding-right:1.5rem}.sm\:pt-0{padding-top:0}.sm\:text-left{text-align:left}.sm\:text-right{text-align:right}}@media (min-width:768px){.md\:border-t-0{border-top-width:0}.md\:border-l{border-left-width:1px}.md\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}}@media (min-width:1024px){.lg\:px-8{padding-left:2rem;padding-right:2rem}}@media (prefers-color-scheme:dark){.dark\:bg-gray-800{--bg-opacity:1;background-color:#2d3748;background-color:rgba(45,55,72,var(--bg-opacity))}.dark\:bg-gray-900{--bg-opacity:1;background-color:#1a202c;background-color:rgba(26,32,44,var(--bg-opacity))}.dark\:border-gray-700{--border-opacity:1;border-color:#4a5568;border-color:rgba(74,85,104,var(--border-opacity))}.dark\:text-white{--text-opacity:1;color:#fff;color:rgba(255,255,255,var(--text-opacity))}.dark\:text-gray-400{--text-opacity:1;color:#cbd5e0;color:rgba(203,213,224,var(--text-opacity))}}
+        &lt;/style&gt;
+
+        &lt;style&gt;
+            body {
                 font-family: 'Nunito', sans-serif;
-                font-weight: 100;
-                height: 100vh;
-                margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .code {
-                border-right: 2px solid;
-                font-size: 26px;
-                padding: 0 15px 0 15px;
-                text-align: center;
-            }
-
-            .message {
-                font-size: 18px;
-                text-align: center;
             }
         &lt;/style&gt;
     &lt;/head&gt;
-    &lt;body&gt;
-        &lt;div class=&quot;flex-center position-ref full-height&quot;&gt;
-            &lt;div class=&quot;code&quot;&gt;
-                404            &lt;/div&gt;
+    &lt;body class=&quot;antialiased&quot;&gt;
+        &lt;div class=&quot;relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center sm:pt-0&quot;&gt;
+            &lt;div class=&quot;max-w-xl mx-auto sm:px-6 lg:px-8&quot;&gt;
+                &lt;div class=&quot;flex items-center pt-8 sm:justify-start sm:pt-0&quot;&gt;
+                    &lt;div class=&quot;px-4 text-lg text-gray-500 border-r border-gray-400 tracking-wider&quot;&gt;
+                        404                    &lt;/div&gt;
 
-            &lt;div class=&quot;message&quot; style=&quot;padding: 10px;&quot;&gt;
-                Not Found            &lt;/div&gt;
+                    &lt;div class=&quot;ml-4 text-lg text-gray-500 uppercase tracking-wider&quot;&gt;
+                        Not Found                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
         &lt;/div&gt;
     &lt;/body&gt;
 &lt;/html&gt;
@@ -3335,13 +3011,13 @@ response.json()</code></pre>
 
 
 <pre><code class="language-bash">curl --request GET \
-    --get "https://localhost/laravelProjetos/ecommerceApi/public/api/products/view/10" \
+    --get "https://localhost/laravelProjetos/ecommerceApi/public/api/products/view/8" \
     --header "Content-Type: application/json" \
     --header "Accept: */*"</code></pre>
 
 <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;get(
-    'https://localhost/laravelProjetos/ecommerceApi/public/api/products/view/10',
+    'https://localhost/laravelProjetos/ecommerceApi/public/api/products/view/8',
     [
         'headers' =&gt; [
             'Accept' =&gt; '*/*',
@@ -3352,7 +3028,7 @@ $body = $response-&gt;getBody();
 print_r(json_decode((string) $body));</code></pre>
 
 <pre><code class="language-javascript">const url = new URL(
-    "https://localhost/laravelProjetos/ecommerceApi/public/api/products/view/10"
+    "https://localhost/laravelProjetos/ecommerceApi/public/api/products/view/8"
 );
 
 const headers = {
@@ -3368,7 +3044,7 @@ fetch(url, {
 <pre><code class="language-python">import requests
 import json
 
-url = 'https://localhost/laravelProjetos/ecommerceApi/public/api/products/view/10'
+url = 'https://localhost/laravelProjetos/ecommerceApi/public/api/products/view/8'
 headers = {
   'Content-Type': 'application/json',
   'Accept': '*/*'
@@ -3399,54 +3075,30 @@ response.json()</code></pre>
         &lt;title&gt;Not Found&lt;/title&gt;
 
         &lt;!-- Fonts --&gt;
-        &lt;link rel=&quot;dns-prefetch&quot; href=&quot;//fonts.gstatic.com&quot;&gt;
-        &lt;link href=&quot;https://fonts.googleapis.com/css?family=Nunito&quot; rel=&quot;stylesheet&quot;&gt;
+        &lt;link rel=&quot;preconnect&quot; href=&quot;https://fonts.gstatic.com&quot;&gt;
+        &lt;link href=&quot;https://fonts.googleapis.com/css2?family=Nunito&amp;display=swap&quot; rel=&quot;stylesheet&quot;&gt;
 
-        &lt;!-- Styles --&gt;
         &lt;style&gt;
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
+            /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}a{background-color:transparent}code{font-family:monospace,monospace;font-size:1em}[hidden]{display:none}html{font-family:system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;line-height:1.5}*,:after,:before{box-sizing:border-box;border:0 solid #e2e8f0}a{color:inherit;text-decoration:inherit}code{font-family:Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace}svg,video{display:block;vertical-align:middle}video{max-width:100%;height:auto}.bg-white{--bg-opacity:1;background-color:#fff;background-color:rgba(255,255,255,var(--bg-opacity))}.bg-gray-100{--bg-opacity:1;background-color:#f7fafc;background-color:rgba(247,250,252,var(--bg-opacity))}.border-gray-200{--border-opacity:1;border-color:#edf2f7;border-color:rgba(237,242,247,var(--border-opacity))}.border-gray-400{--border-opacity:1;border-color:#cbd5e0;border-color:rgba(203,213,224,var(--border-opacity))}.border-t{border-top-width:1px}.border-r{border-right-width:1px}.flex{display:flex}.grid{display:grid}.hidden{display:none}.items-center{align-items:center}.justify-center{justify-content:center}.font-semibold{font-weight:600}.h-5{height:1.25rem}.h-8{height:2rem}.h-16{height:4rem}.text-sm{font-size:.875rem}.text-lg{font-size:1.125rem}.leading-7{line-height:1.75rem}.mx-auto{margin-left:auto;margin-right:auto}.ml-1{margin-left:.25rem}.mt-2{margin-top:.5rem}.mr-2{margin-right:.5rem}.ml-2{margin-left:.5rem}.mt-4{margin-top:1rem}.ml-4{margin-left:1rem}.mt-8{margin-top:2rem}.ml-12{margin-left:3rem}.-mt-px{margin-top:-1px}.max-w-xl{max-width:36rem}.max-w-6xl{max-width:72rem}.min-h-screen{min-height:100vh}.overflow-hidden{overflow:hidden}.p-6{padding:1.5rem}.py-4{padding-top:1rem;padding-bottom:1rem}.px-4{padding-left:1rem;padding-right:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.pt-8{padding-top:2rem}.fixed{position:fixed}.relative{position:relative}.top-0{top:0}.right-0{right:0}.shadow{box-shadow:0 1px 3px 0 rgba(0,0,0,.1),0 1px 2px 0 rgba(0,0,0,.06)}.text-center{text-align:center}.text-gray-200{--text-opacity:1;color:#edf2f7;color:rgba(237,242,247,var(--text-opacity))}.text-gray-300{--text-opacity:1;color:#e2e8f0;color:rgba(226,232,240,var(--text-opacity))}.text-gray-400{--text-opacity:1;color:#cbd5e0;color:rgba(203,213,224,var(--text-opacity))}.text-gray-500{--text-opacity:1;color:#a0aec0;color:rgba(160,174,192,var(--text-opacity))}.text-gray-600{--text-opacity:1;color:#718096;color:rgba(113,128,150,var(--text-opacity))}.text-gray-700{--text-opacity:1;color:#4a5568;color:rgba(74,85,104,var(--text-opacity))}.text-gray-900{--text-opacity:1;color:#1a202c;color:rgba(26,32,44,var(--text-opacity))}.uppercase{text-transform:uppercase}.underline{text-decoration:underline}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.tracking-wider{letter-spacing:.05em}.w-5{width:1.25rem}.w-8{width:2rem}.w-auto{width:auto}.grid-cols-1{grid-template-columns:repeat(1,minmax(0,1fr))}@-webkit-keyframes spin{0%{transform:rotate(0deg)}to{transform:rotate(1turn)}}@keyframes  spin{0%{transform:rotate(0deg)}to{transform:rotate(1turn)}}@-webkit-keyframes ping{0%{transform:scale(1);opacity:1}75%,to{transform:scale(2);opacity:0}}@keyframes  ping{0%{transform:scale(1);opacity:1}75%,to{transform:scale(2);opacity:0}}@-webkit-keyframes pulse{0%,to{opacity:1}50%{opacity:.5}}@keyframes  pulse{0%,to{opacity:1}50%{opacity:.5}}@-webkit-keyframes bounce{0%,to{transform:translateY(-25%);-webkit-animation-timing-function:cubic-bezier(.8,0,1,1);animation-timing-function:cubic-bezier(.8,0,1,1)}50%{transform:translateY(0);-webkit-animation-timing-function:cubic-bezier(0,0,.2,1);animation-timing-function:cubic-bezier(0,0,.2,1)}}@keyframes  bounce{0%,to{transform:translateY(-25%);-webkit-animation-timing-function:cubic-bezier(.8,0,1,1);animation-timing-function:cubic-bezier(.8,0,1,1)}50%{transform:translateY(0);-webkit-animation-timing-function:cubic-bezier(0,0,.2,1);animation-timing-function:cubic-bezier(0,0,.2,1)}}@media (min-width:640px){.sm\:rounded-lg{border-radius:.5rem}.sm\:block{display:block}.sm\:items-center{align-items:center}.sm\:justify-start{justify-content:flex-start}.sm\:justify-between{justify-content:space-between}.sm\:h-20{height:5rem}.sm\:ml-0{margin-left:0}.sm\:px-6{padding-left:1.5rem;padding-right:1.5rem}.sm\:pt-0{padding-top:0}.sm\:text-left{text-align:left}.sm\:text-right{text-align:right}}@media (min-width:768px){.md\:border-t-0{border-top-width:0}.md\:border-l{border-left-width:1px}.md\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}}@media (min-width:1024px){.lg\:px-8{padding-left:2rem;padding-right:2rem}}@media (prefers-color-scheme:dark){.dark\:bg-gray-800{--bg-opacity:1;background-color:#2d3748;background-color:rgba(45,55,72,var(--bg-opacity))}.dark\:bg-gray-900{--bg-opacity:1;background-color:#1a202c;background-color:rgba(26,32,44,var(--bg-opacity))}.dark\:border-gray-700{--border-opacity:1;border-color:#4a5568;border-color:rgba(74,85,104,var(--border-opacity))}.dark\:text-white{--text-opacity:1;color:#fff;color:rgba(255,255,255,var(--text-opacity))}.dark\:text-gray-400{--text-opacity:1;color:#cbd5e0;color:rgba(203,213,224,var(--text-opacity))}}
+        &lt;/style&gt;
+
+        &lt;style&gt;
+            body {
                 font-family: 'Nunito', sans-serif;
-                font-weight: 100;
-                height: 100vh;
-                margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .code {
-                border-right: 2px solid;
-                font-size: 26px;
-                padding: 0 15px 0 15px;
-                text-align: center;
-            }
-
-            .message {
-                font-size: 18px;
-                text-align: center;
             }
         &lt;/style&gt;
     &lt;/head&gt;
-    &lt;body&gt;
-        &lt;div class=&quot;flex-center position-ref full-height&quot;&gt;
-            &lt;div class=&quot;code&quot;&gt;
-                404            &lt;/div&gt;
+    &lt;body class=&quot;antialiased&quot;&gt;
+        &lt;div class=&quot;relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center sm:pt-0&quot;&gt;
+            &lt;div class=&quot;max-w-xl mx-auto sm:px-6 lg:px-8&quot;&gt;
+                &lt;div class=&quot;flex items-center pt-8 sm:justify-start sm:pt-0&quot;&gt;
+                    &lt;div class=&quot;px-4 text-lg text-gray-500 border-r border-gray-400 tracking-wider&quot;&gt;
+                        404                    &lt;/div&gt;
 
-            &lt;div class=&quot;message&quot; style=&quot;padding: 10px;&quot;&gt;
-                Not Found            &lt;/div&gt;
+                    &lt;div class=&quot;ml-4 text-lg text-gray-500 uppercase tracking-wider&quot;&gt;
+                        Not Found                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
         &lt;/div&gt;
     &lt;/body&gt;
 &lt;/html&gt;
@@ -3520,10 +3172,10 @@ response.json()</code></pre>
     --header "Authorization: Bearer {ACCESS_TOKEN}" \
     --header "Content-Type: multipart/form-data" \
     --header "Accept: */*" \
-    --form "name=vero" \
-    --form "type=ab" \
-    --form "value=1.1575" \
-    --form "images[]=@C:\Users\danielfalcaodf\AppData\Local\Temp\php6B3E.tmp" </code></pre>
+    --form "name=dolorem" \
+    --form "type=eum" \
+    --form "value=4909139.67" \
+    --form "images[]=@C:\Users\danielfalcaodf\AppData\Local\Temp\php88C6.tmp" </code></pre>
 
 <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;post(
@@ -3536,19 +3188,19 @@ $response = $client-&gt;post(
         'multipart' =&gt; [
             [
                 'name' =&gt; 'name',
-                'contents' =&gt; 'vero'
+                'contents' =&gt; 'dolorem'
             ],
             [
                 'name' =&gt; 'type',
-                'contents' =&gt; 'ab'
+                'contents' =&gt; 'eum'
             ],
             [
                 'name' =&gt; 'value',
-                'contents' =&gt; '1.1575'
+                'contents' =&gt; '4909139.67'
             ],
             [
                 'name' =&gt; 'images[]',
-                'contents' =&gt; fopen('C:\Users\danielfalcaodf\AppData\Local\Temp\php6B3E.tmp', 'r')
+                'contents' =&gt; fopen('C:\Users\danielfalcaodf\AppData\Local\Temp\php88C6.tmp', 'r')
             ],
         ],
     ]
@@ -3567,9 +3219,9 @@ const headers = {
 };
 
 const body = new FormData();
-body.append('name', 'vero');
-body.append('type', 'ab');
-body.append('value', '1.1575');
+body.append('name', 'dolorem');
+body.append('type', 'eum');
+body.append('value', '4909139.67');
 body.append('images[]', document.querySelector('input[name="images[]"]').files[0]);
 
 fetch(url, {
@@ -3583,12 +3235,12 @@ import json
 
 url = 'https://localhost/laravelProjetos/ecommerceApi/public/api/products/add'
 files = {
-  'images[]': open('C:\Users\danielfalcaodf\AppData\Local\Temp\php6B3E.tmp', 'rb')
+  'images[]': open('C:\Users\danielfalcaodf\AppData\Local\Temp\php88C6.tmp', 'rb')
 }
 payload = {
-    "name": "vero",
-    "type": "ab",
-    "value": 1.1575
+    "name": "dolorem",
+    "type": "eum",
+    "value": 4909139.67
 }
 headers = {
   'Authorization': 'Bearer {ACCESS_TOKEN}',
@@ -3698,29 +3350,29 @@ response.json()</code></pre>
 
 
 <pre><code class="language-bash">curl --request PUT \
-    "https://localhost/laravelProjetos/ecommerceApi/public/api/products/edit/1" \
+    "https://localhost/laravelProjetos/ecommerceApi/public/api/products/edit/17" \
     --header "Authorization: Bearer {ACCESS_TOKEN}" \
     --header "Content-Type: application/json" \
     --header "Accept: */*" \
     --data "{
-    \"name\": \"amet\",
-    \"type\": \"impedit\",
-    \"value\": 261166.39222351
+    \"name\": \"quia\",
+    \"type\": \"et\",
+    \"value\": 2.672358292
 }"
 </code></pre>
 
 <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;put(
-    'https://localhost/laravelProjetos/ecommerceApi/public/api/products/edit/1',
+    'https://localhost/laravelProjetos/ecommerceApi/public/api/products/edit/17',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {ACCESS_TOKEN}',
             'Accept' =&gt; '*/*',
         ],
         'json' =&gt; [
-            'name' =&gt; 'amet',
-            'type' =&gt; 'impedit',
-            'value' =&gt; 261166.39222351,
+            'name' =&gt; 'quia',
+            'type' =&gt; 'et',
+            'value' =&gt; 2.672358292,
         ],
     ]
 );
@@ -3728,7 +3380,7 @@ $body = $response-&gt;getBody();
 print_r(json_decode((string) $body));</code></pre>
 
 <pre><code class="language-javascript">const url = new URL(
-    "https://localhost/laravelProjetos/ecommerceApi/public/api/products/edit/1"
+    "https://localhost/laravelProjetos/ecommerceApi/public/api/products/edit/17"
 );
 
 const headers = {
@@ -3738,9 +3390,9 @@ const headers = {
 };
 
 let body = {
-    "name": "amet",
-    "type": "impedit",
-    "value": 261166.39222351
+    "name": "quia",
+    "type": "et",
+    "value": 2.672358292
 }
 
 fetch(url, {
@@ -3752,11 +3404,11 @@ fetch(url, {
 <pre><code class="language-python">import requests
 import json
 
-url = 'https://localhost/laravelProjetos/ecommerceApi/public/api/products/edit/1'
+url = 'https://localhost/laravelProjetos/ecommerceApi/public/api/products/edit/17'
 payload = {
-    "name": "amet",
-    "type": "impedit",
-    "value": 261166.39222351
+    "name": "quia",
+    "type": "et",
+    "value": 2.672358292
 }
 headers = {
   'Authorization': 'Bearer {ACCESS_TOKEN}',
@@ -3867,14 +3519,14 @@ response.json()</code></pre>
 
 
 <pre><code class="language-bash">curl --request DELETE \
-    "https://localhost/laravelProjetos/ecommerceApi/public/api/products/delete/1" \
+    "https://localhost/laravelProjetos/ecommerceApi/public/api/products/delete/17" \
     --header "Authorization: Bearer {ACCESS_TOKEN}" \
     --header "Content-Type: application/json" \
     --header "Accept: */*"</code></pre>
 
 <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;delete(
-    'https://localhost/laravelProjetos/ecommerceApi/public/api/products/delete/1',
+    'https://localhost/laravelProjetos/ecommerceApi/public/api/products/delete/17',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {ACCESS_TOKEN}',
@@ -3886,7 +3538,7 @@ $body = $response-&gt;getBody();
 print_r(json_decode((string) $body));</code></pre>
 
 <pre><code class="language-javascript">const url = new URL(
-    "https://localhost/laravelProjetos/ecommerceApi/public/api/products/delete/1"
+    "https://localhost/laravelProjetos/ecommerceApi/public/api/products/delete/17"
 );
 
 const headers = {
@@ -3903,7 +3555,7 @@ fetch(url, {
 <pre><code class="language-python">import requests
 import json
 
-url = 'https://localhost/laravelProjetos/ecommerceApi/public/api/products/delete/1'
+url = 'https://localhost/laravelProjetos/ecommerceApi/public/api/products/delete/17'
 headers = {
   'Authorization': 'Bearer {ACCESS_TOKEN}',
   'Content-Type': 'application/json',
@@ -4054,54 +3706,30 @@ response.json()</code></pre>
         &lt;title&gt;Not Found&lt;/title&gt;
 
         &lt;!-- Fonts --&gt;
-        &lt;link rel=&quot;dns-prefetch&quot; href=&quot;//fonts.gstatic.com&quot;&gt;
-        &lt;link href=&quot;https://fonts.googleapis.com/css?family=Nunito&quot; rel=&quot;stylesheet&quot;&gt;
+        &lt;link rel=&quot;preconnect&quot; href=&quot;https://fonts.gstatic.com&quot;&gt;
+        &lt;link href=&quot;https://fonts.googleapis.com/css2?family=Nunito&amp;display=swap&quot; rel=&quot;stylesheet&quot;&gt;
 
-        &lt;!-- Styles --&gt;
         &lt;style&gt;
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
+            /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}a{background-color:transparent}code{font-family:monospace,monospace;font-size:1em}[hidden]{display:none}html{font-family:system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;line-height:1.5}*,:after,:before{box-sizing:border-box;border:0 solid #e2e8f0}a{color:inherit;text-decoration:inherit}code{font-family:Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace}svg,video{display:block;vertical-align:middle}video{max-width:100%;height:auto}.bg-white{--bg-opacity:1;background-color:#fff;background-color:rgba(255,255,255,var(--bg-opacity))}.bg-gray-100{--bg-opacity:1;background-color:#f7fafc;background-color:rgba(247,250,252,var(--bg-opacity))}.border-gray-200{--border-opacity:1;border-color:#edf2f7;border-color:rgba(237,242,247,var(--border-opacity))}.border-gray-400{--border-opacity:1;border-color:#cbd5e0;border-color:rgba(203,213,224,var(--border-opacity))}.border-t{border-top-width:1px}.border-r{border-right-width:1px}.flex{display:flex}.grid{display:grid}.hidden{display:none}.items-center{align-items:center}.justify-center{justify-content:center}.font-semibold{font-weight:600}.h-5{height:1.25rem}.h-8{height:2rem}.h-16{height:4rem}.text-sm{font-size:.875rem}.text-lg{font-size:1.125rem}.leading-7{line-height:1.75rem}.mx-auto{margin-left:auto;margin-right:auto}.ml-1{margin-left:.25rem}.mt-2{margin-top:.5rem}.mr-2{margin-right:.5rem}.ml-2{margin-left:.5rem}.mt-4{margin-top:1rem}.ml-4{margin-left:1rem}.mt-8{margin-top:2rem}.ml-12{margin-left:3rem}.-mt-px{margin-top:-1px}.max-w-xl{max-width:36rem}.max-w-6xl{max-width:72rem}.min-h-screen{min-height:100vh}.overflow-hidden{overflow:hidden}.p-6{padding:1.5rem}.py-4{padding-top:1rem;padding-bottom:1rem}.px-4{padding-left:1rem;padding-right:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.pt-8{padding-top:2rem}.fixed{position:fixed}.relative{position:relative}.top-0{top:0}.right-0{right:0}.shadow{box-shadow:0 1px 3px 0 rgba(0,0,0,.1),0 1px 2px 0 rgba(0,0,0,.06)}.text-center{text-align:center}.text-gray-200{--text-opacity:1;color:#edf2f7;color:rgba(237,242,247,var(--text-opacity))}.text-gray-300{--text-opacity:1;color:#e2e8f0;color:rgba(226,232,240,var(--text-opacity))}.text-gray-400{--text-opacity:1;color:#cbd5e0;color:rgba(203,213,224,var(--text-opacity))}.text-gray-500{--text-opacity:1;color:#a0aec0;color:rgba(160,174,192,var(--text-opacity))}.text-gray-600{--text-opacity:1;color:#718096;color:rgba(113,128,150,var(--text-opacity))}.text-gray-700{--text-opacity:1;color:#4a5568;color:rgba(74,85,104,var(--text-opacity))}.text-gray-900{--text-opacity:1;color:#1a202c;color:rgba(26,32,44,var(--text-opacity))}.uppercase{text-transform:uppercase}.underline{text-decoration:underline}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.tracking-wider{letter-spacing:.05em}.w-5{width:1.25rem}.w-8{width:2rem}.w-auto{width:auto}.grid-cols-1{grid-template-columns:repeat(1,minmax(0,1fr))}@-webkit-keyframes spin{0%{transform:rotate(0deg)}to{transform:rotate(1turn)}}@keyframes  spin{0%{transform:rotate(0deg)}to{transform:rotate(1turn)}}@-webkit-keyframes ping{0%{transform:scale(1);opacity:1}75%,to{transform:scale(2);opacity:0}}@keyframes  ping{0%{transform:scale(1);opacity:1}75%,to{transform:scale(2);opacity:0}}@-webkit-keyframes pulse{0%,to{opacity:1}50%{opacity:.5}}@keyframes  pulse{0%,to{opacity:1}50%{opacity:.5}}@-webkit-keyframes bounce{0%,to{transform:translateY(-25%);-webkit-animation-timing-function:cubic-bezier(.8,0,1,1);animation-timing-function:cubic-bezier(.8,0,1,1)}50%{transform:translateY(0);-webkit-animation-timing-function:cubic-bezier(0,0,.2,1);animation-timing-function:cubic-bezier(0,0,.2,1)}}@keyframes  bounce{0%,to{transform:translateY(-25%);-webkit-animation-timing-function:cubic-bezier(.8,0,1,1);animation-timing-function:cubic-bezier(.8,0,1,1)}50%{transform:translateY(0);-webkit-animation-timing-function:cubic-bezier(0,0,.2,1);animation-timing-function:cubic-bezier(0,0,.2,1)}}@media (min-width:640px){.sm\:rounded-lg{border-radius:.5rem}.sm\:block{display:block}.sm\:items-center{align-items:center}.sm\:justify-start{justify-content:flex-start}.sm\:justify-between{justify-content:space-between}.sm\:h-20{height:5rem}.sm\:ml-0{margin-left:0}.sm\:px-6{padding-left:1.5rem;padding-right:1.5rem}.sm\:pt-0{padding-top:0}.sm\:text-left{text-align:left}.sm\:text-right{text-align:right}}@media (min-width:768px){.md\:border-t-0{border-top-width:0}.md\:border-l{border-left-width:1px}.md\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}}@media (min-width:1024px){.lg\:px-8{padding-left:2rem;padding-right:2rem}}@media (prefers-color-scheme:dark){.dark\:bg-gray-800{--bg-opacity:1;background-color:#2d3748;background-color:rgba(45,55,72,var(--bg-opacity))}.dark\:bg-gray-900{--bg-opacity:1;background-color:#1a202c;background-color:rgba(26,32,44,var(--bg-opacity))}.dark\:border-gray-700{--border-opacity:1;border-color:#4a5568;border-color:rgba(74,85,104,var(--border-opacity))}.dark\:text-white{--text-opacity:1;color:#fff;color:rgba(255,255,255,var(--text-opacity))}.dark\:text-gray-400{--text-opacity:1;color:#cbd5e0;color:rgba(203,213,224,var(--text-opacity))}}
+        &lt;/style&gt;
+
+        &lt;style&gt;
+            body {
                 font-family: 'Nunito', sans-serif;
-                font-weight: 100;
-                height: 100vh;
-                margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .code {
-                border-right: 2px solid;
-                font-size: 26px;
-                padding: 0 15px 0 15px;
-                text-align: center;
-            }
-
-            .message {
-                font-size: 18px;
-                text-align: center;
             }
         &lt;/style&gt;
     &lt;/head&gt;
-    &lt;body&gt;
-        &lt;div class=&quot;flex-center position-ref full-height&quot;&gt;
-            &lt;div class=&quot;code&quot;&gt;
-                404            &lt;/div&gt;
+    &lt;body class=&quot;antialiased&quot;&gt;
+        &lt;div class=&quot;relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center sm:pt-0&quot;&gt;
+            &lt;div class=&quot;max-w-xl mx-auto sm:px-6 lg:px-8&quot;&gt;
+                &lt;div class=&quot;flex items-center pt-8 sm:justify-start sm:pt-0&quot;&gt;
+                    &lt;div class=&quot;px-4 text-lg text-gray-500 border-r border-gray-400 tracking-wider&quot;&gt;
+                        404                    &lt;/div&gt;
 
-            &lt;div class=&quot;message&quot; style=&quot;padding: 10px;&quot;&gt;
-                Not Found            &lt;/div&gt;
+                    &lt;div class=&quot;ml-4 text-lg text-gray-500 uppercase tracking-wider&quot;&gt;
+                        Not Found                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
         &lt;/div&gt;
     &lt;/body&gt;
 &lt;/html&gt;
@@ -4225,54 +3853,30 @@ response.json()</code></pre>
         &lt;title&gt;Not Found&lt;/title&gt;
 
         &lt;!-- Fonts --&gt;
-        &lt;link rel=&quot;dns-prefetch&quot; href=&quot;//fonts.gstatic.com&quot;&gt;
-        &lt;link href=&quot;https://fonts.googleapis.com/css?family=Nunito&quot; rel=&quot;stylesheet&quot;&gt;
+        &lt;link rel=&quot;preconnect&quot; href=&quot;https://fonts.gstatic.com&quot;&gt;
+        &lt;link href=&quot;https://fonts.googleapis.com/css2?family=Nunito&amp;display=swap&quot; rel=&quot;stylesheet&quot;&gt;
 
-        &lt;!-- Styles --&gt;
         &lt;style&gt;
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
+            /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}a{background-color:transparent}code{font-family:monospace,monospace;font-size:1em}[hidden]{display:none}html{font-family:system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;line-height:1.5}*,:after,:before{box-sizing:border-box;border:0 solid #e2e8f0}a{color:inherit;text-decoration:inherit}code{font-family:Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace}svg,video{display:block;vertical-align:middle}video{max-width:100%;height:auto}.bg-white{--bg-opacity:1;background-color:#fff;background-color:rgba(255,255,255,var(--bg-opacity))}.bg-gray-100{--bg-opacity:1;background-color:#f7fafc;background-color:rgba(247,250,252,var(--bg-opacity))}.border-gray-200{--border-opacity:1;border-color:#edf2f7;border-color:rgba(237,242,247,var(--border-opacity))}.border-gray-400{--border-opacity:1;border-color:#cbd5e0;border-color:rgba(203,213,224,var(--border-opacity))}.border-t{border-top-width:1px}.border-r{border-right-width:1px}.flex{display:flex}.grid{display:grid}.hidden{display:none}.items-center{align-items:center}.justify-center{justify-content:center}.font-semibold{font-weight:600}.h-5{height:1.25rem}.h-8{height:2rem}.h-16{height:4rem}.text-sm{font-size:.875rem}.text-lg{font-size:1.125rem}.leading-7{line-height:1.75rem}.mx-auto{margin-left:auto;margin-right:auto}.ml-1{margin-left:.25rem}.mt-2{margin-top:.5rem}.mr-2{margin-right:.5rem}.ml-2{margin-left:.5rem}.mt-4{margin-top:1rem}.ml-4{margin-left:1rem}.mt-8{margin-top:2rem}.ml-12{margin-left:3rem}.-mt-px{margin-top:-1px}.max-w-xl{max-width:36rem}.max-w-6xl{max-width:72rem}.min-h-screen{min-height:100vh}.overflow-hidden{overflow:hidden}.p-6{padding:1.5rem}.py-4{padding-top:1rem;padding-bottom:1rem}.px-4{padding-left:1rem;padding-right:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.pt-8{padding-top:2rem}.fixed{position:fixed}.relative{position:relative}.top-0{top:0}.right-0{right:0}.shadow{box-shadow:0 1px 3px 0 rgba(0,0,0,.1),0 1px 2px 0 rgba(0,0,0,.06)}.text-center{text-align:center}.text-gray-200{--text-opacity:1;color:#edf2f7;color:rgba(237,242,247,var(--text-opacity))}.text-gray-300{--text-opacity:1;color:#e2e8f0;color:rgba(226,232,240,var(--text-opacity))}.text-gray-400{--text-opacity:1;color:#cbd5e0;color:rgba(203,213,224,var(--text-opacity))}.text-gray-500{--text-opacity:1;color:#a0aec0;color:rgba(160,174,192,var(--text-opacity))}.text-gray-600{--text-opacity:1;color:#718096;color:rgba(113,128,150,var(--text-opacity))}.text-gray-700{--text-opacity:1;color:#4a5568;color:rgba(74,85,104,var(--text-opacity))}.text-gray-900{--text-opacity:1;color:#1a202c;color:rgba(26,32,44,var(--text-opacity))}.uppercase{text-transform:uppercase}.underline{text-decoration:underline}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.tracking-wider{letter-spacing:.05em}.w-5{width:1.25rem}.w-8{width:2rem}.w-auto{width:auto}.grid-cols-1{grid-template-columns:repeat(1,minmax(0,1fr))}@-webkit-keyframes spin{0%{transform:rotate(0deg)}to{transform:rotate(1turn)}}@keyframes  spin{0%{transform:rotate(0deg)}to{transform:rotate(1turn)}}@-webkit-keyframes ping{0%{transform:scale(1);opacity:1}75%,to{transform:scale(2);opacity:0}}@keyframes  ping{0%{transform:scale(1);opacity:1}75%,to{transform:scale(2);opacity:0}}@-webkit-keyframes pulse{0%,to{opacity:1}50%{opacity:.5}}@keyframes  pulse{0%,to{opacity:1}50%{opacity:.5}}@-webkit-keyframes bounce{0%,to{transform:translateY(-25%);-webkit-animation-timing-function:cubic-bezier(.8,0,1,1);animation-timing-function:cubic-bezier(.8,0,1,1)}50%{transform:translateY(0);-webkit-animation-timing-function:cubic-bezier(0,0,.2,1);animation-timing-function:cubic-bezier(0,0,.2,1)}}@keyframes  bounce{0%,to{transform:translateY(-25%);-webkit-animation-timing-function:cubic-bezier(.8,0,1,1);animation-timing-function:cubic-bezier(.8,0,1,1)}50%{transform:translateY(0);-webkit-animation-timing-function:cubic-bezier(0,0,.2,1);animation-timing-function:cubic-bezier(0,0,.2,1)}}@media (min-width:640px){.sm\:rounded-lg{border-radius:.5rem}.sm\:block{display:block}.sm\:items-center{align-items:center}.sm\:justify-start{justify-content:flex-start}.sm\:justify-between{justify-content:space-between}.sm\:h-20{height:5rem}.sm\:ml-0{margin-left:0}.sm\:px-6{padding-left:1.5rem;padding-right:1.5rem}.sm\:pt-0{padding-top:0}.sm\:text-left{text-align:left}.sm\:text-right{text-align:right}}@media (min-width:768px){.md\:border-t-0{border-top-width:0}.md\:border-l{border-left-width:1px}.md\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}}@media (min-width:1024px){.lg\:px-8{padding-left:2rem;padding-right:2rem}}@media (prefers-color-scheme:dark){.dark\:bg-gray-800{--bg-opacity:1;background-color:#2d3748;background-color:rgba(45,55,72,var(--bg-opacity))}.dark\:bg-gray-900{--bg-opacity:1;background-color:#1a202c;background-color:rgba(26,32,44,var(--bg-opacity))}.dark\:border-gray-700{--border-opacity:1;border-color:#4a5568;border-color:rgba(74,85,104,var(--border-opacity))}.dark\:text-white{--text-opacity:1;color:#fff;color:rgba(255,255,255,var(--text-opacity))}.dark\:text-gray-400{--text-opacity:1;color:#cbd5e0;color:rgba(203,213,224,var(--text-opacity))}}
+        &lt;/style&gt;
+
+        &lt;style&gt;
+            body {
                 font-family: 'Nunito', sans-serif;
-                font-weight: 100;
-                height: 100vh;
-                margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .code {
-                border-right: 2px solid;
-                font-size: 26px;
-                padding: 0 15px 0 15px;
-                text-align: center;
-            }
-
-            .message {
-                font-size: 18px;
-                text-align: center;
             }
         &lt;/style&gt;
     &lt;/head&gt;
-    &lt;body&gt;
-        &lt;div class=&quot;flex-center position-ref full-height&quot;&gt;
-            &lt;div class=&quot;code&quot;&gt;
-                404            &lt;/div&gt;
+    &lt;body class=&quot;antialiased&quot;&gt;
+        &lt;div class=&quot;relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center sm:pt-0&quot;&gt;
+            &lt;div class=&quot;max-w-xl mx-auto sm:px-6 lg:px-8&quot;&gt;
+                &lt;div class=&quot;flex items-center pt-8 sm:justify-start sm:pt-0&quot;&gt;
+                    &lt;div class=&quot;px-4 text-lg text-gray-500 border-r border-gray-400 tracking-wider&quot;&gt;
+                        404                    &lt;/div&gt;
 
-            &lt;div class=&quot;message&quot; style=&quot;padding: 10px;&quot;&gt;
-                Not Found            &lt;/div&gt;
+                    &lt;div class=&quot;ml-4 text-lg text-gray-500 uppercase tracking-wider&quot;&gt;
+                        Not Found                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
         &lt;/div&gt;
     &lt;/body&gt;
 &lt;/html&gt;
@@ -4336,8 +3940,8 @@ response.json()</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: */*" \
     --data "{
-    \"name\": \"perferendis\",
-    \"email\": \"fugit\"
+    \"name\": \"nobis\",
+    \"email\": \"ea\"
 }"
 </code></pre>
 
@@ -4349,8 +3953,8 @@ $response = $client-&gt;put(
             'Accept' =&gt; '*/*',
         ],
         'json' =&gt; [
-            'name' =&gt; 'perferendis',
-            'email' =&gt; 'fugit',
+            'name' =&gt; 'nobis',
+            'email' =&gt; 'ea',
         ],
     ]
 );
@@ -4367,8 +3971,8 @@ const headers = {
 };
 
 let body = {
-    "name": "perferendis",
-    "email": "fugit"
+    "name": "nobis",
+    "email": "ea"
 }
 
 fetch(url, {
@@ -4382,8 +3986,8 @@ import json
 
 url = 'https://localhost/laravelProjetos/ecommerceApi/public/api/users/me/edit'
 payload = {
-    "name": "perferendis",
-    "email": "fugit"
+    "name": "nobis",
+    "email": "ea"
 }
 headers = {
   'Content-Type': 'application/json',
