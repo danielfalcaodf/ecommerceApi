@@ -39,6 +39,7 @@ class Handler extends ExceptionHandler
     public function register()
     {
         $this->renderable(function (Throwable $e, $request) {
+            dd($e);
             if ($request->is("api/*")) {
 
 
