@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Buyer extends Model
 {
+    protected $table = 'buyers';
     //
     public function getUser()
     {
