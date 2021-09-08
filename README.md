@@ -111,7 +111,11 @@ Ferramentas usadas
 
     ![img-mail](https://github.com/danielfalcaodf/ecommerceApi/blob/master/public/demos/configEnv/img-mail.png?raw=true)
 
--   Logo após de configurar o `.env`, Abir o CMD na raiz do projeto , execultar comando `php artisan migrate:fresh --seed` com isso as Migrations e Seeds do projeto vai alimentar o banco de dados
+-   Logo após a configuração do `.env`, Abir o CMD na raiz do projeto , execultar comando logo abaixo com isso as Migrations e Seeds do projeto vai alimentar o banco de dados
+
+```
+php artisan migrate:fresh --seed
+```
 
 🎉 Está tudo pronto!! bons testes
 
@@ -158,9 +162,9 @@ Para começar a usar o sistema siga estes passos:
     123456
     ```
 
-## Estrutura da api <a name="api"></a>
+4. Consultar a [Documentação da Api](https://apiteste.grupodouglascosta.com.br/docs "documentação da api")
 
--
+## Estrutura da api <a name="api"></a>
 
 -   Rotas
 
