@@ -70,7 +70,7 @@ class ProductController extends ApiController
         }
 
 
-        return $this->sendResponse(new ProductResource($product), 'Produto cadastrado!');
+        return $this->sendResponse(new ProductResource($product), 'Produto cadastrado!', 201);
     }
 
     /**
