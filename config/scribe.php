@@ -45,12 +45,12 @@ return [
                 /*
                  * Match only routes whose domains match this pattern (use * as a wildcard to match any characters). Example: 'api.*'.
                  */
-                'domains' => ['*'],
+                'domains' => [''],
 
                 /*
                  * [Dingo router only] Match only routes registered under this version. Wildcards are not supported.
                  */
-                'versions' => ['*'],
+                'versions' => [''],
             ],
 
             /*
@@ -215,7 +215,7 @@ return [
         /*
          * The name of the auth parameter (eg token, key, apiKey) or header (eg Authorization, Api-Key).
          */
-        'name' => 'token',
+        'name' => 'Authorization',
 
         /*
          * The value of the parameter to be used by Scribe to authenticate response calls.

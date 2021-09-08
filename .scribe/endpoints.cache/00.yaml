@@ -13,7 +13,7 @@ endpoints:
       authenticated: false
     headers:
       Content-Type: application/json
-      Accept: '*/*'
+      Accept: application/json
     urlParameters: []
     queryParameters: []
     bodyParameters:
@@ -32,17 +32,17 @@ endpoints:
     responses:
       -
         status: 200
-        content: null
+        content: "{\r\n    \"message\": \"\",\r\n    \"type\": \"success\",\r\n    \"data\": {\r\n        \"id\": 1,\r\n        \"name\": \"Kevin Edilson Padilha\",\r\n        \"email\": \"danielfalcao.df@gmail.com\",\r\n        \"token\": {\r\n            \"access_token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvbG9jYWxob3N0XC9sYXJhdmVsUHJvamV0b3NcL2Vjb21tZXJjZUFwaVwvcHVibGljXC9cL2FwaVwvYXV0aFwvbG9naW4iLCJpYXQiOjE2MzEwNDQyNjksImV4cCI6MTYzMTA0Nzg2OSwibmJmIjoxNjMxMDQ0MjY5LCJqdGkiOiJ4aUR4ajhkUWY2NFZUZWxCIiwic3ViIjoxLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.WHEa91qVOqlg7WT189BkYWiJayYpScY6c8ZIObLZNPQ\",\r\n            \"token_type\": \"bearer\",\r\n            \"expires_in\": 3600\r\n        },\r\n        \"created_at\": \"06/09/2021\",\r\n        \"updated_at\": \"06/09/2021\",\r\n        \"link\": {\r\n            \"get\": {\r\n                \"getListAll\": \"https://localhost/laravelProjetos/ecommerceApi/public/api/users\",\r\n                \"getMe\": \"https://localhost/laravelProjetos/ecommerceApi/public/api/users/me\"\r\n            },\r\n            \"post\": {\r\n                \"login\": \"https://localhost/laravelProjetos/ecommerceApi/public/api/auth/login\",\r\n                \"register\": \"https://localhost/laravelProjetos/ecommerceApi/public/api/auth/register\",\r\n                \"logout\": \"https://localhost/laravelProjetos/ecommerceApi/public/api/auth/logout\"\r\n            },\r\n            \"put\": {\r\n                \"editNameEmail\": \"https://localhost/laravelProjetos/ecommerceApi/public/api/users/me/edit\"\r\n            }\r\n        }\r\n    },\r\n    \"code\": 200\r\n}\r\n"
         headers: []
         description: '200'
       -
         status: 400
-        content: null
+        content: '{"type":"error","message":"Email ou senha inv\u00e1lidos","code":400}'
         headers: []
         description: '400'
       -
         status: 422
-        content: null
+        content: '{"type":"error","message":"Error","code":422,"data":{"errors":"syntax error, unexpected ''if'' (T_IF)"}}'
         headers: []
         description: '422, Erros semânticos do código'
     responseFields: []
@@ -56,7 +56,7 @@ endpoints:
       authenticated: false
     headers:
       Content-Type: application/json
-      Accept: '*/*'
+      Accept: application/json
     urlParameters: []
     queryParameters: []
     bodyParameters:
@@ -87,27 +87,27 @@ endpoints:
     responses:
       -
         status: 200
-        content: null
+        content: "{\r\n    \"message\": \"Usuário Cadastrado!\",\r\n    \"type\": \"success\",\r\n    \"data\": {\r\n        \"id\": 23,\r\n        \"name\": \"teste\",\r\n        \"email\": \"teste@teste.com\",\r\n        \"token\": {\r\n            \"access_token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvbG9jYWxob3N0XC9sYXJhdmVsUHJvamV0b3NcL2Vjb21tZXJjZUFwaVwvcHVibGljXC9cL2FwaVwvYXV0aFwvcmVnaXN0ZXIiLCJpYXQiOjE2MzEwNDQ2MTksImV4cCI6MTYzMTA0ODIxOSwibmJmIjoxNjMxMDQ0NjE5LCJqdGkiOiJBaWo2YWdKTjlaUWtkb1hOIiwic3ViIjoyMywicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.thHar_GT9_OIco3Vm85EWn-FJ7AA3EdcWzpBulq7-hQ\",\r\n            \"token_type\": \"bearer\",\r\n            \"expires_in\": 3600\r\n        },\r\n        \"created_at\": \"07/09/2021\",\r\n        \"updated_at\": \"07/09/2021\",\r\n        \"link\": {\r\n            \"get\": {\r\n                \"getListAll\": \"https://localhost/laravelProjetos/ecommerceApi/public/api/users\",\r\n                \"getMe\": \"https://localhost/laravelProjetos/ecommerceApi/public/api/users/me\"\r\n            },\r\n            \"post\": {\r\n                \"login\": \"https://localhost/laravelProjetos/ecommerceApi/public/api/auth/login\",\r\n                \"register\": \"https://localhost/laravelProjetos/ecommerceApi/public/api/auth/register\",\r\n                \"logout\": \"https://localhost/laravelProjetos/ecommerceApi/public/api/auth/logout\"\r\n            },\r\n            \"put\": {\r\n                \"editNameEmail\": \"https://localhost/laravelProjetos/ecommerceApi/public/api/users/me/edit\"\r\n            }\r\n        }\r\n    },\r\n    \"code\": 201\r\n}\r\n"
         headers: []
         description: '200'
       -
         status: 422
-        content: null
+        content: '{"type":"error","message":"Campos inv\u00e1lidos","code":422,"data":{"name":["Obrigat\u00f3rio"],"email":["The email field is required."],"password":["The password field is required."]}}'
         headers: []
         description: '422, Validação do bodyparam'
       -
         status: 422
-        content: null
+        content: '{"type":"error","message":"Campos inv\u00e1lidos","code":422,"data":{"email":["The email must be a valid email address."],"password":["The password must be at least 6 characters.","The password confirmation does not match."]}}'
         headers: []
         description: '422, Validação do bodyparam'
       -
         status: 422
-        content: null
+        content: '{"type":"error","message":"Campos inv\u00e1lidos","code":422,"data":{"email":["The email has already been taken."],"password":["The password must be at least 6 characters.","The password confirmation does not match."]}}'
         headers: []
         description: '422, Validação do bodyparam'
       -
         status: 422
-        content: null
+        content: '{"type":"error","message":"Error","code":422,"data":{"errors":"syntax error, unexpected ''if'' (T_IF)"}}'
         headers: []
         description: '422, Erros semânticos do código'
     responseFields: []
@@ -122,24 +122,24 @@ endpoints:
     headers:
       Authorization: 'Bearer {ACCESS_TOKEN}'
       Content-Type: application/json
-      Accept: '*/*'
+      Accept: application/json
     urlParameters: []
     queryParameters: []
     bodyParameters: []
     responses:
       -
         status: 200
-        content: null
+        content: "{\"message\":\"Successfully logged out\",\"type\":\"success\",\"data\":{\"id\":1,\"name\":\"Kevin Edilson Padilha\",\"email\":\"danielfalcao.df@gmail.com\",\"email_verified_at\":null,\"created_at\":\"06\\/09\\/2021\",\"updated_at\":\"06\\/09\\/2021\",\"link\":{\"get\":{\"getListAll\":\"https:\\/\\/localhost\\/laravelProjetos\\/ecommerceApi\\/public\\/api\\/users\",\"getMe\":\"https:\\/\\/localhost\\/laravelProjetos\\/ecommerceApi\\/public\\/api\\/users\\/me\"},\"post\":{\"login\":\"https:\\/\\/localhost\\/laravelProjetos\\/ecommerceApi\\/public\\/api\\/auth\\/login\",\"register\":\"https:\\/\\/localhost\\/laravelProjetos\\/ecommerceApi\\/public\\/api\\/auth\\/register\",\"logout\":\"https:\\/\\/localhost\\/laravelProjetos\\/ecommerceApi\\/public\\/api\\/auth\\/logout\"},\"put\":{\"editNameEmail\":\"https:\\/\\/localhost\\/laravelProjetos\\/ecommerceApi\\/public\\/api\\/users\\/me\\/edit\"}}},\"code\":200}\r\n"
         headers: []
         description: '200'
       -
         status: 401
-        content: null
+        content: '{"type":"error","code":401,"massage":"Token is Invalid"}'
         headers: []
         description: '401, Token is Invalid, Token is Expired, Authorization Token not found'
       -
         status: 422
-        content: null
+        content: '{"type":"error","message":"Error","code":422,"data":{"errors":"syntax error, unexpected ''if'' (T_IF)"}}'
         headers: []
         description: '422, Erros semânticos do código'
     responseFields: []

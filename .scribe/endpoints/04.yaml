@@ -11,52 +11,20 @@ endpoints:
       authenticated: false
     headers:
       Content-Type: application/json
-      Accept: '*/*'
+      Accept: application/json
     urlParameters: []
     queryParameters: []
     bodyParameters: []
     responses:
       -
-        status: 404
-        content: |
-          <!DOCTYPE html>
-          <html lang="en">
-              <head>
-                  <meta charset="utf-8">
-                  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-                  <title>Not Found</title>
-
-                  <!-- Fonts -->
-                  <link rel="preconnect" href="https://fonts.gstatic.com">
-                  <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
-
-                  <style>
-                      /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}a{background-color:transparent}code{font-family:monospace,monospace;font-size:1em}[hidden]{display:none}html{font-family:system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;line-height:1.5}*,:after,:before{box-sizing:border-box;border:0 solid #e2e8f0}a{color:inherit;text-decoration:inherit}code{font-family:Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace}svg,video{display:block;vertical-align:middle}video{max-width:100%;height:auto}.bg-white{--bg-opacity:1;background-color:#fff;background-color:rgba(255,255,255,var(--bg-opacity))}.bg-gray-100{--bg-opacity:1;background-color:#f7fafc;background-color:rgba(247,250,252,var(--bg-opacity))}.border-gray-200{--border-opacity:1;border-color:#edf2f7;border-color:rgba(237,242,247,var(--border-opacity))}.border-gray-400{--border-opacity:1;border-color:#cbd5e0;border-color:rgba(203,213,224,var(--border-opacity))}.border-t{border-top-width:1px}.border-r{border-right-width:1px}.flex{display:flex}.grid{display:grid}.hidden{display:none}.items-center{align-items:center}.justify-center{justify-content:center}.font-semibold{font-weight:600}.h-5{height:1.25rem}.h-8{height:2rem}.h-16{height:4rem}.text-sm{font-size:.875rem}.text-lg{font-size:1.125rem}.leading-7{line-height:1.75rem}.mx-auto{margin-left:auto;margin-right:auto}.ml-1{margin-left:.25rem}.mt-2{margin-top:.5rem}.mr-2{margin-right:.5rem}.ml-2{margin-left:.5rem}.mt-4{margin-top:1rem}.ml-4{margin-left:1rem}.mt-8{margin-top:2rem}.ml-12{margin-left:3rem}.-mt-px{margin-top:-1px}.max-w-xl{max-width:36rem}.max-w-6xl{max-width:72rem}.min-h-screen{min-height:100vh}.overflow-hidden{overflow:hidden}.p-6{padding:1.5rem}.py-4{padding-top:1rem;padding-bottom:1rem}.px-4{padding-left:1rem;padding-right:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.pt-8{padding-top:2rem}.fixed{position:fixed}.relative{position:relative}.top-0{top:0}.right-0{right:0}.shadow{box-shadow:0 1px 3px 0 rgba(0,0,0,.1),0 1px 2px 0 rgba(0,0,0,.06)}.text-center{text-align:center}.text-gray-200{--text-opacity:1;color:#edf2f7;color:rgba(237,242,247,var(--text-opacity))}.text-gray-300{--text-opacity:1;color:#e2e8f0;color:rgba(226,232,240,var(--text-opacity))}.text-gray-400{--text-opacity:1;color:#cbd5e0;color:rgba(203,213,224,var(--text-opacity))}.text-gray-500{--text-opacity:1;color:#a0aec0;color:rgba(160,174,192,var(--text-opacity))}.text-gray-600{--text-opacity:1;color:#718096;color:rgba(113,128,150,var(--text-opacity))}.text-gray-700{--text-opacity:1;color:#4a5568;color:rgba(74,85,104,var(--text-opacity))}.text-gray-900{--text-opacity:1;color:#1a202c;color:rgba(26,32,44,var(--text-opacity))}.uppercase{text-transform:uppercase}.underline{text-decoration:underline}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.tracking-wider{letter-spacing:.05em}.w-5{width:1.25rem}.w-8{width:2rem}.w-auto{width:auto}.grid-cols-1{grid-template-columns:repeat(1,minmax(0,1fr))}@-webkit-keyframes spin{0%{transform:rotate(0deg)}to{transform:rotate(1turn)}}@keyframes  spin{0%{transform:rotate(0deg)}to{transform:rotate(1turn)}}@-webkit-keyframes ping{0%{transform:scale(1);opacity:1}75%,to{transform:scale(2);opacity:0}}@keyframes  ping{0%{transform:scale(1);opacity:1}75%,to{transform:scale(2);opacity:0}}@-webkit-keyframes pulse{0%,to{opacity:1}50%{opacity:.5}}@keyframes  pulse{0%,to{opacity:1}50%{opacity:.5}}@-webkit-keyframes bounce{0%,to{transform:translateY(-25%);-webkit-animation-timing-function:cubic-bezier(.8,0,1,1);animation-timing-function:cubic-bezier(.8,0,1,1)}50%{transform:translateY(0);-webkit-animation-timing-function:cubic-bezier(0,0,.2,1);animation-timing-function:cubic-bezier(0,0,.2,1)}}@keyframes  bounce{0%,to{transform:translateY(-25%);-webkit-animation-timing-function:cubic-bezier(.8,0,1,1);animation-timing-function:cubic-bezier(.8,0,1,1)}50%{transform:translateY(0);-webkit-animation-timing-function:cubic-bezier(0,0,.2,1);animation-timing-function:cubic-bezier(0,0,.2,1)}}@media (min-width:640px){.sm\:rounded-lg{border-radius:.5rem}.sm\:block{display:block}.sm\:items-center{align-items:center}.sm\:justify-start{justify-content:flex-start}.sm\:justify-between{justify-content:space-between}.sm\:h-20{height:5rem}.sm\:ml-0{margin-left:0}.sm\:px-6{padding-left:1.5rem;padding-right:1.5rem}.sm\:pt-0{padding-top:0}.sm\:text-left{text-align:left}.sm\:text-right{text-align:right}}@media (min-width:768px){.md\:border-t-0{border-top-width:0}.md\:border-l{border-left-width:1px}.md\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}}@media (min-width:1024px){.lg\:px-8{padding-left:2rem;padding-right:2rem}}@media (prefers-color-scheme:dark){.dark\:bg-gray-800{--bg-opacity:1;background-color:#2d3748;background-color:rgba(45,55,72,var(--bg-opacity))}.dark\:bg-gray-900{--bg-opacity:1;background-color:#1a202c;background-color:rgba(26,32,44,var(--bg-opacity))}.dark\:border-gray-700{--border-opacity:1;border-color:#4a5568;border-color:rgba(74,85,104,var(--border-opacity))}.dark\:text-white{--text-opacity:1;color:#fff;color:rgba(255,255,255,var(--text-opacity))}.dark\:text-gray-400{--text-opacity:1;color:#cbd5e0;color:rgba(203,213,224,var(--text-opacity))}}
-                  </style>
-
-                  <style>
-                      body {
-                          font-family: 'Nunito', sans-serif;
-                      }
-                  </style>
-              </head>
-              <body class="antialiased">
-                  <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center sm:pt-0">
-                      <div class="max-w-xl mx-auto sm:px-6 lg:px-8">
-                          <div class="flex items-center pt-8 sm:justify-start sm:pt-0">
-                              <div class="px-4 text-lg text-gray-500 border-r border-gray-400 tracking-wider">
-                                  404                    </div>
-
-                              <div class="ml-4 text-lg text-gray-500 uppercase tracking-wider">
-                                  Not Found                    </div>
-                          </div>
-                      </div>
-                  </div>
-              </body>
-          </html>
+        status: 200
+        content: '{"message":"Produtos encontrado!","type":"success","data":[{"id":1,"name":"Beatae tempora sunt.","type":"m","value":"20.58","images":[{"id":1,"idprod":1,"path":"https:\/\/localhost\/storage\/products\/imgs\/1\/FpO8rYRdSEauomthotbd3uaUwzvpyjb3isUnso7X.jpg","created_at":"08\/09\/2021","updated_at":"08\/09\/2021","link":{"get":{"getProducts":"https:\/\/localhost\/api\/products\/list","getProduct":"https:\/\/localhost\/api\/products\/view\/1","img":"https:\/\/localhost\/storage\/products\/imgs\/1\/FpO8rYRdSEauomthotbd3uaUwzvpyjb3isUnso7X.jpg"},"post":"","delete":""}}],"created_at":"08\/09\/2021","updated_at":"08\/09\/2021","link":{"get":{"getProducts":"https:\/\/localhost\/api\/products\/list","getProduct":"https:\/\/localhost\/api\/products\/view\/1"},"post":{"addProduct":"https:\/\/localhost\/api\/products\/add"},"put":{"editProduct":"https:\/\/localhost\/api\/products\/edit\/1"},"delete":{"editProduct":"https:\/\/localhost\/api\/products\/delete\/1"}}},{"id":2,"name":"Ratione ex aut odit.","type":"f","value":"71.05","images":[{"id":2,"idprod":2,"path":"https:\/\/localhost\/storage\/products\/imgs\/2\/6w4Rtf3rs5abe6NjlC0carFRP28UpC3jWsWiJzMD.jpg","created_at":"08\/09\/2021","updated_at":"08\/09\/2021","link":{"get":{"getProducts":"https:\/\/localhost\/api\/products\/list","getProduct":"https:\/\/localhost\/api\/products\/view\/2","img":"https:\/\/localhost\/storage\/products\/imgs\/2\/6w4Rtf3rs5abe6NjlC0carFRP28UpC3jWsWiJzMD.jpg"},"post":"","delete":""}}],"created_at":"08\/09\/2021","updated_at":"08\/09\/2021","link":{"get":{"getProducts":"https:\/\/localhost\/api\/products\/list","getProduct":"https:\/\/localhost\/api\/products\/view\/2"},"post":{"addProduct":"https:\/\/localhost\/api\/products\/add"},"put":{"editProduct":"https:\/\/localhost\/api\/products\/edit\/2"},"delete":{"editProduct":"https:\/\/localhost\/api\/products\/delete\/2"}}},{"id":3,"name":"Nisi ea.","type":"x","value":"58.05","images":[{"id":3,"idprod":3,"path":"https:\/\/localhost\/storage\/products\/imgs\/3\/gT2VYx9dI0ThDRLl2PKMCy5j7API4WKzvCvZBNIP.jpg","created_at":"08\/09\/2021","updated_at":"08\/09\/2021","link":{"get":{"getProducts":"https:\/\/localhost\/api\/products\/list","getProduct":"https:\/\/localhost\/api\/products\/view\/3","img":"https:\/\/localhost\/storage\/products\/imgs\/3\/gT2VYx9dI0ThDRLl2PKMCy5j7API4WKzvCvZBNIP.jpg"},"post":"","delete":""}}],"created_at":"08\/09\/2021","updated_at":"08\/09\/2021","link":{"get":{"getProducts":"https:\/\/localhost\/api\/products\/list","getProduct":"https:\/\/localhost\/api\/products\/view\/3"},"post":{"addProduct":"https:\/\/localhost\/api\/products\/add"},"put":{"editProduct":"https:\/\/localhost\/api\/products\/edit\/3"},"delete":{"editProduct":"https:\/\/localhost\/api\/products\/delete\/3"}}},{"id":4,"name":"Qui consequuntur molestiae quis.","type":"o","value":"98.77","images":[{"id":4,"idprod":4,"path":"https:\/\/localhost\/storage\/products\/imgs\/4\/iQ10RtbiDK6THw8emWFCyrllDsElOUyTgzD9KPLx.jpg","created_at":"08\/09\/2021","updated_at":"08\/09\/2021","link":{"get":{"getProducts":"https:\/\/localhost\/api\/products\/list","getProduct":"https:\/\/localhost\/api\/products\/view\/4","img":"https:\/\/localhost\/storage\/products\/imgs\/4\/iQ10RtbiDK6THw8emWFCyrllDsElOUyTgzD9KPLx.jpg"},"post":"","delete":""}}],"created_at":"08\/09\/2021","updated_at":"08\/09\/2021","link":{"get":{"getProducts":"https:\/\/localhost\/api\/products\/list","getProduct":"https:\/\/localhost\/api\/products\/view\/4"},"post":{"addProduct":"https:\/\/localhost\/api\/products\/add"},"put":{"editProduct":"https:\/\/localhost\/api\/products\/edit\/4"},"delete":{"editProduct":"https:\/\/localhost\/api\/products\/delete\/4"}}},{"id":5,"name":"Aut temporibus ab.","type":"z","value":"9.32","images":[{"id":5,"idprod":5,"path":"https:\/\/localhost\/storage\/products\/imgs\/5\/wo5k6tmmMwkdqefF0ndKtxpd6WoM1SWDyGmK7X56.jpg","created_at":"08\/09\/2021","updated_at":"08\/09\/2021","link":{"get":{"getProducts":"https:\/\/localhost\/api\/products\/list","getProduct":"https:\/\/localhost\/api\/products\/view\/5","img":"https:\/\/localhost\/storage\/products\/imgs\/5\/wo5k6tmmMwkdqefF0ndKtxpd6WoM1SWDyGmK7X56.jpg"},"post":"","delete":""}}],"created_at":"08\/09\/2021","updated_at":"08\/09\/2021","link":{"get":{"getProducts":"https:\/\/localhost\/api\/products\/list","getProduct":"https:\/\/localhost\/api\/products\/view\/5"},"post":{"addProduct":"https:\/\/localhost\/api\/products\/add"},"put":{"editProduct":"https:\/\/localhost\/api\/products\/edit\/5"},"delete":{"editProduct":"https:\/\/localhost\/api\/products\/delete\/5"}}},{"id":6,"name":"Ducimus rerum itaque illum.","type":"i","value":"27.64","images":[{"id":6,"idprod":6,"path":"https:\/\/localhost\/storage\/products\/imgs\/6\/VaScoUlCkV1GM5O3qTsvdjHjCgZf1zO0hsM4is4g.jpg","created_at":"08\/09\/2021","updated_at":"08\/09\/2021","link":{"get":{"getProducts":"https:\/\/localhost\/api\/products\/list","getProduct":"https:\/\/localhost\/api\/products\/view\/6","img":"https:\/\/localhost\/storage\/products\/imgs\/6\/VaScoUlCkV1GM5O3qTsvdjHjCgZf1zO0hsM4is4g.jpg"},"post":"","delete":""}}],"created_at":"08\/09\/2021","updated_at":"08\/09\/2021","link":{"get":{"getProducts":"https:\/\/localhost\/api\/products\/list","getProduct":"https:\/\/localhost\/api\/products\/view\/6"},"post":{"addProduct":"https:\/\/localhost\/api\/products\/add"},"put":{"editProduct":"https:\/\/localhost\/api\/products\/edit\/6"},"delete":{"editProduct":"https:\/\/localhost\/api\/products\/delete\/6"}}},{"id":7,"name":"Accusamus ut fuga.","type":"i","value":"46.28","images":[{"id":7,"idprod":7,"path":"https:\/\/localhost\/storage\/products\/imgs\/7\/en9UA8qJWgzzeffHedZ2V3eOjx3P88qasSq20KTT.jpg","created_at":"08\/09\/2021","updated_at":"08\/09\/2021","link":{"get":{"getProducts":"https:\/\/localhost\/api\/products\/list","getProduct":"https:\/\/localhost\/api\/products\/view\/7","img":"https:\/\/localhost\/storage\/products\/imgs\/7\/en9UA8qJWgzzeffHedZ2V3eOjx3P88qasSq20KTT.jpg"},"post":"","delete":""}}],"created_at":"08\/09\/2021","updated_at":"08\/09\/2021","link":{"get":{"getProducts":"https:\/\/localhost\/api\/products\/list","getProduct":"https:\/\/localhost\/api\/products\/view\/7"},"post":{"addProduct":"https:\/\/localhost\/api\/products\/add"},"put":{"editProduct":"https:\/\/localhost\/api\/products\/edit\/7"},"delete":{"editProduct":"https:\/\/localhost\/api\/products\/delete\/7"}}},{"id":8,"name":"Dolores quidem qui.","type":"h","value":"71.93","images":[{"id":8,"idprod":8,"path":"https:\/\/localhost\/storage\/products\/imgs\/8\/ZNRkishp1xOvmmhY2LposD9VHtS8IPxjJq2wiRf6.jpg","created_at":"08\/09\/2021","updated_at":"08\/09\/2021","link":{"get":{"getProducts":"https:\/\/localhost\/api\/products\/list","getProduct":"https:\/\/localhost\/api\/products\/view\/8","img":"https:\/\/localhost\/storage\/products\/imgs\/8\/ZNRkishp1xOvmmhY2LposD9VHtS8IPxjJq2wiRf6.jpg"},"post":"","delete":""}}],"created_at":"08\/09\/2021","updated_at":"08\/09\/2021","link":{"get":{"getProducts":"https:\/\/localhost\/api\/products\/list","getProduct":"https:\/\/localhost\/api\/products\/view\/8"},"post":{"addProduct":"https:\/\/localhost\/api\/products\/add"},"put":{"editProduct":"https:\/\/localhost\/api\/products\/edit\/8"},"delete":{"editProduct":"https:\/\/localhost\/api\/products\/delete\/8"}}},{"id":9,"name":"In et nemo voluptatem.","type":"i","value":"42.77","images":[{"id":9,"idprod":9,"path":"https:\/\/localhost\/storage\/products\/imgs\/9\/RKbNyy5FYkoJkYbkWrc6gzDokjScqIJuMUeNaJcG.jpg","created_at":"08\/09\/2021","updated_at":"08\/09\/2021","link":{"get":{"getProducts":"https:\/\/localhost\/api\/products\/list","getProduct":"https:\/\/localhost\/api\/products\/view\/9","img":"https:\/\/localhost\/storage\/products\/imgs\/9\/RKbNyy5FYkoJkYbkWrc6gzDokjScqIJuMUeNaJcG.jpg"},"post":"","delete":""}}],"created_at":"08\/09\/2021","updated_at":"08\/09\/2021","link":{"get":{"getProducts":"https:\/\/localhost\/api\/products\/list","getProduct":"https:\/\/localhost\/api\/products\/view\/9"},"post":{"addProduct":"https:\/\/localhost\/api\/products\/add"},"put":{"editProduct":"https:\/\/localhost\/api\/products\/edit\/9"},"delete":{"editProduct":"https:\/\/localhost\/api\/products\/delete\/9"}}},{"id":10,"name":"Assumenda maiores delectus consequatur.","type":"t","value":"87.19","images":[{"id":10,"idprod":10,"path":"https:\/\/localhost\/storage\/products\/imgs\/10\/ltbupjM4Sv0Q7Dpgu7Cl4T6XF8pBoBZE470KrKv5.jpg","created_at":"08\/09\/2021","updated_at":"08\/09\/2021","link":{"get":{"getProducts":"https:\/\/localhost\/api\/products\/list","getProduct":"https:\/\/localhost\/api\/products\/view\/10","img":"https:\/\/localhost\/storage\/products\/imgs\/10\/ltbupjM4Sv0Q7Dpgu7Cl4T6XF8pBoBZE470KrKv5.jpg"},"post":"","delete":""}}],"created_at":"08\/09\/2021","updated_at":"08\/09\/2021","link":{"get":{"getProducts":"https:\/\/localhost\/api\/products\/list","getProduct":"https:\/\/localhost\/api\/products\/view\/10"},"post":{"addProduct":"https:\/\/localhost\/api\/products\/add"},"put":{"editProduct":"https:\/\/localhost\/api\/products\/edit\/10"},"delete":{"editProduct":"https:\/\/localhost\/api\/products\/delete\/10"}}},{"id":11,"name":"Cum amet ipsa inventore.","type":"b","value":"4.04","images":[{"id":11,"idprod":11,"path":"https:\/\/localhost\/storage\/products\/imgs\/11\/iINzmzpV8e7H1dui1xVesOrpdMHnonwxiSpLLDIK.jpg","created_at":"08\/09\/2021","updated_at":"08\/09\/2021","link":{"get":{"getProducts":"https:\/\/localhost\/api\/products\/list","getProduct":"https:\/\/localhost\/api\/products\/view\/11","img":"https:\/\/localhost\/storage\/products\/imgs\/11\/iINzmzpV8e7H1dui1xVesOrpdMHnonwxiSpLLDIK.jpg"},"post":"","delete":""}}],"created_at":"08\/09\/2021","updated_at":"08\/09\/2021","link":{"get":{"getProducts":"https:\/\/localhost\/api\/products\/list","getProduct":"https:\/\/localhost\/api\/products\/view\/11"},"post":{"addProduct":"https:\/\/localhost\/api\/products\/add"},"put":{"editProduct":"https:\/\/localhost\/api\/products\/edit\/11"},"delete":{"editProduct":"https:\/\/localhost\/api\/products\/delete\/11"}}},{"id":13,"name":"Dolorem consequatur et laboriosam.","type":"t","value":"24.49","images":[{"id":13,"idprod":13,"path":"https:\/\/localhost\/storage\/products\/imgs\/13\/rUOt1BHjTgY9juFH10emtHovUW7UrRhYPU0W6UI2.jpg","created_at":"08\/09\/2021","updated_at":"08\/09\/2021","link":{"get":{"getProducts":"https:\/\/localhost\/api\/products\/list","getProduct":"https:\/\/localhost\/api\/products\/view\/13","img":"https:\/\/localhost\/storage\/products\/imgs\/13\/rUOt1BHjTgY9juFH10emtHovUW7UrRhYPU0W6UI2.jpg"},"post":"","delete":""}}],"created_at":"08\/09\/2021","updated_at":"08\/09\/2021","link":{"get":{"getProducts":"https:\/\/localhost\/api\/products\/list","getProduct":"https:\/\/localhost\/api\/products\/view\/13"},"post":{"addProduct":"https:\/\/localhost\/api\/products\/add"},"put":{"editProduct":"https:\/\/localhost\/api\/products\/edit\/13"},"delete":{"editProduct":"https:\/\/localhost\/api\/products\/delete\/13"}}},{"id":14,"name":"Doloribus possimus natus accusantium.","type":"q","value":"80.96","images":[{"id":14,"idprod":14,"path":"https:\/\/localhost\/storage\/products\/imgs\/14\/egKPIBTqpAZ89uppNspNGlvAgT7E0UPo32bBe3lr.jpg","created_at":"08\/09\/2021","updated_at":"08\/09\/2021","link":{"get":{"getProducts":"https:\/\/localhost\/api\/products\/list","getProduct":"https:\/\/localhost\/api\/products\/view\/14","img":"https:\/\/localhost\/storage\/products\/imgs\/14\/egKPIBTqpAZ89uppNspNGlvAgT7E0UPo32bBe3lr.jpg"},"post":"","delete":""}}],"created_at":"08\/09\/2021","updated_at":"08\/09\/2021","link":{"get":{"getProducts":"https:\/\/localhost\/api\/products\/list","getProduct":"https:\/\/localhost\/api\/products\/view\/14"},"post":{"addProduct":"https:\/\/localhost\/api\/products\/add"},"put":{"editProduct":"https:\/\/localhost\/api\/products\/edit\/14"},"delete":{"editProduct":"https:\/\/localhost\/api\/products\/delete\/14"}}},{"id":15,"name":"Accusantium sit.","type":"j","value":"53.69","images":[{"id":15,"idprod":15,"path":"https:\/\/localhost\/storage\/products\/imgs\/15\/WqDyXiWnzPTp6xiniptBOQ4IBb8Z3sziTNFkFCi8.jpg","created_at":"08\/09\/2021","updated_at":"08\/09\/2021","link":{"get":{"getProducts":"https:\/\/localhost\/api\/products\/list","getProduct":"https:\/\/localhost\/api\/products\/view\/15","img":"https:\/\/localhost\/storage\/products\/imgs\/15\/WqDyXiWnzPTp6xiniptBOQ4IBb8Z3sziTNFkFCi8.jpg"},"post":"","delete":""}}],"created_at":"08\/09\/2021","updated_at":"08\/09\/2021","link":{"get":{"getProducts":"https:\/\/localhost\/api\/products\/list","getProduct":"https:\/\/localhost\/api\/products\/view\/15"},"post":{"addProduct":"https:\/\/localhost\/api\/products\/add"},"put":{"editProduct":"https:\/\/localhost\/api\/products\/edit\/15"},"delete":{"editProduct":"https:\/\/localhost\/api\/products\/delete\/15"}}},{"id":16,"name":"Ab accusamus iure.","type":"w","value":"93.19","images":[{"id":16,"idprod":16,"path":"https:\/\/localhost\/storage\/products\/imgs\/16\/4MgNlBgybjth1idPHEfJIJE3nNEPbhakmH7XuOz4.jpg","created_at":"08\/09\/2021","updated_at":"08\/09\/2021","link":{"get":{"getProducts":"https:\/\/localhost\/api\/products\/list","getProduct":"https:\/\/localhost\/api\/products\/view\/16","img":"https:\/\/localhost\/storage\/products\/imgs\/16\/4MgNlBgybjth1idPHEfJIJE3nNEPbhakmH7XuOz4.jpg"},"post":"","delete":""}}],"created_at":"08\/09\/2021","updated_at":"08\/09\/2021","link":{"get":{"getProducts":"https:\/\/localhost\/api\/products\/list","getProduct":"https:\/\/localhost\/api\/products\/view\/16"},"post":{"addProduct":"https:\/\/localhost\/api\/products\/add"},"put":{"editProduct":"https:\/\/localhost\/api\/products\/edit\/16"},"delete":{"editProduct":"https:\/\/localhost\/api\/products\/delete\/16"}}},{"id":17,"name":"Eos aut rerum et.","type":"i","value":"98.29","images":[{"id":17,"idprod":17,"path":"https:\/\/localhost\/storage\/products\/imgs\/17\/J589NiyRGUjNf6TsCtAEHd7kQKKl5HKcvyV9px7L.jpg","created_at":"08\/09\/2021","updated_at":"08\/09\/2021","link":{"get":{"getProducts":"https:\/\/localhost\/api\/products\/list","getProduct":"https:\/\/localhost\/api\/products\/view\/17","img":"https:\/\/localhost\/storage\/products\/imgs\/17\/J589NiyRGUjNf6TsCtAEHd7kQKKl5HKcvyV9px7L.jpg"},"post":"","delete":""}}],"created_at":"08\/09\/2021","updated_at":"08\/09\/2021","link":{"get":{"getProducts":"https:\/\/localhost\/api\/products\/list","getProduct":"https:\/\/localhost\/api\/products\/view\/17"},"post":{"addProduct":"https:\/\/localhost\/api\/products\/add"},"put":{"editProduct":"https:\/\/localhost\/api\/products\/edit\/17"},"delete":{"editProduct":"https:\/\/localhost\/api\/products\/delete\/17"}}},{"id":18,"name":"Qui animi et dolor.","type":"j","value":"13.79","images":[{"id":18,"idprod":18,"path":"https:\/\/localhost\/storage\/products\/imgs\/18\/GmrHVUkZHGmiHPD8N5v62WRFqh0AqOMHjo8DbRye.jpg","created_at":"08\/09\/2021","updated_at":"08\/09\/2021","link":{"get":{"getProducts":"https:\/\/localhost\/api\/products\/list","getProduct":"https:\/\/localhost\/api\/products\/view\/18","img":"https:\/\/localhost\/storage\/products\/imgs\/18\/GmrHVUkZHGmiHPD8N5v62WRFqh0AqOMHjo8DbRye.jpg"},"post":"","delete":""}}],"created_at":"08\/09\/2021","updated_at":"08\/09\/2021","link":{"get":{"getProducts":"https:\/\/localhost\/api\/products\/list","getProduct":"https:\/\/localhost\/api\/products\/view\/18"},"post":{"addProduct":"https:\/\/localhost\/api\/products\/add"},"put":{"editProduct":"https:\/\/localhost\/api\/products\/edit\/18"},"delete":{"editProduct":"https:\/\/localhost\/api\/products\/delete\/18"}}},{"id":19,"name":"Ratione voluptate ratione.","type":"d","value":"59.61","images":[{"id":19,"idprod":19,"path":"https:\/\/localhost\/storage\/products\/imgs\/19\/otz43MCV7n5JsITx2GPnIMkMAorLJCxZBlSc29wu.jpg","created_at":"08\/09\/2021","updated_at":"08\/09\/2021","link":{"get":{"getProducts":"https:\/\/localhost\/api\/products\/list","getProduct":"https:\/\/localhost\/api\/products\/view\/19","img":"https:\/\/localhost\/storage\/products\/imgs\/19\/otz43MCV7n5JsITx2GPnIMkMAorLJCxZBlSc29wu.jpg"},"post":"","delete":""}}],"created_at":"08\/09\/2021","updated_at":"08\/09\/2021","link":{"get":{"getProducts":"https:\/\/localhost\/api\/products\/list","getProduct":"https:\/\/localhost\/api\/products\/view\/19"},"post":{"addProduct":"https:\/\/localhost\/api\/products\/add"},"put":{"editProduct":"https:\/\/localhost\/api\/products\/edit\/19"},"delete":{"editProduct":"https:\/\/localhost\/api\/products\/delete\/19"}}},{"id":20,"name":"Temporibus suscipit laborum.","type":"s","value":"41.68","images":[{"id":20,"idprod":20,"path":"https:\/\/localhost\/storage\/products\/imgs\/20\/99afbTVaREQ4gmAqx0UWfs7ZFzGNBL6Ia33jk6fE.jpg","created_at":"08\/09\/2021","updated_at":"08\/09\/2021","link":{"get":{"getProducts":"https:\/\/localhost\/api\/products\/list","getProduct":"https:\/\/localhost\/api\/products\/view\/20","img":"https:\/\/localhost\/storage\/products\/imgs\/20\/99afbTVaREQ4gmAqx0UWfs7ZFzGNBL6Ia33jk6fE.jpg"},"post":"","delete":""}}],"created_at":"08\/09\/2021","updated_at":"08\/09\/2021","link":{"get":{"getProducts":"https:\/\/localhost\/api\/products\/list","getProduct":"https:\/\/localhost\/api\/products\/view\/20"},"post":{"addProduct":"https:\/\/localhost\/api\/products\/add"},"put":{"editProduct":"https:\/\/localhost\/api\/products\/edit\/20"},"delete":{"editProduct":"https:\/\/localhost\/api\/products\/delete\/20"}}},{"id":21,"name":"ducimus","type":"eum","value":"82.05","images":[{"id":21,"idprod":21,"path":"https:\/\/localhost\/storage\/products\/imgs\/21\/Nvtz7zY5AiuQUQ2sDmusyWwSrHXsqBlnNJnO5ZGS.jpg","created_at":"08\/09\/2021","updated_at":"08\/09\/2021","link":{"get":{"getProducts":"https:\/\/localhost\/api\/products\/list","getProduct":"https:\/\/localhost\/api\/products\/view\/21","img":"https:\/\/localhost\/storage\/products\/imgs\/21\/Nvtz7zY5AiuQUQ2sDmusyWwSrHXsqBlnNJnO5ZGS.jpg"},"post":"","delete":""}}],"created_at":"08\/09\/2021","updated_at":"08\/09\/2021","link":{"get":{"getProducts":"https:\/\/localhost\/api\/products\/list","getProduct":"https:\/\/localhost\/api\/products\/view\/21"},"post":{"addProduct":"https:\/\/localhost\/api\/products\/add"},"put":{"editProduct":"https:\/\/localhost\/api\/products\/edit\/21"},"delete":{"editProduct":"https:\/\/localhost\/api\/products\/delete\/21"}}}],"code":200}'
         headers:
           cache-control: 'no-cache, private'
+          content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '59'
+          access-control-allow-origin: '*'
         description: null
     responseFields: []
   -
@@ -69,58 +37,26 @@ endpoints:
       authenticated: false
     headers:
       Content-Type: application/json
-      Accept: '*/*'
+      Accept: application/json
     urlParameters:
       product:
         name: product
         description: 'O ID do produto'
         required: true
-        example: 8
+        example: 2
         type: integer
     queryParameters: []
     bodyParameters: []
     responses:
       -
-        status: 404
-        content: |
-          <!DOCTYPE html>
-          <html lang="en">
-              <head>
-                  <meta charset="utf-8">
-                  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-                  <title>Not Found</title>
-
-                  <!-- Fonts -->
-                  <link rel="preconnect" href="https://fonts.gstatic.com">
-                  <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
-
-                  <style>
-                      /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}a{background-color:transparent}code{font-family:monospace,monospace;font-size:1em}[hidden]{display:none}html{font-family:system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;line-height:1.5}*,:after,:before{box-sizing:border-box;border:0 solid #e2e8f0}a{color:inherit;text-decoration:inherit}code{font-family:Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace}svg,video{display:block;vertical-align:middle}video{max-width:100%;height:auto}.bg-white{--bg-opacity:1;background-color:#fff;background-color:rgba(255,255,255,var(--bg-opacity))}.bg-gray-100{--bg-opacity:1;background-color:#f7fafc;background-color:rgba(247,250,252,var(--bg-opacity))}.border-gray-200{--border-opacity:1;border-color:#edf2f7;border-color:rgba(237,242,247,var(--border-opacity))}.border-gray-400{--border-opacity:1;border-color:#cbd5e0;border-color:rgba(203,213,224,var(--border-opacity))}.border-t{border-top-width:1px}.border-r{border-right-width:1px}.flex{display:flex}.grid{display:grid}.hidden{display:none}.items-center{align-items:center}.justify-center{justify-content:center}.font-semibold{font-weight:600}.h-5{height:1.25rem}.h-8{height:2rem}.h-16{height:4rem}.text-sm{font-size:.875rem}.text-lg{font-size:1.125rem}.leading-7{line-height:1.75rem}.mx-auto{margin-left:auto;margin-right:auto}.ml-1{margin-left:.25rem}.mt-2{margin-top:.5rem}.mr-2{margin-right:.5rem}.ml-2{margin-left:.5rem}.mt-4{margin-top:1rem}.ml-4{margin-left:1rem}.mt-8{margin-top:2rem}.ml-12{margin-left:3rem}.-mt-px{margin-top:-1px}.max-w-xl{max-width:36rem}.max-w-6xl{max-width:72rem}.min-h-screen{min-height:100vh}.overflow-hidden{overflow:hidden}.p-6{padding:1.5rem}.py-4{padding-top:1rem;padding-bottom:1rem}.px-4{padding-left:1rem;padding-right:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.pt-8{padding-top:2rem}.fixed{position:fixed}.relative{position:relative}.top-0{top:0}.right-0{right:0}.shadow{box-shadow:0 1px 3px 0 rgba(0,0,0,.1),0 1px 2px 0 rgba(0,0,0,.06)}.text-center{text-align:center}.text-gray-200{--text-opacity:1;color:#edf2f7;color:rgba(237,242,247,var(--text-opacity))}.text-gray-300{--text-opacity:1;color:#e2e8f0;color:rgba(226,232,240,var(--text-opacity))}.text-gray-400{--text-opacity:1;color:#cbd5e0;color:rgba(203,213,224,var(--text-opacity))}.text-gray-500{--text-opacity:1;color:#a0aec0;color:rgba(160,174,192,var(--text-opacity))}.text-gray-600{--text-opacity:1;color:#718096;color:rgba(113,128,150,var(--text-opacity))}.text-gray-700{--text-opacity:1;color:#4a5568;color:rgba(74,85,104,var(--text-opacity))}.text-gray-900{--text-opacity:1;color:#1a202c;color:rgba(26,32,44,var(--text-opacity))}.uppercase{text-transform:uppercase}.underline{text-decoration:underline}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.tracking-wider{letter-spacing:.05em}.w-5{width:1.25rem}.w-8{width:2rem}.w-auto{width:auto}.grid-cols-1{grid-template-columns:repeat(1,minmax(0,1fr))}@-webkit-keyframes spin{0%{transform:rotate(0deg)}to{transform:rotate(1turn)}}@keyframes  spin{0%{transform:rotate(0deg)}to{transform:rotate(1turn)}}@-webkit-keyframes ping{0%{transform:scale(1);opacity:1}75%,to{transform:scale(2);opacity:0}}@keyframes  ping{0%{transform:scale(1);opacity:1}75%,to{transform:scale(2);opacity:0}}@-webkit-keyframes pulse{0%,to{opacity:1}50%{opacity:.5}}@keyframes  pulse{0%,to{opacity:1}50%{opacity:.5}}@-webkit-keyframes bounce{0%,to{transform:translateY(-25%);-webkit-animation-timing-function:cubic-bezier(.8,0,1,1);animation-timing-function:cubic-bezier(.8,0,1,1)}50%{transform:translateY(0);-webkit-animation-timing-function:cubic-bezier(0,0,.2,1);animation-timing-function:cubic-bezier(0,0,.2,1)}}@keyframes  bounce{0%,to{transform:translateY(-25%);-webkit-animation-timing-function:cubic-bezier(.8,0,1,1);animation-timing-function:cubic-bezier(.8,0,1,1)}50%{transform:translateY(0);-webkit-animation-timing-function:cubic-bezier(0,0,.2,1);animation-timing-function:cubic-bezier(0,0,.2,1)}}@media (min-width:640px){.sm\:rounded-lg{border-radius:.5rem}.sm\:block{display:block}.sm\:items-center{align-items:center}.sm\:justify-start{justify-content:flex-start}.sm\:justify-between{justify-content:space-between}.sm\:h-20{height:5rem}.sm\:ml-0{margin-left:0}.sm\:px-6{padding-left:1.5rem;padding-right:1.5rem}.sm\:pt-0{padding-top:0}.sm\:text-left{text-align:left}.sm\:text-right{text-align:right}}@media (min-width:768px){.md\:border-t-0{border-top-width:0}.md\:border-l{border-left-width:1px}.md\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}}@media (min-width:1024px){.lg\:px-8{padding-left:2rem;padding-right:2rem}}@media (prefers-color-scheme:dark){.dark\:bg-gray-800{--bg-opacity:1;background-color:#2d3748;background-color:rgba(45,55,72,var(--bg-opacity))}.dark\:bg-gray-900{--bg-opacity:1;background-color:#1a202c;background-color:rgba(26,32,44,var(--bg-opacity))}.dark\:border-gray-700{--border-opacity:1;border-color:#4a5568;border-color:rgba(74,85,104,var(--border-opacity))}.dark\:text-white{--text-opacity:1;color:#fff;color:rgba(255,255,255,var(--text-opacity))}.dark\:text-gray-400{--text-opacity:1;color:#cbd5e0;color:rgba(203,213,224,var(--text-opacity))}}
-                  </style>
-
-                  <style>
-                      body {
-                          font-family: 'Nunito', sans-serif;
-                      }
-                  </style>
-              </head>
-              <body class="antialiased">
-                  <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center sm:pt-0">
-                      <div class="max-w-xl mx-auto sm:px-6 lg:px-8">
-                          <div class="flex items-center pt-8 sm:justify-start sm:pt-0">
-                              <div class="px-4 text-lg text-gray-500 border-r border-gray-400 tracking-wider">
-                                  404                    </div>
-
-                              <div class="ml-4 text-lg text-gray-500 uppercase tracking-wider">
-                                  Not Found                    </div>
-                          </div>
-                      </div>
-                  </div>
-              </body>
-          </html>
+        status: 200
+        content: '{"message":"Produto encontrado!","type":"success","data":{"id":2,"name":"Ratione ex aut odit.","type":"f","value":"71.05","images":[{"id":2,"idprod":2,"path":"https:\/\/localhost\/storage\/products\/imgs\/2\/6w4Rtf3rs5abe6NjlC0carFRP28UpC3jWsWiJzMD.jpg","created_at":"08\/09\/2021","updated_at":"08\/09\/2021","link":{"get":{"getProducts":"https:\/\/localhost\/api\/products\/list","getProduct":"https:\/\/localhost\/api\/products\/view\/2","img":"https:\/\/localhost\/storage\/products\/imgs\/2\/6w4Rtf3rs5abe6NjlC0carFRP28UpC3jWsWiJzMD.jpg"},"post":"","delete":""}}],"created_at":"08\/09\/2021","updated_at":"08\/09\/2021","link":{"get":{"getProducts":"https:\/\/localhost\/api\/products\/list","getProduct":"https:\/\/localhost\/api\/products\/view\/2"},"post":{"addProduct":"https:\/\/localhost\/api\/products\/add"},"put":{"editProduct":"https:\/\/localhost\/api\/products\/edit\/2"},"delete":{"editProduct":"https:\/\/localhost\/api\/products\/delete\/2"}}},"code":200}'
         headers:
           cache-control: 'no-cache, private'
+          content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '58'
+          access-control-allow-origin: '*'
         description: null
     responseFields: []
   -
@@ -134,7 +70,7 @@ endpoints:
     headers:
       Authorization: 'Bearer {ACCESS_TOKEN}'
       Content-Type: multipart/form-data
-      Accept: '*/*'
+      Accept: application/json
     urlParameters: []
     queryParameters: []
     bodyParameters:
@@ -142,19 +78,19 @@ endpoints:
         name: name
         description: 'Um nome do produto.'
         required: true
-        example: dolorem
+        example: suscipit
         type: string
       type:
         name: type
         description: 'O tipo do produto.'
         required: true
-        example: eum
+        example: delectus
         type: string
       value:
         name: value
         description: 'Valor do produto.'
         required: true
-        example: 4909139.67
+        example: 60.1268
         type: number
       'images[]':
         name: 'images[]'
@@ -175,13 +111,13 @@ endpoints:
     headers:
       Authorization: 'Bearer {ACCESS_TOKEN}'
       Content-Type: application/json
-      Accept: '*/*'
+      Accept: application/json
     urlParameters:
       product:
         name: product
         description: 'O ID do produto'
         required: true
-        example: 17
+        example: 18
         type: integer
     queryParameters: []
     bodyParameters:
@@ -189,19 +125,19 @@ endpoints:
         name: name
         description: 'Um nome do produto.'
         required: true
-        example: quia
+        example: cumque
         type: string
       type:
         name: type
         description: 'O tipo do produto.'
         required: true
-        example: et
+        example: magnam
         type: string
       value:
         name: value
         description: 'Valor do produto.'
         required: true
-        example: 2.672358292
+        example: 41644.61444468
         type: number
     responses: []
     responseFields: []
@@ -216,13 +152,13 @@ endpoints:
     headers:
       Authorization: 'Bearer {ACCESS_TOKEN}'
       Content-Type: application/json
-      Accept: '*/*'
+      Accept: application/json
     urlParameters:
       product:
         name: product
         description: 'O ID do produto'
         required: true
-        example: 17
+        example: 5
         type: integer
     queryParameters: []
     bodyParameters: []

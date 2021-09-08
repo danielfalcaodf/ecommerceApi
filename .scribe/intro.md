@@ -8,5 +8,5 @@ API RESTFul para o gerenciamento de pedidos de um E-commerce utilizando o framew
 > Base URL
 
 ```yaml
-https://localhost/laravelProjetos/ecommerceApi/public/
+https://localhost
 ```
