@@ -91,13 +91,21 @@ Ferramentas usadas
 ### ⚙️ Configuração do .env <a name = "configEnv"></a>
 
 -   Banco de dados
+
     ![img-db](https://github.com/danielfalcaodf/ecommerceApi/blob/master/public/demos/configEnv/img-db.png?raw=true)
+
 -   App
+
     ![img-app](https://github.com/danielfalcaodf/ecommerceApi/blob/master/public/demos/configEnv/img-app.png?raw=true)
+
 -   Filesystem
+
     ![img-file](https://github.com/danielfalcaodf/ecommerceApi/blob/master/public/demos/configEnv/img-files.png?raw=true)
+
 -   Mail
+
     ![img-mail](https://github.com/danielfalcaodf/ecommerceApi/blob/master/public/demos/configEnv/img-mail.png?raw=true)
+
 -   Logo após de configurar o `.env`, Abir o CMD na raiz do projeto , execultar comando `php artisan migrate:fresh --seed` com isso as Migrations e Seeds do projeto vai alimentar o banco de dados
 
 🎉 Está tudo pronto!! bons testes
@@ -155,4 +163,5 @@ baseUrl = https://apiteste.grupodouglascosta.com.br
 ```
 
 -   Rotas
-    ![img-router](https://github.com/danielfalcaodf/ecommerceApi/blob/master/public/demos/teste/img-route.png?raw=true)
+
+    ![img-router](https://github.com/danielfalcaodf/ecommerceApi/blob/master/public/demos/testes/img-route.png?raw=true)
