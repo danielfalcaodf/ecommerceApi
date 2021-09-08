@@ -80,7 +80,7 @@ class UserController extends ApiController
             return $this->sendResponse(new UserResources($user), 'Nenhum dado novo!', 202);
         }
         $user->save();
-        return $this->sendResponse(new UserResources($user), 'Produto alterado!');
+        return $this->sendResponse(new UserResources($user), 'Usuário alterado!');
     }
 
     /**
