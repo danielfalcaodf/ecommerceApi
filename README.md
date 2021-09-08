@@ -18,9 +18,11 @@
 -   [Ferramentas](#pre)
 -   [Requisitos](#Requisitos)
 -   [Instalação](#install)
+-   [Configuração do .env](#configEnv)
 -   [Deployment](#deployment)
 -   [Uso](#usage)
--   [Built usando](#built_using)
+-   [Estrutura da api](#api)
+-   [Teste Unitários](#test)
     <!-- - [TODO](../TODO.md) -->
     <!-- - [Contributing](../CONTRIBUTING.md) -->
     <!-- - [Authors](#authors) -->
@@ -28,11 +30,14 @@
 
 ## 🧐 Sobre <a name = "about"></a>
 
-API RESTFul para o gerenciamento de pedidos de um E-commerce utilizando o framework Laravel, contêm os módulos Comprador, Produto, Checkout, Auth e Usuário
+API RESTFul para o gerenciamento de pedidos de um E-commerce utilizando o framework Laravel, contêm os módulos Comprador, Produto, Checkout, Auth e Usuário.
+
+> Obs.: O Docker na minha marquina esta dando erro, não conseguir resolver o
+> [erro](https://github.com/danielfalcaodf/ecommerceApi/blob/master/public/demos/testes/img-errordocker.png), então optei em dar deploy da aplicação em uma hospedagem [E-commerce Api](https://apiteste.grupodouglascosta.com.br "Api")
 
 ## 🏁 Começando <a name = "getting_started"></a>
 
-Essas instruções fornecerão uma cópia do projeto instalado e funcionando em sua máquina local para fins de desenvolvimento e teste. Consulte [Deployment](#deployment) para obter notas sobre como implantar o projeto em um sistema ativo.
+Essas instruções fornecerão uma cópia do projeto em sua máquina local para fins de desenvolvimento e teste. Consulte [Deployment](#deployment) para obter notas sobre como implantar o projeto em uma hospedagem.
 
 ### ⛏️ Ferramentas <a name = "pre"></a>
 
@@ -153,18 +158,7 @@ Para começar a usar o sistema siga estes passos:
     123456
     ```
 
-## :memo: Teste Uniários <a name="test"></a>
-
-Os testes da api foi feito em uma hospedagem propria [E-commerce Api](https://apiteste.grupodouglascosta.com.br "Api docs"),
-Api já tem documentação em [Api Docs](https://apiteste.grupodouglascosta.com.br/docs "Api docs")
-
-```
-baseUrl = https://apiteste.grupodouglascosta.com.br
-```
-
-> Importar collections para [Postman](https://www.postman.com "Postman"): https://apiteste.grupodouglascosta.com.br/docs/collection.json
-
-### Estruras da api
+## Estrutura da api <a name="api"></a>
 
 -
 
@@ -216,7 +210,18 @@ baseUrl = https://apiteste.grupodouglascosta.com.br
 
     ![img-apiresponser](https://github.com/danielfalcaodf/ecommerceApi/blob/master/public/demos/testes/img-apiresponser.png?raw=true)
 
-## :memo: Indices
+## :memo: Teste Unitários <a name="test"></a>
+
+Os testes da api foi feito em uma hospedagem propria [E-commerce Api](https://apiteste.grupodouglascosta.com.br "Api"),
+Api já tem documentação em [Api Docs](https://apiteste.grupodouglascosta.com.br/docs "Api docs")
+
+```
+baseUrl = https://apiteste.grupodouglascosta.com.br
+```
+
+> Importar collections para [Postman](https://www.postman.com "Postman"): https://apiteste.grupodouglascosta.com.br/docs/collection.json
+
+### :memo: Indices
 
 -   [Autenticação Jwt](#autenticação-jwt)
 
