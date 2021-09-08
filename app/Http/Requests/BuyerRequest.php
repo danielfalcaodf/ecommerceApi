@@ -28,13 +28,13 @@ class BuyerRequest extends FormRequest
             return [
                 'phone_cell' => 'required|celular_com_ddd',
                 'cpf' => 'required|cpf',
-                'iduser' => 'required|unique:buyers',
+                'iduser' => 'required|unique:buyers|exists:users,id',
             ];
         } else {
             return [
                 'phone_cell' => 'required|celular_com_ddd',
                 'cpf' => 'required|cpf',
-                'iduser' => 'required',
+
             ];
         }
     }

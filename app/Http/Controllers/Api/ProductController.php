@@ -140,7 +140,7 @@ class ProductController extends ApiController
         $product->name = $request->name;
         $product->type = $request->type;
         $product->value = $request->value;
-        if (!$product->wasChanged()) {
+        if (!$product->isDirty()) {
 
             return $this->sendResponse(new ProductResource($product), 'Nenhum dado novo!', 202);
         }

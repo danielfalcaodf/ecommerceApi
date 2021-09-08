@@ -40,9 +40,13 @@ class CheckoutController extends ApiController
     public function getCheckouts()
     {
         $user = (new UserController)->user();
-        $checkouts = Checkout::where('iduser', $user->id)->get();
+        if (!$buyer = Buyer::where('iduser', $user->id)->first()) {
 
-        return $this->sendResponse(CheckoutResources::collection($checkouts), 'Pedidos encontrado!');
+            return $this->sendError('Você não tem pedidos');
+        }
+        $checkouts = Checkout::where('idbuyer', $buyer->id)->get();
+
+        return $this->sendResponse(CheckoutResources::collection($checkouts), 'Pedidos encontrados!');
     }
     /**
      * Buscar pedido do usuário

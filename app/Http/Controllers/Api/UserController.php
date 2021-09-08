@@ -22,7 +22,7 @@ class UserController extends ApiController
      *
      *
      * @group Usuários
-     *
+     * @authenticated
      * @return \Illuminate\Http\Response
      */
     public function getListAll()
@@ -35,9 +35,8 @@ class UserController extends ApiController
      *
      * Apresenta as informações do usuário logado que foi passado com JWT
      *
-     *
      * @group Usuários
-     *
+     * @authenticated
      * @return \Illuminate\Http\Response
      */
     public function getMe()
@@ -59,6 +58,7 @@ class UserController extends ApiController
      * @bodyParam email string required  Email do usuário que não existe no banco de dados.
      *
      * @group Usuários
+     * @authenticated
      * @param UserRequest $request
      * @return \Illuminate\Http\Response
      */
@@ -75,7 +75,7 @@ class UserController extends ApiController
         $user->name = $request->name;
         $user->email = $request->email;
 
-        if (!$user->wasChanged()) {
+        if (!$user->isDirty()) {
 
             return $this->sendResponse(new UserResources($user), 'Nenhum dado novo!', 202);
         }

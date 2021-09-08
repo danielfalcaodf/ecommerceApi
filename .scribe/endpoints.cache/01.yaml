@@ -26,7 +26,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '55'
+          x-ratelimit-remaining: '35'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
@@ -47,7 +47,7 @@ endpoints:
         name: buyer
         description: 'O ID do comprador'
         required: true
-        example: 4
+        example: 15
         type: integer
     queryParameters: []
     bodyParameters: []
@@ -59,7 +59,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '54'
+          x-ratelimit-remaining: '34'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
@@ -82,19 +82,19 @@ endpoints:
         name: phone_cell
         description: 'O Telefone ou celular do comprador.'
         required: true
-        example: perspiciatis
+        example: optio
         type: string
       cpf:
         name: cpf
         description: 'CPF do comprador.'
         required: true
-        example: quaerat
+        example: quasi
         type: string
       iduser:
         name: iduser
         description: 'O ID do usuário.'
         required: true
-        example: possimus
+        example: ullam
         type: string
     responses: []
     responseFields: []
@@ -115,7 +115,7 @@ endpoints:
         name: buyer
         description: 'O ID do comprador'
         required: true
-        example: 5
+        example: 10
         type: integer
     queryParameters: []
     bodyParameters:
@@ -123,19 +123,19 @@ endpoints:
         name: phone_cell
         description: 'Telefone ou Celular.'
         required: true
-        example: atque
+        example: dicta
         type: string
       cpf:
         name: cpf
         description: CPF.
         required: true
-        example: et
+        example: quaerat
         type: string
       iduser:
         name: iduser
-        description: 'O id do Usuário.'
+        description: ''
         required: true
-        example: perspiciatis
+        example: veritatis
         type: string
     responses: []
     responseFields: []
@@ -156,7 +156,7 @@ endpoints:
         name: buyer
         description: 'O ID do comprador'
         required: true
-        example: 13
+        example: 9
         type: integer
     queryParameters: []
     bodyParameters: []

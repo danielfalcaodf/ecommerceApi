@@ -26,7 +26,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '51'
+          x-ratelimit-remaining: '31'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
@@ -47,7 +47,7 @@ endpoints:
         name: checkout
         description: 'O ID do pedido'
         required: true
-        example: 5
+        example: 4
         type: integer
     queryParameters: []
     bodyParameters: []
@@ -59,7 +59,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '50'
+          x-ratelimit-remaining: '30'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
@@ -84,7 +84,7 @@ endpoints:
         name: idbuyer
         description: 'O ID do comprador .'
         required: true
-        example: et
+        example: deleniti
         type: string
       products:
         name: products
@@ -105,13 +105,13 @@ endpoints:
         name: 'products[].id'
         description: 'O ID do produto.'
         required: true
-        example: id
+        example: earum
         type: string
       'products[].quant':
         name: 'products[].quant'
         description: 'A quantidade do produto.'
         required: true
-        example: sed
+        example: aut
         type: string
     responses: []
     responseFields: []
@@ -132,7 +132,7 @@ endpoints:
         name: checkout
         description: 'O ID do pedido'
         required: true
-        example: 10
+        example: 15
         type: integer
     queryParameters: []
     bodyParameters:
@@ -140,7 +140,7 @@ endpoints:
         name: idbuyer
         description: 'O ID do comprador.'
         required: true
-        example: error
+        example: hic
         type: string
       products:
         name: products
@@ -161,13 +161,13 @@ endpoints:
         name: 'products[].id'
         description: 'O ID do produto.'
         required: true
-        example: non
+        example: ea
         type: string
       'products[].quant':
         name: 'products[].quant'
         description: 'A quantidade do produto.'
         required: true
-        example: reprehenderit
+        example: amet
         type: string
     responses: []
     responseFields: []
@@ -188,7 +188,7 @@ endpoints:
         name: checkout
         description: 'O ID do pedido'
         required: true
-        example: 10
+        example: 6
         type: integer
     queryParameters: []
     bodyParameters: []

@@ -87,7 +87,6 @@ class BuyerController extends ApiController
      *
      * @urlParam buyer integer required O ID do comprador
      *
-     * @bodyParam iduser string required  O id do Usuário.
      * @bodyParam phone_cell string required  Telefone ou Celular.
      * @bodyParam cpf string required  CPF.
      *
@@ -105,10 +104,9 @@ class BuyerController extends ApiController
         if (is_null($buyer)) {
             return $this->sendError('Comprador não encontrado!');
         }
-        $buyer->iduser = $request->iduser;
         $buyer->phone_cell = $request->phone_cell;
         $buyer->cpf = $request->cpf;
-        if (!$buyer->wasChanged()) {
+        if (!$buyer->isDirty()) {
             return $this->sendResponse(new BuyerResource($buyer), 'Nenhum dado novo!', 202);
         }
         $buyer->save();

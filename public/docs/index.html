@@ -789,7 +789,7 @@ response.json()</code></pre>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 x-ratelimit-limit: 60
-x-ratelimit-remaining: 55
+x-ratelimit-remaining: 35
 access-control-allow-origin: *
  </code></pre>
         </details>         <pre>
@@ -863,14 +863,14 @@ access-control-allow-origin: *
 
 
 <pre><code class="language-bash">curl --request GET \
-    --get "https://localhost/api/buyers/view/4" \
+    --get "https://localhost/api/buyers/view/15" \
     --header "Authorization: Bearer {ACCESS_TOKEN}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre>
 
 <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;get(
-    'https://localhost/api/buyers/view/4',
+    'https://localhost/api/buyers/view/15',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {ACCESS_TOKEN}',
@@ -882,7 +882,7 @@ $body = $response-&gt;getBody();
 print_r(json_decode((string) $body));</code></pre>
 
 <pre><code class="language-javascript">const url = new URL(
-    "https://localhost/api/buyers/view/4"
+    "https://localhost/api/buyers/view/15"
 );
 
 const headers = {
@@ -899,7 +899,7 @@ fetch(url, {
 <pre><code class="language-python">import requests
 import json
 
-url = 'https://localhost/api/buyers/view/4'
+url = 'https://localhost/api/buyers/view/15'
 headers = {
   'Authorization': 'Bearer {ACCESS_TOKEN}',
   'Content-Type': 'application/json',
@@ -921,7 +921,7 @@ response.json()</code></pre>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 x-ratelimit-limit: 60
-x-ratelimit-remaining: 54
+x-ratelimit-remaining: 34
 access-control-allow-origin: *
  </code></pre>
         </details>         <pre>
@@ -1009,9 +1009,9 @@ access-control-allow-origin: *
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"phone_cell\": \"perspiciatis\",
-    \"cpf\": \"quaerat\",
-    \"iduser\": \"possimus\"
+    \"phone_cell\": \"optio\",
+    \"cpf\": \"quasi\",
+    \"iduser\": \"ullam\"
 }"
 </code></pre>
 
@@ -1024,9 +1024,9 @@ $response = $client-&gt;post(
             'Accept' =&gt; 'application/json',
         ],
         'json' =&gt; [
-            'phone_cell' =&gt; 'perspiciatis',
-            'cpf' =&gt; 'quaerat',
-            'iduser' =&gt; 'possimus',
+            'phone_cell' =&gt; 'optio',
+            'cpf' =&gt; 'quasi',
+            'iduser' =&gt; 'ullam',
         ],
     ]
 );
@@ -1044,9 +1044,9 @@ const headers = {
 };
 
 let body = {
-    "phone_cell": "perspiciatis",
-    "cpf": "quaerat",
-    "iduser": "possimus"
+    "phone_cell": "optio",
+    "cpf": "quasi",
+    "iduser": "ullam"
 }
 
 fetch(url, {
@@ -1060,9 +1060,9 @@ import json
 
 url = 'https://localhost/api/buyers/add'
 payload = {
-    "phone_cell": "perspiciatis",
-    "cpf": "quaerat",
-    "iduser": "possimus"
+    "phone_cell": "optio",
+    "cpf": "quasi",
+    "iduser": "ullam"
 }
 headers = {
   'Authorization': 'Bearer {ACCESS_TOKEN}',
@@ -1164,29 +1164,29 @@ response.json()</code></pre>
 
 
 <pre><code class="language-bash">curl --request PUT \
-    "https://localhost/api/buyers/edit/5" \
+    "https://localhost/api/buyers/edit/10" \
     --header "Authorization: Bearer {ACCESS_TOKEN}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"phone_cell\": \"atque\",
-    \"cpf\": \"et\",
-    \"iduser\": \"perspiciatis\"
+    \"phone_cell\": \"dicta\",
+    \"cpf\": \"quaerat\",
+    \"iduser\": \"veritatis\"
 }"
 </code></pre>
 
 <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;put(
-    'https://localhost/api/buyers/edit/5',
+    'https://localhost/api/buyers/edit/10',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {ACCESS_TOKEN}',
             'Accept' =&gt; 'application/json',
         ],
         'json' =&gt; [
-            'phone_cell' =&gt; 'atque',
-            'cpf' =&gt; 'et',
-            'iduser' =&gt; 'perspiciatis',
+            'phone_cell' =&gt; 'dicta',
+            'cpf' =&gt; 'quaerat',
+            'iduser' =&gt; 'veritatis',
         ],
     ]
 );
@@ -1194,7 +1194,7 @@ $body = $response-&gt;getBody();
 print_r(json_decode((string) $body));</code></pre>
 
 <pre><code class="language-javascript">const url = new URL(
-    "https://localhost/api/buyers/edit/5"
+    "https://localhost/api/buyers/edit/10"
 );
 
 const headers = {
@@ -1204,9 +1204,9 @@ const headers = {
 };
 
 let body = {
-    "phone_cell": "atque",
-    "cpf": "et",
-    "iduser": "perspiciatis"
+    "phone_cell": "dicta",
+    "cpf": "quaerat",
+    "iduser": "veritatis"
 }
 
 fetch(url, {
@@ -1218,11 +1218,11 @@ fetch(url, {
 <pre><code class="language-python">import requests
 import json
 
-url = 'https://localhost/api/buyers/edit/5'
+url = 'https://localhost/api/buyers/edit/10'
 payload = {
-    "phone_cell": "atque",
-    "cpf": "et",
-    "iduser": "perspiciatis"
+    "phone_cell": "dicta",
+    "cpf": "quaerat",
+    "iduser": "veritatis"
 }
 headers = {
   'Authorization': 'Bearer {ACCESS_TOKEN}',
@@ -1316,7 +1316,7 @@ response.json()</code></pre>
                data-endpoint="PUTapi-buyers-edit--buyer-"
                data-component="body" required  hidden>
     <br>
-<p>O id do Usuário.</p>        </p>
+        </p>
     
     </form>
 
@@ -1333,14 +1333,14 @@ response.json()</code></pre>
 
 
 <pre><code class="language-bash">curl --request DELETE \
-    "https://localhost/api/buyers/delete/13" \
+    "https://localhost/api/buyers/delete/9" \
     --header "Authorization: Bearer {ACCESS_TOKEN}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre>
 
 <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;delete(
-    'https://localhost/api/buyers/delete/13',
+    'https://localhost/api/buyers/delete/9',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {ACCESS_TOKEN}',
@@ -1352,7 +1352,7 @@ $body = $response-&gt;getBody();
 print_r(json_decode((string) $body));</code></pre>
 
 <pre><code class="language-javascript">const url = new URL(
-    "https://localhost/api/buyers/delete/13"
+    "https://localhost/api/buyers/delete/9"
 );
 
 const headers = {
@@ -1369,7 +1369,7 @@ fetch(url, {
 <pre><code class="language-python">import requests
 import json
 
-url = 'https://localhost/api/buyers/delete/13'
+url = 'https://localhost/api/buyers/delete/9'
 headers = {
   'Authorization': 'Bearer {ACCESS_TOKEN}',
   'Content-Type': 'application/json',
@@ -1515,7 +1515,7 @@ response.json()</code></pre>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 x-ratelimit-limit: 60
-x-ratelimit-remaining: 53
+x-ratelimit-remaining: 33
 access-control-allow-origin: *
  </code></pre>
         </details>         <pre>
@@ -1589,14 +1589,14 @@ access-control-allow-origin: *
 
 
 <pre><code class="language-bash">curl --request GET \
-    --get "https://localhost/api/checkouts/me/view/7" \
+    --get "https://localhost/api/checkouts/me/view/18" \
     --header "Authorization: Bearer {ACCESS_TOKEN}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre>
 
 <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;get(
-    'https://localhost/api/checkouts/me/view/7',
+    'https://localhost/api/checkouts/me/view/18',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {ACCESS_TOKEN}',
@@ -1608,7 +1608,7 @@ $body = $response-&gt;getBody();
 print_r(json_decode((string) $body));</code></pre>
 
 <pre><code class="language-javascript">const url = new URL(
-    "https://localhost/api/checkouts/me/view/7"
+    "https://localhost/api/checkouts/me/view/18"
 );
 
 const headers = {
@@ -1625,7 +1625,7 @@ fetch(url, {
 <pre><code class="language-python">import requests
 import json
 
-url = 'https://localhost/api/checkouts/me/view/7'
+url = 'https://localhost/api/checkouts/me/view/18'
 headers = {
   'Authorization': 'Bearer {ACCESS_TOKEN}',
   'Content-Type': 'application/json',
@@ -1647,7 +1647,7 @@ response.json()</code></pre>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 x-ratelimit-limit: 60
-x-ratelimit-remaining: 52
+x-ratelimit-remaining: 32
 access-control-allow-origin: *
  </code></pre>
         </details>         <pre>
@@ -1739,20 +1739,20 @@ Se estiver tudo certo será enviado um email ao comprador com a confirmação do
     --data "{
     \"products\": [
         {
-            \"id\": \"ab\",
-            \"quant\": \"nobis\"
+            \"id\": \"amet\",
+            \"quant\": \"atque\"
         },
         {
-            \"id\": \"ab\",
-            \"quant\": \"nobis\"
+            \"id\": \"amet\",
+            \"quant\": \"atque\"
         },
         {
             \"id\": \"2\",
             \"quant\": \"3\"
         }
     ],
-    \"phone_cell\": \"non\",
-    \"cpf\": \"perspiciatis\"
+    \"phone_cell\": \"possimus\",
+    \"cpf\": \"explicabo\"
 }"
 </code></pre>
 
@@ -1782,17 +1782,17 @@ $response = $client-&gt;post(
             [
                 'products' =&gt; [
                     [
-                        'id' =&gt; 'ab',
-                        'quant' =&gt; 'nobis',
+                        'id' =&gt; 'amet',
+                        'quant' =&gt; 'atque',
                     ],
                     [
-                        'id' =&gt; 'ab',
-                        'quant' =&gt; 'nobis',
+                        'id' =&gt; 'amet',
+                        'quant' =&gt; 'atque',
                     ],
                     $o[0],
                 ],
-                'phone_cell' =&gt; 'non',
-                'cpf' =&gt; 'perspiciatis',
+                'phone_cell' =&gt; 'possimus',
+                'cpf' =&gt; 'explicabo',
             ],
             []
         ),
@@ -1814,20 +1814,20 @@ const headers = {
 let body = {
     "products": [
         {
-            "id": "ab",
-            "quant": "nobis"
+            "id": "amet",
+            "quant": "atque"
         },
         {
-            "id": "ab",
-            "quant": "nobis"
+            "id": "amet",
+            "quant": "atque"
         },
         {
             "id": "2",
             "quant": "3"
         }
     ],
-    "phone_cell": "non",
-    "cpf": "perspiciatis"
+    "phone_cell": "possimus",
+    "cpf": "explicabo"
 }
 
 fetch(url, {
@@ -1843,20 +1843,20 @@ url = 'https://localhost/api/checkouts/me/new'
 payload = {
     "products": [
         {
-            "id": "ab",
-            "quant": "nobis"
+            "id": "amet",
+            "quant": "atque"
         },
         {
-            "id": "ab",
-            "quant": "nobis"
+            "id": "amet",
+            "quant": "atque"
         },
         {
             "id": "2",
             "quant": "3"
         }
     ],
-    "phone_cell": "non",
-    "cpf": "perspiciatis"
+    "phone_cell": "possimus",
+    "cpf": "explicabo"
 }
 headers = {
   'Authorization': 'Bearer {ACCESS_TOKEN}',
@@ -2044,7 +2044,7 @@ response.json()</code></pre>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 x-ratelimit-limit: 60
-x-ratelimit-remaining: 51
+x-ratelimit-remaining: 31
 access-control-allow-origin: *
  </code></pre>
         </details>         <pre>
@@ -2118,14 +2118,14 @@ access-control-allow-origin: *
 
 
 <pre><code class="language-bash">curl --request GET \
-    --get "https://localhost/api/checkouts/view/5" \
+    --get "https://localhost/api/checkouts/view/4" \
     --header "Authorization: Bearer {ACCESS_TOKEN}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre>
 
 <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;get(
-    'https://localhost/api/checkouts/view/5',
+    'https://localhost/api/checkouts/view/4',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {ACCESS_TOKEN}',
@@ -2137,7 +2137,7 @@ $body = $response-&gt;getBody();
 print_r(json_decode((string) $body));</code></pre>
 
 <pre><code class="language-javascript">const url = new URL(
-    "https://localhost/api/checkouts/view/5"
+    "https://localhost/api/checkouts/view/4"
 );
 
 const headers = {
@@ -2154,7 +2154,7 @@ fetch(url, {
 <pre><code class="language-python">import requests
 import json
 
-url = 'https://localhost/api/checkouts/view/5'
+url = 'https://localhost/api/checkouts/view/4'
 headers = {
   'Authorization': 'Bearer {ACCESS_TOKEN}',
   'Content-Type': 'application/json',
@@ -2176,7 +2176,7 @@ response.json()</code></pre>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 x-ratelimit-limit: 60
-x-ratelimit-remaining: 50
+x-ratelimit-remaining: 30
 access-control-allow-origin: *
  </code></pre>
         </details>         <pre>
@@ -2265,15 +2265,15 @@ Se estiver tudo certo será enviado um email ao comprador com a confirmação do
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"idbuyer\": \"et\",
+    \"idbuyer\": \"deleniti\",
     \"products\": [
         {
-            \"id\": \"id\",
-            \"quant\": \"sed\"
+            \"id\": \"earum\",
+            \"quant\": \"aut\"
         },
         {
-            \"id\": \"id\",
-            \"quant\": \"sed\"
+            \"id\": \"earum\",
+            \"quant\": \"aut\"
         },
         {
             \"id\": \"2\",
@@ -2307,15 +2307,15 @@ $response = $client-&gt;post(
                 ],
             ],
             [
-                'idbuyer' =&gt; 'et',
+                'idbuyer' =&gt; 'deleniti',
                 'products' =&gt; [
                     [
-                        'id' =&gt; 'id',
-                        'quant' =&gt; 'sed',
+                        'id' =&gt; 'earum',
+                        'quant' =&gt; 'aut',
                     ],
                     [
-                        'id' =&gt; 'id',
-                        'quant' =&gt; 'sed',
+                        'id' =&gt; 'earum',
+                        'quant' =&gt; 'aut',
                     ],
                     $o[0],
                 ],
@@ -2338,15 +2338,15 @@ const headers = {
 };
 
 let body = {
-    "idbuyer": "et",
+    "idbuyer": "deleniti",
     "products": [
         {
-            "id": "id",
-            "quant": "sed"
+            "id": "earum",
+            "quant": "aut"
         },
         {
-            "id": "id",
-            "quant": "sed"
+            "id": "earum",
+            "quant": "aut"
         },
         {
             "id": "2",
@@ -2366,15 +2366,15 @@ import json
 
 url = 'https://localhost/api/checkouts/new'
 payload = {
-    "idbuyer": "et",
+    "idbuyer": "deleniti",
     "products": [
         {
-            "id": "id",
-            "quant": "sed"
+            "id": "earum",
+            "quant": "aut"
         },
         {
-            "id": "id",
-            "quant": "sed"
+            "id": "earum",
+            "quant": "aut"
         },
         {
             "id": "2",
@@ -2490,20 +2490,20 @@ response.json()</code></pre>
 
 
 <pre><code class="language-bash">curl --request PUT \
-    "https://localhost/api/checkouts/edit/10" \
+    "https://localhost/api/checkouts/edit/15" \
     --header "Authorization: Bearer {ACCESS_TOKEN}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"idbuyer\": \"error\",
+    \"idbuyer\": \"hic\",
     \"products\": [
         {
-            \"id\": \"non\",
-            \"quant\": \"reprehenderit\"
+            \"id\": \"ea\",
+            \"quant\": \"amet\"
         },
         {
-            \"id\": \"non\",
-            \"quant\": \"reprehenderit\"
+            \"id\": \"ea\",
+            \"quant\": \"amet\"
         },
         {
             \"id\": \"2\",
@@ -2515,7 +2515,7 @@ response.json()</code></pre>
 
 <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;put(
-    'https://localhost/api/checkouts/edit/10',
+    'https://localhost/api/checkouts/edit/15',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {ACCESS_TOKEN}',
@@ -2537,15 +2537,15 @@ $response = $client-&gt;put(
                 ],
             ],
             [
-                'idbuyer' =&gt; 'error',
+                'idbuyer' =&gt; 'hic',
                 'products' =&gt; [
                     [
-                        'id' =&gt; 'non',
-                        'quant' =&gt; 'reprehenderit',
+                        'id' =&gt; 'ea',
+                        'quant' =&gt; 'amet',
                     ],
                     [
-                        'id' =&gt; 'non',
-                        'quant' =&gt; 'reprehenderit',
+                        'id' =&gt; 'ea',
+                        'quant' =&gt; 'amet',
                     ],
                     $o[0],
                 ],
@@ -2558,7 +2558,7 @@ $body = $response-&gt;getBody();
 print_r(json_decode((string) $body));</code></pre>
 
 <pre><code class="language-javascript">const url = new URL(
-    "https://localhost/api/checkouts/edit/10"
+    "https://localhost/api/checkouts/edit/15"
 );
 
 const headers = {
@@ -2568,15 +2568,15 @@ const headers = {
 };
 
 let body = {
-    "idbuyer": "error",
+    "idbuyer": "hic",
     "products": [
         {
-            "id": "non",
-            "quant": "reprehenderit"
+            "id": "ea",
+            "quant": "amet"
         },
         {
-            "id": "non",
-            "quant": "reprehenderit"
+            "id": "ea",
+            "quant": "amet"
         },
         {
             "id": "2",
@@ -2594,17 +2594,17 @@ fetch(url, {
 <pre><code class="language-python">import requests
 import json
 
-url = 'https://localhost/api/checkouts/edit/10'
+url = 'https://localhost/api/checkouts/edit/15'
 payload = {
-    "idbuyer": "error",
+    "idbuyer": "hic",
     "products": [
         {
-            "id": "non",
-            "quant": "reprehenderit"
+            "id": "ea",
+            "quant": "amet"
         },
         {
-            "id": "non",
-            "quant": "reprehenderit"
+            "id": "ea",
+            "quant": "amet"
         },
         {
             "id": "2",
@@ -2729,14 +2729,14 @@ response.json()</code></pre>
 
 
 <pre><code class="language-bash">curl --request DELETE \
-    "https://localhost/api/checkouts/delete/10" \
+    "https://localhost/api/checkouts/delete/6" \
     --header "Authorization: Bearer {ACCESS_TOKEN}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre>
 
 <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;delete(
-    'https://localhost/api/checkouts/delete/10',
+    'https://localhost/api/checkouts/delete/6',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {ACCESS_TOKEN}',
@@ -2748,7 +2748,7 @@ $body = $response-&gt;getBody();
 print_r(json_decode((string) $body));</code></pre>
 
 <pre><code class="language-javascript">const url = new URL(
-    "https://localhost/api/checkouts/delete/10"
+    "https://localhost/api/checkouts/delete/6"
 );
 
 const headers = {
@@ -2765,7 +2765,7 @@ fetch(url, {
 <pre><code class="language-python">import requests
 import json
 
-url = 'https://localhost/api/checkouts/delete/10'
+url = 'https://localhost/api/checkouts/delete/6'
 headers = {
   'Authorization': 'Bearer {ACCESS_TOKEN}',
   'Content-Type': 'application/json',
@@ -2906,7 +2906,7 @@ response.json()</code></pre>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 x-ratelimit-limit: 60
-x-ratelimit-remaining: 59
+x-ratelimit-remaining: 39
 access-control-allow-origin: *
  </code></pre>
         </details>         <pre>
@@ -2953,47 +2953,6 @@ access-control-allow-origin: *
                 },
                 &quot;delete&quot;: {
                     &quot;editProduct&quot;: &quot;https://localhost/api/products/delete/1&quot;
-                }
-            }
-        },
-        {
-            &quot;id&quot;: 2,
-            &quot;name&quot;: &quot;Ratione ex aut odit.&quot;,
-            &quot;type&quot;: &quot;f&quot;,
-            &quot;value&quot;: &quot;71.05&quot;,
-            &quot;images&quot;: [
-                {
-                    &quot;id&quot;: 2,
-                    &quot;idprod&quot;: 2,
-                    &quot;path&quot;: &quot;https://localhost/storage/products/imgs/2/6w4Rtf3rs5abe6NjlC0carFRP28UpC3jWsWiJzMD.jpg&quot;,
-                    &quot;created_at&quot;: &quot;08/09/2021&quot;,
-                    &quot;updated_at&quot;: &quot;08/09/2021&quot;,
-                    &quot;link&quot;: {
-                        &quot;get&quot;: {
-                            &quot;getProducts&quot;: &quot;https://localhost/api/products/list&quot;,
-                            &quot;getProduct&quot;: &quot;https://localhost/api/products/view/2&quot;,
-                            &quot;img&quot;: &quot;https://localhost/storage/products/imgs/2/6w4Rtf3rs5abe6NjlC0carFRP28UpC3jWsWiJzMD.jpg&quot;
-                        },
-                        &quot;post&quot;: &quot;&quot;,
-                        &quot;delete&quot;: &quot;&quot;
-                    }
-                }
-            ],
-            &quot;created_at&quot;: &quot;08/09/2021&quot;,
-            &quot;updated_at&quot;: &quot;08/09/2021&quot;,
-            &quot;link&quot;: {
-                &quot;get&quot;: {
-                    &quot;getProducts&quot;: &quot;https://localhost/api/products/list&quot;,
-                    &quot;getProduct&quot;: &quot;https://localhost/api/products/view/2&quot;
-                },
-                &quot;post&quot;: {
-                    &quot;addProduct&quot;: &quot;https://localhost/api/products/add&quot;
-                },
-                &quot;put&quot;: {
-                    &quot;editProduct&quot;: &quot;https://localhost/api/products/edit/2&quot;
-                },
-                &quot;delete&quot;: {
-                    &quot;editProduct&quot;: &quot;https://localhost/api/products/delete/2&quot;
                 }
             }
         },
@@ -3614,9 +3573,9 @@ access-control-allow-origin: *
         },
         {
             &quot;id&quot;: 19,
-            &quot;name&quot;: &quot;Ratione voluptate ratione.&quot;,
-            &quot;type&quot;: &quot;d&quot;,
-            &quot;value&quot;: &quot;59.61&quot;,
+            &quot;name&quot;: &quot;dolore&quot;,
+            &quot;type&quot;: &quot;assumenda&quot;,
+            &quot;value&quot;: &quot;2.98&quot;,
             &quot;images&quot;: [
                 {
                     &quot;id&quot;: 19,
@@ -3734,6 +3693,47 @@ access-control-allow-origin: *
                     &quot;editProduct&quot;: &quot;https://localhost/api/products/delete/21&quot;
                 }
             }
+        },
+        {
+            &quot;id&quot;: 22,
+            &quot;name&quot;: &quot;ducimus&quot;,
+            &quot;type&quot;: &quot;eum&quot;,
+            &quot;value&quot;: &quot;82.05&quot;,
+            &quot;images&quot;: [
+                {
+                    &quot;id&quot;: 22,
+                    &quot;idprod&quot;: 22,
+                    &quot;path&quot;: &quot;https://localhost/storage/products/imgs/22/R4EdLtTLAChx5CH6Ec9INzjCriWGloQqCqVfxNdw.jpg&quot;,
+                    &quot;created_at&quot;: &quot;08/09/2021&quot;,
+                    &quot;updated_at&quot;: &quot;08/09/2021&quot;,
+                    &quot;link&quot;: {
+                        &quot;get&quot;: {
+                            &quot;getProducts&quot;: &quot;https://localhost/api/products/list&quot;,
+                            &quot;getProduct&quot;: &quot;https://localhost/api/products/view/22&quot;,
+                            &quot;img&quot;: &quot;https://localhost/storage/products/imgs/22/R4EdLtTLAChx5CH6Ec9INzjCriWGloQqCqVfxNdw.jpg&quot;
+                        },
+                        &quot;post&quot;: &quot;&quot;,
+                        &quot;delete&quot;: &quot;&quot;
+                    }
+                }
+            ],
+            &quot;created_at&quot;: &quot;08/09/2021&quot;,
+            &quot;updated_at&quot;: &quot;08/09/2021&quot;,
+            &quot;link&quot;: {
+                &quot;get&quot;: {
+                    &quot;getProducts&quot;: &quot;https://localhost/api/products/list&quot;,
+                    &quot;getProduct&quot;: &quot;https://localhost/api/products/view/22&quot;
+                },
+                &quot;post&quot;: {
+                    &quot;addProduct&quot;: &quot;https://localhost/api/products/add&quot;
+                },
+                &quot;put&quot;: {
+                    &quot;editProduct&quot;: &quot;https://localhost/api/products/edit/22&quot;
+                },
+                &quot;delete&quot;: {
+                    &quot;editProduct&quot;: &quot;https://localhost/api/products/delete/22&quot;
+                }
+            }
         }
     ],
     &quot;code&quot;: 200
@@ -3793,13 +3793,13 @@ access-control-allow-origin: *
 
 
 <pre><code class="language-bash">curl --request GET \
-    --get "https://localhost/api/products/view/2" \
+    --get "https://localhost/api/products/view/7" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre>
 
 <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;get(
-    'https://localhost/api/products/view/2',
+    'https://localhost/api/products/view/7',
     [
         'headers' =&gt; [
             'Accept' =&gt; 'application/json',
@@ -3810,7 +3810,7 @@ $body = $response-&gt;getBody();
 print_r(json_decode((string) $body));</code></pre>
 
 <pre><code class="language-javascript">const url = new URL(
-    "https://localhost/api/products/view/2"
+    "https://localhost/api/products/view/7"
 );
 
 const headers = {
@@ -3826,7 +3826,7 @@ fetch(url, {
 <pre><code class="language-python">import requests
 import json
 
-url = 'https://localhost/api/products/view/2'
+url = 'https://localhost/api/products/view/7'
 headers = {
   'Content-Type': 'application/json',
   'Accept': 'application/json'
@@ -3847,7 +3847,7 @@ response.json()</code></pre>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 x-ratelimit-limit: 60
-x-ratelimit-remaining: 58
+x-ratelimit-remaining: 38
 access-control-allow-origin: *
  </code></pre>
         </details>         <pre>
@@ -3856,22 +3856,22 @@ access-control-allow-origin: *
     &quot;message&quot;: &quot;Produto encontrado!&quot;,
     &quot;type&quot;: &quot;success&quot;,
     &quot;data&quot;: {
-        &quot;id&quot;: 2,
-        &quot;name&quot;: &quot;Ratione ex aut odit.&quot;,
-        &quot;type&quot;: &quot;f&quot;,
-        &quot;value&quot;: &quot;71.05&quot;,
+        &quot;id&quot;: 7,
+        &quot;name&quot;: &quot;Accusamus ut fuga.&quot;,
+        &quot;type&quot;: &quot;i&quot;,
+        &quot;value&quot;: &quot;46.28&quot;,
         &quot;images&quot;: [
             {
-                &quot;id&quot;: 2,
-                &quot;idprod&quot;: 2,
-                &quot;path&quot;: &quot;https://localhost/storage/products/imgs/2/6w4Rtf3rs5abe6NjlC0carFRP28UpC3jWsWiJzMD.jpg&quot;,
+                &quot;id&quot;: 7,
+                &quot;idprod&quot;: 7,
+                &quot;path&quot;: &quot;https://localhost/storage/products/imgs/7/en9UA8qJWgzzeffHedZ2V3eOjx3P88qasSq20KTT.jpg&quot;,
                 &quot;created_at&quot;: &quot;08/09/2021&quot;,
                 &quot;updated_at&quot;: &quot;08/09/2021&quot;,
                 &quot;link&quot;: {
                     &quot;get&quot;: {
                         &quot;getProducts&quot;: &quot;https://localhost/api/products/list&quot;,
-                        &quot;getProduct&quot;: &quot;https://localhost/api/products/view/2&quot;,
-                        &quot;img&quot;: &quot;https://localhost/storage/products/imgs/2/6w4Rtf3rs5abe6NjlC0carFRP28UpC3jWsWiJzMD.jpg&quot;
+                        &quot;getProduct&quot;: &quot;https://localhost/api/products/view/7&quot;,
+                        &quot;img&quot;: &quot;https://localhost/storage/products/imgs/7/en9UA8qJWgzzeffHedZ2V3eOjx3P88qasSq20KTT.jpg&quot;
                     },
                     &quot;post&quot;: &quot;&quot;,
                     &quot;delete&quot;: &quot;&quot;
@@ -3883,16 +3883,16 @@ access-control-allow-origin: *
         &quot;link&quot;: {
             &quot;get&quot;: {
                 &quot;getProducts&quot;: &quot;https://localhost/api/products/list&quot;,
-                &quot;getProduct&quot;: &quot;https://localhost/api/products/view/2&quot;
+                &quot;getProduct&quot;: &quot;https://localhost/api/products/view/7&quot;
             },
             &quot;post&quot;: {
                 &quot;addProduct&quot;: &quot;https://localhost/api/products/add&quot;
             },
             &quot;put&quot;: {
-                &quot;editProduct&quot;: &quot;https://localhost/api/products/edit/2&quot;
+                &quot;editProduct&quot;: &quot;https://localhost/api/products/edit/7&quot;
             },
             &quot;delete&quot;: {
-                &quot;editProduct&quot;: &quot;https://localhost/api/products/delete/2&quot;
+                &quot;editProduct&quot;: &quot;https://localhost/api/products/delete/7&quot;
             }
         }
     },
@@ -3967,10 +3967,10 @@ access-control-allow-origin: *
     --header "Authorization: Bearer {ACCESS_TOKEN}" \
     --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
-    --form "name=suscipit" \
-    --form "type=delectus" \
-    --form "value=60.1268" \
-    --form "images[]=@C:\Users\danielfalcaodf\AppData\Local\Temp\php7D02.tmp" </code></pre>
+    --form "name=et" \
+    --form "type=vitae" \
+    --form "value=92214873.2" \
+    --form "images[]=@C:\Users\danielfalcaodf\AppData\Local\Temp\php3142.tmp" </code></pre>
 
 <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;post(
@@ -3983,19 +3983,19 @@ $response = $client-&gt;post(
         'multipart' =&gt; [
             [
                 'name' =&gt; 'name',
-                'contents' =&gt; 'suscipit'
+                'contents' =&gt; 'et'
             ],
             [
                 'name' =&gt; 'type',
-                'contents' =&gt; 'delectus'
+                'contents' =&gt; 'vitae'
             ],
             [
                 'name' =&gt; 'value',
-                'contents' =&gt; '60.1268'
+                'contents' =&gt; '92214873.2'
             ],
             [
                 'name' =&gt; 'images[]',
-                'contents' =&gt; fopen('C:\Users\danielfalcaodf\AppData\Local\Temp\php7D02.tmp', 'r')
+                'contents' =&gt; fopen('C:\Users\danielfalcaodf\AppData\Local\Temp\php3142.tmp', 'r')
             ],
         ],
     ]
@@ -4014,9 +4014,9 @@ const headers = {
 };
 
 const body = new FormData();
-body.append('name', 'suscipit');
-body.append('type', 'delectus');
-body.append('value', '60.1268');
+body.append('name', 'et');
+body.append('type', 'vitae');
+body.append('value', '92214873.2');
 body.append('images[]', document.querySelector('input[name="images[]"]').files[0]);
 
 fetch(url, {
@@ -4030,12 +4030,12 @@ import json
 
 url = 'https://localhost/api/products/add'
 files = {
-  'images[]': open('C:\Users\danielfalcaodf\AppData\Local\Temp\php7D02.tmp', 'rb')
+  'images[]': open('C:\Users\danielfalcaodf\AppData\Local\Temp\php3142.tmp', 'rb')
 }
 payload = {
-    "name": "suscipit",
-    "type": "delectus",
-    "value": 60.1268
+    "name": "et",
+    "type": "vitae",
+    "value": 92214873.2
 }
 headers = {
   'Authorization': 'Bearer {ACCESS_TOKEN}',
@@ -4145,29 +4145,29 @@ response.json()</code></pre>
 
 
 <pre><code class="language-bash">curl --request PUT \
-    "https://localhost/api/products/edit/18" \
+    "https://localhost/api/products/edit/4" \
     --header "Authorization: Bearer {ACCESS_TOKEN}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"name\": \"cumque\",
-    \"type\": \"magnam\",
-    \"value\": 41644.61444468
+    \"name\": \"molestias\",
+    \"type\": \"consequatur\",
+    \"value\": 462744.28371456
 }"
 </code></pre>
 
 <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;put(
-    'https://localhost/api/products/edit/18',
+    'https://localhost/api/products/edit/4',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {ACCESS_TOKEN}',
             'Accept' =&gt; 'application/json',
         ],
         'json' =&gt; [
-            'name' =&gt; 'cumque',
-            'type' =&gt; 'magnam',
-            'value' =&gt; 41644.61444468,
+            'name' =&gt; 'molestias',
+            'type' =&gt; 'consequatur',
+            'value' =&gt; 462744.28371456,
         ],
     ]
 );
@@ -4175,7 +4175,7 @@ $body = $response-&gt;getBody();
 print_r(json_decode((string) $body));</code></pre>
 
 <pre><code class="language-javascript">const url = new URL(
-    "https://localhost/api/products/edit/18"
+    "https://localhost/api/products/edit/4"
 );
 
 const headers = {
@@ -4185,9 +4185,9 @@ const headers = {
 };
 
 let body = {
-    "name": "cumque",
-    "type": "magnam",
-    "value": 41644.61444468
+    "name": "molestias",
+    "type": "consequatur",
+    "value": 462744.28371456
 }
 
 fetch(url, {
@@ -4199,11 +4199,11 @@ fetch(url, {
 <pre><code class="language-python">import requests
 import json
 
-url = 'https://localhost/api/products/edit/18'
+url = 'https://localhost/api/products/edit/4'
 payload = {
-    "name": "cumque",
-    "type": "magnam",
-    "value": 41644.61444468
+    "name": "molestias",
+    "type": "consequatur",
+    "value": 462744.28371456
 }
 headers = {
   'Authorization': 'Bearer {ACCESS_TOKEN}',
@@ -4314,14 +4314,14 @@ response.json()</code></pre>
 
 
 <pre><code class="language-bash">curl --request DELETE \
-    "https://localhost/api/products/delete/5" \
+    "https://localhost/api/products/delete/3" \
     --header "Authorization: Bearer {ACCESS_TOKEN}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre>
 
 <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;delete(
-    'https://localhost/api/products/delete/5',
+    'https://localhost/api/products/delete/3',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {ACCESS_TOKEN}',
@@ -4333,7 +4333,7 @@ $body = $response-&gt;getBody();
 print_r(json_decode((string) $body));</code></pre>
 
 <pre><code class="language-javascript">const url = new URL(
-    "https://localhost/api/products/delete/5"
+    "https://localhost/api/products/delete/3"
 );
 
 const headers = {
@@ -4350,7 +4350,7 @@ fetch(url, {
 <pre><code class="language-python">import requests
 import json
 
-url = 'https://localhost/api/products/delete/5'
+url = 'https://localhost/api/products/delete/3'
 headers = {
   'Authorization': 'Bearer {ACCESS_TOKEN}',
   'Content-Type': 'application/json',
@@ -4428,6 +4428,7 @@ response.json()</code></pre>
             <h2 id="usuarios-GETapi-users">Buscar todos os usuários</h2>
 
 <p>
+<small class="badge badge-darkred">requires authentication</small>
 </p>
 
 <p>Apresenta uma lista de todos os usuários com as informações</p>
@@ -4438,6 +4439,7 @@ response.json()</code></pre>
 
 <pre><code class="language-bash">curl --request GET \
     --get "https://localhost/api/users" \
+    --header "Authorization: Bearer {ACCESS_TOKEN}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre>
 
@@ -4446,6 +4448,7 @@ $response = $client-&gt;get(
     'https://localhost/api/users',
     [
         'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer {ACCESS_TOKEN}',
             'Accept' =&gt; 'application/json',
         ],
     ]
@@ -4458,6 +4461,7 @@ print_r(json_decode((string) $body));</code></pre>
 );
 
 const headers = {
+    "Authorization": "Bearer {ACCESS_TOKEN}",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -4472,6 +4476,7 @@ import json
 
 url = 'https://localhost/api/users'
 headers = {
+  'Authorization': 'Bearer {ACCESS_TOKEN}',
   'Content-Type': 'application/json',
   'Accept': 'application/json'
 }
@@ -4491,7 +4496,7 @@ response.json()</code></pre>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 x-ratelimit-limit: 60
-x-ratelimit-remaining: 57
+x-ratelimit-remaining: 37
 access-control-allow-origin: *
  </code></pre>
         </details>         <pre>
@@ -4499,7 +4504,7 @@ access-control-allow-origin: *
 <code class="language-json">{
     &quot;type&quot;: &quot;error&quot;,
     &quot;code&quot;: 401,
-    &quot;massage&quot;: &quot;Authorization Token not found&quot;
+    &quot;massage&quot;: &quot;Token is Invalid&quot;
 }</code>
  </pre>
     </span>
@@ -4515,10 +4520,10 @@ access-control-allow-origin: *
 </span>
 <form id="form-GETapi-users" data-method="GET"
       data-path="api/users"
-      data-authed="0"
+      data-authed="1"
       data-hasfiles="0"
       data-isarraybody="0"
-      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      data-headers='{"Authorization":"Bearer {ACCESS_TOKEN}","Content-Type":"application\/json","Accept":"application\/json"}'
       autocomplete="off"
       onsubmit="event.preventDefault(); executeTryOut('GETapi-users', this);">
     <h3>
@@ -4542,11 +4547,20 @@ access-control-allow-origin: *
             <small class="badge badge-green">GET</small>
             <b><code>api/users</code></b>
         </p>
-                    </form>
+                <p>
+            <label id="auth-GETapi-users" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="GETapi-users"
+                                                                data-component="header"></label>
+        </p>
+                </form>
 
             <h2 id="usuarios-GETapi-users-me">Buscar usuário JWT</h2>
 
 <p>
+<small class="badge badge-darkred">requires authentication</small>
 </p>
 
 <p>Apresenta as informações do usuário logado que foi passado com JWT</p>
@@ -4557,6 +4571,7 @@ access-control-allow-origin: *
 
 <pre><code class="language-bash">curl --request GET \
     --get "https://localhost/api/users/me" \
+    --header "Authorization: Bearer {ACCESS_TOKEN}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre>
 
@@ -4565,6 +4580,7 @@ $response = $client-&gt;get(
     'https://localhost/api/users/me',
     [
         'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer {ACCESS_TOKEN}',
             'Accept' =&gt; 'application/json',
         ],
     ]
@@ -4577,6 +4593,7 @@ print_r(json_decode((string) $body));</code></pre>
 );
 
 const headers = {
+    "Authorization": "Bearer {ACCESS_TOKEN}",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -4591,6 +4608,7 @@ import json
 
 url = 'https://localhost/api/users/me'
 headers = {
+  'Authorization': 'Bearer {ACCESS_TOKEN}',
   'Content-Type': 'application/json',
   'Accept': 'application/json'
 }
@@ -4610,7 +4628,7 @@ response.json()</code></pre>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 x-ratelimit-limit: 60
-x-ratelimit-remaining: 56
+x-ratelimit-remaining: 36
 access-control-allow-origin: *
  </code></pre>
         </details>         <pre>
@@ -4618,7 +4636,7 @@ access-control-allow-origin: *
 <code class="language-json">{
     &quot;type&quot;: &quot;error&quot;,
     &quot;code&quot;: 401,
-    &quot;massage&quot;: &quot;Authorization Token not found&quot;
+    &quot;massage&quot;: &quot;Token is Invalid&quot;
 }</code>
  </pre>
     </span>
@@ -4634,10 +4652,10 @@ access-control-allow-origin: *
 </span>
 <form id="form-GETapi-users-me" data-method="GET"
       data-path="api/users/me"
-      data-authed="0"
+      data-authed="1"
       data-hasfiles="0"
       data-isarraybody="0"
-      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      data-headers='{"Authorization":"Bearer {ACCESS_TOKEN}","Content-Type":"application\/json","Accept":"application\/json"}'
       autocomplete="off"
       onsubmit="event.preventDefault(); executeTryOut('GETapi-users-me', this);">
     <h3>
@@ -4661,11 +4679,20 @@ access-control-allow-origin: *
             <small class="badge badge-green">GET</small>
             <b><code>api/users/me</code></b>
         </p>
-                    </form>
+                <p>
+            <label id="auth-GETapi-users-me" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="GETapi-users-me"
+                                                                data-component="header"></label>
+        </p>
+                </form>
 
             <h2 id="usuarios-PUTapi-users-me-edit">Editar usuário JWT</h2>
 
 <p>
+<small class="badge badge-darkred">requires authentication</small>
 </p>
 
 <p>Alterar dados do usuário logado que foi passado com JWT, se tudo estiver certo apresenta as informações do usuário</p>
@@ -4676,11 +4703,12 @@ access-control-allow-origin: *
 
 <pre><code class="language-bash">curl --request PUT \
     "https://localhost/api/users/me/edit" \
+    --header "Authorization: Bearer {ACCESS_TOKEN}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"name\": \"assumenda\",
-    \"email\": \"aut\"
+    \"name\": \"omnis\",
+    \"email\": \"quia\"
 }"
 </code></pre>
 
@@ -4689,11 +4717,12 @@ $response = $client-&gt;put(
     'https://localhost/api/users/me/edit',
     [
         'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer {ACCESS_TOKEN}',
             'Accept' =&gt; 'application/json',
         ],
         'json' =&gt; [
-            'name' =&gt; 'assumenda',
-            'email' =&gt; 'aut',
+            'name' =&gt; 'omnis',
+            'email' =&gt; 'quia',
         ],
     ]
 );
@@ -4705,13 +4734,14 @@ print_r(json_decode((string) $body));</code></pre>
 );
 
 const headers = {
+    "Authorization": "Bearer {ACCESS_TOKEN}",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
 
 let body = {
-    "name": "assumenda",
-    "email": "aut"
+    "name": "omnis",
+    "email": "quia"
 }
 
 fetch(url, {
@@ -4725,10 +4755,11 @@ import json
 
 url = 'https://localhost/api/users/me/edit'
 payload = {
-    "name": "assumenda",
-    "email": "aut"
+    "name": "omnis",
+    "email": "quia"
 }
 headers = {
+  'Authorization': 'Bearer {ACCESS_TOKEN}',
   'Content-Type': 'application/json',
   'Accept': 'application/json'
 }
@@ -4751,10 +4782,10 @@ response.json()</code></pre>
 </span>
 <form id="form-PUTapi-users-me-edit" data-method="PUT"
       data-path="api/users/me/edit"
-      data-authed="0"
+      data-authed="1"
       data-hasfiles="0"
       data-isarraybody="0"
-      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      data-headers='{"Authorization":"Bearer {ACCESS_TOKEN}","Content-Type":"application\/json","Accept":"application\/json"}'
       autocomplete="off"
       onsubmit="event.preventDefault(); executeTryOut('PUTapi-users-me-edit', this);">
     <h3>
@@ -4778,7 +4809,15 @@ response.json()</code></pre>
             <small class="badge badge-darkblue">PUT</small>
             <b><code>api/users/me/edit</code></b>
         </p>
-                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+                <p>
+            <label id="auth-PUTapi-users-me-edit" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="PUTapi-users-me-edit"
+                                                                data-component="header"></label>
+        </p>
+                        <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <p>
             <b><code>name</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
                 <input type="text"
