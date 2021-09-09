@@ -4,7 +4,8 @@
 
 <div align="center">
 
-[![Status](https://img.shields.io/badge/status-active-success.svg)]()
+[![Status](https://img.shields.io/badge/status-active-success.svg)]() [![api](https://img.shields.io/badge/api-online-brightgreen)](https://apiteste.grupodouglascosta.com.br) [![License](https://img.shields.io/badge/license-MIT-blue.svg)](/LICENSE)
+[![phpv](https://img.shields.io/badge/php->%3D7.4-blue)](https://www.php.net/downloads.php#v7.4.23) [![laravel](https://img.shields.io/badge/Laravel-8.x-blue)](https://laravel.com/docs/8.x)
 
 </div>
 <p align="center"> API RESTFul para o gerenciamento de pedidos de um E-commerce utilizando o framework Laravel
